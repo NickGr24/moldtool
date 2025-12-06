@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Каталог инструментов - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">Главная</a></span>
+        <span class="breadcrumbs-separator">/</span>
+        <span class="breadcrumbs-item active">Каталог</span>
+    </nav>
+
+    <h1 class="mb-lg">Каталог инструментов</h1>
+
+    <!-- Filters -->
+    <div class="catalog-filters">
+        <form class="catalog-search" method="get" action="">
+            <input type="text" name="q" class="form-control" placeholder="Поиск инструментов..."
+                   value="{{ search_query }}">
+            <button type="submit">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </button>
+        </form>
+
+        <select class="form-control" name="category" onchange="window.location.href='?category='+this.value+'&sort={{ current_sort }}'">
+            <option value="">Все категории</option>
+            {% for cat in categories %}
+            <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select class="form-control" name="sort" onchange="window.location.href='?category={{ current_category }}&sort='+this.value">
+            <option value="-created_at" {% if current_sort == '-created_at' %}selected{% endif %}>Новые</option>
+            <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>Сначала дешевле</option>
+            <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>Сначала дороже</option>
+            <option value="name" {% if current_sort == 'name' %}selected{% endif %}>По названию</option>
+            <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>Популярные</option>
+        </select>
+    </div>
+
+    <!-- Tools Grid -->
+    {% if tools %}
+    <div class="tools-grid">
+        {% for tool in tools %}
+        <div class="card tool-card">
+            <a href="{{ tool.get_absolute_url }}" class="card-image">
+                {% if tool.image %}
+                <img src="{{ tool.image.url }}" alt="{{ tool.name }}">
+                {% else %}
+                <img src="{% static 'images/placeholder.jpg' %}" alt="{{ tool.name }}">
+                {% endif %}
+                {% if tool.is_featured %}
+                <span class="card-badge">Хит</span>
+                {% endif %}
+            </a>
+            <div class="card-body">
+                <p class="text-primary text-sm mb-sm">{{ tool.category.name }}</p>
+                <h3 class="card-title">
+                    <a href="{{ tool.get_absolute_url }}">{{ tool.name }}</a>
+                </h3>
+                <p class="card-text">{{ tool.short_description|default:tool.description|truncatewords:10 }}</p>
+                <div class="card-price">
+                    {{ tool.price_per_day }} MDL <span>/ день</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-availability {% if not tool.is_available %}rented{% endif %}">
+                    {% if tool.is_available %}Доступен{% else %}В аренде{% endif %}
+                </div>
+                <a href="{{ tool.get_absolute_url }}" class="btn btn-primary btn-sm">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}&category={{ current_category }}&sort={{ current_sort }}&q={{ search_query }}" class="pagination-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"/>
+            </svg>
+        </a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <span class="pagination-item active">{{ num }}</span>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a href="?page={{ num }}&category={{ current_category }}&sort={{ current_sort }}&q={{ search_query }}" class="pagination-item">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&category={{ current_category }}&sort={{ current_sort }}&q={{ search_query }}" class="pagination-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+            </svg>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div class="empty-state">
+        <div class="empty-state-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+        </div>
+        <h3 class="empty-state-title">Инструменты не найдены</h3>
+        <p class="empty-state-text">Попробуйте изменить параметры поиска</p>
+        <a href="{% url 'catalog:catalog' %}" class="btn btn-primary">Сбросить фильтры</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
