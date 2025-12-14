@@ -459,10 +459,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (diffDays > 0) {
                 const rental = diffDays * pricePerDay;
+                const total = rental + deposit;
 
                 daysCount.textContent = diffDays;
                 rentalCost.textContent = rental + ' MDL';
-                totalCost.textContent = rental + ' MDL';  // Только аренда, залог возвращается
+                totalCost.textContent = total + ' MDL';  // Аренда + залог
                 calculatorResult.classList.remove('hidden');
             } else {
                 calculatorResult.classList.add('hidden');
