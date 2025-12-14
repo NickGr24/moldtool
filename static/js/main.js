@@ -106,8 +106,12 @@ function initRentalCalculator() {
     }
 
     // Получаем цену и залог из data-атрибутов
-    const pricePerDay = parseFloat(summaryEl.dataset.pricePerDay.replace(',', '.')) || 0;
-    const depositAmount = parseFloat(summaryEl.dataset.deposit.replace(',', '.')) || 0;
+    const priceStr = summaryEl.dataset.pricePerDay || '0';
+    const depositStr = summaryEl.dataset.deposit || '0';
+    const pricePerDay = parseFloat(priceStr.toString().replace(',', '.')) || 0;
+    const depositAmount = parseFloat(depositStr.toString().replace(',', '.')) || 0;
+
+    console.log('Rental calculator init:', { pricePerDay, depositAmount });
 
     const daysDisplay = document.getElementById('totalDays');
     const totalDisplay = document.getElementById('totalPrice');
@@ -115,6 +119,8 @@ function initRentalCalculator() {
     const calculateTotal = () => {
         const startValue = startDateInput.value;
         const endValue = endDateInput.value;
+
+        console.log('Calculate:', { startValue, endValue, pricePerDay });
 
         // Проверяем что обе даты выбраны
         if (!startValue || !endValue) {
@@ -144,6 +150,8 @@ function initRentalCalculator() {
         const timeDiff = end.getTime() - start.getTime();
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
         const total = days * pricePerDay;
+
+        console.log('Result:', { days, total });
 
         // Обновляем отображение
         if (daysDisplay) {
