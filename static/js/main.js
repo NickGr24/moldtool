@@ -97,50 +97,87 @@ function initForms() {
  * Калькулятор стоимости аренды
  */
 function initRentalCalculator() {
-    const startDate = document.querySelector('input[name="start_date"]');
-    const endDate = document.querySelector('input[name="end_date"]');
-    const pricePerDay = document.querySelector('[data-price-per-day]');
-    const deposit = document.querySelector('[data-deposit]');
+    const startDateInput = document.getElementById('id_start_date');
+    const endDateInput = document.getElementById('id_end_date');
+    const summaryEl = document.querySelector('.rental-summary');
 
-    if (startDate && endDate && pricePerDay) {
-        const price = parseFloat(pricePerDay.dataset.pricePerDay);
-        const depositAmount = deposit ? parseFloat(deposit.dataset.deposit) : 0;
-
-        const calculateTotal = () => {
-            const start = new Date(startDate.value);
-            const end = new Date(endDate.value);
-
-            if (start && end && end >= start) {
-                const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
-                const total = days * price;
-
-                // Обновляем отображение
-                const daysDisplay = document.getElementById('totalDays');
-                const totalDisplay = document.getElementById('totalPrice');
-                const depositDisplay = document.getElementById('depositAmount');
-
-                if (daysDisplay) daysDisplay.textContent = days + ' ' + getDaysWord(days);
-                if (totalDisplay) totalDisplay.textContent = total.toFixed(2) + ' MDL';
-                if (depositDisplay) depositDisplay.textContent = depositAmount.toFixed(2) + ' MDL';
-            }
-        };
-
-        startDate.addEventListener('change', calculateTotal);
-        endDate.addEventListener('change', calculateTotal);
-
-        // Минимальная дата - сегодня
-        const today = new Date().toISOString().split('T')[0];
-        startDate.setAttribute('min', today);
-        endDate.setAttribute('min', today);
-
-        // При изменении даты начала, обновляем минимум для даты окончания
-        startDate.addEventListener('change', function() {
-            endDate.setAttribute('min', this.value);
-            if (endDate.value && endDate.value < this.value) {
-                endDate.value = this.value;
-            }
-        });
+    if (!startDateInput || !endDateInput || !summaryEl) {
+        return;
     }
+
+    // Получаем цену и залог из data-атрибутов
+    const pricePerDay = parseFloat(summaryEl.dataset.pricePerDay.replace(',', '.')) || 0;
+    const depositAmount = parseFloat(summaryEl.dataset.deposit.replace(',', '.')) || 0;
+
+    const daysDisplay = document.getElementById('totalDays');
+    const totalDisplay = document.getElementById('totalPrice');
+
+    const calculateTotal = () => {
+        const startValue = startDateInput.value;
+        const endValue = endDateInput.value;
+
+        // Проверяем что обе даты выбраны
+        if (!startValue || !endValue) {
+            if (daysDisplay) daysDisplay.textContent = '-';
+            if (totalDisplay) totalDisplay.textContent = '-';
+            return;
+        }
+
+        const start = new Date(startValue);
+        const end = new Date(endValue);
+
+        // Проверяем валидность дат
+        if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+            if (daysDisplay) daysDisplay.textContent = '-';
+            if (totalDisplay) totalDisplay.textContent = '-';
+            return;
+        }
+
+        // Проверяем что конец не раньше начала
+        if (end < start) {
+            if (daysDisplay) daysDisplay.textContent = 'Ошибка';
+            if (totalDisplay) totalDisplay.textContent = '-';
+            return;
+        }
+
+        // Рассчитываем количество дней (включительно)
+        const timeDiff = end.getTime() - start.getTime();
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
+        const total = days * pricePerDay;
+
+        // Обновляем отображение
+        if (daysDisplay) {
+            daysDisplay.textContent = days + ' ' + getDaysWord(days);
+        }
+        if (totalDisplay) {
+            totalDisplay.textContent = total.toFixed(2) + ' MDL';
+        }
+    };
+
+    // Слушаем изменения дат
+    startDateInput.addEventListener('change', calculateTotal);
+    endDateInput.addEventListener('change', calculateTotal);
+    startDateInput.addEventListener('input', calculateTotal);
+    endDateInput.addEventListener('input', calculateTotal);
+
+    // Минимальная дата - сегодня
+    const today = new Date().toISOString().split('T')[0];
+    startDateInput.setAttribute('min', today);
+    endDateInput.setAttribute('min', today);
+
+    // При изменении даты начала, обновляем минимум для даты окончания
+    startDateInput.addEventListener('change', function() {
+        if (this.value) {
+            endDateInput.setAttribute('min', this.value);
+            if (endDateInput.value && endDateInput.value < this.value) {
+                endDateInput.value = this.value;
+            }
+            calculateTotal();
+        }
+    });
+
+    // Начальный расчёт если даты уже заполнены
+    calculateTotal();
 }
 
 /**
