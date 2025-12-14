@@ -1,0 +1,323 @@
+{% load static %}
+<!-- Premium Navbar with Glassmorphism -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <!-- Gradient line accent -->
+    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-red via-brand-yellow to-brand-red opacity-80"></div>
+
+    <nav class="relative">
+        <!-- Background with blur effect -->
+        <div class="absolute inset-0 bg-dark/80 backdrop-blur-xl border-b border-dark-border/50 transition-all duration-500"
+             id="navbarBg"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="{% url 'core:home' %}" class="relative flex items-center gap-3 group z-10">
+                    <!-- Logo Image with Frame -->
+                    <div class="relative">
+                        <!-- Decorative ring -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-yellow via-brand-red to-brand-yellow rounded-xl opacity-0 blur-sm transition-all duration-300 group-hover:opacity-70"></div>
+                        <!-- Logo container -->
+                        <div class="relative p-0.5 bg-gradient-to-br from-brand-yellow/20 to-brand-red/20 rounded-xl">
+                            <img src="{% static 'images/logo.jpg' %}"
+                                 alt="{{ SITE_NAME }}"
+                                 class="h-11 w-auto rounded-[10px] shadow-lg transition-all duration-300 group-hover:scale-105">
+                        </div>
+                    </div>
+                    <!-- Brand Name -->
+                    <div class="hidden sm:flex flex-col">
+                        <span class="text-xl font-bold bg-gradient-to-r from-brand-yellow to-brand-red bg-clip-text text-transparent leading-tight">
+                            MoldTool
+                        </span>
+                        <span class="text-[10px] text-gray-400 tracking-wider uppercase">
+                            Аренда инструментов
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="{% url 'core:home' %}"
+                       class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
+                              {% if request.resolver_match.url_name == 'home' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
+                        <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
+                        <span class="relative">Главная</span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
+                    </a>
+
+                    <a href="{% url 'catalog:catalog' %}"
+                       class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
+                              {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
+                        <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
+                        <span class="relative">Каталог</span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
+                    </a>
+
+                    <a href="#about"
+                       class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
+                        <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
+                        <span class="relative">О нас</span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
+                    </a>
+
+                    <a href="#contacts"
+                       class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
+                        <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
+                        <span class="relative">Контакты</span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
+                    </a>
+
+                    <a href="{% url 'catalog:faq' %}"
+                       class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group
+                              {% if request.resolver_match.url_name == 'faq' %}text-white{% endif %}">
+                        <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'faq' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
+                        <span class="relative">FAQ</span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'faq' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
+                    </a>
+                </div>
+
+                <!-- Right Section -->
+                <div class="flex items-center gap-3">
+                    {% if user.is_authenticated %}
+                    <!-- Favorites Button -->
+                    <a href="{% url 'catalog:favorites' %}"
+                       class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-red/50 hover:text-brand-red hover:bg-dark-200"
+                       title="Избранное">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </a>
+
+                    {% if user.is_staff %}
+                    <!-- Dashboard Button -->
+                    <a href="{% url 'core:admin_dashboard' %}"
+                       class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-yellow/50 hover:text-brand-yellow hover:bg-dark-200"
+                       title="Панель управления">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </a>
+                    {% endif %}
+                    {% endif %}
+
+                    <!-- Phone Button (Desktop) -->
+                    <a href="tel:{{ SITE_PHONE }}"
+                       class="hidden md:flex items-center gap-2.5 px-4 py-2.5 bg-dark-200/50 border border-dark-border/50 rounded-xl text-sm font-medium text-gray-300 transition-all duration-300 hover:border-brand-yellow/50 hover:text-brand-yellow hover:bg-dark-200 group">
+                        <span class="relative flex items-center justify-center w-8 h-8 bg-brand-yellow/10 rounded-lg transition-all duration-300 group-hover:bg-brand-yellow/20">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <!-- Pulse animation -->
+                            <span class="absolute inset-0 rounded-lg bg-brand-yellow/30 animate-ping opacity-0 group-hover:opacity-75"></span>
+                        </span>
+                        <span class="hidden lg:inline">{{ SITE_PHONE }}</span>
+                    </a>
+
+                    <!-- Auth Button -->
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard:index' %}"
+                       class="flex items-center gap-2.5 px-4 py-2.5 bg-dark-200 border border-dark-border rounded-xl text-sm font-medium text-white transition-all duration-300 hover:border-brand-yellow hover:shadow-glow-sm group">
+                        <div class="relative w-8 h-8 bg-gradient-to-br from-brand-yellow to-brand-red rounded-lg flex items-center justify-center overflow-hidden">
+                            <span class="text-dark font-bold text-sm">{{ user.get_short_name|slice:":1"|upper }}</span>
+                        </div>
+                        <span class="hidden sm:inline">{{ user.get_short_name }}</span>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'account_login' %}"
+                       class="relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-semibold rounded-xl transition-all duration-300 hover:shadow-glow-yellow hover:-translate-y-0.5 group">
+                        <!-- Shimmer effect -->
+                        <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700"></span>
+                        <span class="relative flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                            </svg>
+                            Войти
+                        </span>
+                    </a>
+                    {% endif %}
+
+                    <!-- Mobile Menu Button -->
+                    <button type="button"
+                            id="mobileMenuBtn"
+                            class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-dark-200 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 group"
+                            aria-label="Toggle menu"
+                            aria-expanded="false">
+                        <div class="relative w-5 h-4 flex flex-col justify-between">
+                            <span class="block w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center" id="menuLine1"></span>
+                            <span class="block w-full h-0.5 bg-white rounded-full transition-all duration-300" id="menuLine2"></span>
+                            <span class="block w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center" id="menuLine3"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+         class="lg:hidden fixed inset-x-0 top-20 bg-dark/95 backdrop-blur-xl border-b border-dark-border transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex flex-col gap-2">
+                <a href="{% url 'core:home' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="font-medium">Главная</span>
+                </a>
+
+                <a href="{% url 'catalog:catalog' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    <span class="font-medium">Каталог</span>
+                </a>
+
+                <a href="#about"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 transition-all duration-300 hover:bg-dark-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="font-medium">О нас</span>
+                </a>
+
+                <a href="#contacts"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 transition-all duration-300 hover:bg-dark-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="font-medium">Контакты</span>
+                </a>
+
+                <a href="{% url 'catalog:faq' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'faq' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="font-medium">FAQ</span>
+                </a>
+
+                {% if user.is_authenticated %}
+                <a href="{% url 'catalog:favorites' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'favorites' %}bg-dark-200 text-brand-red{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <span class="font-medium">Избранное</span>
+                </a>
+
+                {% if user.is_staff %}
+                <a href="{% url 'core:admin_dashboard' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 transition-all duration-300 hover:bg-dark-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="font-medium">Панель управления</span>
+                </a>
+                {% endif %}
+                {% endif %}
+
+                <!-- Divider -->
+                <div class="my-2 border-t border-dark-border"></div>
+
+                <!-- Phone in mobile -->
+                <a href="tel:{{ SITE_PHONE }}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-yellow/10 text-brand-yellow transition-all duration-300 hover:bg-brand-yellow/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span class="font-semibold">{{ SITE_PHONE }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-20"></div>
+
+<!-- Navbar Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('navbar');
+    const navbarBg = document.getElementById('navbarBg');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLine1 = document.getElementById('menuLine1');
+    const menuLine2 = document.getElementById('menuLine2');
+    const menuLine3 = document.getElementById('menuLine3');
+
+    // Scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        // Add/remove background opacity based on scroll
+        if (currentScroll > 50) {
+            navbarBg.classList.add('bg-dark/95');
+            navbarBg.classList.remove('bg-dark/80');
+        } else {
+            navbarBg.classList.remove('bg-dark/95');
+            navbarBg.classList.add('bg-dark/80');
+        }
+
+        // Hide/show navbar on scroll (optional - можно убрать)
+        // if (currentScroll > lastScroll && currentScroll > 100) {
+        //     navbar.style.transform = 'translateY(-100%)';
+        // } else {
+        //     navbar.style.transform = 'translateY(0)';
+        // }
+
+        lastScroll = currentScroll;
+    });
+
+    // Mobile menu toggle
+    let isMenuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        mobileMenuBtn.setAttribute('aria-expanded', isMenuOpen);
+
+        if (isMenuOpen) {
+            // Open menu
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            // Animate hamburger to X
+            menuLine1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+            menuLine2.style.opacity = '0';
+            menuLine3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        } else {
+            // Close menu
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            // Animate X back to hamburger
+            menuLine1.style.transform = 'rotate(0) translate(0, 0)';
+            menuLine2.style.opacity = '1';
+            menuLine3.style.transform = 'rotate(0) translate(0, 0)';
+        }
+    });
+
+    // Close menu when clicking on links
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) {
+                mobileMenuBtn.click();
+            }
+        });
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024 && isMenuOpen) {
+            mobileMenuBtn.click();
+        }
+    });
+});
+</script>

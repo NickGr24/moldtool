@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Заявка отправлена - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="auth-page" style="min-height: auto; padding: var(--spacing-3xl) 0;">
+        <div class="auth-card" style="max-width: 500px; text-align: center;">
+            <div class="empty-state-icon" style="background-color: var(--color-success); margin-bottom: var(--spacing-lg);">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+
+            <h1 class="auth-title">Заявка отправлена!</h1>
+
+            <p class="text-muted mb-lg">
+                Ваша заявка <strong>#{{ rental.number }}</strong> успешно создана.<br>
+                Мы свяжемся с вами в ближайшее время для подтверждения.
+            </p>
+
+            <div class="rental-summary">
+                <div class="rental-summary-row">
+                    <span>Инструмент</span>
+                    <span>{{ rental.tool.name }}</span>
+                </div>
+                <div class="rental-summary-row">
+                    <span>Период аренды</span>
+                    <span>{{ rental.start_date|date:"d.m.Y" }} - {{ rental.end_date|date:"d.m.Y" }}</span>
+                </div>
+                <div class="rental-summary-row">
+                    <span>Количество дней</span>
+                    <span>{{ rental.total_days }}</span>
+                </div>
+                <div class="rental-summary-row">
+                    <span>Сумма</span>
+                    <span>{{ rental.total_price }} MDL</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-md mt-xl">
+                <a href="{% url 'catalog:catalog' %}" class="btn btn-primary btn-lg">
+                    Продолжить выбор
+                </a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'rentals:user_requests' %}" class="btn btn-outline">
+                    Мои заявки
+                </a>
+                {% endif %}
+            </div>
+
+            <p class="text-muted mt-xl" style="font-size: var(--font-size-sm);">
+                Если у вас есть вопросы, звоните:<br>
+                <a href="tel:{{ SITE_PHONE }}" class="text-primary font-semibold">{{ SITE_PHONE }}</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

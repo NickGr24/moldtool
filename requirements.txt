@@ -1,0 +1,19 @@
+# Django
+Django>=5.0,<6.0
+
+# Authentication
+django-allauth>=0.63.0
+
+# Images
+Pillow>=10.0.0
+
+# Allauth dependencies
+requests>=2.31.0
+PyJWT>=2.8.0
+cryptography>=41.0.0
+
+# Production server
+gunicorn>=21.0.0
+
+# Environment variables (optional)
+python-dotenv>=1.0.0
