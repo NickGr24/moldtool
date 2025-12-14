@@ -434,8 +434,8 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const pricePerDay = {{ tool.price_per_day }};
-    const deposit = {{ tool.deposit|default:0 }};
+    const pricePerDay = parseFloat('{{ tool.price_per_day }}'.replace(',', '.')) || 0;
+    const deposit = parseFloat('{{ tool.deposit|default:0 }}'.replace(',', '.')) || 0;
 
     // Calculator
     const startDate = document.getElementById('startDate');
