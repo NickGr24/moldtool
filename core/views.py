@@ -45,6 +45,13 @@ class HomeView(TemplateView):
 
 
 @method_decorator(staff_member_required, name='dispatch')
+class ContactsView(TemplateView):
+    """Страница контактов."""
+
+    template_name = 'core/contacts.html'
+
+
+@method_decorator(staff_member_required, name='dispatch')
 class AdminDashboardView(TemplateView):
     """Мини админ-панель со статистикой."""
 
