@@ -1,6 +1,6 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -156,7 +156,7 @@
     </style>
 
     <!-- Legacy CSS (для совместимости с другими страницами) -->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?v=1.0.2">
     {% block extra_css %}{% endblock %}
 </head>
 <body class="font-inter bg-dark text-white antialiased selection:bg-brand-yellow/30 selection:text-white">
@@ -251,7 +251,7 @@
     </script>
 
     <!-- JavaScript -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}?v=1.0.2"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
