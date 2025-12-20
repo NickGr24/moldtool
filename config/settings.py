@@ -77,6 +77,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.site_settings',
@@ -180,7 +181,7 @@ SOCIALACCOUNT_PROVIDERS = {
 # INTERNATIONALIZATION
 # =============================================================================
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'ro'
 
 TIME_ZONE = 'Europe/Chisinau'
 

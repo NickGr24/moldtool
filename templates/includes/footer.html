@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <footer class="relative bg-dark-100 border-t border-dark-border overflow-hidden">
     <!-- Background Decoration -->
     <div class="absolute top-0 left-1/4 w-64 h-64 bg-brand-yellow/5 rounded-full blur-[100px]"></div>
@@ -14,7 +14,7 @@
                          class="h-12 w-auto rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-glow-yellow group-hover:scale-105">
                 </a>
                 <p class="text-gray-400 mb-6 leading-relaxed">
-                    {{ SITE_TAGLINE }}. Профессиональное оборудование для любых строительных задач.
+                    {{ SITE_TAGLINE }}. {% trans "Профессиональное оборудование для любых строительных задач." %}
                 </p>
                 <!-- Social Links -->
                 <div class="flex items-center gap-3">
@@ -47,7 +47,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Каталог
+                    {% trans "Каталог" %}
                 </h4>
                 <ul class="space-y-3">
                     <li>
@@ -55,7 +55,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Все инструменты
+                            {% trans "Все инструменты" %}
                         </a>
                     </li>
                     <li>
@@ -63,7 +63,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Электроинструменты
+                            {% trans "Электроинструменты" %}
                         </a>
                     </li>
                     <li>
@@ -71,7 +71,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Ручной инструмент
+                            {% trans "Ручной инструмент" %}
                         </a>
                     </li>
                     <li>
@@ -79,7 +79,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Строительное оборудование
+                            {% trans "Строительное оборудование" %}
                         </a>
                     </li>
                 </ul>
@@ -89,7 +89,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
-                    Информация
+                    {% trans "Информация" %}
                 </h4>
                 <ul class="space-y-3">
                     <li>
@@ -97,7 +97,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            О компании
+                            {% trans "О компании" %}
                         </a>
                     </li>
                     <li>
@@ -105,7 +105,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Условия аренды
+                            {% trans "Условия аренды" %}
                         </a>
                     </li>
                     <li>
@@ -113,7 +113,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Доставка
+                            {% trans "Доставка" %}
                         </a>
                     </li>
                     <li>
@@ -121,7 +121,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Контакты
+                            {% trans "Контакты" %}
                         </a>
                     </li>
                 </ul>
@@ -131,7 +131,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Контакты
+                    {% trans "Контакты" %}
                 </h4>
                 <ul class="space-y-4">
                     <li>
@@ -174,14 +174,14 @@
         <div class="mt-12 pt-8 border-t border-dark-border">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-500 text-sm">
-                    &copy; {% now "Y" %} <span class="text-gradient font-semibold">{{ SITE_NAME }}</span>. Все права защищены.
+                    &copy; {% now "Y" %} <span class="text-gradient font-semibold">{{ SITE_NAME }}</span>. {% trans "Все права защищены." %}
                 </p>
                 <div class="flex items-center gap-6 text-sm">
                     <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
-                        Политика конфиденциальности
+                        {% trans "Политика конфиденциальности" %}
                     </a>
                     <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
-                        Условия использования
+                        {% trans "Условия использования" %}
                     </a>
                 </div>
             </div>
