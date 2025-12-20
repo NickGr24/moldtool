@@ -203,8 +203,19 @@ LOCALE_PATHS = [
 # =============================================================================
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# При разработке используем static папку
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Для продакшена - collectstatic складывает сюда
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Важно: Django ищет статические файлы в следующем порядке:
+# 1. В STATICFILES_DIRS (если DEBUG=True)
+# 2. В STATIC_ROOT (если используется collectstatic)
+# 3. В app/static/ для каждого приложения
 
 
 # =============================================================================
