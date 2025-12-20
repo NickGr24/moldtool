@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!-- Premium Navbar with Glassmorphism -->
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
     <!-- Gradient line accent -->
@@ -31,7 +31,7 @@
                             MoldTool
                         </span>
                         <span class="text-[10px] text-gray-400 tracking-wider uppercase">
-                            Аренда инструментов
+                            {% trans "Аренда инструментов" %}
                         </span>
                     </div>
                 </a>
@@ -42,7 +42,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'home' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">Главная</span>
+                        <span class="relative">{% trans "Главная" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -50,21 +50,21 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">Каталог</span>
+                        <span class="relative">{% trans "Каталог" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
                     <a href="#about"
                        class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
                         <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
-                        <span class="relative">О нас</span>
+                        <span class="relative">{% trans "О нас" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
                     </a>
 
                     <a href="#contacts"
                        class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
                         <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
-                        <span class="relative">Контакты</span>
+                        <span class="relative">{% trans "Контакты" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
                     </a>
 
@@ -79,11 +79,48 @@
 
                 <!-- Right Section -->
                 <div class="flex items-center gap-3">
+                    <!-- Language Selector -->
+                    <div class="relative group">
+                        <button type="button"
+                                id="langBtn"
+                                class="flex items-center gap-2 px-3 py-2 bg-dark-200/50 border border-dark-border/50 rounded-xl text-sm font-medium text-gray-300 transition-all duration-300 hover:border-brand-yellow/50 hover:text-brand-yellow hover:bg-dark-200">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                            </svg>
+                            <span class="hidden sm:inline uppercase">{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}</span>
+                            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <!-- Dropdown -->
+                        <div id="langDropdown"
+                             class="absolute right-0 mt-2 w-40 bg-dark-200 border border-dark-border rounded-xl shadow-xl opacity-0 invisible transform scale-95 transition-all duration-200 z-50">
+                            <form action="{% url 'set_language' %}" method="post" class="p-2">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                {% get_available_languages as languages %}
+                                {% for lang_code, lang_name in languages %}
+                                <button type="submit" name="language" value="{{ lang_code }}"
+                                        class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 {% if LANGUAGE_CODE == lang_code %}bg-brand-yellow/10 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-300 hover:text-white{% endif %}">
+                                    <span class="w-6 h-6 rounded-full bg-dark-300 flex items-center justify-center text-xs font-semibold {% if LANGUAGE_CODE == lang_code %}bg-brand-yellow text-dark{% endif %}">
+                                        {{ lang_code|upper }}
+                                    </span>
+                                    <span>{{ lang_name }}</span>
+                                    {% if LANGUAGE_CODE == lang_code %}
+                                    <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    {% endif %}
+                                </button>
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>
                     {% if user.is_authenticated %}
                     <!-- Favorites Button -->
                     <a href="{% url 'catalog:favorites' %}"
                        class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-red/50 hover:text-brand-red hover:bg-dark-200"
-                       title="Избранное">
+                       title="{% trans 'Избранное' %}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
@@ -93,7 +130,7 @@
                     <!-- Dashboard Button -->
                     <a href="{% url 'core:admin_dashboard' %}"
                        class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-yellow/50 hover:text-brand-yellow hover:bg-dark-200"
-                       title="Панель управления">
+                       title="{% trans 'Панель управления' %}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
@@ -135,7 +172,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
                             </svg>
-                            Войти
+                            {% trans "Войти" %}
                         </span>
                     </a>
                     {% endif %}
@@ -167,7 +204,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                     </svg>
-                    <span class="font-medium">Главная</span>
+                    <span class="font-medium">{% trans "Главная" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:catalog' %}"
@@ -175,7 +212,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
-                    <span class="font-medium">Каталог</span>
+                    <span class="font-medium">{% trans "Каталог" %}</span>
                 </a>
 
                 <a href="#about"
@@ -183,7 +220,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <span class="font-medium">О нас</span>
+                    <span class="font-medium">{% trans "О нас" %}</span>
                 </a>
 
                 <a href="#contacts"
@@ -191,7 +228,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
-                    <span class="font-medium">Контакты</span>
+                    <span class="font-medium">{% trans "Контакты" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:faq' %}"
@@ -208,7 +245,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
-                    <span class="font-medium">Избранное</span>
+                    <span class="font-medium">{% trans "Избранное" %}</span>
                 </a>
 
                 {% if user.is_staff %}
@@ -217,7 +254,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                     </svg>
-                    <span class="font-medium">Панель управления</span>
+                    <span class="font-medium">{% trans "Панель управления" %}</span>
                 </a>
                 {% endif %}
                 {% endif %}
@@ -319,5 +356,34 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuBtn.click();
         }
     });
+
+    // Language selector dropdown
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    let isLangOpen = false;
+
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isLangOpen = !isLangOpen;
+
+            if (isLangOpen) {
+                langDropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+                langDropdown.classList.add('opacity-100', 'visible', 'scale-100');
+            } else {
+                langDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+                langDropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isLangOpen && !langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                isLangOpen = false;
+                langDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+                langDropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+            }
+        });
+    }
 });
 </script>

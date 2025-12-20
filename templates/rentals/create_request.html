@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Арендовать {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Арендовать" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -43,7 +43,7 @@
                 <input type="text" name="customer_name" id="id_customer_name"
                        class="form-control {% if form.customer_name.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_name.value|default:'' }}"
-                       placeholder="Иван Иванов" required>
+                       placeholder="{% trans "Иван Иванов" %}" required>
                 {% if form.customer_name.errors %}
                 <p class="form-error">{{ form.customer_name.errors.0 }}</p>
                 {% endif %}
@@ -98,7 +98,7 @@
             <div class="form-group">
                 <label class="form-label" for="id_comment">Комментарий</label>
                 <textarea name="comment" id="id_comment" class="form-control" rows="3"
-                          placeholder="Дополнительные пожелания...">{{ form.comment.value|default:'' }}</textarea>
+                          placeholder="{% trans "Дополнительные пожелания..." %}">{{ form.comment.value|default:'' }}</textarea>
             </div>
 
             <!-- Price Summary -->
@@ -136,12 +136,12 @@
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                     <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                Отправить заявку
+                {% trans "Отправить заявку" %}
             </button>
         </form>
 
         <p class="text-center text-muted mt-lg" style="font-size: var(--font-size-sm);">
-            Отправляя заявку, вы соглашаетесь с условиями аренды
+            {% trans "Отправляя заявку, вы соглашаетесь с условиями аренды" %}
         </p>
     </div>
 </div>

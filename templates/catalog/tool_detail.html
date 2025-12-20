@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}{{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
@@ -42,7 +42,7 @@
 
                     {% if tool.is_featured %}
                     <span class="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark text-sm font-bold rounded-full shadow-lg">
-                        Хит
+                        {% trans "Хит" %}
                     </span>
                     {% endif %}
 
@@ -95,7 +95,7 @@
                             {% endfor %}
                         </div>
                         <span class="text-white font-medium">{{ tool.average_rating }}</span>
-                        <span class="text-gray-500">({{ tool.reviews_count }} отзывов)</span>
+                        <span class="text-gray-500">({{ tool.reviews_count }} {% trans "отзывов" %})</span>
                     </div>
                     {% endif %}
                 </div>
@@ -118,7 +118,7 @@
                         <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                         </svg>
-                        <span>Залог: <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
+                        <span>{% trans "Залог:" %} <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
                     </div>
                     {% endif %}
                 </div>
@@ -129,7 +129,7 @@
                         <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                         </svg>
-                        Калькулятор аренды
+                        {% trans "Калькулятор аренды" %}
                     </h3>
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div>
@@ -193,14 +193,14 @@
                             <line x1="8" y1="2" x2="8" y2="6"/>
                             <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        Арендовать
+                        {% trans "Арендовать" %}
                     </a>
                     {% else %}
                     <button disabled class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark-200 text-gray-500 font-bold rounded-xl cursor-not-allowed">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
                         </svg>
-                        Недоступен
+                        {% trans "Недоступен" %}
                     </button>
                     {% endif %}
 
@@ -221,7 +221,7 @@
                         <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
                         </svg>
-                        Характеристики
+                        {% trans "Характеристики" %}
                     </h3>
                     <div class="space-y-3">
                         {% for key, value in tool.specifications.items %}
@@ -243,7 +243,7 @@
                 <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
                 </svg>
-                Описание
+                {% trans "Описание" %}
             </h3>
             <div class="text-gray-400 leading-relaxed prose prose-invert max-w-none">
                 {{ tool.description|linebreaks }}
@@ -258,7 +258,7 @@
                     <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                     </svg>
-                    Отзывы ({{ tool.reviews_count }})
+                    {% trans "Отзывы" %} ({{ tool.reviews_count }})
                 </h3>
 
                 {% if tool.average_rating > 0 %}
@@ -298,11 +298,11 @@
                         <label class="block text-gray-400 text-sm mb-2">Ваш отзыв (необязательно)</label>
                         <textarea id="reviewText" rows="3"
                                   class="w-full px-4 py-3 bg-dark-100 rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all resize-none"
-                                  placeholder="Поделитесь вашим опытом использования этого инструмента..."></textarea>
+                                  placeholder="{% trans "Поделитесь вашим опытом использования этого инструмента..." %}"></textarea>
                     </div>
                     <button type="submit"
                             class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
-                        Отправить отзыв
+                        {% trans "Отправить отзыв" %}
                     </button>
                 </form>
             </div>
@@ -311,7 +311,7 @@
                 <p class="text-gray-400 mb-4">Войдите, чтобы оставить отзыв</p>
                 <a href="{% url 'account_login' %}?next={{ request.path }}"
                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
-                    Войти
+                    {% trans "Войти" %}
                 </a>
             </div>
             {% endif %}
@@ -344,7 +344,7 @@
                 </div>
                 {% empty %}
                 <div class="text-center py-8">
-                    <p class="text-gray-500">Пока нет отзывов. Будьте первым!</p>
+                    <p class="text-gray-500">Пока нет {% trans "отзывов" %}. Будьте первым!</p>
                 </div>
                 {% endfor %}
             </div>
@@ -356,11 +356,11 @@
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-3">
                     <span class="w-1.5 h-8 bg-gradient-to-b from-brand-yellow to-brand-red rounded-full"></span>
-                    Похожие инструменты
+                    {% trans "Похожие инструменты" %}
                 </h2>
                 <a href="{% url 'catalog:catalog' %}?category={{ tool.category.slug }}"
                    class="text-brand-yellow hover:text-brand-yellow-light transition-colors flex items-center gap-2 group">
-                    Все в категории
+                    {% trans "Все в категории" %}
                     <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
