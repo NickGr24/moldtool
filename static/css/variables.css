@@ -4,10 +4,12 @@
  */
 
 :root {
-    /* Цветовая палитра */
-    --color-primary: #FF6600;           /* Оранжевый - основной акцент */
-    --color-primary-hover: #E65C00;     /* Оранжевый темнее для hover */
-    --color-primary-light: #FF8533;     /* Оранжевый светлее */
+    /* Цветовая палитра - brand colors */
+    --color-primary: #F5A623;           /* Brand Yellow - основной акцент */
+    --color-primary-hover: #E09800;     /* Brand Yellow темнее для hover */
+    --color-primary-light: #FFD54F;     /* Brand Yellow светлее */
+    --color-accent: #E53935;            /* Brand Red - акцентный */
+    --color-accent-hover: #C62828;      /* Brand Red темнее */
 
     --color-bg-dark: #1A1A1A;           /* Тёмный графит - основной фон */
     --color-bg-card: #2E2E2E;           /* Стальной серый - фон карточек */

@@ -6,144 +6,757 @@
 {% block meta_description %}{{ tool.short_description|default:tool.description|truncatewords:30 }}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <!-- Breadcrumbs -->
-    <nav class="breadcrumbs">
-        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">Главная</a></span>
-        <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item"><a href="{% url 'catalog:catalog' %}">Каталог</a></span>
-        <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item"><a href="{{ tool.category.get_absolute_url }}">{{ tool.category.name }}</a></span>
-        <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item active">{{ tool.name }}</span>
-    </nav>
+<section class="py-8 lg:py-12 bg-dark min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Главная</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="{% url 'catalog:catalog' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Каталог</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="{{ tool.category.get_absolute_url }}" class="text-gray-400 hover:text-brand-yellow transition-colors">{{ tool.category.name }}</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">{{ tool.name|truncatewords:3 }}</span>
+        </nav>
 
-    <!-- Tool Detail -->
-    <div class="tool-detail">
-        <!-- Gallery -->
-        <div class="tool-gallery">
-            <div class="tool-gallery-main">
-                {% if tool.image %}
-                <img src="{{ tool.image.url }}" alt="{{ tool.name }}">
-                {% else %}
-                <img src="{% static 'images/placeholder.jpg' %}" alt="{{ tool.name }}">
+        <!-- Tool Detail -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+            <!-- Gallery -->
+            <div class="space-y-4">
+                <div class="relative aspect-[4/3] bg-dark-100 rounded-2xl overflow-hidden border border-dark-border group">
+                    {% if tool.image %}
+                    <img src="{{ tool.image.url }}" alt="{{ tool.name }}"
+                         id="mainImage"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    {% else %}
+                    <img src="{% static 'images/placeholder.jpg' %}" alt="{{ tool.name }}"
+                         id="mainImage"
+                         class="w-full h-full object-cover">
+                    {% endif %}
+
+                    {% if tool.is_featured %}
+                    <span class="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark text-sm font-bold rounded-full shadow-lg">
+                        Хит
+                    </span>
+                    {% endif %}
+
+                    <!-- Favorite Button -->
+                    <button id="favoriteBtn"
+                            data-tool-id="{{ tool.id }}"
+                            class="absolute top-4 right-4 p-3 bg-dark/80 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-brand-yellow hover:scale-110 group/fav {% if is_favorite %}bg-brand-red text-white{% else %}text-white{% endif %}">
+                        <svg class="w-6 h-6 transition-transform" fill="{% if is_favorite %}currentColor{% else %}none{% endif %}" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {% if tool.images.exists %}
+                <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                    <button class="flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 border-brand-yellow ring-2 ring-brand-yellow/30 transition-all thumb-btn"
+                            data-src="{{ tool.image.url }}">
+                        <img src="{{ tool.image.url }}" alt="{{ tool.name }}" class="w-full h-full object-cover">
+                    </button>
+                    {% for image in tool.images.all %}
+                    <button class="flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 border-dark-border hover:border-brand-yellow transition-all thumb-btn"
+                            data-src="{{ image.image.url }}">
+                        <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:tool.name }}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                </div>
                 {% endif %}
             </div>
 
-            {% if tool.images.exists %}
-            <div class="tool-gallery-thumbs">
-                <div class="tool-gallery-thumb active">
-                    <img src="{{ tool.image.url }}" alt="{{ tool.name }}">
+            <!-- Info -->
+            <div class="flex flex-col">
+                <!-- Category Badge -->
+                <div class="flex items-center gap-3 mb-4">
+                    <a href="{{ tool.category.get_absolute_url }}"
+                       class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-yellow/10 text-brand-yellow text-sm font-medium rounded-full hover:bg-brand-yellow/20 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                        </svg>
+                        {{ tool.category.name }}
+                    </a>
+
+                    <!-- Rating -->
+                    {% if tool.reviews_count > 0 %}
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-1">
+                            {% for i in "12345" %}
+                            <svg class="w-4 h-4 {% if forloop.counter <= tool.average_rating %}text-brand-yellow{% else %}text-gray-600{% endif %}" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            {% endfor %}
+                        </div>
+                        <span class="text-white font-medium">{{ tool.average_rating }}</span>
+                        <span class="text-gray-500">({{ tool.reviews_count }} отзывов)</span>
+                    </div>
+                    {% endif %}
                 </div>
-                {% for image in tool.images.all %}
-                <div class="tool-gallery-thumb">
-                    <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:tool.name }}">
+
+                <!-- Title -->
+                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{{ tool.name }}</h1>
+
+                {% if tool.brand %}
+                <p class="text-lg text-gray-400 mb-6">{{ tool.brand }}{% if tool.model_name %} {{ tool.model_name }}{% endif %}</p>
+                {% endif %}
+
+                <!-- Price Block -->
+                <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border mb-6">
+                    <div class="flex items-baseline gap-2 mb-2">
+                        <span class="text-4xl font-bold text-brand-yellow">{{ tool.price_per_day }}</span>
+                        <span class="text-xl text-gray-400">MDL / день</span>
+                    </div>
+                    {% if tool.deposit %}
+                    <div class="flex items-center gap-2 text-gray-400">
+                        <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        <span>Залог: <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Rental Calculator -->
+                <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border mb-6">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        Калькулятор аренды
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Дата начала</label>
+                            <input type="date" id="startDate"
+                                   class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Дата окончания</label>
+                            <input type="date" id="endDate"
+                                   class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
+                        </div>
+                    </div>
+                    <div id="calculatorResult" class="hidden">
+                        <div class="flex justify-between items-center py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Количество дней:</span>
+                            <span id="daysCount" class="text-white font-medium">0</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Стоимость аренды:</span>
+                            <span id="rentalCost" class="text-white font-medium">0 MDL</span>
+                        </div>
+                        {% if tool.deposit %}
+                        <div class="flex justify-between items-center py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Залог:</span>
+                            <span class="text-white font-medium">{{ tool.deposit }} MDL</span>
+                        </div>
+                        {% endif %}
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-white font-bold">Итого к оплате:</span>
+                            <span id="totalCost" class="text-xl font-bold text-brand-yellow">
+                                <span id="rentalPart">0</span> + <span id="depositPart">0</span> (залог) = <span id="totalPart">0</span> MDL
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="flex items-center gap-3 mb-6">
+                    {% if tool.is_available %}
+                    <div class="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-xl">
+                        <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-green-400 font-medium">Доступен для аренды</span>
+                    </div>
+                    {% else %}
+                    <div class="flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-xl">
+                        <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                        <span class="text-yellow-400 font-medium">Сейчас в аренде</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    {% if tool.is_available %}
+                    <a href="{% url 'rentals:create_request' tool_slug=tool.slug %}"
+                       class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow hover:-translate-y-0.5 group">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Арендовать
+                    </a>
+                    {% else %}
+                    <button disabled class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark-200 text-gray-500 font-bold rounded-xl cursor-not-allowed">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
+                        Недоступен
+                    </button>
+                    {% endif %}
+
+                    <!-- Contact Button -->
+                    <a href="tel:{{ SITE_PHONE }}"
+                       class="inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark-200 border border-dark-border text-white font-bold rounded-xl transition-all duration-300 hover:border-brand-yellow hover:text-brand-yellow hover:-translate-y-0.5">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        {{ SITE_PHONE }}
+                    </a>
+                </div>
+
+                <!-- Specifications -->
+                {% if tool.specifications %}
+                <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                        Характеристики
+                    </h3>
+                    <div class="space-y-3">
+                        {% for key, value in tool.specifications.items %}
+                        <div class="flex justify-between items-center py-2 border-b border-dark-border last:border-0">
+                            <span class="text-gray-400">{{ key }}</span>
+                            <span class="text-white font-medium">{{ value }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Description -->
+        {% if tool.description %}
+        <div class="bg-dark-100 rounded-2xl p-6 lg:p-8 border border-dark-border mb-12 scroll-animate scroll-animate-delay-1">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                </svg>
+                Описание
+            </h3>
+            <div class="text-gray-400 leading-relaxed prose prose-invert max-w-none">
+                {{ tool.description|linebreaks }}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Reviews Section -->
+        <div class="bg-dark-100 rounded-2xl p-6 lg:p-8 border border-dark-border mb-12 scroll-animate scroll-animate-delay-2">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    Отзывы ({{ tool.reviews_count }})
+                </h3>
+
+                {% if tool.average_rating > 0 %}
+                <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-1">
+                        {% for i in "12345" %}
+                        <svg class="w-5 h-5 {% if forloop.counter <= tool.average_rating %}text-brand-yellow{% else %}text-gray-600{% endif %}" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        {% endfor %}
+                    </div>
+                    <span class="text-2xl font-bold text-white">{{ tool.average_rating }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Add Review Form -->
+            {% if user.is_authenticated and not user_review %}
+            <div class="mb-8 p-6 bg-dark rounded-xl border border-dark-border">
+                <h4 class="text-lg font-bold text-white mb-4">Оставить отзыв</h4>
+                <form id="reviewForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Ваша оценка</label>
+                        <div class="flex gap-2" id="ratingStars">
+                            {% for i in "12345" %}
+                            <button type="button" data-rating="{{ forloop.counter }}"
+                                    class="star-btn p-1 text-gray-600 hover:text-brand-yellow transition-colors">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </button>
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" id="ratingValue" value="0">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Ваш отзыв (необязательно)</label>
+                        <textarea id="reviewText" rows="3"
+                                  class="w-full px-4 py-3 bg-dark-100 rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all resize-none"
+                                  placeholder="Поделитесь вашим опытом использования этого инструмента..."></textarea>
+                    </div>
+                    <button type="submit"
+                            class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
+                        Отправить отзыв
+                    </button>
+                </form>
+            </div>
+            {% elif not user.is_authenticated %}
+            <div class="mb-8 p-6 bg-dark rounded-xl border border-dark-border text-center">
+                <p class="text-gray-400 mb-4">Войдите, чтобы оставить отзыв</p>
+                <a href="{% url 'account_login' %}?next={{ request.path }}"
+                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
+                    Войти
+                </a>
+            </div>
+            {% endif %}
+
+            <!-- Reviews List -->
+            <div id="reviewsList" class="space-y-6">
+                {% for review in reviews %}
+                <div class="p-6 bg-dark rounded-xl border border-dark-border">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full flex items-center justify-center text-white font-bold">
+                                {{ review.user.get_short_name|first|upper }}
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">{{ review.user.get_short_name }}</p>
+                                <p class="text-gray-500 text-sm">{{ review.created_at|date:"d.m.Y" }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            {% for i in "12345" %}
+                            <svg class="w-4 h-4 {% if forloop.counter <= review.rating %}text-brand-yellow{% else %}text-gray-600{% endif %}" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if review.text %}
+                    <p class="text-gray-400">{{ review.text }}</p>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <div class="text-center py-8">
+                    <p class="text-gray-500">Пока нет отзывов. Будьте первым!</p>
                 </div>
                 {% endfor %}
             </div>
-            {% endif %}
         </div>
 
-        <!-- Info -->
-        <div class="tool-info">
-            <span class="tool-category">{{ tool.category.name }}</span>
-            <h1 class="tool-title">{{ tool.name }}</h1>
-
-            {% if tool.brand %}
-            <p class="tool-brand">{{ tool.brand }}{% if tool.model_name %} {{ tool.model_name }}{% endif %}</p>
-            {% endif %}
-
-            <!-- Price Block -->
-            <div class="tool-price-block">
-                <div class="tool-price">
-                    {{ tool.price_per_day }} MDL <span>/ день</span>
-                </div>
-                {% if tool.deposit %}
-                <p class="tool-deposit">Залог: {{ tool.deposit }} MDL</p>
-                {% endif %}
-            </div>
-
-            <!-- Availability -->
-            <div class="tool-availability {% if not tool.is_available %}rented{% endif %}">
-                {% if tool.is_available %}
-                <span class="status-available">Доступен для аренды</span>
-                {% else %}
-                <span class="status-rented">Сейчас в аренде</span>
-                {% endif %}
-            </div>
-
-            <!-- Actions -->
-            <div class="tool-actions">
-                {% if tool.is_available %}
-                <a href="{% url 'rentals:create_request' tool_slug=tool.slug %}" class="btn btn-primary btn-lg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
+        <!-- Related Tools -->
+        {% if related_tools %}
+        <section class="scroll-animate scroll-animate-delay-3">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <span class="w-1.5 h-8 bg-gradient-to-b from-brand-yellow to-brand-red rounded-full"></span>
+                    Похожие инструменты
+                </h2>
+                <a href="{% url 'catalog:catalog' %}?category={{ tool.category.slug }}"
+                   class="text-brand-yellow hover:text-brand-yellow-light transition-colors flex items-center gap-2 group">
+                    Все в категории
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
-                    Арендовать
-                </a>
-                {% else %}
-                <button class="btn btn-secondary btn-lg" disabled>Недоступен</button>
-                {% endif %}
-                <a href="tel:{{ SITE_PHONE }}" class="btn btn-outline btn-lg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    Позвонить
                 </a>
             </div>
 
-            <!-- Specifications -->
-            {% if tool.specifications %}
-            <div class="tool-specs">
-                <h3 class="tool-specs-title">Характеристики</h3>
-                <div class="tool-specs-list">
-                    {% for key, value in tool.specifications.items %}
-                    <div class="tool-specs-item">
-                        <span>{{ key }}</span>
-                        <span>{{ value }}</span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for related in related_tools %}
+                <article class="group relative bg-dark-100 rounded-2xl overflow-hidden border border-dark-border transition-all duration-500 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-yellow/10">
+                    <a href="{{ related.get_absolute_url }}" class="block relative aspect-[4/3] overflow-hidden">
+                        {% if related.image %}
+                        <img src="{{ related.image.url }}" alt="{{ related.name }}"
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.jpg' %}" alt="{{ related.name }}"
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        {% endif %}
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-white mb-2 group-hover:text-brand-yellow transition-colors">
+                            <a href="{{ related.get_absolute_url }}">{{ related.name }}</a>
+                        </h3>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-brand-yellow">{{ related.price_per_day }} MDL</span>
+                                <span class="text-gray-500 text-sm"> / день</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-sm {% if related.is_available %}text-green-400{% else %}text-yellow-400{% endif %}">
+                                <span class="w-2 h-2 rounded-full {% if related.is_available %}bg-green-400{% else %}bg-yellow-400{% endif %}"></span>
+                            </div>
+                        </div>
                     </div>
-                    {% endfor %}
-                </div>
+                </article>
+                {% endfor %}
             </div>
-            {% endif %}
-        </div>
+        </section>
+        {% endif %}
     </div>
+</section>
 
-    <!-- Description -->
-    <div class="tool-description">
-        <h3>Описание</h3>
-        <p>{{ tool.description|linebreaks }}</p>
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-sm">
+    <button id="lightboxClose" class="absolute top-4 right-4 z-10 p-3 bg-dark-100/80 rounded-full text-white hover:bg-brand-yellow hover:text-dark transition-all duration-300 group">
+        <svg class="w-6 h-6 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+    </button>
+    <button id="lightboxPrev" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-dark-100/80 rounded-full text-white hover:bg-brand-yellow hover:text-dark transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+    </button>
+    <button id="lightboxNext" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-dark-100/80 rounded-full text-white hover:bg-brand-yellow hover:text-dark transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+    </button>
+    <div class="max-w-5xl max-h-[90vh] p-4">
+        <img id="lightboxImage" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
     </div>
-
-    <!-- Related Tools -->
-    {% if related_tools %}
-    <section class="section">
-        <h2 class="section-title">Похожие инструменты</h2>
-        <div class="tools-grid">
-            {% for related in related_tools %}
-            <div class="card tool-card">
-                <a href="{{ related.get_absolute_url }}" class="card-image">
-                    {% if related.image %}
-                    <img src="{{ related.image.url }}" alt="{{ related.name }}">
-                    {% else %}
-                    <img src="{% static 'images/placeholder.jpg' %}" alt="{{ related.name }}">
-                    {% endif %}
-                </a>
-                <div class="card-body">
-                    <h3 class="card-title">
-                        <a href="{{ related.get_absolute_url }}">{{ related.name }}</a>
-                    </h3>
-                    <div class="card-price">
-                        {{ related.price_per_day }} MDL <span>/ день</span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    {% endif %}
+    <div id="lightboxCounter" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-dark-100/80 rounded-full text-white text-sm">
+        1 / 1
+    </div>
 </div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-4 right-4 z-50 transform translate-y-full opacity-0 transition-all duration-300">
+    <div class="px-6 py-4 bg-dark-100 border border-dark-border rounded-xl shadow-lg">
+        <p id="toastMessage" class="text-white"></p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const pricePerDay = parseFloat('{{ tool.price_per_day }}'.replace(',', '.')) || 0;
+    const deposit = parseFloat('{{ tool.deposit|default:0 }}'.replace(',', '.')) || 0;
+
+    // Calculator
+    const startDate = document.getElementById('startDate');
+    const endDate = document.getElementById('endDate');
+    const calculatorResult = document.getElementById('calculatorResult');
+    const daysCount = document.getElementById('daysCount');
+    const rentalCost = document.getElementById('rentalCost');
+    const rentalPart = document.getElementById('rentalPart');
+    const depositPart = document.getElementById('depositPart');
+    const totalPart = document.getElementById('totalPart');
+
+    // Set min date to today
+    const today = new Date().toISOString().split('T')[0];
+    startDate.min = today;
+    endDate.min = today;
+
+    function calculateCost() {
+        if (startDate.value && endDate.value) {
+            const start = new Date(startDate.value);
+            const end = new Date(endDate.value);
+            const diffTime = end - start;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+            if (diffDays > 0) {
+                const rental = diffDays * pricePerDay;
+                const total = rental + deposit;
+
+                daysCount.textContent = diffDays;
+                rentalCost.textContent = rental + ' MDL';
+                rentalPart.textContent = rental;
+                depositPart.textContent = deposit;
+                totalPart.textContent = total;
+                calculatorResult.classList.remove('hidden');
+            } else {
+                calculatorResult.classList.add('hidden');
+            }
+        }
+    }
+
+    startDate.addEventListener('change', function() {
+        endDate.min = this.value;
+        calculateCost();
+    });
+    endDate.addEventListener('change', calculateCost);
+
+    // Favorite button
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            const toolId = this.dataset.toolId;
+            fetch(`/catalog/favorite/toggle/${toolId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const svg = this.querySelector('svg');
+                if (data.status === 'added') {
+                    svg.setAttribute('fill', 'currentColor');
+                    this.classList.add('bg-brand-red', 'text-white');
+                } else {
+                    svg.setAttribute('fill', 'none');
+                    this.classList.remove('bg-brand-red', 'text-white');
+                }
+                showToast(data.message);
+            })
+            .catch(error => {
+                showToast('Войдите, чтобы добавить в избранное');
+            });
+        });
+    }
+
+    // Review form
+    const reviewForm = document.getElementById('reviewForm');
+    const ratingStars = document.querySelectorAll('.star-btn');
+    const ratingValue = document.getElementById('ratingValue');
+    let selectedRating = 0;
+
+    ratingStars.forEach(star => {
+        star.addEventListener('click', function() {
+            selectedRating = parseInt(this.dataset.rating);
+            ratingValue.value = selectedRating;
+
+            ratingStars.forEach((s, index) => {
+                if (index < selectedRating) {
+                    s.classList.add('text-brand-yellow');
+                    s.classList.remove('text-gray-600');
+                } else {
+                    s.classList.remove('text-brand-yellow');
+                    s.classList.add('text-gray-600');
+                }
+            });
+        });
+
+        star.addEventListener('mouseenter', function() {
+            const rating = parseInt(this.dataset.rating);
+            ratingStars.forEach((s, index) => {
+                if (index < rating) {
+                    s.classList.add('text-brand-yellow');
+                    s.classList.remove('text-gray-600');
+                }
+            });
+        });
+
+        star.addEventListener('mouseleave', function() {
+            ratingStars.forEach((s, index) => {
+                if (index < selectedRating) {
+                    s.classList.add('text-brand-yellow');
+                    s.classList.remove('text-gray-600');
+                } else {
+                    s.classList.remove('text-brand-yellow');
+                    s.classList.add('text-gray-600');
+                }
+            });
+        });
+    });
+
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (selectedRating === 0) {
+                showToast('Пожалуйста, выберите оценку');
+                return;
+            }
+
+            const text = document.getElementById('reviewText').value;
+
+            fetch(`/catalog/review/add/{{ tool.id }}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    rating: selectedRating,
+                    text: text
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    showToast(data.message);
+                    // Hide form and add review to list
+                    reviewForm.parentElement.remove();
+                    addReviewToList(data.review);
+                } else {
+                    showToast(data.message);
+                }
+            })
+            .catch(error => {
+                showToast('Ошибка при отправке отзыва');
+            });
+        });
+    }
+
+    function addReviewToList(review) {
+        const reviewsList = document.getElementById('reviewsList');
+        const emptyMessage = reviewsList.querySelector('.text-center');
+        if (emptyMessage) emptyMessage.remove();
+
+        const stars = Array.from({length: 5}, (_, i) =>
+            `<svg class="w-4 h-4 ${i < review.rating ? 'text-brand-yellow' : 'text-gray-600'}" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>`
+        ).join('');
+
+        const reviewHtml = `
+            <div class="p-6 bg-dark rounded-xl border border-dark-border">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full flex items-center justify-center text-white font-bold">
+                            ${review.user_name.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">${review.user_name}</p>
+                            <p class="text-gray-500 text-sm">${review.created_at}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1">${stars}</div>
+                </div>
+                ${review.text ? `<p class="text-gray-400">${review.text}</p>` : ''}
+            </div>
+        `;
+
+        reviewsList.insertAdjacentHTML('afterbegin', reviewHtml);
+    }
+
+    // Toast notification
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        toastMessage.textContent = message;
+        toast.classList.remove('translate-y-full', 'opacity-0');
+
+        setTimeout(() => {
+            toast.classList.add('translate-y-full', 'opacity-0');
+        }, 3000);
+    }
+
+    // Gallery & Lightbox
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    const mainImage = document.getElementById('mainImage');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    const allImages = [];
+    let currentIndex = 0;
+
+    if (mainImage) allImages.push(mainImage.src);
+    thumbBtns.forEach(btn => {
+        const src = btn.dataset.src;
+        if (src && !allImages.includes(src)) allImages.push(src);
+    });
+
+    thumbBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            mainImage.src = this.dataset.src;
+            thumbBtns.forEach(b => {
+                b.classList.remove('border-brand-yellow', 'ring-2', 'ring-brand-yellow/30');
+                b.classList.add('border-dark-border');
+            });
+            this.classList.remove('border-dark-border');
+            this.classList.add('border-brand-yellow', 'ring-2', 'ring-brand-yellow/30');
+        });
+    });
+
+    if (mainImage) {
+        mainImage.style.cursor = 'zoom-in';
+        mainImage.addEventListener('click', function() {
+            currentIndex = allImages.indexOf(this.src);
+            if (currentIndex === -1) currentIndex = 0;
+            openLightbox();
+        });
+    }
+
+    function openLightbox() {
+        lightboxImage.src = allImages[currentIndex];
+        lightboxCounter.textContent = `${currentIndex + 1} / ${allImages.length}`;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        if (allImages.length <= 1) {
+            lightboxPrev.classList.add('hidden');
+            lightboxNext.classList.add('hidden');
+            lightboxCounter.classList.add('hidden');
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        lightboxImage.src = allImages[currentIndex];
+        lightboxCounter.textContent = `${currentIndex + 1} / ${allImages.length}`;
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        lightboxImage.src = allImages[currentIndex];
+        lightboxCounter.textContent = `${currentIndex + 1} / ${allImages.length}`;
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('hidden')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        }
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+});
+</script>
+
+<style>
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-animate-delay-1 { transition-delay: 0.1s; }
+.scroll-animate-delay-2 { transition-delay: 0.2s; }
+.scroll-animate-delay-3 { transition-delay: 0.3s; }
+
+#lightbox { animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+#lightboxImage { animation: zoomIn 0.3s ease; }
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+</style>
 {% endblock %}

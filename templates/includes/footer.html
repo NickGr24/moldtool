@@ -1,104 +1,193 @@
 {% load static %}
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <!-- Brand -->
-            <div class="footer-brand">
-                <a href="{% url 'core:home' %}" class="logo">
-                    <div class="logo-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <span class="logo-text">Mold<span>Tool</span></span>
+<footer class="relative bg-dark-100 border-t border-dark-border overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute top-0 left-1/4 w-64 h-64 bg-brand-yellow/5 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-red/5 rounded-full blur-[100px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <!-- Brand Section -->
+            <div class="lg:col-span-1">
+                <a href="{% url 'core:home' %}" class="inline-flex items-center gap-3 group mb-6">
+                    <img src="{% static 'images/logo.jpg' %}"
+                         alt="{{ SITE_NAME }}"
+                         class="h-12 w-auto rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-glow-yellow group-hover:scale-105">
                 </a>
-                <p>{{ SITE_TAGLINE }}. Профессиональное оборудование для любых строительных задач.</p>
-            </div>
-
-            <!-- Catalog Links -->
-            <div class="footer-section">
-                <h4 class="footer-title">Каталог</h4>
-                <div class="footer-links">
-                    <a href="{% url 'catalog:catalog' %}">Все инструменты</a>
-                    <a href="#">Электроинструменты</a>
-                    <a href="#">Ручной инструмент</a>
-                    <a href="#">Строительное оборудование</a>
-                    <a href="#">Садовая техника</a>
-                </div>
-            </div>
-
-            <!-- Info Links -->
-            <div class="footer-section">
-                <h4 class="footer-title">Информация</h4>
-                <div class="footer-links">
-                    <a href="#">О компании</a>
-                    <a href="#">Условия аренды</a>
-                    <a href="#">Доставка</a>
-                    <a href="#">Контакты</a>
-                </div>
-            </div>
-
-            <!-- Contacts -->
-            <div class="footer-section">
-                <h4 class="footer-title">Контакты</h4>
-                <div class="footer-contacts">
-                    <div class="footer-contact-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        <span>{{ SITE_ADDRESS }}</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <a href="tel:{{ SITE_PHONE }}">{{ SITE_PHONE }}</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <a href="mailto:{{ SITE_EMAIL }}">{{ SITE_EMAIL }}</a>
-                    </div>
-                </div>
-
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    {{ SITE_TAGLINE }}. Профессиональное оборудование для любых строительных задач.
+                </p>
                 <!-- Social Links -->
-                <div class="footer-socials">
-                    <a href="#" class="footer-social" title="Facebook">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <div class="flex items-center gap-3">
+                    <a href="#" class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center text-gray-400 transition-all duration-300 hover:bg-brand-yellow hover:border-brand-yellow hover:text-dark hover:scale-110" title="Facebook">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                         </svg>
                     </a>
-                    <a href="#" class="footer-social" title="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="#" class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center text-gray-400 transition-all duration-300 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:border-transparent hover:text-white hover:scale-110" title="Instagram">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                         </svg>
                     </a>
-                    <a href="#" class="footer-social" title="Telegram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="#" class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center text-gray-400 transition-all duration-300 hover:bg-[#0088cc] hover:border-[#0088cc] hover:text-white hover:scale-110" title="Telegram">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                         </svg>
                     </a>
-                    <a href="#" class="footer-social" title="Viber">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M11.398.002C9.473.028 5.331.344 3.014 2.467 1.294 4.182.535 6.745.384 9.968c-.15 3.222-.036 6.155 3.63 7.148h.003l-.004 2.477s-.03.963.596 1.162c.756.24 1.2-.486 1.924-1.262.398-.426.945-1.053 1.36-1.532 3.753.316 6.64-.407 6.973-.518.77-.257 5.126-.808 5.837-6.595.735-5.986-.343-9.77-2.24-11.478C16.628.847 13.853.007 12.069.001c-.239-.002-.458-.001-.671.001zm.25 1.534c.171-.001.348.003.531.008 1.534.048 3.93.709 5.39 2.062 1.586 1.473 2.381 4.817 1.758 9.883-.583 4.71-4.001 5.318-4.636 5.53-.275.09-2.797.736-5.994.56 0 0-2.378 2.87-3.12 3.617-.117.118-.257.166-.348.144-.127-.031-.163-.186-.161-.41l.024-3.928c-3.025-.835-2.857-3.29-2.73-5.994.127-2.704.757-4.878 2.177-6.287 1.88-1.778 5.47-2.17 7.11-2.185zm.295 2.252a.477.477 0 0 0-.476.478.477.477 0 0 0 .476.478c1.36.016 2.553.51 3.47 1.432.917.922 1.423 2.134 1.466 3.503a.477.477 0 0 0 .478.464h.014a.477.477 0 0 0 .463-.491c-.05-1.632-.67-3.096-1.782-4.215-1.113-1.119-2.582-1.727-4.11-1.649zm.04 1.61a.477.477 0 0 0-.059.95c.696.078 1.31.368 1.774.838.464.47.752 1.095.833 1.806a.477.477 0 0 0 .529.416.477.477 0 0 0 .416-.53 4.082 4.082 0 0 0-1.207-2.621 4.065 4.065 0 0 0-2.286-1.086v.227zm-2.751.937c-.225-.001-.45.096-.582.28l-.002.002-.446.551c-1.085-.31-2.15-1.2-2.678-1.724-.527-.525-1.424-1.586-1.737-2.669l.547-.449c.297-.241.309-.708.063-1.002l-.002-.002-1.078-1.31c-.246-.293-.713-.323-1.015-.073l-.003.002-.9.736c-.283.219-.474.53-.517.882-.123 1.004.234 2.62 2.086 4.938 1.483 1.855 3.303 3.387 5.53 3.974.87.23 2.196.628 3.191.117.359-.186.644-.482.826-.843l.349-.924c.112-.301-.043-.67-.344-.793l-.002-.001-1.598-.674c-.287-.117-.617-.015-.778.246l-.002.004-.39.596c-.148.222-.432.285-.658.17l-.002-.001c-1.048-.535-1.844-1.085-2.582-1.98-.234-.283-.28-.62-.067-.875l.337-.492c.162-.235.151-.558-.03-.777l-.002-.002-1.111-1.38c-.126-.154-.315-.233-.507-.232zm3.014.39a.477.477 0 0 0-.052.95c.386.054.716.22.956.483.24.264.374.602.387.977a.477.477 0 0 0 .478.463h.015a.477.477 0 0 0 .463-.491 2.316 2.316 0 0 0-.73-1.664 2.286 2.286 0 0 0-1.517-.718z"/>
+                    <a href="#" class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center text-gray-400 transition-all duration-300 hover:bg-[#7360f2] hover:border-[#7360f2] hover:text-white hover:scale-110" title="Viber">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.398.002C9.473.028 5.331.344 3.014 2.467 1.294 4.182.535 6.745.384 9.968c-.15 3.222-.036 6.155 3.63 7.148h.003l-.004 2.477s-.03.963.596 1.162c.756.24 1.2-.486 1.924-1.262.398-.426.945-1.053 1.36-1.532 3.753.316 6.64-.407 6.973-.518.77-.257 5.126-.808 5.837-6.595.735-5.986-.343-9.77-2.24-11.478C16.628.847 13.853.007 12.069.001c-.239-.002-.458-.001-.671.001z"/>
                         </svg>
                     </a>
                 </div>
             </div>
+
+            <!-- Catalog Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
+                    Каталог
+                </h4>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="{% url 'catalog:catalog' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Все инструменты
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Электроинструменты
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Ручной инструмент
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Строительное оборудование
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Info Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
+                    Информация
+                </h4>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#about" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            О компании
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Условия аренды
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Доставка
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contacts" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
+                            <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contacts -->
+            <div>
+                <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
+                    Контакты
+                </h4>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="https://maps.google.com" target="_blank" class="flex items-start gap-3 text-gray-400 hover:text-brand-yellow transition-colors duration-300 group">
+                            <div class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-brand-yellow/10 group-hover:border-brand-yellow/50">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <span class="pt-2 text-sm">{{ SITE_ADDRESS }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:{{ SITE_PHONE }}" class="flex items-center gap-3 text-gray-400 hover:text-brand-yellow transition-colors duration-300 group">
+                            <div class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-brand-yellow/10 group-hover:border-brand-yellow/50">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">{{ SITE_PHONE }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ SITE_EMAIL }}" class="flex items-center gap-3 text-gray-400 hover:text-brand-yellow transition-colors duration-300 group">
+                            <div class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-brand-yellow/10 group-hover:border-brand-yellow/50">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">{{ SITE_EMAIL }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <p>&copy; {% now "Y" %} {{ SITE_NAME }}. Все права защищены.</p>
-            <div class="footer-bottom-links">
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Условия использования</a>
+        <!-- Bottom Bar -->
+        <div class="mt-12 pt-8 border-t border-dark-border">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; {% now "Y" %} <span class="text-gradient font-semibold">{{ SITE_NAME }}</span>. Все права защищены.
+                </p>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
+                        Политика конфиденциальности
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
+                        Условия использования
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Decorative Bottom Line -->
+    <div class="h-1 bg-gradient-to-r from-brand-red via-brand-yellow to-brand-red"></div>
 </footer>

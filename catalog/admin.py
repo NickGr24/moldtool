@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
-from .models import Category, Tool, ToolImage
+from .models import Category, Tool, ToolImage, Favorite, Review, FAQ
 
 
 class ToolImageInline(admin.TabularInline):
@@ -114,3 +114,37 @@ class ToolImageAdmin(admin.ModelAdmin):
             )
         return '-'
     image_preview.short_description = _('Превью')
+
+
+@admin.register(Favorite)
+class FavoriteAdmin(admin.ModelAdmin):
+    """Админка для избранного."""
+
+    list_display = ('user', 'tool', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('user__email', 'tool__name')
+    raw_id_fields = ('user', 'tool')
+    ordering = ('-created_at',)
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    """Админка для отзывов."""
+
+    list_display = ('user', 'tool', 'rating', 'is_approved', 'created_at')
+    list_filter = ('rating', 'is_approved', 'created_at')
+    list_editable = ('is_approved',)
+    search_fields = ('user__email', 'tool__name', 'text')
+    raw_id_fields = ('user', 'tool')
+    ordering = ('-created_at',)
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    """Админка для FAQ."""
+
+    list_display = ('question', 'order', 'is_active', 'created_at')
+    list_filter = ('is_active',)
+    list_editable = ('order', 'is_active')
+    search_fields = ('question', 'answer')
+    ordering = ('order', '-created_at')
