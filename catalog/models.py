@@ -2,6 +2,8 @@
 Модели каталога инструментов для платформы MoldTool.
 """
 
+from django.conf import settings
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -238,6 +240,19 @@ class Tool(models.Model):
         self.views_count += 1
         self.save(update_fields=['views_count'])
 
+    @property
+    def average_rating(self):
+        """Возвращает средний рейтинг инструмента."""
+        reviews = self.reviews.filter(is_approved=True)
+        if reviews.exists():
+            return round(reviews.aggregate(models.Avg('rating'))['rating__avg'], 1)
+        return 0
+
+    @property
+    def reviews_count(self):
+        """Возвращает количество отзывов."""
+        return self.reviews.filter(is_approved=True).count()
+
 
 class ToolImage(models.Model):
     """Дополнительные изображения инструмента."""
@@ -269,3 +284,107 @@ class ToolImage(models.Model):
 
     def __str__(self):
         return f'{self.tool.name} - изображение {self.order}'
+
+
+class Favorite(models.Model):
+    """Избранные инструменты пользователя."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='favorites',
+        verbose_name=_('пользователь'),
+    )
+    tool = models.ForeignKey(
+        Tool,
+        on_delete=models.CASCADE,
+        related_name='favorited_by',
+        verbose_name=_('инструмент'),
+    )
+    created_at = models.DateTimeField(
+        _('дата добавления'),
+        auto_now_add=True,
+    )
+
+    class Meta:
+        verbose_name = _('избранное')
+        verbose_name_plural = _('избранное')
+        unique_together = ['user', 'tool']
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.user.email} - {self.tool.name}'
+
+
+class Review(models.Model):
+    """Отзыв о инструменте."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+        verbose_name=_('пользователь'),
+    )
+    tool = models.ForeignKey(
+        Tool,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+        verbose_name=_('инструмент'),
+    )
+    rating = models.PositiveSmallIntegerField(
+        _('оценка'),
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
+    )
+    text = models.TextField(
+        _('текст отзыва'),
+        blank=True,
+    )
+    created_at = models.DateTimeField(
+        _('дата создания'),
+        auto_now_add=True,
+    )
+    is_approved = models.BooleanField(
+        _('одобрен'),
+        default=True,
+    )
+
+    class Meta:
+        verbose_name = _('отзыв')
+        verbose_name_plural = _('отзывы')
+        unique_together = ['user', 'tool']
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.user.email} - {self.tool.name} ({self.rating}★)'
+
+
+class FAQ(models.Model):
+    """Часто задаваемые вопросы."""
+
+    question = models.CharField(
+        _('вопрос'),
+        max_length=500,
+    )
+    answer = models.TextField(
+        _('ответ'),
+    )
+    order = models.PositiveIntegerField(
+        _('порядок'),
+        default=0,
+    )
+    is_active = models.BooleanField(
+        _('активен'),
+        default=True,
+    )
+    created_at = models.DateTimeField(
+        _('дата создания'),
+        auto_now_add=True,
+    )
+
+    class Meta:
+        verbose_name = _('FAQ')
+        verbose_name_plural = _('FAQ')
+        ordering = ['order', '-created_at']
+
+    def __str__(self):
+        return self.question[:50]

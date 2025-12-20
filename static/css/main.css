@@ -19,10 +19,21 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
     flex-wrap: wrap;
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-dark);
 }
 
 .catalog-filters .form-control {
     max-width: 200px;
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border-dark);
+    color: #FFFFFF;
+}
+
+.catalog-filters .form-control:hover {
+    border-color: #F5A623;
 }
 
 .catalog-search {
@@ -33,6 +44,12 @@
 
 .catalog-search input {
     padding-right: var(--spacing-2xl);
+    background-color: var(--color-bg-input);
+    color: #FFFFFF;
+}
+
+.catalog-search input::placeholder {
+    color: var(--color-text-muted);
 }
 
 .catalog-search button {
@@ -41,10 +58,16 @@
     top: 50%;
     transform: translateY(-50%);
     color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
 }
 
 .catalog-search button:hover {
-    color: var(--color-primary);
+    color: #F5A623;
+    background-color: rgba(245, 166, 35, 0.1);
 }
 
 /* Сетка инструментов */
