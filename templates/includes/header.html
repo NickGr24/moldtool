@@ -61,11 +61,12 @@
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
                     </a>
 
-                    <a href="#contacts"
-                       class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
-                        <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
+                    <a href="{% url 'core:contacts' %}"
+                       class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
+                              {% if request.resolver_match.url_name == 'contacts' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
+                        <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
                         <span class="relative">Контакты</span>
-                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
                     <a href="{% url 'catalog:faq' %}"
@@ -186,8 +187,8 @@
                     <span class="font-medium">О нас</span>
                 </a>
 
-                <a href="#contacts"
-                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 transition-all duration-300 hover:bg-dark-200 hover:text-white">
+                <a href="{% url 'core:contacts' %}"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
