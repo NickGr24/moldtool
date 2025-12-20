@@ -156,7 +156,7 @@
     </style>
 
     <!-- Legacy CSS (для совместимости с другими страницами) -->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?v=1.0.2">
     {% block extra_css %}{% endblock %}
 </head>
 <body class="font-inter bg-dark text-white antialiased selection:bg-brand-yellow/30 selection:text-white">
@@ -251,7 +251,7 @@
     </script>
 
     <!-- JavaScript -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}?v=1.0.2"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
