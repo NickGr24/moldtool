@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Панель управления - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Панель управления" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-8 lg:py-12 bg-dark min-h-screen">
@@ -9,8 +9,8 @@
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">Панель управления</h1>
-                <p class="text-gray-400">Статистика и аналитика MoldTool</p>
+                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Панель управления" %}</h1>
+                <p class="text-gray-400">{% trans "Статистика и аналитика MoldTool" %}</p>
             </div>
             <a href="/admin/" target="_blank"
                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
@@ -33,9 +33,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Инструменты</p>
+                        <p class="text-gray-400 text-sm">{% trans "Инструменты" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_tools }}</p>
-                        <p class="text-green-400 text-xs">{{ available_tools }} доступно</p>
+                        <p class="text-green-400 text-xs">{{ available_tools }} {% trans "доступно" %}</p>
                     </div>
                 </div>
             </div>
@@ -49,9 +49,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Пользователи</p>
+                        <p class="text-gray-400 text-sm">{% trans "Пользователи" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_users }}</p>
-                        <p class="text-green-400 text-xs">+{{ new_users_week }} за неделю</p>
+                        <p class="text-green-400 text-xs">+{{ new_users_week }} {% trans "за неделю" %}</p>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,12 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Отзывы</p>
+                        <p class="text-gray-400 text-sm">{% trans "Отзывы" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_reviews }}</p>
                         {% if pending_reviews > 0 %}
-                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} на модерации</p>
+                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} {% trans "на модерации" %}</p>
                         {% else %}
-                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} за неделю</p>
+                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} {% trans "за неделю" %}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -85,9 +85,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">В избранном</p>
+                        <p class="text-gray-400 text-sm">{% trans "В избранном" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_favorites }}</p>
-                        <p class="text-gray-500 text-xs">Ср. рейтинг: {{ average_rating }}</p>
+                        <p class="text-gray-500 text-xs">{% trans "Ср. рейтинг:" %} {{ average_rating }}</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                     </svg>
-                    Популярные инструменты
+                    {% trans "Популярные инструменты" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in popular_tools %}
@@ -125,11 +125,11 @@
                         </div>
                         <div class="text-right">
                             <p class="text-brand-yellow font-bold">{{ tool.views_count }}</p>
-                            <p class="text-gray-500 text-xs">просмотров</p>
+                            <p class="text-gray-500 text-xs">{% trans "просмотров" %}</p>
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет данных</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -140,7 +140,7 @@
                     <svg class="w-5 h-5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
-                    Чаще добавляют в избранное
+                    {% trans "Чаще добавляют в избранное" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in most_favorited %}
@@ -160,7 +160,7 @@
                             <a href="{{ tool.get_absolute_url }}" class="text-white font-medium hover:text-brand-yellow transition-colors line-clamp-1">
                                 {{ tool.name }}
                             </a>
-                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} MDL/день</p>
+                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} {% trans "MDL/день" %}</p>
                         </div>
                         <div class="text-right">
                             <p class="text-brand-red font-bold">{{ tool.favorites_count }}</p>
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет данных</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
                     {% endfor %}
                 </div>
             </div>
