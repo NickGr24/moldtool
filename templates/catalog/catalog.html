@@ -143,9 +143,10 @@
 
                         <!-- Favorite button -->
                         {% if user.is_authenticated %}
-                        <button onclick="toggleFavorite({{ tool.id }}, this); event.preventDefault();"
+                        <button type="button"
                                 class="absolute top-3 right-3 p-2 bg-dark/80 backdrop-blur-sm rounded-full transition-all duration-300 hover:scale-110 z-10 favorite-btn"
-                                data-tool-id="{{ tool.id }}">
+                                data-tool-id="{{ tool.id }}"
+                                onclick="toggleFavorite(this.dataset.toolId, this); return false;">
                             <svg class="w-5 h-5 transition-colors {% if tool.id in favorite_ids %}text-brand-red fill-current{% else %}text-gray-400{% endif %}"
                                  fill="{% if tool.id in favorite_ids %}currentColor{% else %}none{% endif %}"
                                  stroke="currentColor" viewBox="0 0 24 24">
@@ -320,6 +321,7 @@ select option:hover {
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
