@@ -14,7 +14,7 @@
                          class="h-12 w-auto rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-glow-yellow group-hover:scale-105">
                 </a>
                 <p class="text-gray-400 mb-6 leading-relaxed">
-                    {{ SITE_TAGLINE }}. Профессиональное оборудование для любых строительных задач.
+                    {{ SITE_TAGLINE }}. Echipament profesional pentru orice sarcini de construcție.
                 </p>
                 <!-- Social Links -->
                 <div class="flex items-center gap-3">
@@ -47,7 +47,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Каталог
+                    Catalog
                 </h4>
                 <ul class="space-y-3">
                     <li>
@@ -55,7 +55,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Все инструменты
+                            Toate uneltele
                         </a>
                     </li>
                     <li>
@@ -63,7 +63,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Электроинструменты
+                            Scule electrice
                         </a>
                     </li>
                     <li>
@@ -71,7 +71,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Ручной инструмент
+                            Scule manuale
                         </a>
                     </li>
                     <li>
@@ -79,7 +79,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Строительное оборудование
+                            Echipament de construcție
                         </a>
                     </li>
                 </ul>
@@ -89,7 +89,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
-                    Информация
+                    Informații
                 </h4>
                 <ul class="space-y-3">
                     <li>
@@ -97,7 +97,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            О компании
+                            Despre companie
                         </a>
                     </li>
                     <li>
@@ -105,7 +105,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Условия аренды
+                            Condiții de închiriere
                         </a>
                     </li>
                     <li>
@@ -113,7 +113,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Доставка
+                            Livrare
                         </a>
                     </li>
                     <li>
@@ -121,7 +121,7 @@
                             <svg class="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                            Контакты
+                            Contacte
                         </a>
                     </li>
                 </ul>
@@ -131,11 +131,11 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Контакты
+                    Contacte
                 </h4>
                 <ul class="space-y-4">
                     <li>
-                        <a href="https://maps.google.com" target="_blank" class="flex items-start gap-3 text-gray-400 hover:text-brand-yellow transition-colors duration-300 group">
+                        <a href="https://maps.google.com/?q={{ SITE_ADDRESS|urlencode }}" target="_blank" class="flex items-start gap-3 text-gray-400 hover:text-brand-yellow transition-colors duration-300 group">
                             <div class="w-10 h-10 bg-dark-200 border border-dark-border rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-brand-yellow/10 group-hover:border-brand-yellow/50">
                                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -174,14 +174,14 @@
         <div class="mt-12 pt-8 border-t border-dark-border">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-500 text-sm">
-                    &copy; {% now "Y" %} <span class="text-gradient font-semibold">{{ SITE_NAME }}</span>. Все права защищены.
+                    &copy; {% now "Y" %} <span class="text-gradient font-semibold">{{ SITE_NAME }}</span>. Toate drepturile rezervate.
                 </p>
                 <div class="flex items-center gap-6 text-sm">
                     <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
-                        Политика конфиденциальности
+                        Politica de confidențialitate
                     </a>
                     <a href="#" class="text-gray-500 hover:text-brand-yellow transition-colors duration-300">
-                        Условия использования
+                        Termeni și condiții
                     </a>
                 </div>
             </div>
