@@ -138,8 +138,8 @@
                     <div class="relative group">
                         <div class="absolute inset-0 bg-gradient-to-r from-brand-yellow/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="relative p-4 lg:p-6 bg-dark-100/50 rounded-xl border border-dark-border/50">
-                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">5 {% trans "лет" %}</div>
-                            <div class="text-xs sm:text-sm text-gray-500">{% trans "На рынке" %}</div>
+                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">5+</div>
+                            <div class="text-xs sm:text-sm text-gray-500">{% trans "Лет опыта" %}</div>
                         </div>
                     </div>
                 </div>
@@ -275,7 +275,7 @@
                 {% trans "Почему выбирают" %} <span class="text-gradient">MoldTool</span>?
             </h2>
             <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-                Мы предоставляем профессиональное строительное оборудование в аренду уже более 5 {% trans "лет" %}, обеспечивая качество и надёжность для каждого клиента.
+                {% trans "Мы предоставляем профессиональное строительное оборудование в аренду уже более 5 лет, обеспечивая качество и надёжность для каждого клиента." %}
             </p>
         </div>
 
@@ -303,7 +303,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Доступные цены" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
-                    Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при длительной аренде и для постоянных {% trans "клиентов" %}.
+                    {% trans "Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при длительной аренде и для постоянных клиентов." %}
                 </p>
             </article>
 
@@ -399,7 +399,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <span class="inline-block px-4 py-2 bg-brand-red/10 text-brand-red font-semibold rounded-full text-sm mb-4">
-                Каталог
+                {% trans "Каталог" %}
             </span>
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">{% trans "Категории инструментов" %}</h2>
             <p class="text-gray-400 text-lg">{% trans "Выберите нужную категорию и найдите подходящий инструмент" %}</p>
@@ -415,7 +415,7 @@
                     </svg>
                 </div>
                 <h3 class="text-lg font-semibold text-white mb-1 text-center group-hover:text-brand-yellow transition-colors">{{ category.name }}</h3>
-                <span class="text-sm text-gray-500">{{ category.tools_count }} инструментов</span>
+                <span class="text-sm text-gray-500">{{ category.tools_count }} {% trans "инструментов" %}</span>
             </a>
             {% empty %}
             <div class="col-span-full py-12 text-center">
