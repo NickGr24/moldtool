@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 15:52+0200\n"
+"POT-Creation-Date: 2025-12-21 12:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,7 +228,7 @@ msgstr ""
 msgid "цена за день"
 msgstr ""
 
-#: catalog/models.py:157
+#: catalog/models.py:157 templates/catalog/tool_detail.html:164
 msgid "залог"
 msgstr ""
 
@@ -478,14 +478,15 @@ msgstr ""
 msgid "Каталог инструментов"
 msgstr "Categorii de instrumente"
 
-#: templates/catalog/catalog.html:11 templates/includes/header.html:45
+#: templates/catalog/catalog.html:11 templates/catalog/faq.html:11
+#: templates/catalog/tool_detail.html:13 templates/includes/header.html:45
 #: templates/includes/header.html:207
 msgid "Главная"
 msgstr "Acasă"
 
-#: templates/catalog/catalog.html:15 templates/dashboard/index.html:34
-#: templates/includes/footer.html:50 templates/includes/header.html:53
-#: templates/includes/header.html:215
+#: templates/catalog/catalog.html:15 templates/catalog/tool_detail.html:17
+#: templates/dashboard/index.html:34 templates/includes/footer.html:50
+#: templates/includes/header.html:53 templates/includes/header.html:215
 msgid "Каталог"
 msgstr "Catalog"
 
@@ -582,6 +583,22 @@ msgstr "Încercați să schimbați parametrii de căutare sau resetați filtrele
 msgid "Сбросить фильтры"
 msgstr "Resetare filtre"
 
+#: templates/catalog/faq.html:15 templates/catalog/faq.html:20
+msgid "Частые вопросы"
+msgstr "Întrebări frecvente"
+
+#: templates/catalog/faq.html:21
+msgid "Ответы на популярные вопросы об аренде инструментов"
+msgstr "Răspunsuri la întrebările frecvente despre închirierea uneltelor"
+
+#: templates/catalog/faq.html:50
+msgid "Не нашли ответ на свой вопрос?"
+msgstr "Nu ați găsit răspuns la întrebarea dumneavoastră?"
+
+#: templates/catalog/faq.html:51
+msgid "Свяжитесь с нами любым удобным способом"
+msgstr "Contactați-ne în orice mod convenabil"
+
 #: templates/catalog/faq.html:58
 msgid "WhatsApp"
 msgstr "WhatsApp"
@@ -594,15 +611,24 @@ msgstr "Telegram"
 msgid "Позвонить"
 msgstr "Sunați"
 
+#: templates/catalog/faq.html:85
+msgid "FAQ пока пусто"
+msgstr "FAQ încă gol"
+
+#: templates/catalog/faq.html:86
+msgid "Скоро здесь появятся ответы на частые вопросы"
+msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
+
 #: templates/catalog/faq.html:89 templates/home.html:377
 msgid "Перейти в каталог"
 msgstr "Mergi la catalog"
 
-#: templates/catalog/tool_detail.html:98 templates/catalog/tool_detail.html:347
+#: templates/catalog/tool_detail.html:98
 msgid "отзывов"
 msgstr "recenzii"
 
 #: templates/catalog/tool_detail.html:121
+#: templates/catalog/tool_detail.html:157
 #, fuzzy
 #| msgid "Каталог"
 msgid "Залог:"
@@ -613,6 +639,42 @@ msgstr "Catalog"
 #| msgid "Условия аренды"
 msgid "Калькулятор аренды"
 msgstr "Condiții de închiriere"
+
+#: templates/catalog/tool_detail.html:136
+msgid "Дата начала"
+msgstr "Data de început"
+
+#: templates/catalog/tool_detail.html:141
+#, fuzzy
+#| msgid "Забота о клиентах"
+msgid "Дата окончания"
+msgstr "Grija pentru clienți"
+
+#: templates/catalog/tool_detail.html:148
+msgid "Количество дней:"
+msgstr "Număr de zile:"
+
+#: templates/catalog/tool_detail.html:152
+#, fuzzy
+#| msgid "Условия аренды"
+msgid "Стоимость аренды:"
+msgstr "Condiții de închiriere"
+
+#: templates/catalog/tool_detail.html:162
+msgid "Итого к оплате:"
+msgstr "Total de plată:"
+
+#: templates/catalog/tool_detail.html:175
+#, fuzzy
+#| msgid "Доступные цены"
+msgid "Доступен для аренды"
+msgstr "Prețuri accesibile"
+
+#: templates/catalog/tool_detail.html:180
+#, fuzzy
+#| msgid "В аренде"
+msgid "Сейчас в аренде"
+msgstr "În închiriere"
 
 #: templates/catalog/tool_detail.html:196
 #: templates/rentals/create_request.html:4
@@ -629,6 +691,20 @@ msgstr "Descriere"
 msgid "Отзывы"
 msgstr "Recenzii"
 
+#: templates/catalog/tool_detail.html:281
+#, fuzzy
+#| msgid "Отправить отзыв"
+msgid "Оставить отзыв"
+msgstr "Trimite recenzia"
+
+#: templates/catalog/tool_detail.html:284
+msgid "Ваша оценка"
+msgstr "Evaluarea dumneavoastră"
+
+#: templates/catalog/tool_detail.html:298
+msgid "Ваш отзыв (необязательно)"
+msgstr "Recenzia dumneavoastră (opțional)"
+
 #: templates/catalog/tool_detail.html:301
 msgid "Поделитесь вашим опытом использования этого инструмента..."
 msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
@@ -637,9 +713,19 @@ msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
 msgid "Отправить отзыв"
 msgstr "Trimite recenzia"
 
+#: templates/catalog/tool_detail.html:311
+#, fuzzy
+#| msgid "Укажите даты и оставьте заявку"
+msgid "Войдите, чтобы оставить отзыв"
+msgstr "Indicați datele și lăsați o cerere"
+
 #: templates/catalog/tool_detail.html:314 templates/includes/header.html:175
 msgid "Войти"
 msgstr "Autentificare"
+
+#: templates/catalog/tool_detail.html:347
+msgid "Пока нет отзывов. Будьте первым!"
+msgstr "Încă nu există recenzii. Fiți primul!"
 
 #: templates/catalog/tool_detail.html:359
 #, fuzzy
