@@ -44,7 +44,6 @@ class HomeView(TemplateView):
         return context
 
 
-@method_decorator(staff_member_required, name='dispatch')
 class ContactsView(TemplateView):
     """Страница контактов."""
 

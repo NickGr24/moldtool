@@ -11,9 +11,9 @@ def site_settings(request):
     """
     return {
         'SITE_NAME': 'MoldTool',
-        'SITE_TAGLINE': 'Аренда строительных инструментов',
+        'SITE_TAGLINE': 'Închiriere de scule de construcție',
         'SITE_PHONE': '0 (60) 998 803',
         'SITE_EMAIL': 'info@moto4rent.md',
-        'SITE_ADDRESS': 'г. Кишинёв, ул. Индепендеций 7',
+        'SITE_ADDRESS': 'mun. Chișinău, str. Independenței 7',
         'DEBUG': settings.DEBUG,
     }
