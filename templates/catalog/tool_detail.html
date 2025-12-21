@@ -10,11 +10,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-8">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
             <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
-            <a href="{% url 'catalog:catalog' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Каталог" %}</a>
+            <a href="{% url 'catalog:catalog' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Catalog" %}</a>
             <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
@@ -42,7 +42,7 @@
 
                     {% if tool.is_featured %}
                     <span class="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark text-sm font-bold rounded-full shadow-lg">
-                        {% trans "Хит" %}
+                        {% trans "Hit" %}
                     </span>
                     {% endif %}
 
@@ -95,7 +95,7 @@
                             {% endfor %}
                         </div>
                         <span class="text-white font-medium">{{ tool.average_rating }}</span>
-                        <span class="text-gray-500">({{ tool.reviews_count }} {% trans "отзывов" %})</span>
+                        <span class="text-gray-500">({{ tool.reviews_count }} {% trans "recenzii" %})</span>
                     </div>
                     {% endif %}
                 </div>
@@ -111,14 +111,14 @@
                 <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border mb-6">
                     <div class="flex items-baseline gap-2 mb-2">
                         <span class="text-4xl font-bold text-brand-yellow">{{ tool.price_per_day }}</span>
-                        <span class="text-xl text-gray-400">MDL / день</span>
+                        <span class="text-xl text-gray-400">MDL / zi</span>
                     </div>
                     {% if tool.deposit %}
                     <div class="flex items-center gap-2 text-gray-400">
                         <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                         </svg>
-                        <span>{% trans "Залог:" %} <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
+                        <span>{% trans "Depozit:" %} <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
                     </div>
                     {% endif %}
                 </div>
@@ -129,37 +129,37 @@
                         <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                         </svg>
-                        {% trans "Калькулятор аренды" %}
+                        {% trans "Calculator de închiriere" %}
                     </h3>
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label class="block text-gray-400 text-sm mb-2">{% trans "Дата начала" %}</label>
+                            <label class="block text-gray-400 text-sm mb-2">{% trans "Data de început" %}</label>
                             <input type="date" id="startDate"
                                    class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
                         </div>
                         <div>
-                            <label class="block text-gray-400 text-sm mb-2">{% trans "Дата окончания" %}</label>
+                            <label class="block text-gray-400 text-sm mb-2">{% trans "Data de sfârșit" %}</label>
                             <input type="date" id="endDate"
                                    class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
                         </div>
                     </div>
                     <div id="calculatorResult" class="hidden">
                         <div class="flex justify-between items-center py-3 border-b border-dark-border">
-                            <span class="text-gray-400">{% trans "Количество дней:" %}</span>
+                            <span class="text-gray-400">{% trans "Număr de zile:" %}</span>
                             <span id="daysCount" class="text-white font-medium">0</span>
                         </div>
                         <div class="flex justify-between items-center py-3 border-b border-dark-border">
-                            <span class="text-gray-400">{% trans "Стоимость аренды:" %}</span>
+                            <span class="text-gray-400">{% trans "Cost închiriere:" %}</span>
                             <span id="rentalCost" class="text-white font-medium">0 MDL</span>
                         </div>
                         {% if tool.deposit %}
                         <div class="flex justify-between items-center py-3 border-b border-dark-border">
-                            <span class="text-gray-400">{% trans "Залог:" %}</span>
+                            <span class="text-gray-400">{% trans "Depozit:" %}</span>
                             <span class="text-white font-medium">{{ tool.deposit }} MDL</span>
                         </div>
                         {% endif %}
                         <div class="flex justify-between items-center py-3">
-                            <span class="text-white font-bold">{% trans "Итого к оплате:" %}</span>
+                            <span class="text-white font-bold">{% trans "Total de plată:" %}</span>
                             <span id="totalCost" class="text-xl font-bold text-brand-yellow">
                                 <span id="rentalPart">0</span> + <span id="depositPart">0</span> ({% trans "залог" %}) = <span id="totalPart">0</span> MDL
                             </span>
@@ -172,12 +172,12 @@
                     {% if tool.is_available %}
                     <div class="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-xl">
                         <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-                        <span class="text-green-400 font-medium">{% trans "Доступен для аренды" %}</span>
+                        <span class="text-green-400 font-medium">{% trans "Disponibil pentru închiriere" %}</span>
                     </div>
                     {% else %}
                     <div class="flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-xl">
                         <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                        <span class="text-yellow-400 font-medium">{% trans "Сейчас в аренде" %}</span>
+                        <span class="text-yellow-400 font-medium">{% trans "Acum în închiriere" %}</span>
                     </div>
                     {% endif %}
                 </div>
@@ -193,14 +193,14 @@
                             <line x1="8" y1="2" x2="8" y2="6"/>
                             <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        {% trans "Арендовать" %}
+                        {% trans "Închiriere" %}
                     </a>
                     {% else %}
                     <button disabled class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark-200 text-gray-500 font-bold rounded-xl cursor-not-allowed">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
                         </svg>
-                        {% trans "Недоступен" %}
+                        {% trans "Indisponibil" %}
                     </button>
                     {% endif %}
 
@@ -221,7 +221,7 @@
                         <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
                         </svg>
-                        {% trans "Характеристики" %}
+                        {% trans "Caracteristici" %}
                     </h3>
                     <div class="space-y-3">
                         {% for key, value in tool.specifications.items %}
@@ -243,7 +243,7 @@
                 <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
                 </svg>
-                {% trans "Описание" %}
+                {% trans "Descriere" %}
             </h3>
             <div class="text-gray-400 leading-relaxed prose prose-invert max-w-none">
                 {{ tool.description|linebreaks }}
@@ -258,7 +258,7 @@
                     <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                     </svg>
-                    {% trans "Отзывы" %} ({{ tool.reviews_count }})
+                    {% trans "Recenzii" %} ({{ tool.reviews_count }})
                 </h3>
 
                 {% if tool.average_rating > 0 %}
@@ -278,10 +278,10 @@
             <!-- Add Review Form -->
             {% if user.is_authenticated and not user_review %}
             <div class="mb-8 p-6 bg-dark rounded-xl border border-dark-border">
-                <h4 class="text-lg font-bold text-white mb-4">{% trans "Оставить отзыв" %}</h4>
+                <h4 class="text-lg font-bold text-white mb-4">{% trans "Lăsați o recenzie" %}</h4>
                 <form id="reviewForm" class="space-y-4">
                     <div>
-                        <label class="block text-gray-400 text-sm mb-2">{% trans "Ваша оценка" %}</label>
+                        <label class="block text-gray-400 text-sm mb-2">{% trans "Evaluarea dumneavoastră" %}</label>
                         <div class="flex gap-2" id="ratingStars">
                             {% for i in "12345" %}
                             <button type="button" data-rating="{{ forloop.counter }}"
@@ -295,23 +295,23 @@
                         <input type="hidden" id="ratingValue" value="0">
                     </div>
                     <div>
-                        <label class="block text-gray-400 text-sm mb-2">{% trans "Ваш отзыв (необязательно)" %}</label>
+                        <label class="block text-gray-400 text-sm mb-2">{% trans "Recenzia dumneavoastră (opțional)" %}</label>
                         <textarea id="reviewText" rows="3"
                                   class="w-full px-4 py-3 bg-dark-100 rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all resize-none"
-                                  placeholder="{% trans "Поделитесь вашим опытом использования этого инструмента..." %}"></textarea>
+                                  placeholder="{% trans "Împărtășiți experiența dumneavoastră cu această unealtă..." %}"></textarea>
                     </div>
                     <button type="submit"
                             class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
-                        {% trans "Отправить отзыв" %}
+                        {% trans "Trimite recenzia" %}
                     </button>
                 </form>
             </div>
             {% elif not user.is_authenticated %}
             <div class="mb-8 p-6 bg-dark rounded-xl border border-dark-border text-center">
-                <p class="text-gray-400 mb-4">{% trans "Войдите, чтобы оставить отзыв" %}</p>
+                <p class="text-gray-400 mb-4">{% trans "Autentificați-vă pentru a lăsa o recenzie" %}</p>
                 <a href="{% url 'account_login' %}?next={{ request.path }}"
                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-glow-yellow">
-                    {% trans "Войти" %}
+                    {% trans "Autentificare" %}
                 </a>
             </div>
             {% endif %}
@@ -344,7 +344,7 @@
                 </div>
                 {% empty %}
                 <div class="text-center py-8">
-                    <p class="text-gray-500">{% trans "Пока нет отзывов. Будьте первым!" %}</p>
+                    <p class="text-gray-500">{% trans "Пока нет recenzii. Будьте первым!" %}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -356,11 +356,11 @@
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-3">
                     <span class="w-1.5 h-8 bg-gradient-to-b from-brand-yellow to-brand-red rounded-full"></span>
-                    {% trans "Похожие инструменты" %}
+                    {% trans "Instrumente similare" %}
                 </h2>
                 <a href="{% url 'catalog:catalog' %}?category={{ tool.category.slug }}"
                    class="text-brand-yellow hover:text-brand-yellow-light transition-colors flex items-center gap-2 group">
-                    {% trans "Все в категории" %}
+                    {% trans "Toate în categorie" %}
                     <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
@@ -387,7 +387,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <span class="text-lg font-bold text-brand-yellow">{{ related.price_per_day }} MDL</span>
-                                <span class="text-gray-500 text-sm"> / день</span>
+                                <span class="text-gray-500 text-sm"> / zi</span>
                             </div>
                             <div class="flex items-center gap-1.5 text-sm {% if related.is_available %}text-green-400{% else %}text-yellow-400{% endif %}">
                                 <span class="w-2 h-2 rounded-full {% if related.is_available %}bg-green-400{% else %}bg-yellow-400{% endif %}"></span>
@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showToast(data.message);
             })
             .catch(error => {
-                showToast('Войдите, чтобы добавить в избранное');
+                showToast('Autentificați-vă pentru a adăuga la favorite');
             });
         });
     }
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
 
             if (selectedRating === 0) {
-                showToast('Пожалуйста, выберите оценку');
+                showToast('Vă rugăm să selectați o evaluare');
                 return;
             }
 
@@ -592,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
-                showToast('Ошибка при отправке отзыва');
+                showToast('Eroare la trimiterea recenziei');
             });
         });
     }

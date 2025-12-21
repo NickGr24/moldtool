@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 12:57+0200\n"
+"POT-Creation-Date: 2025-12-21 16:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,15 +183,15 @@ msgstr "Хорошее"
 msgid "Удовлетворительное"
 msgstr "Удовлетворительное"
 
-#: catalog/models.py:95 templates/catalog/catalog.html:195
+#: catalog/models.py:95 templates/catalog/catalog.html:194
 #: templates/catalog/category.html:140 templates/catalog/favorites.html:94
-#: templates/home.html:495
+#: templates/home.html:446
 msgid "Доступен"
 msgstr "Доступен"
 
-#: catalog/models.py:96 templates/catalog/catalog.html:195
+#: catalog/models.py:96 templates/catalog/catalog.html:194
 #: templates/catalog/category.html:140 templates/catalog/favorites.html:94
-#: templates/home.html:495
+#: templates/home.html:446
 msgid "В аренде"
 msgstr "В аренде"
 
@@ -488,7 +488,7 @@ msgstr "Главная"
 
 #: templates/catalog/catalog.html:15 templates/catalog/category.html:15
 #: templates/catalog/tool_detail.html:17 templates/dashboard/index.html:34
-#: templates/home.html:402 templates/includes/footer.html:50
+#: templates/home.html:353 templates/includes/footer.html:50
 #: templates/includes/header.html:53 templates/includes/header.html:215
 msgid "Каталог"
 msgstr "Каталог"
@@ -521,61 +521,57 @@ msgstr "Сначала дороже"
 msgid "По названию"
 msgstr "По названию"
 
-#: templates/catalog/catalog.html:64
-msgid "Популярные"
-msgstr "Популярные"
-
-#: templates/catalog/catalog.html:78
+#: templates/catalog/catalog.html:77
 msgid "Найти"
 msgstr "Найти"
 
-#: templates/catalog/catalog.html:84
+#: templates/catalog/catalog.html:83
 msgid "Цена (MDL/день):"
 msgstr "Цена (MDL/день):"
 
-#: templates/catalog/catalog.html:99
+#: templates/catalog/catalog.html:98
 msgid "Применить"
 msgstr "Применить"
 
-#: templates/catalog/catalog.html:104
+#: templates/catalog/catalog.html:103
 msgid "Сбросить"
 msgstr "Сбросить"
 
-#: templates/catalog/catalog.html:115 templates/catalog/category.html:51
+#: templates/catalog/catalog.html:114 templates/catalog/category.html:51
 msgid "Найдено:"
 msgstr "Найдено:"
 
-#: templates/catalog/catalog.html:115 templates/catalog/category.html:42
+#: templates/catalog/catalog.html:114 templates/catalog/category.html:42
 #: templates/catalog/category.html:51 templates/catalog/favorites.html:32
-#: templates/home.html:78 templates/home.html:418
+#: templates/home.html:78 templates/home.html:369
 msgid "инструментов"
 msgstr "инструментов"
 
-#: templates/catalog/catalog.html:141 templates/catalog/category.html:90
+#: templates/catalog/catalog.html:140 templates/catalog/category.html:90
 #: templates/catalog/favorites.html:53 templates/catalog/tool_detail.html:45
-#: templates/home.html:469
+#: templates/home.html:420
 msgid "Хит"
 msgstr "Хит"
 
-#: templates/catalog/catalog.html:170 templates/catalog/category.html:115
-#: templates/catalog/favorites.html:73 templates/home.html:477
+#: templates/catalog/catalog.html:169 templates/catalog/category.html:115
+#: templates/catalog/favorites.html:73 templates/home.html:428
 msgid "Подробнее"
 msgstr "Подробнее"
 
-#: templates/catalog/catalog.html:191 templates/catalog/category.html:136
+#: templates/catalog/catalog.html:190 templates/catalog/category.html:136
 #: templates/catalog/favorites.html:90
 msgid "MDL/день"
 msgstr "MDL/день"
 
-#: templates/catalog/catalog.html:249
+#: templates/catalog/catalog.html:248
 msgid "Инструменты не найдены"
 msgstr "Инструменты не найдены"
 
-#: templates/catalog/catalog.html:250
+#: templates/catalog/catalog.html:249
 msgid "Попробуйте изменить параметры поиска или сбросьте фильтры"
 msgstr "Попробуйте изменить параметры поиска или сбросьте фильтры"
 
-#: templates/catalog/catalog.html:256
+#: templates/catalog/catalog.html:255
 msgid "Сбросить фильтры"
 msgstr "Сбросить фильтры"
 
@@ -623,7 +619,7 @@ msgstr ""
 msgid "Telegram"
 msgstr ""
 
-#: templates/catalog/faq.html:72 templates/home.html:689
+#: templates/catalog/faq.html:72 templates/home.html:692
 msgid "Позвонить"
 msgstr "Позвонить"
 
@@ -636,7 +632,7 @@ msgid "Скоро здесь появятся ответы на частые в�
 msgstr "Скоро здесь появятся ответы на частые вопросы"
 
 #: templates/catalog/faq.html:89 templates/catalog/favorites.html:118
-#: templates/home.html:377
+#: templates/home.html:283
 msgid "Перейти в каталог"
 msgstr "Перейти в каталог"
 
@@ -727,6 +723,7 @@ msgid "Описание"
 msgstr "Описание"
 
 #: templates/catalog/tool_detail.html:261
+#: templates/core/admin_dashboard.html:68
 msgid "Отзывы"
 msgstr "Отзывы"
 
@@ -778,6 +775,79 @@ msgstr "Похожие инструменты"
 msgid "Все в категории"
 msgstr "Все в категории"
 
+#: templates/core/admin_dashboard.html:4 templates/core/admin_dashboard.html:12
+#: templates/includes/header.html:133 templates/includes/header.html:257
+msgid "Панель управления"
+msgstr "Панель управления"
+
+#: templates/core/admin_dashboard.html:13
+msgid "Статистика и аналитика MoldTool"
+msgstr ""
+
+#: templates/core/admin_dashboard.html:36
+#, fuzzy
+#| msgid "инструменты"
+msgid "Инструменты"
+msgstr "инструменты"
+
+#: templates/core/admin_dashboard.html:38
+#, fuzzy
+#| msgid "доступность"
+msgid "доступно"
+msgstr "доступность"
+
+#: templates/core/admin_dashboard.html:52
+#, fuzzy
+#| msgid "пользователи"
+msgid "Пользователи"
+msgstr "пользователи"
+
+#: templates/core/admin_dashboard.html:54
+#: templates/core/admin_dashboard.html:73
+msgid "за неделю"
+msgstr ""
+
+#: templates/core/admin_dashboard.html:71
+#, fuzzy
+#| msgid "дата регистрации"
+msgid "на модерации"
+msgstr "дата регистрации"
+
+#: templates/core/admin_dashboard.html:88
+#, fuzzy
+#| msgid "избранное"
+msgid "В избранном"
+msgstr "избранное"
+
+#: templates/core/admin_dashboard.html:90
+msgid "Ср. рейтинг:"
+msgstr ""
+
+#: templates/core/admin_dashboard.html:104 templates/home.html:398
+msgid "Популярные инструменты"
+msgstr "Популярные инструменты"
+
+#: templates/core/admin_dashboard.html:128
+#, fuzzy
+#| msgid "количество просмотров"
+msgid "просмотров"
+msgstr "количество просмотров"
+
+#: templates/core/admin_dashboard.html:132
+#: templates/core/admin_dashboard.html:171
+msgid "Нет данных"
+msgstr ""
+
+#: templates/core/admin_dashboard.html:143
+#, fuzzy
+#| msgid "Инструменты, которые вы добавили в избранное"
+msgid "Чаще добавляют в избранное"
+msgstr "Инструменты, которые вы добавили в избранное"
+
+#: templates/core/admin_dashboard.html:163
+msgid "MDL/Zi"
+msgstr ""
+
 #: templates/dashboard/index.html:4
 msgid "Личный кабинет"
 msgstr "Личный кабинет"
@@ -822,7 +892,7 @@ msgstr "бесплатной доставкой"
 msgid "по всей стране."
 msgstr "по всей стране."
 
-#: templates/home.html:101 templates/home.html:693
+#: templates/home.html:101 templates/home.html:696
 msgid "Смотреть каталог"
 msgstr "Смотреть каталог"
 
@@ -830,11 +900,11 @@ msgstr "Смотреть каталог"
 msgid "Позвонить нам"
 msgstr "Позвонить нам"
 
-#: templates/home.html:128
+#: templates/home.html:128 templates/home.html:318
 msgid "Единиц техники"
 msgstr "Единиц техники"
 
-#: templates/home.html:135
+#: templates/home.html:135 templates/home.html:329
 msgid "Довольных клиентов"
 msgstr "Довольных клиентов"
 
@@ -842,205 +912,185 @@ msgstr "Довольных клиентов"
 msgid "Лет опыта"
 msgstr "Лет опыта"
 
-#: templates/home.html:180
-msgid "Перфоратор Bosch"
-msgstr "Перфоратор Bosch"
-
-#: templates/home.html:181
-msgid "Профессиональный"
-msgstr "Профессиональный"
-
-#: templates/home.html:185 templates/home.html:201 templates/home.html:491
-msgid "/ день"
-msgstr "/ день"
-
-#: templates/home.html:196
-msgid "Болгарка Makita"
-msgstr "Болгарка Makita"
-
-#: templates/home.html:213
-msgid "Хит продаж"
-msgstr "Хит продаж"
-
-#: templates/home.html:224
-msgid "В наличии"
-msgstr "В наличии"
-
-#: templates/home.html:239
-msgid "клиентов"
-msgstr "клиентов"
-
-#: templates/home.html:272 templates/includes/footer.html:100
+#: templates/home.html:178 templates/includes/footer.html:100
 msgid "О компании"
 msgstr "О компании"
 
-#: templates/home.html:275
+#: templates/home.html:181
 msgid "Почему выбирают"
 msgstr "Почему выбирают"
 
-#: templates/home.html:278
+#: templates/home.html:184
 msgid ""
 "Мы предоставляем профессиональное строительное оборудование в аренду уже "
 "более 5 лет, обеспечивая качество и надёжность для каждого клиента."
 msgstr ""
 
-#: templates/home.html:291
+#: templates/home.html:197
 msgid "Проверенное качество"
 msgstr "Проверенное качество"
 
-#: templates/home.html:293
+#: templates/home.html:199
 msgid ""
 "Весь инструмент проходит тщательную проверку перед каждой арендой. Мы "
 "гарантируем исправность и надёжность оборудования."
 msgstr ""
 
-#: templates/home.html:304
+#: templates/home.html:210
 msgid "Доступные цены"
 msgstr "Доступные цены"
 
-#: templates/home.html:306
+#: templates/home.html:212
 msgid ""
 "Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при "
 "длительной аренде и для постоянных клиентов."
 msgstr ""
 
-#: templates/home.html:317
+#: templates/home.html:223
 msgid "Быстрая доставка"
 msgstr "Быстрая доставка"
 
-#: templates/home.html:319
+#: templates/home.html:225
 msgid ""
 "Доставляем инструменты по всей Молдове. Возможен самовывоз из нашего офиса в "
 "Кишинёве или доставка на объект."
 msgstr ""
 
-#: templates/home.html:330
+#: templates/home.html:236
 msgid "Опытная команда"
 msgstr "Опытная команда"
 
-#: templates/home.html:332
+#: templates/home.html:238
 msgid ""
 "Наши специалисты помогут подобрать подходящий инструмент и проконсультируют "
 "по вопросам эксплуатации."
 msgstr ""
 
-#: templates/home.html:343
+#: templates/home.html:249
 msgid "Простое оформление"
 msgstr "Простое оформление"
 
-#: templates/home.html:345
+#: templates/home.html:251
 msgid ""
 "Минимум документов и быстрое оформление аренды. Онлайн-бронирование доступно "
 "круглосуточно."
 msgstr ""
 
-#: templates/home.html:356
+#: templates/home.html:262
 msgid "Забота о клиентах"
 msgstr "Забота о клиентах"
 
-#: templates/home.html:358
+#: templates/home.html:264
 msgid ""
 "Индивидуальный подход к каждому заказу. Техническая поддержка на протяжении "
 "всего срока аренды."
 msgstr ""
 
-#: templates/home.html:369
+#: templates/home.html:275
 msgid "Готовы начать работу?"
 msgstr "Готовы начать работу?"
 
-#: templates/home.html:372
+#: templates/home.html:278
 msgid "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 msgstr "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 
-#: templates/home.html:404
+#: templates/home.html:337
+msgid " лет"
+msgstr ""
+
+#: templates/home.html:340
+msgid "На рынке"
+msgstr "На рынке"
+
+#: templates/home.html:355
 msgid "Категории инструментов"
 msgstr "Категории инструментов"
 
-#: templates/home.html:405
+#: templates/home.html:356
 msgid "Выберите нужную категорию и найдите подходящий инструмент"
 msgstr "Выберите нужную категорию и найдите подходящий инструмент"
 
-#: templates/home.html:427
+#: templates/home.html:378
 msgid "Категории скоро появятся"
 msgstr "Категории скоро появятся"
 
-#: templates/home.html:445
+#: templates/home.html:396
 msgid "Популярное"
 msgstr "Популярное"
 
-#: templates/home.html:447
-msgid "Популярные инструменты"
-msgstr "Популярные инструменты"
-
-#: templates/home.html:448
+#: templates/home.html:399
 msgid "Самые востребованные инструменты для аренды"
 msgstr "Самые востребованные инструменты для аренды"
 
-#: templates/home.html:508
+#: templates/home.html:442
+msgid "/ Zi"
+msgstr ""
+
+#: templates/home.html:459
 msgid "Инструменты скоро появятся"
 msgstr "Инструменты скоро появятся"
 
-#: templates/home.html:509
+#: templates/home.html:460
 msgid "Мы активно наполняем каталог"
 msgstr "Мы активно наполняем каталог"
 
-#: templates/home.html:518
+#: templates/home.html:469
 msgid "Смотреть все инструменты"
 msgstr "Смотреть все инструменты"
 
-#: templates/home.html:539
+#: templates/home.html:490
 msgid "Процесс"
 msgstr "Процесс"
 
-#: templates/home.html:541
+#: templates/home.html:492
 msgid "Как это работает"
 msgstr "Как это работает"
 
-#: templates/home.html:542
+#: templates/home.html:493
 msgid "Простой процесс аренды в 4 шага"
 msgstr "Простой процесс аренды в 4 шага"
 
-#: templates/home.html:559
+#: templates/home.html:510
 msgid "Выберите"
 msgstr "Выберите"
 
-#: templates/home.html:560
+#: templates/home.html:511
 msgid "Найдите нужный инструмент в каталоге"
 msgstr "Найдите нужный инструмент в каталоге"
 
-#: templates/home.html:577
+#: templates/home.html:528
 msgid "Забронируйте"
 msgstr "Забронируйте"
 
-#: templates/home.html:578
+#: templates/home.html:529
 msgid "Укажите даты и оставьте заявку"
 msgstr "Укажите даты и оставьте заявку"
 
-#: templates/home.html:592
+#: templates/home.html:543
 msgid "Подтвердите"
 msgstr "Подтвердите"
 
-#: templates/home.html:593
+#: templates/home.html:544
 msgid "Мы свяжемся для подтверждения"
 msgstr "Мы свяжемся для подтверждения"
 
-#: templates/home.html:604
+#: templates/home.html:555
 msgid "Получите"
 msgstr "Получите"
 
-#: templates/home.html:605
+#: templates/home.html:556
 msgid "Заберите или закажите доставку"
 msgstr "Заберите или закажите доставку"
 
-#: templates/home.html:674
+#: templates/home.html:677
 msgid "Онлайн 24/7"
 msgstr "Онлайн 24/7"
 
-#: templates/home.html:678
+#: templates/home.html:681
 msgid "Нужна консультация?"
 msgstr "Нужна консультация?"
 
-#: templates/home.html:681
+#: templates/home.html:684
 msgid ""
 "Поможем подобрать инструмент для вашей задачи. Звоните или оставьте заявку!"
 msgstr ""
@@ -1069,14 +1119,6 @@ msgstr "Строительное оборудование"
 msgid "Информация"
 msgstr "Информация"
 
-#: templates/includes/footer.html:108
-msgid "Условия аренды"
-msgstr "Условия аренды"
-
-#: templates/includes/footer.html:116
-msgid "Доставка"
-msgstr "Доставка"
-
 #: templates/includes/footer.html:124 templates/includes/footer.html:134
 #: templates/includes/header.html:67 templates/includes/header.html:231
 msgid "Контакты"
@@ -1086,14 +1128,6 @@ msgstr "Контакты"
 msgid "Все права защищены."
 msgstr "Все права защищены."
 
-#: templates/includes/footer.html:181
-msgid "Политика конфиденциальности"
-msgstr "Политика конфиденциальности"
-
-#: templates/includes/footer.html:184
-msgid "Условия использования"
-msgstr "Условия использования"
-
 #: templates/includes/header.html:34
 msgid "Аренда инструментов"
 msgstr "Аренда инструментов"
@@ -1101,10 +1135,6 @@ msgstr "Аренда инструментов"
 #: templates/includes/header.html:60 templates/includes/header.html:223
 msgid "О нас"
 msgstr "О нас"
-
-#: templates/includes/header.html:133 templates/includes/header.html:257
-msgid "Панель управления"
-msgstr "Панель управления"
 
 #: templates/rentals/create_request.html:46
 msgid "Иван Иванов"
@@ -2342,8 +2372,41 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#~ msgid "Популярные"
+#~ msgstr "Популярные"
+
+#~ msgid "Перфоратор Bosch"
+#~ msgstr "Перфоратор Bosch"
+
+#~ msgid "Профессиональный"
+#~ msgstr "Профессиональный"
+
+#~ msgid "/ день"
+#~ msgstr "/ день"
+
+#~ msgid "Болгарка Makita"
+#~ msgstr "Болгарка Makita"
+
+#~ msgid "Хит продаж"
+#~ msgstr "Хит продаж"
+
+#~ msgid "В наличии"
+#~ msgstr "В наличии"
+
+#~ msgid "клиентов"
+#~ msgstr "клиентов"
+
+#~ msgid "Условия аренды"
+#~ msgstr "Условия аренды"
+
+#~ msgid "Доставка"
+#~ msgstr "Доставка"
+
+#~ msgid "Политика конфиденциальности"
+#~ msgstr "Политика конфиденциальности"
+
+#~ msgid "Условия использования"
+#~ msgstr "Условия использования"
+
 #~ msgid "лет"
 #~ msgstr "лет"
-
-#~ msgid "На рынке"
-#~ msgstr "На рынке"

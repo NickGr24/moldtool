@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Заявка отправлена - {{ SITE_NAME }}{% endblock %}
+{% block title %}Cererea a fost trimisă - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -14,45 +14,45 @@
                 </svg>
             </div>
 
-            <h1 class="auth-title">Заявка отправлена!</h1>
+            <h1 class="auth-title">Cererea a fost trimisă!</h1>
 
             <p class="text-muted mb-lg">
-                Ваша заявка <strong>#{{ rental.number }}</strong> успешно создана.<br>
-                Мы свяжемся с вами в ближайшее время для подтверждения.
+                Cererea dumneavoastră <strong>#{{ rental.number }}</strong> a fost creată cu succes.<br>
+                Vă vom contacta în curând pentru confirmare.
             </p>
 
             <div class="rental-summary">
                 <div class="rental-summary-row">
-                    <span>Инструмент</span>
+                    <span>Unealtă</span>
                     <span>{{ rental.tool.name }}</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>Период аренды</span>
+                    <span>Perioada de închiriere</span>
                     <span>{{ rental.start_date|date:"d.m.Y" }} - {{ rental.end_date|date:"d.m.Y" }}</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>Количество дней</span>
+                    <span>Număr de zile</span>
                     <span>{{ rental.total_days }}</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>Сумма</span>
+                    <span>Sumă</span>
                     <span>{{ rental.total_price }} MDL</span>
                 </div>
             </div>
 
             <div class="flex flex-col gap-md mt-xl">
                 <a href="{% url 'catalog:catalog' %}" class="btn btn-primary btn-lg">
-                    Продолжить выбор
+                    Continuați selecția
                 </a>
                 {% if user.is_authenticated %}
                 <a href="{% url 'rentals:user_requests' %}" class="btn btn-outline">
-                    Мои заявки
+                    Cererile mele
                 </a>
                 {% endif %}
             </div>
 
             <p class="text-muted mt-xl" style="font-size: var(--font-size-sm);">
-                Если у вас есть вопросы, звоните:<br>
+                Dacă aveți întrebări, sunați:<br>
                 <a href="tel:{{ SITE_PHONE }}" class="text-primary font-semibold">{{ SITE_PHONE }}</a>
             </p>
         </div>
