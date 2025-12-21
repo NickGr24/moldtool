@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 12:15+0200\n"
+"POT-Creation-Date: 2025-12-21 12:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,76 +21,76 @@ msgstr ""
 
 #: accounts/admin.py:23
 msgid "Личная информация"
-msgstr ""
+msgstr "Informații personale"
 
 #: accounts/admin.py:24
 msgid "Права доступа"
-msgstr ""
+msgstr "Drepturi de acces"
 
 #: accounts/admin.py:27 catalog/admin.py:69
 msgid "Настройки"
-msgstr ""
+msgstr "Setări"
 
 #: accounts/admin.py:28
 msgid "Важные даты"
-msgstr ""
+msgstr "Date importante"
 
 #: accounts/models.py:19
 msgid "Email обязателен"
-msgstr ""
+msgstr "Email-ul este obligatoriu"
 
 #: accounts/models.py:32
 msgid "Суперпользователь должен иметь is_staff=True"
-msgstr ""
+msgstr "Superutilizatorul trebuie să aibă is_staff=True"
 
 #: accounts/models.py:34
 msgid "Суперпользователь должен иметь is_superuser=True"
-msgstr ""
+msgstr "Superutilizatorul trebuie să aibă is_superuser=True"
 
 #: accounts/models.py:47
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: accounts/models.py:50
 msgid "Пользователь с таким email уже существует."
-msgstr ""
+msgstr "Un utilizator cu acest email există deja."
 
 #: accounts/models.py:56
 msgid "телефон"
-msgstr ""
+msgstr "telefon"
 
 #: accounts/models.py:61
 msgid "аватар"
-msgstr ""
+msgstr "avatar"
 
 #: accounts/models.py:69
 msgid "получать уведомления"
-msgstr ""
+msgstr "primește notificări"
 
 #: accounts/models.py:75
 msgid "дата регистрации"
-msgstr ""
+msgstr "data înregistrării"
 
 #: accounts/models.py:79 catalog/models.py:203 rentals/models.py:118
 msgid "дата обновления"
-msgstr ""
+msgstr "data actualizării"
 
 #: accounts/models.py:89 catalog/models.py:296 catalog/models.py:326
 #: rentals/models.py:41
 msgid "пользователь"
-msgstr ""
+msgstr "utilizator"
 
 #: accounts/models.py:90
 msgid "пользователи"
-msgstr ""
+msgstr "utilizatori"
 
 #: catalog/admin.py:54
 msgid "Основная информация"
-msgstr ""
+msgstr "Informații de bază"
 
 #: catalog/admin.py:57
 msgid "Изображение"
-msgstr ""
+msgstr "Imagine"
 
 #: catalog/admin.py:60 templates/catalog/tool_detail.html:224
 msgid "Характеристики"
@@ -98,7 +98,7 @@ msgstr "Caracteristici"
 
 #: catalog/admin.py:63
 msgid "Цены"
-msgstr ""
+msgstr "Prețuri"
 
 #: catalog/admin.py:66 rentals/admin.py:76
 msgid "Статус"
@@ -106,95 +106,97 @@ msgstr "Status"
 
 #: catalog/admin.py:72
 msgid "Статистика"
-msgstr ""
+msgstr "Statistici"
 
 #: catalog/admin.py:86
 msgid "Фото"
-msgstr ""
+msgstr "Foto"
 
 #: catalog/admin.py:96 catalog/admin.py:116
 msgid "Превью"
-msgstr ""
+msgstr "Previzualizare"
 
 #: catalog/models.py:17 catalog/models.py:102
 msgid "название"
-msgstr ""
+msgstr "nume"
 
 #: catalog/models.py:21 catalog/models.py:106
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2642
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: catalog/models.py:27 catalog/models.py:118
 msgid "описание"
-msgstr ""
+msgstr "descriere"
 
 #: catalog/models.py:31 catalog/models.py:267
 msgid "изображение"
-msgstr ""
+msgstr "imagine"
 
 #: catalog/models.py:37
 msgid "CSS-класс иконки"
-msgstr ""
+msgstr "Clasa CSS a iconiței"
 
 #: catalog/models.py:40
 msgid "Например: icon-drill, icon-hammer"
-msgstr ""
+msgstr "De exemplu: icon-drill, icon-hammer"
 
 #: catalog/models.py:48
 msgid "родительская категория"
-msgstr ""
+msgstr "categoria părinte"
 
 #: catalog/models.py:51
 msgid "активна"
-msgstr ""
+msgstr "activă"
 
 #: catalog/models.py:55
 msgid "порядок сортировки"
-msgstr ""
+msgstr "ordine de sortare"
 
 #: catalog/models.py:59 catalog/models.py:343 catalog/models.py:380
 #: rentals/models.py:114
 msgid "дата создания"
-msgstr ""
+msgstr "data creării"
 
 #: catalog/models.py:64 catalog/models.py:115
 msgid "категория"
-msgstr ""
+msgstr "categorie"
 
 #: catalog/models.py:65
 msgid "категории"
-msgstr ""
+msgstr "categorii"
 
 #: catalog/models.py:89
 msgid "Новый"
-msgstr ""
+msgstr "Nou"
 
 #: catalog/models.py:90
 msgid "Отличное"
-msgstr ""
+msgstr "Excelent"
 
 #: catalog/models.py:91
 msgid "Хорошее"
-msgstr ""
+msgstr "Bun"
 
 #: catalog/models.py:92
 msgid "Удовлетворительное"
-msgstr ""
+msgstr "Satisfăcător"
 
-#: catalog/models.py:95 templates/catalog/catalog.html:194
+#: catalog/models.py:95 templates/catalog/catalog.html:195
+#: templates/catalog/category.html:140 templates/catalog/favorites.html:94
 #: templates/home.html:495
 msgid "Доступен"
 msgstr "Disponibil"
 
-#: catalog/models.py:96 templates/catalog/catalog.html:194
+#: catalog/models.py:96 templates/catalog/catalog.html:195
+#: templates/catalog/category.html:140 templates/catalog/favorites.html:94
 #: templates/home.html:495
 msgid "В аренде"
 msgstr "În închiriere"
 
 #: catalog/models.py:97
 msgid "На обслуживании"
-msgstr ""
+msgstr "În întreținere"
 
 #: catalog/models.py:98 templates/catalog/tool_detail.html:203
 msgid "Недоступен"
@@ -202,152 +204,152 @@ msgstr "Indisponibil"
 
 #: catalog/models.py:121
 msgid "краткое описание"
-msgstr ""
+msgstr "descriere scurtă"
 
 #: catalog/models.py:128
 msgid "основное изображение"
-msgstr ""
+msgstr "imagine principală"
 
 #: catalog/models.py:134
 msgid "бренд"
-msgstr ""
+msgstr "brand"
 
 #: catalog/models.py:139
 msgid "модель"
-msgstr ""
+msgstr "model"
 
 #: catalog/models.py:144
 msgid "характеристики"
-msgstr ""
+msgstr "caracteristici"
 
 #: catalog/models.py:147
 msgid "Технические характеристики в формате JSON"
-msgstr ""
+msgstr "Caracteristici tehnice în format JSON"
 
 #: catalog/models.py:152 rentals/models.py:75
 msgid "цена за день"
-msgstr ""
+msgstr "preț pe zi"
 
 #: catalog/models.py:157 templates/catalog/tool_detail.html:164
 msgid "залог"
-msgstr ""
+msgstr "depozit"
 
 #: catalog/models.py:165
 msgid "состояние"
-msgstr ""
+msgstr "stare"
 
 #: catalog/models.py:171
 msgid "доступность"
-msgstr ""
+msgstr "disponibilitate"
 
 #: catalog/models.py:177
 msgid "количество"
-msgstr ""
+msgstr "cantitate"
 
 #: catalog/models.py:181
 msgid "доступное количество"
-msgstr ""
+msgstr "cantitate disponibilă"
 
 #: catalog/models.py:187 catalog/models.py:376
 msgid "активен"
-msgstr ""
+msgstr "activ"
 
 #: catalog/models.py:191
 msgid "рекомендуемый"
-msgstr ""
+msgstr "recomandat"
 
 #: catalog/models.py:195
 msgid "количество просмотров"
-msgstr ""
+msgstr "număr de vizualizări"
 
 #: catalog/models.py:199 catalog/models.py:305
 msgid "дата добавления"
-msgstr ""
+msgstr "data adăugării"
 
 #: catalog/models.py:208 catalog/models.py:264 catalog/models.py:302
 #: catalog/models.py:332 rentals/models.py:49
 msgid "инструмент"
-msgstr ""
+msgstr "unealtă"
 
 #: catalog/models.py:209
 msgid "инструменты"
-msgstr ""
+msgstr "unelte"
 
 #: catalog/models.py:271
 msgid "альтернативный текст"
-msgstr ""
+msgstr "text alternativ"
 
 #: catalog/models.py:276 catalog/models.py:372
 msgid "порядок"
-msgstr ""
+msgstr "ordine"
 
 #: catalog/models.py:281
 msgid "изображение инструмента"
-msgstr ""
+msgstr "imagine unealtă"
 
 #: catalog/models.py:282
 msgid "изображения инструментов"
-msgstr ""
+msgstr "imagini unelte"
 
 #: catalog/models.py:310 catalog/models.py:311
 msgid "избранное"
-msgstr ""
+msgstr "favorite"
 
 #: catalog/models.py:335
 msgid "оценка"
-msgstr ""
+msgstr "evaluare"
 
 #: catalog/models.py:339
 msgid "текст отзыва"
-msgstr ""
+msgstr "text recenzie"
 
 #: catalog/models.py:347
 msgid "одобрен"
-msgstr ""
+msgstr "aprobat"
 
 #: catalog/models.py:352
 msgid "отзыв"
-msgstr ""
+msgstr "recenzie"
 
 #: catalog/models.py:353
 msgid "отзывы"
-msgstr ""
+msgstr "recenzii"
 
 #: catalog/models.py:365
 msgid "вопрос"
-msgstr ""
+msgstr "întrebare"
 
 #: catalog/models.py:369
 msgid "ответ"
-msgstr ""
+msgstr "răspuns"
 
 #: catalog/models.py:385 catalog/models.py:386
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: rentals/admin.py:35
 msgid "Информация о заявке"
-msgstr ""
+msgstr "Informații despre cerere"
 
 #: rentals/admin.py:38
 msgid "Данные клиента"
-msgstr ""
+msgstr "Datele clientului"
 
 #: rentals/admin.py:41
 msgid "Период аренды"
-msgstr ""
+msgstr "Perioada de închiriere"
 
 #: rentals/admin.py:44
 msgid "Финансы"
-msgstr ""
+msgstr "Finanțe"
 
 #: rentals/admin.py:47
 msgid "Комментарии"
-msgstr ""
+msgstr "Comentarii"
 
 #: rentals/admin.py:51
 msgid "Системная информация"
-msgstr ""
+msgstr "Informații de sistem"
 
 #: rentals/admin.py:81
 msgid "Сумма"
@@ -355,122 +357,122 @@ msgstr "Sumă"
 
 #: rentals/admin.py:83
 msgid "Подтвердить выбранные заявки"
-msgstr ""
+msgstr "Confirmă cererile selectate"
 
 #: rentals/admin.py:90
 #, python-brace-format
 msgid "Подтверждено заявок: {count}"
-msgstr ""
+msgstr "Cereri confirmate: {count}"
 
 #: rentals/admin.py:92
 msgid "Отклонить выбранные заявки"
-msgstr ""
+msgstr "Respinge cererile selectate"
 
 #: rentals/admin.py:99
 #, python-brace-format
 msgid "Отклонено заявок: {count}"
-msgstr ""
+msgstr "Cereri respinse: {count}"
 
 #: rentals/admin.py:101
 msgid "Отменить выбранные заявки"
-msgstr ""
+msgstr "Anulează cererile selectate"
 
 #: rentals/admin.py:108
 #, python-brace-format
 msgid "Отменено заявок: {count}"
-msgstr ""
+msgstr "Cereri anulate: {count}"
 
 #: rentals/forms.py:58
 msgid "Дата начала не может быть в прошлом."
-msgstr ""
+msgstr "Data de început nu poate fi în trecut."
 
 #: rentals/forms.py:69
 msgid "Дата окончания должна быть позже даты начала."
-msgstr ""
+msgstr "Data de sfârșit trebuie să fie după data de început."
 
 #: rentals/models.py:21
 msgid "Ожидает рассмотрения"
-msgstr ""
+msgstr "În așteptare"
 
 #: rentals/models.py:22
 msgid "Подтверждена"
-msgstr ""
+msgstr "Confirmată"
 
 #: rentals/models.py:23
 msgid "В процессе аренды"
-msgstr ""
+msgstr "În proces de închiriere"
 
 #: rentals/models.py:24
 msgid "Завершена"
-msgstr ""
+msgstr "Finalizată"
 
 #: rentals/models.py:25
 msgid "Отменена"
-msgstr ""
+msgstr "Anulată"
 
 #: rentals/models.py:26
 msgid "Отклонена"
-msgstr ""
+msgstr "Respinsă"
 
 #: rentals/models.py:30
 msgid "номер заявки"
-msgstr ""
+msgstr "număr cerere"
 
 #: rentals/models.py:54
 msgid "имя клиента"
-msgstr ""
+msgstr "nume client"
 
 #: rentals/models.py:58
 msgid "email клиента"
-msgstr ""
+msgstr "email client"
 
 #: rentals/models.py:61
 msgid "телефон клиента"
-msgstr ""
+msgstr "telefon client"
 
 #: rentals/models.py:67
 msgid "дата начала"
-msgstr ""
+msgstr "data început"
 
 #: rentals/models.py:70
 msgid "дата окончания"
-msgstr ""
+msgstr "data sfârșit"
 
 #: rentals/models.py:80
 msgid "количество дней"
-msgstr ""
+msgstr "număr de zile"
 
 #: rentals/models.py:83
 msgid "общая стоимость"
-msgstr ""
+msgstr "cost total"
 
 #: rentals/models.py:88
 msgid "сумма залога"
-msgstr ""
+msgstr "sumă depozit"
 
 #: rentals/models.py:96
 msgid "статус"
-msgstr ""
+msgstr "status"
 
 #: rentals/models.py:104
 msgid "комментарий клиента"
-msgstr ""
+msgstr "comentariu client"
 
 #: rentals/models.py:108
 msgid "заметки менеджера"
-msgstr ""
+msgstr "notițe manager"
 
 #: rentals/models.py:122
 msgid "дата подтверждения"
-msgstr ""
+msgstr "data confirmării"
 
 #: rentals/models.py:128
 msgid "заявка на аренду"
-msgstr ""
+msgstr "cerere de închiriere"
 
 #: rentals/models.py:129
 msgid "заявки на аренду"
-msgstr ""
+msgstr "cereri de închiriere"
 
 #: templates/catalog/catalog.html:4 templates/catalog/catalog.html:20
 #, fuzzy
@@ -478,14 +480,16 @@ msgstr ""
 msgid "Каталог инструментов"
 msgstr "Categorii de instrumente"
 
-#: templates/catalog/catalog.html:11 templates/catalog/faq.html:11
+#: templates/catalog/catalog.html:11 templates/catalog/category.html:11
+#: templates/catalog/faq.html:11 templates/catalog/favorites.html:11
 #: templates/catalog/tool_detail.html:13 templates/includes/header.html:45
 #: templates/includes/header.html:207
 msgid "Главная"
 msgstr "Acasă"
 
-#: templates/catalog/catalog.html:15 templates/catalog/tool_detail.html:17
-#: templates/dashboard/index.html:34 templates/includes/footer.html:50
+#: templates/catalog/catalog.html:15 templates/catalog/category.html:15
+#: templates/catalog/tool_detail.html:17 templates/dashboard/index.html:34
+#: templates/home.html:402 templates/includes/footer.html:50
 #: templates/includes/header.html:53 templates/includes/header.html:215
 msgid "Каталог"
 msgstr "Catalog"
@@ -506,19 +510,19 @@ msgstr "de construcție"
 msgid "Все категории"
 msgstr "Toate categoriile"
 
-#: templates/catalog/catalog.html:60
+#: templates/catalog/catalog.html:60 templates/catalog/category.html:57
 msgid "Новые"
 msgstr "Noi"
 
-#: templates/catalog/catalog.html:61
+#: templates/catalog/catalog.html:61 templates/catalog/category.html:58
 msgid "Сначала дешевле"
 msgstr "Mai întâi cele ieftine"
 
-#: templates/catalog/catalog.html:62
+#: templates/catalog/catalog.html:62 templates/catalog/category.html:59
 msgid "Сначала дороже"
 msgstr "Mai întâi cele scumpe"
 
-#: templates/catalog/catalog.html:63
+#: templates/catalog/catalog.html:63 templates/catalog/category.html:60
 msgid "По названию"
 msgstr "După nume"
 
@@ -546,42 +550,65 @@ msgstr "Sunați"
 msgid "Сбросить"
 msgstr "Resetare"
 
-#: templates/catalog/catalog.html:115
+#: templates/catalog/catalog.html:115 templates/catalog/category.html:51
 msgid "Найдено:"
 msgstr "Găsite:"
 
-#: templates/catalog/catalog.html:115 templates/home.html:78
+#: templates/catalog/catalog.html:115 templates/catalog/category.html:42
+#: templates/catalog/category.html:51 templates/catalog/favorites.html:32
+#: templates/home.html:78 templates/home.html:418
 msgid "инструментов"
 msgstr "de construcție"
 
-#: templates/catalog/catalog.html:141 templates/catalog/tool_detail.html:45
+#: templates/catalog/catalog.html:141 templates/catalog/category.html:90
+#: templates/catalog/favorites.html:53 templates/catalog/tool_detail.html:45
 #: templates/home.html:469
 msgid "Хит"
 msgstr "Hit"
 
-#: templates/catalog/catalog.html:169 templates/home.html:477
+#: templates/catalog/catalog.html:170 templates/catalog/category.html:115
+#: templates/catalog/favorites.html:73 templates/home.html:477
 msgid "Подробнее"
 msgstr "Mai multe detalii"
 
-#: templates/catalog/catalog.html:190
+#: templates/catalog/catalog.html:191 templates/catalog/category.html:136
+#: templates/catalog/favorites.html:90
 #, fuzzy
 #| msgid "/ день"
 msgid "MDL/день"
 msgstr "/ zi"
 
-#: templates/catalog/catalog.html:248
+#: templates/catalog/catalog.html:249
 #, fuzzy
 #| msgid "Инструменты скоро появятся"
 msgid "Инструменты не найдены"
 msgstr "Instrumentele vor apărea în curând"
 
-#: templates/catalog/catalog.html:249
+#: templates/catalog/catalog.html:250
 msgid "Попробуйте изменить параметры поиска или сбросьте фильтры"
 msgstr "Încercați să schimbați parametrii de căutare sau resetați filtrele"
 
-#: templates/catalog/catalog.html:255
+#: templates/catalog/catalog.html:256
 msgid "Сбросить фильтры"
 msgstr "Resetare filtre"
+
+#: templates/catalog/category.html:193
+#, fuzzy
+#| msgid "Категории инструментов"
+msgid "В этой категории пока нет инструментов"
+msgstr "Categorii de instrumente"
+
+#: templates/catalog/category.html:194
+#, fuzzy
+#| msgid "Скоро здесь появятся ответы на частые вопросы"
+msgid "Скоро здесь появятся новые позиции"
+msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
+
+#: templates/catalog/category.html:200
+#, fuzzy
+#| msgid "Перейти в каталог"
+msgid "Вернуться в каталог"
+msgstr "Mergi la catalog"
 
 #: templates/catalog/faq.html:15 templates/catalog/faq.html:20
 msgid "Частые вопросы"
@@ -619,9 +646,34 @@ msgstr "FAQ încă gol"
 msgid "Скоро здесь появятся ответы на частые вопросы"
 msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
 
-#: templates/catalog/faq.html:89 templates/home.html:377
+#: templates/catalog/faq.html:89 templates/catalog/favorites.html:118
+#: templates/home.html:377
 msgid "Перейти в каталог"
 msgstr "Mergi la catalog"
+
+#: templates/catalog/favorites.html:4 templates/catalog/favorites.html:15
+#: templates/catalog/favorites.html:24 templates/includes/header.html:123
+#: templates/includes/header.html:248
+msgid "Избранное"
+msgstr "Favorite"
+
+#: templates/catalog/favorites.html:26
+msgid "Инструменты, которые вы добавили в избранное"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+#: templates/catalog/favorites.html:32
+msgid "Всего:"
+msgstr "Total:"
+
+#: templates/catalog/favorites.html:111
+#, fuzzy
+#| msgid "избранное"
+msgid "В избранном пусто"
+msgstr "favorite"
+
+#: templates/catalog/favorites.html:112
+msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
+msgstr "Adăugați uneltele preferate la favorite pentru a nu le pierde"
 
 #: templates/catalog/tool_detail.html:98
 msgid "отзывов"
@@ -799,13 +851,9 @@ msgstr "Unități de echipament"
 msgid "Довольных клиентов"
 msgstr "Clienți mulțumiți"
 
-#: templates/home.html:141 templates/home.html:278
-msgid "лет"
-msgstr "ani"
-
 #: templates/home.html:142
-msgid "На рынке"
-msgstr "Pe piață"
+msgid "Лет опыта"
+msgstr "Ani de experiență"
 
 #: templates/home.html:180
 msgid "Перфоратор Bosch"
@@ -831,7 +879,7 @@ msgstr "Hit de vânzări"
 msgid "В наличии"
 msgstr "În stoc"
 
-#: templates/home.html:239 templates/home.html:306
+#: templates/home.html:239
 msgid "клиентов"
 msgstr "clienți"
 
@@ -842,6 +890,12 @@ msgstr "Despre companie"
 #: templates/home.html:275
 msgid "Почему выбирают"
 msgstr "De ce aleg"
+
+#: templates/home.html:278
+msgid ""
+"Мы предоставляем профессиональное строительное оборудование в аренду уже "
+"более 5 лет, обеспечивая качество и надёжность для каждого клиента."
+msgstr ""
 
 #: templates/home.html:291
 msgid "Проверенное качество"
@@ -856,6 +910,12 @@ msgstr ""
 #: templates/home.html:304
 msgid "Доступные цены"
 msgstr "Prețuri accesibile"
+
+#: templates/home.html:306
+msgid ""
+"Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при "
+"длительной аренде и для постоянных клиентов."
+msgstr ""
 
 #: templates/home.html:317
 msgid "Быстрая доставка"
@@ -1054,10 +1114,6 @@ msgstr "Închiriere instrumente"
 #: templates/includes/header.html:60 templates/includes/header.html:223
 msgid "О нас"
 msgstr "Despre noi"
-
-#: templates/includes/header.html:123 templates/includes/header.html:248
-msgid "Избранное"
-msgstr "Favorite"
 
 #: templates/includes/header.html:133 templates/includes/header.html:257
 msgid "Панель управления"
@@ -2302,3 +2358,9 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "лет"
+#~ msgstr "ani"
+
+#~ msgid "На рынке"
+#~ msgstr "Pe piață"
