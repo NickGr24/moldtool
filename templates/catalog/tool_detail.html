@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showToast(data.message);
             })
             .catch(error => {
-                showToast('Войдите, чтобы добавить в избранное');
+                showToast('{% trans "Войдите, чтобы добавить в избранное" %}');
             });
         });
     }
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
 
             if (selectedRating === 0) {
-                showToast('Пожалуйста, выберите оценку');
+                showToast('{% trans "Пожалуйста, выберите оценку" %}');
                 return;
             }
 
@@ -592,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
-                showToast('Ошибка при отправке отзыва');
+                showToast('{% trans "Ошибка при отправке отзыва" %}');
             });
         });
     }
