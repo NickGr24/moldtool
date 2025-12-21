@@ -107,3 +107,25 @@ class AdminDashboardView(TemplateView):
         context['average_rating'] = round(avg_rating, 1) if avg_rating else 0
 
         return context
+
+
+class PrivacyPolicyView(TemplateView):
+    """Politica de Confidențialitate."""
+
+    template_name = 'core/privacy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_date'] = timezone.now()
+        return context
+
+
+class TermsConditionsView(TemplateView):
+    """Termeni și Condiții."""
+
+    template_name = 'core/terms.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_date'] = timezone.now()
+        return context
