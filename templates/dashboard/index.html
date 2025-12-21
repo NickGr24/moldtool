@@ -5,22 +5,22 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="mb-lg">Личный кабинет</h1>
+    <h1 class="mb-lg">{% trans "Личный кабинет" %}</h1>
 
-    <p class="text-muted mb-xl">Добро пожаловать, {{ user.get_short_name }}!</p>
+    <p class="text-muted mb-xl">{% trans "Добро пожаловать" %}, {{ user.get_short_name }}!</p>
 
     <!-- Stats -->
     <div class="grid grid-3 mb-xl">
         <div class="card" style="padding: var(--spacing-lg);">
-            <p class="text-muted text-sm mb-sm">Всего заявок</p>
+            <p class="text-muted text-sm mb-sm">{% trans "Всего заявок" %}</p>
             <p class="text-3xl font-bold">{{ total_requests }}</p>
         </div>
         <div class="card" style="padding: var(--spacing-lg);">
-            <p class="text-muted text-sm mb-sm">Активных</p>
+            <p class="text-muted text-sm mb-sm">{% trans "Активных" %}</p>
             <p class="text-3xl font-bold text-primary">{{ active_requests }}</p>
         </div>
         <div class="card" style="padding: var(--spacing-lg);">
-            <p class="text-muted text-sm mb-sm">Завершённых</p>
+            <p class="text-muted text-sm mb-sm">{% trans "Завершённых" %}</p>
             <p class="text-3xl font-bold" style="color: var(--color-success);">{{ completed_requests }}</p>
         </div>
     </div>
@@ -31,7 +31,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
             </svg>
-            {% trans "Catalog" %} instrumente
+            {% trans "Каталог инструментов" %}
         </a>
         <a href="{% url 'dashboard:profile' %}" class="btn btn-outline">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -46,18 +46,18 @@
     </div>
 
     <!-- Recent Requests -->
-    <h2 class="mb-lg">Последние заявки</h2>
+    <h2 class="mb-lg">{% trans "Последние заявки" %}</h2>
 
     {% if recent_requests %}
     <div class="card">
         <table style="width: 100%; border-collapse: collapse;">
             <thead>
                 <tr style="border-bottom: 1px solid var(--color-border-dark);">
-                    <th style="padding: var(--spacing-md); text-align: left;">Номер</th>
-                    <th style="padding: var(--spacing-md); text-align: left;">Unealtă</th>
-                    <th style="padding: var(--spacing-md); text-align: left;">Период</th>
-                    <th style="padding: var(--spacing-md); text-align: left;">Sumă</th>
-                    <th style="padding: var(--spacing-md); text-align: left;">Статус</th>
+                    <th style="padding: var(--spacing-md); text-align: left;">{% trans "Номер" %}</th>
+                    <th style="padding: var(--spacing-md); text-align: left;">{% trans "Инструмент" %}</th>
+                    <th style="padding: var(--spacing-md); text-align: left;">{% trans "Период" %}</th>
+                    <th style="padding: var(--spacing-md); text-align: left;">{% trans "Сумма" %}</th>
+                    <th style="padding: var(--spacing-md); text-align: left;">{% trans "Статус" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -96,9 +96,9 @@
                 <line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
         </div>
-        <h3 class="empty-state-title">У вас пока нет заявок</h3>
-        <p class="empty-state-text">Выберите инструмент и оформите первую аренду</p>
-        <a href="{% url 'catalog:catalog' %}" class="btn btn-primary">Перейти в каталог</a>
+        <h3 class="empty-state-title">{% trans "У вас пока нет заявок" %}</h3>
+        <p class="empty-state-text">{% trans "Выберите инструмент и оформите первую аренду" %}</p>
+        <a href="{% url 'catalog:catalog' %}" class="btn btn-primary">{% trans "Перейти в каталог" %}</a>
     </div>
     {% endif %}
 </div>
