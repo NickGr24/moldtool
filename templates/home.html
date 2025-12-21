@@ -46,10 +46,10 @@
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+        <div class="text-center">
             <!-- Left Content -->
-            <div class="text-center lg:text-left animate-slide-up">
+            <div class="animate-slide-up">
                 <!-- Premium Badge -->
                 <div class="inline-flex items-center gap-3 px-5 py-2.5 bg-glass rounded-full mb-8 group cursor-default">
                     <span class="relative flex h-3 w-3">
@@ -79,14 +79,14 @@
                 </h1>
 
                 <!-- Description with better typography -->
-                <p class="text-lg lg:text-xl text-gray-400 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                <p class="text-lg lg:text-xl text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
                     {% trans "Профессиональное оборудование для любых задач." %}
                     <span class="text-white font-medium">{% trans "Качественный инструмент" %}</span> {% trans "по доступным ценам с" %}
                     <span class="text-brand-yellow">{% trans "бесплатной доставкой" %}</span> {% trans "по всей стране." %}
                 </p>
 
                 <!-- Premium CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{% url 'catalog:catalog' %}"
                        class="relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-yellow via-brand-yellow-dark to-brand-yellow text-dark font-bold text-base rounded-xl transition-all duration-300 hover:shadow-glow-yellow hover:-translate-y-1 hover:scale-[1.02] group"
                        style="background-size: 200% 100%;">
@@ -118,6 +118,7 @@
                         <span class="relative">{% trans "Позвонить нам" %}</span>
                     </a>
                 </div>
+<<<<<<< HEAD
 
                 <!-- Stats with animation -->
                 <div class="grid grid-cols-3 gap-4 lg:gap-8">
@@ -242,6 +243,8 @@
                         </div>
                     </div>
                 </div>
+=======
+>>>>>>> f49744fb46b41cc79b9eea3ea79fda4fde9d887b
             </div>
         </div>
     </div>
@@ -387,6 +390,51 @@
                         {{ SITE_PHONE }}
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     STATS SECTION - Counter Animation
+     ============================================ -->
+<section class="py-16 lg:py-20 bg-dark relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.08)_0%,_transparent_70%)]"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            <!-- Stat 1 -->
+            <div class="text-center group">
+                <div class="relative inline-block">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-yellow/20 to-brand-red/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative">
+                        <span class="counter text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient" data-target="500" data-suffix="+">0</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-lg mt-4">Единиц техники</p>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="text-center group">
+                <div class="relative inline-block">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-yellow/20 to-brand-red/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative">
+                        <span class="counter text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient" data-target="1000" data-suffix="+">0</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-lg mt-4">Довольных клиентов</p>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="text-center group">
+                <div class="relative inline-block">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-yellow/20 to-brand-red/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative">
+                        <span class="counter text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient" data-target="5" data-suffix=" лет">0</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-lg mt-4">На рынке</p>
             </div>
         </div>
     </div>
@@ -611,6 +659,58 @@
 <!-- Scroll Reveal Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Counter Animation - fast count up from 0
+    const counters = document.querySelectorAll('.counter');
+    let countersAnimated = false;
+
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.dataset.target);
+        const suffix = counter.dataset.suffix || '';
+        const duration = 1500; // 1.5 seconds - fast animation
+        const startTime = performance.now();
+
+        const easeOutQuad = (t) => t * (2 - t); // easing function for smooth end
+
+        const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuad(progress);
+            const current = Math.floor(easedProgress * target);
+
+            counter.textContent = current + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target + suffix;
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    const animateCounters = () => {
+        counters.forEach(counter => animateCounter(counter));
+    };
+
+    // Trigger counter animation when section is visible
+    const statsSection = document.querySelector('.counter');
+    if (statsSection) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    animateCounters();
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        counterObserver.observe(statsSection.closest('section'));
+    }
+
     // Scroll reveal animation
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
     const connectorLines = document.querySelectorAll('.connector-line');
