@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Închiriere" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Арендовать" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <div class="container">
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs">
-        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">Acasă</a></span>
+        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">{% trans "Главная" %}</a></span>
         <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item"><a href="{% url 'catalog:catalog' %}">Catalog</a></span>
+        <span class="breadcrumbs-item"><a href="{% url 'catalog:catalog' %}">{% trans "Каталог" %}</a></span>
         <span class="breadcrumbs-separator">/</span>
         <span class="breadcrumbs-item"><a href="{{ tool.get_absolute_url }}">{{ tool.name }}</a></span>
         <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item active">Procesare închiriere</span>
+        <span class="breadcrumbs-item active">{% trans "Оформление аренды" %}</span>
     </nav>
 
-    <h1 class="mb-lg text-center">Procesare închiriere</h1>
+    <h1 class="mb-lg text-center">{% trans "Оформление аренды" %}</h1>
 
     <div class="rental-form">
         <!-- Tool Info Header -->
@@ -39,11 +39,11 @@
 
             <!-- Customer Info -->
             <div class="form-group">
-                <label class="form-label required" for="id_customer_name">Numele dumneavoastră</label>
+                <label class="form-label required" for="id_customer_name">{% trans "Ваше имя" %}</label>
                 <input type="text" name="customer_name" id="id_customer_name"
                        class="form-control {% if form.customer_name.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_name.value|default:'' }}"
-                       placeholder="{% trans "Ion Popescu" %}" required>
+                       placeholder="{% trans "Иван Иванов" %}" required>
                 {% if form.customer_name.errors %}
                 <p class="form-error">{{ form.customer_name.errors.0 }}</p>
                 {% endif %}
@@ -61,7 +61,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label required" for="id_customer_phone">Telefon</label>
+                <label class="form-label required" for="id_customer_phone">{% trans "Телефон" %}</label>
                 <input type="tel" name="customer_phone" id="id_customer_phone"
                        class="form-control {% if form.customer_phone.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_phone.value|default:'' }}"
@@ -74,7 +74,7 @@
             <!-- Dates -->
             <div class="rental-dates">
                 <div class="form-group">
-                    <label class="form-label required" for="id_start_date">Data de început</label>
+                    <label class="form-label required" for="id_start_date">{% trans "Дата начала" %}</label>
                     <input type="date" name="start_date" id="id_start_date"
                            class="form-control {% if form.start_date.errors %}is-invalid{% endif %}"
                            value="{{ form.start_date.value|default:'' }}" required>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label required" for="id_end_date">Data de sfârșit</label>
+                    <label class="form-label required" for="id_end_date">{% trans "Дата окончания" %}</label>
                     <input type="date" name="end_date" id="id_end_date"
                            class="form-control {% if form.end_date.errors %}is-invalid{% endif %}"
                            value="{{ form.end_date.value|default:'' }}" required>
@@ -96,29 +96,29 @@
 
             <!-- Comment -->
             <div class="form-group">
-                <label class="form-label" for="id_comment">Comentariu</label>
+                <label class="form-label" for="id_comment">{% trans "Комментарий" %}</label>
                 <textarea name="comment" id="id_comment" class="form-control" rows="3"
-                          placeholder="{% trans "Dorințe suplimentare..." %}">{{ form.comment.value|default:'' }}</textarea>
+                          placeholder="{% trans "Дополнительные пожелания..." %}">{{ form.comment.value|default:'' }}</textarea>
             </div>
 
             <!-- Price Summary -->
             <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-deposit="{{ tool.deposit|default:0 }}">
                 <div class="rental-summary-row">
-                    <span>Pret pe zi</span>
+                    <span>{% trans "Цена за день" %}</span>
                     <span>{{ tool.price_per_day }} MDL</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>Număr de zile</span>
+                    <span>{% trans "Количество дней" %}</span>
                     <span id="totalDays">-</span>
                 </div>
                 {% if tool.deposit %}
                 <div class="rental-summary-row">
-                    <span>Depozit</span>
+                    <span>{% trans "Залог" %}</span>
                     <span id="depositAmount">{{ tool.deposit }} MDL</span>
                 </div>
                 {% endif %}
                 <div class="rental-summary-row">
-                    <span>Total de plată</span>
+                    <span>Итого к оплате</span>
                     <span id="totalPrice">-</span>
                 </div>
             </div>
@@ -136,12 +136,12 @@
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                     <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                {% trans "Trimite cererea" %}
+                {% trans "Отправить заявку" %}
             </button>
         </form>
 
         <p class="text-center text-muted mt-lg" style="font-size: var(--font-size-sm);">
-            {% trans "Trimițând cererea, sunteți de acord cu condițiile de închiriere" %}
+            {% trans "Отправляя заявку, вы соглашаетесь с условиями аренды" %}
         </p>
     </div>
 </div>
