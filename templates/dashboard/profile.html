@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Profil" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="py-8 lg:py-12 bg-dark min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-6">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="{% url 'dashboard:index' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Dashboard" %}</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">{% trans "Profil" %}</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Profilul meu" %}</h1>
+            <p class="text-gray-400">{% trans "Actualizați informațiile dvs. personale" %}</p>
+        </div>
+
+        <!-- Messages -->
+        {% if messages %}
+        <div class="mb-6">
+            {% for message in messages %}
+            <div class="px-6 py-4 rounded-xl border {% if message.tags == 'success' %}bg-green-500/10 border-green-500/50 text-green-400{% elif message.tags == 'error' %}bg-red-500/10 border-red-500/50 text-red-400{% else %}bg-blue-500/10 border-blue-500/50 text-blue-400{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Profile Form -->
+        <div class="bg-dark-100 rounded-2xl border border-dark-border p-6 lg:p-8">
+            <form method="post" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+
+                <!-- Avatar -->
+                <div class="flex items-center gap-6">
+                    <div class="relative">
+                        {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="{{ user.get_full_name }}" class="w-24 h-24 rounded-full object-cover border-2 border-brand-yellow/50">
+                        {% else %}
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-brand-yellow to-brand-red flex items-center justify-center text-3xl font-bold text-dark">
+                            {{ user.get_short_name|slice:":1"|upper }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Avatar" %}</label>
+                        {{ form.avatar }}
+                        <p class="text-sm text-gray-500 mt-1">{% trans "Format: JPG, PNG. Dimensiune maximă: 2MB" %}</p>
+                    </div>
+                </div>
+
+                <!-- First Name -->
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
+                        {% trans "Prenume" %}
+                    </label>
+                    <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
+                           value="{{ form.first_name.value|default:'' }}"
+                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
+                           placeholder="{% trans 'Introduceți prenumele' %}">
+                    {% if form.first_name.errors %}
+                    <p class="text-red-400 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
+                        {% trans "Nume" %}
+                    </label>
+                    <input type="text" name="{{ form.last_name.name }}" id="{{ form.last_name.id_for_label }}"
+                           value="{{ form.last_name.value|default:'' }}"
+                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
+                           placeholder="{% trans 'Introduceți numele' %}">
+                    {% if form.last_name.errors %}
+                    <p class="text-red-400 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Email (read-only) -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Email" %}</label>
+                    <input type="email" value="{{ user.email }}" readonly
+                           class="w-full px-4 py-3 bg-dark-200 rounded-xl border border-dark-border text-gray-500 cursor-not-allowed"
+                           title="{% trans 'Emailul nu poate fi modificat' %}">
+                    <p class="text-sm text-gray-500 mt-1">{% trans "Pentru modificarea emailului, contactați administratorul" %}</p>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="{{ form.phone.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
+                        {% trans "Telefon" %}
+                    </label>
+                    <input type="tel" name="{{ form.phone.name }}" id="{{ form.phone.id_for_label }}"
+                           value="{{ form.phone.value|default:'' }}"
+                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
+                           placeholder="+373 XX XXX XXX">
+                    {% if form.phone.errors %}
+                    <p class="text-red-400 text-sm mt-1">{{ form.phone.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Notifications -->
+                <div class="flex items-center gap-3">
+                    <input type="checkbox" name="{{ form.receive_notifications.name }}" id="{{ form.receive_notifications.id_for_label }}"
+                           {% if form.receive_notifications.value %}checked{% endif %}
+                           class="w-5 h-5 rounded border-dark-border bg-dark text-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
+                    <label for="{{ form.receive_notifications.id_for_label }}" class="text-gray-400">
+                        {% trans "Primesc notificări despre statusul închirierilor" %}
+                    </label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button type="submit"
+                            class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
+                        {% trans "Salvează modificările" %}
+                    </button>
+                    <a href="{% url 'dashboard:index' %}"
+                       class="px-6 py-3 bg-dark-200 border border-dark-border text-white font-medium rounded-xl hover:border-brand-yellow/50 transition-all duration-300 text-center">
+                        {% trans "Anulează" %}
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Account Info -->
+        <div class="mt-8 bg-dark-100 rounded-2xl border border-dark-border p-6">
+            <h3 class="text-lg font-semibold text-white mb-4">{% trans "Informații despre cont" %}</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between py-2 border-b border-dark-border">
+                    <span class="text-gray-400">{% trans "Data înregistrării" %}</span>
+                    <span class="text-white">{{ user.date_joined|date:"d.m.Y" }}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-dark-border">
+                    <span class="text-gray-400">{% trans "Ultima actualizare" %}</span>
+                    <span class="text-white">{{ user.last_login|date:"d.m.Y H:i" }}</span>
+                </div>
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-400">{% trans "Status cont" %}</span>
+                    <span class="text-green-400 font-medium">{% trans "Activ" %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

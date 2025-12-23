@@ -23,7 +23,7 @@
                 </svg>
                 {% trans "Favorite" %}
             </h1>
-            <p class="text-gray-400">{% trans "Unealtăы, которые вы добавили в избранное" %}</p>
+            <p class="text-gray-400">{% trans "Instrumente pe care le-ați adăugat la favorite" %}</p>
         </div>
 
         {% if favorites %}
@@ -108,14 +108,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                 </svg>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">{% trans "În favorite пусто" %}</h3>
-            <p class="text-gray-400 mb-8">{% trans "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их" %}</p>
+            <h3 class="text-2xl font-bold text-white mb-3">{% trans "Favoritele sunt goale" %}</h3>
+            <p class="text-gray-400 mb-8">{% trans "Adăugați instrumentele preferate la favorite pentru a nu le pierde" %}</p>
             <a href="{% url 'catalog:catalog' %}"
                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
-                {% trans "Перейти в каталог" %}
+                {% trans "Mergi la catalog" %}
             </a>
         </div>
         {% endif %}
