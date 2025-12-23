@@ -90,7 +90,7 @@ class AdminDashboardView(TemplateView):
         context['most_favorited'] = Tool.objects.filter(
             is_active=True
         ).annotate(
-            favorites_count=Count('favorites')
+            favorites_count=Count('favorited_by')
         ).order_by('-favorites_count')[:5]
 
         # Статистика по категориям
