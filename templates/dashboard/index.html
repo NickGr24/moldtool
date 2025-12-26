@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Dashboard" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Панель управления" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-8 lg:py-12 bg-dark min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Dashboard" %}</h1>
-            <p class="text-gray-400">{% trans "Bine ați revenit" %}, {{ user.get_short_name }}!</p>
+            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Панель управления" %}</h1>
+            <p class="text-gray-400">{% trans "С возвращением" %}, {{ user.get_short_name }}!</p>
         </div>
 
         <!-- Stats Cards -->
@@ -24,7 +24,7 @@
                     </div>
                     <span class="text-3xl font-bold text-white">{{ total_requests }}</span>
                 </div>
-                <p class="text-gray-400 text-sm">{% trans "Total cereri" %}</p>
+                <p class="text-gray-400 text-sm">{% trans "Всего заявок" %}</p>
             </div>
 
             <!-- Active Requests -->
@@ -37,7 +37,7 @@
                     </div>
                     <span class="text-3xl font-bold text-green-400">{{ active_requests }}</span>
                 </div>
-                <p class="text-gray-400 text-sm">{% trans "Cereri active" %}</p>
+                <p class="text-gray-400 text-sm">{% trans "Активные заявки" %}</p>
             </div>
 
             <!-- Completed Requests -->
@@ -50,7 +50,7 @@
                     </div>
                     <span class="text-3xl font-bold text-blue-400">{{ completed_requests }}</span>
                 </div>
-                <p class="text-gray-400 text-sm">{% trans "Cereri finalizate" %}</p>
+                <p class="text-gray-400 text-sm">{% trans "Завершённые заявки" %}</p>
             </div>
         </div>
 
@@ -61,38 +61,38 @@
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
-                {% trans "Catalog instrumente" %}
+                {% trans "Каталог инструментов" %}
             </a>
             <a href="{% url 'dashboard:profile' %}"
                class="inline-flex items-center gap-2 px-6 py-3 bg-dark-100 border border-dark-border text-white font-medium rounded-xl hover:border-brand-yellow/50 transition-all duration-300">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                 </svg>
-                {% trans "Editează profilul" %}
+                {% trans "Редактировать профиль" %}
             </a>
             <a href="{% url 'rentals:user_requests' %}"
                class="inline-flex items-center gap-2 px-6 py-3 bg-dark-100 border border-dark-border text-white font-medium rounded-xl hover:border-brand-yellow/50 transition-all duration-300">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                 </svg>
-                {% trans "Toate cererile" %}
+                {% trans "Все заявки" %}
             </a>
         </div>
 
         <!-- Recent Requests -->
         <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 lg:p-8">
-            <h2 class="text-2xl font-bold text-white mb-6">{% trans "Cereri recente" %}</h2>
+            <h2 class="text-2xl font-bold text-white mb-6">{% trans "Последние заявки" %}</h2>
 
             {% if recent_requests %}
             <div class="overflow-x-auto">
                 <table class="w-full">
                     <thead>
                         <tr class="border-b border-dark-border">
-                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Număr" %}</th>
-                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Instrument" %}</th>
-                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Perioadă" %}</th>
-                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Sumă" %}</th>
-                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Status" %}</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Номер" %}</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Инструмент" %}</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Период" %}</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Сумма" %}</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">{% trans "Статус" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -139,14 +139,14 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3">{% trans "Nu aveți cereri încă" %}</h3>
-                <p class="text-gray-400 mb-8 max-w-md mx-auto">{% trans "Alegeți un instrument și creați prima cerere de închiriere" %}</p>
+                <h3 class="text-2xl font-bold text-white mb-3">{% trans "У вас пока нет заявок" %}</h3>
+                <p class="text-gray-400 mb-8 max-w-md mx-auto">{% trans "Выберите инструмент и создайте первую заявку на аренду" %}</p>
                 <a href="{% url 'catalog:catalog' %}"
                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
-                    {% trans "Mergi la catalog" %}
+                    {% trans "Перейти в каталог" %}
                 </a>
             </div>
             {% endif %}
