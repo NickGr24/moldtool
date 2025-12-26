@@ -8,17 +8,17 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-6">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
             <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
-            <span class="text-white">{% trans "Întrebări frecvente" %}</span>
+            <span class="text-white">{% trans "Часто задаваемые вопросы" %}</span>
         </nav>
 
         <!-- Page Header -->
         <div class="text-center mb-12">
-            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-4">{% trans "Întrebări frecvente" %}</h1>
-            <p class="text-gray-400 text-lg">{% trans "Răspunsuri la întrebări frecvente despre închirierea instrumentelor" %}</p>
+            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-4">{% trans "Часто задаваемые вопросы" %}</h1>
+            <p class="text-gray-400 text-lg">{% trans "Ответы на часто задаваемые вопросы об аренде инструментов" %}</p>
         </div>
 
         {% if faqs %}

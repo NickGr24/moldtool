@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}Termeni și Condiții - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Условия использования" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-8 lg:py-16 bg-dark min-h-screen relative overflow-hidden">
@@ -18,11 +18,11 @@
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-8 animate-fade-in">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300">{% trans "Acasă" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300">{% trans "Главная" %}</a>
             <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
-            <span class="text-white">{% trans "Termeni și Condiții" %}</span>
+            <span class="text-white">{% trans "Условия использования" %}</span>
         </nav>
 
         <!-- Header -->
@@ -40,9 +40,9 @@
                 </div>
             </div>
             <h1 class="text-3xl lg:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white via-brand-red/90 to-white bg-clip-text">
-                {% trans "Termeni și Condiții" %}
+                {% trans "Условия использования" %}
             </h1>
-            <p class="text-gray-400">{% trans "Ultima actualizare:" %} {{ current_date|date:"d.m.Y" }}</p>
+            <p class="text-gray-400">{% trans "Последнее обновление:" %} {{ current_date|date:"d.m.Y" }}</p>
         </div>
 
         <!-- Important Notice -->
@@ -74,7 +74,7 @@
 
                 <div class="relative flex items-start gap-4 mb-6">
                     <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">1</span>
-                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Descrierea serviciului" %}</h2>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Описание сервиса" %}</h2>
                 </div>
                 <div class="relative flex items-start gap-4 p-4 bg-gradient-to-r from-brand-yellow/5 to-transparent rounded-2xl border border-brand-yellow/10">
                     <div class="flex-shrink-0 w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
@@ -97,16 +97,16 @@
 
                 <div class="relative flex items-start gap-4 mb-6">
                     <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">2</span>
-                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Condiții de utilizare" %}</h2>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Условия использования" %}</h2>
                 </div>
                 <ul class="relative space-y-4">
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
-                        <span class="text-gray-300">{% trans "Utilizatorul trebuie să furnizeze informații corecte și complete" %}</span>
+                        <span class="text-gray-300">{% trans "Пользователь должен предоставить корректную и полную информацию" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
-                        <span class="text-gray-300">{% trans "Este interzisă utilizarea site-ului în scopuri ilegale" %}</span>
+                        <span class="text-gray-300">{% trans "Запрещено использование сайта в незаконных целях" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
@@ -124,20 +124,20 @@
 
                 <div class="relative flex items-start gap-4 mb-6">
                     <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">3</span>
-                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Închirierea uneltelor" %}</h2>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Аренда инструментов" %}</h2>
                 </div>
                 <ul class="relative space-y-4">
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
-                        <span class="text-gray-300">{% trans "Uneltele se închiriază pe o perioadă determinată" %}</span>
+                        <span class="text-gray-300">{% trans "Инструменты сдаются в аренду на определенный срок" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
-                        <span class="text-gray-300">{% trans "Utilizatorul este responsabil pentru utilizarea corectă a acestora" %}</span>
+                        <span class="text-gray-300">{% trans "Пользователь несет ответственность за правильное использование" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
-                        <span class="text-gray-300">{% trans "Orice deteriorare sau pierdere este responsabilitatea chiriașului" %}</span>
+                        <span class="text-gray-300">{% trans "Любое повреждение или потеря является ответственностью арендатора" %}</span>
                     </li>
                 </ul>
             </article>
@@ -151,20 +151,20 @@
 
                 <div class="relative flex items-start gap-4 mb-6">
                     <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">4</span>
-                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Plăți și garanții" %}</h2>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Платежи и гарантии" %}</h2>
                 </div>
                 <ul class="relative space-y-4">
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-brand-yellow rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
-                        <span class="text-gray-300">{% trans "Plata se face conform tarifelor afișate" %}</span>
+                        <span class="text-gray-300">{% trans "Оплата производится согласно указанным тарифам" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-brand-yellow rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
-                        <span class="text-gray-300">{% trans "Poate fi solicitată o garanție" %}</span>
+                        <span class="text-gray-300">{% trans "Может потребоваться залог" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
-                        <span class="text-gray-300 font-medium">{% trans "Întârzierea returnării poate duce la taxe suplimentare" %}</span>
+                        <span class="text-gray-300 font-medium">{% trans "Задержка возврата может привести к дополнительным платежам" %}</span>
                     </li>
                 </ul>
             </article>
@@ -178,17 +178,17 @@
 
                 <div class="relative flex items-start gap-4 mb-6">
                     <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">5</span>
-                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Răspundere" %}</h2>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Ответственность" %}</h2>
                 </div>
                 <p class="relative text-gray-400 mb-4 pl-16">{% blocktrans with site_name=SITE_NAME %}{{ site_name }} nu este responsabil pentru:{% endblocktrans %}</p>
                 <ul class="relative space-y-4">
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
-                        <span class="text-gray-300">{% trans "Utilizarea necorespunzătoare a uneltelor" %}</span>
+                        <span class="text-gray-300">{% trans "Ненадлежащее использование инструментов" %}</span>
                     </li>
                     <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
                         <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
-                        <span class="text-gray-300">{% trans "Accidente cauzate de utilizarea echipamentului" %}</span>
+                        <span class="text-gray-300">{% trans "Несчастные случаи, вызванные использованием оборудования" %}</span>
                     </li>
                 </ul>
             </article>
@@ -202,14 +202,14 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-dark/10 rounded-full blur-xl"></div>
 
-            <h3 class="relative text-2xl font-bold text-dark mb-3">{% trans "Gata să închiriați?" %}</h3>
-            <p class="relative text-dark/80 mb-6 text-lg">{% trans "Explorați catalogul nostru sau contactați-ne pentru asistență" %}</p>
+            <h3 class="relative text-2xl font-bold text-dark mb-3">{% trans "Готовы арендовать?" %}</h3>
+            <p class="relative text-dark/80 mb-6 text-lg">{% trans "Изучите наш каталог или свяжитесь с нами для помощи" %}</p>
             <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark text-white font-semibold rounded-xl hover:bg-dark-100 hover:scale-105 transition-all duration-300 shadow-lg">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
-                    {% trans "Vezi catalogul" %}
+                    {% trans "Смотреть каталог" %}
                 </a>
                 <a href="tel:{{ SITE_PHONE }}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark/20 text-dark font-semibold rounded-xl border-2 border-dark/30 hover:bg-dark/30 hover:scale-105 transition-all duration-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +226,7 @@
                 <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                 </svg>
-                {% trans "Înapoi la pagina principală" %}
+                {% trans "Вернуться на главную" %}
             </a>
         </div>
     </div>

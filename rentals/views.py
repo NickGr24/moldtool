@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DetailView, ListView
 
 from catalog.models import Tool
@@ -49,7 +50,7 @@ class CreateRentalRequestView(CreateView):
 
         # Проверяем доступность инструмента
         if not tool.is_available:
-            messages.error(self.request, 'К сожалению, этот инструмент сейчас недоступен.')
+            messages.error(self.request, _('К сожалению, этот инструмент сейчас недоступен.'))
             return redirect('catalog:tool_detail', slug=tool.slug)
 
         # Устанавливаем связи
@@ -63,7 +64,7 @@ class CreateRentalRequestView(CreateView):
         response = super().form_valid(form)
         messages.success(
             self.request,
-            f'Заявка #{self.object.number} успешно создана! Мы свяжемся с вами в ближайшее время.'
+            _('Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время.') % {'number': self.object.number}
         )
         return response
 
@@ -120,8 +121,8 @@ class CancelRentalRequestView(LoginRequiredMixin, DetailView):
 
         if rental.can_be_cancelled:
             rental.cancel()
-            messages.success(request, f'Заявка #{rental.number} успешно отменена.')
+            messages.success(request, _('Заявка #%(number)s успешно отменена.') % {'number': rental.number})
         else:
-            messages.error(request, 'Эту заявку нельзя отменить.')
+            messages.error(request, _('Эту заявку нельзя отменить.'))
 
         return redirect('rentals:user_requests')

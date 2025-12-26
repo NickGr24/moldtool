@@ -31,7 +31,7 @@
                             MoldTool
                         </span>
                         <span class="text-[10px] text-gray-400 tracking-wider uppercase">
-                            {% trans "Аренда instrumente" %}
+                            {% trans "Аренда инструментов" %}
                         </span>
                     </div>
                 </a>
@@ -42,7 +42,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'home' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "Acasă" %}</span>
+                        <span class="relative">{% trans "Главная" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -50,21 +50,21 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "Catalog" %}</span>
+                        <span class="relative">{% trans "Каталог" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
                     <a href="#about"
                        class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
                         <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
-                        <span class="relative">{% trans "Despre noi" %}</span>
+                        <span class="relative">{% trans "О нас" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
                     </a>
 
                     <a href="#contacts"
                        class="relative px-5 py-2.5 text-[15px] font-medium text-gray-300 rounded-lg transition-all duration-300 hover:text-white group">
                         <span class="absolute inset-0 bg-dark-200/0 rounded-lg transition-all duration-300 group-hover:bg-dark-200/80"></span>
-                        <span class="relative">{% trans "Contacte" %}</span>
+                        <span class="relative">{% trans "Контакты" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-brand-yellow rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-6"></span>
                     </a>
 
@@ -172,7 +172,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
                             </svg>
-                            {% trans "Autentificare" %}
+                            {% trans "Войти" %}
                         </span>
                     </a>
                     {% endif %}
@@ -204,7 +204,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                     </svg>
-                    <span class="font-medium">{% trans "Acasă" %}</span>
+                    <span class="font-medium">{% trans "Главная" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:catalog' %}"
@@ -212,7 +212,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
-                    <span class="font-medium">{% trans "Catalog" %}</span>
+                    <span class="font-medium">{% trans "Каталог" %}</span>
                 </a>
 
                 <a href="#about"
@@ -220,7 +220,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <span class="font-medium">{% trans "Despre noi" %}</span>
+                    <span class="font-medium">{% trans "О нас" %}</span>
                 </a>
 
                 <a href="#contacts"
@@ -228,7 +228,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
-                    <span class="font-medium">{% trans "Contacte" %}</span>
+                    <span class="font-medium">{% trans "Контакты" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:faq' %}"
@@ -245,7 +245,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
-                    <span class="font-medium">{% trans "Favorite" %}</span>
+                    <span class="font-medium">{% trans "Избранное" %}</span>
                 </a>
 
                 {% if user.is_staff %}
@@ -254,7 +254,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                     </svg>
-                    <span class="font-medium">{% trans "Panou de control" %}</span>
+                    <span class="font-medium">{% trans "Панель управления" %}</span>
                 </a>
                 {% endif %}
                 {% endif %}
