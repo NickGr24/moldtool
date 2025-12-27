@@ -728,7 +728,7 @@ function initDatePickers() {
     if (favoriteBtn) {
         favoriteBtn.addEventListener('click', function() {
             const toolId = this.dataset.toolId;
-            fetch(`/catalog/favorite/toggle/${toolId}/`, {
+            fetch(`{% url 'catalog:toggle_favorite' tool_id=0 %}`.replace('0', toolId), {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': '{{ csrf_token }}',
@@ -809,7 +809,7 @@ function initDatePickers() {
 
             const text = document.getElementById('reviewText').value;
 
-            fetch(`/catalog/review/add/{{ tool.id }}/`, {
+            fetch(`{% url 'catalog:add_review' tool_id=tool.id %}`, {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': '{{ csrf_token }}',
