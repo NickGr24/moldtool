@@ -90,15 +90,15 @@ class AdminDashboardView(TemplateView):
         context['most_favorited'] = Tool.objects.filter(
             is_active=True
         ).annotate(
-            favorites_count=Count('favorites')
+            favorites_count=Count('favorited_by')
         ).order_by('-favorites_count')[:5]
 
         # Статистика по категориям
         context['category_stats'] = Category.objects.filter(
             is_active=True
         ).annotate(
-            tools_count=Count('tools', filter=models.Q(tools__is_active=True))
-        ).order_by('-tools_count')[:5]
+            num_tools=Count('tools', filter=models.Q(tools__is_active=True))
+        ).order_by('-num_tools')[:5]
 
         # Средний рейтинг всех инструментов
         avg_rating = Review.objects.filter(is_approved=True).aggregate(
@@ -106,4 +106,26 @@ class AdminDashboardView(TemplateView):
         )['avg']
         context['average_rating'] = round(avg_rating, 1) if avg_rating else 0
 
+        return context
+
+
+class PrivacyPolicyView(TemplateView):
+    """Politica de Confidențialitate."""
+
+    template_name = 'core/privacy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_date'] = timezone.now()
+        return context
+
+
+class TermsConditionsView(TemplateView):
+    """Termeni și Condiții."""
+
+    template_name = 'core/terms.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_date'] = timezone.now()
         return context

@@ -26,15 +26,15 @@ class RentalRequestForm(forms.ModelForm):
         widgets = {
             'customer_name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Ваше имя',
+                'placeholder': _('Ваше имя'),
             }),
             'customer_email': forms.EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'email@example.com',
+                'placeholder': _('email@example.com'),
             }),
             'customer_phone': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': '+373 XX XXX XXX',
+                'placeholder': _('+373 XX XXX XXX'),
             }),
             'start_date': forms.DateInput(attrs={
                 'class': 'form-control',
@@ -46,7 +46,7 @@ class RentalRequestForm(forms.ModelForm):
             }),
             'comment': forms.Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Дополнительные пожелания...',
+                'placeholder': _('Дополнительные пожелания...'),
                 'rows': 3,
             }),
         }
