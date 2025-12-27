@@ -52,7 +52,7 @@
             <!-- Corner Decoration -->
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
             <p class="relative text-gray-300 leading-relaxed text-lg">
-                {% blocktrans with site_name=SITE_NAME %}<span class="text-brand-yellow font-semibold">{{ site_name }}</span> respectă confidențialitatea datelor cu caracter personal ale utilizatorilor săi și se angajează să le protejeze în conformitate cu legislația în vigoare din Republica Moldova.{% endblocktrans %}
+                <span class="text-brand-yellow font-semibold">{{ SITE_NAME }}</span> {% trans "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова." %}
             </p>
         </div>
 
@@ -172,7 +172,7 @@
                         </svg>
                     </div>
                     <p class="text-gray-300 leading-relaxed">
-                        {% blocktrans with site_name=SITE_NAME %}{{ site_name }} aplică măsuri tehnice și organizatorice pentru a preveni accesul neautorizat, pierderea sau divulgarea datelor personale.{% endblocktrans %}
+                        {{ SITE_NAME }} {% trans "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных." %}
                     </p>
                 </div>
             </article>
@@ -195,9 +195,39 @@
                         </svg>
                     </div>
                     <p class="text-gray-300 leading-relaxed">
-                        {% blocktrans %}Datele personale <span class="text-brand-yellow font-semibold px-2 py-0.5 bg-brand-yellow/10 rounded-lg">nu sunt vândute sau transferate către terți</span>, cu excepția cazurilor prevăzute de lege sau când este necesar pentru furnizarea serviciilor (ex: livrare).{% endblocktrans %}
+                        {% trans "Персональные данные" %} <span class="text-brand-yellow font-semibold px-2 py-0.5 bg-brand-yellow/10 rounded-lg">{% trans "не продаются и не передаются третьим лицам" %}</span>{% trans ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)." %}
                     </p>
                 </div>
+            </article>
+
+            <!-- Section 5 - Rights -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">5</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Ваши права" %}</h2>
+                </div>
+                <p class="relative text-gray-400 mb-5">{% trans "Вы имеете право:" %}</p>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Запросить доступ к своим персональным данным" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Требовать исправления неточных данных" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300">{% trans "Запросить удаление ваших данных" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.6s;"></span>
+                        <span class="text-gray-300">{% trans "Отозвать согласие на обработку данных" %}</span>
+                    </li>
+                </ul>
             </article>
         </div>
 
