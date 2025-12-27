@@ -12,7 +12,7 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('contacts/', views.ContactsView.as_view(), name='contacts'),
     path('about/', views.AboutView.as_view(), name='about'),
-    path('dashboard/', views.AdminDashboardView.as_view(), name='admin_dashboard'),
+    path('admin-panel/', views.AdminDashboardView.as_view(), name='admin_dashboard'),
     path('privacy/', views.PrivacyPolicyView.as_view(), name='privacy'),
     path('terms/', views.TermsConditionsView.as_view(), name='terms'),
 ]

@@ -313,10 +313,8 @@ msgstr "email@exemplu.com"
 msgid "+373 XX XXX XXX"
 msgstr "+373 XX XXX XXX"
 
-#, fuzzy
-#| msgid "Строительное оборудование"
 msgid "Дополнительные пожелания..."
-msgstr "Echipament de construcție"
+msgstr "Dorințe suplimentare..."
 
 msgid "Дата начала не может быть в прошлом."
 msgstr "Data de început nu poate fi în trecut."
@@ -387,17 +385,13 @@ msgstr "cerere de închiriere"
 msgid "заявки на аренду"
 msgstr "cereri de închiriere"
 
-#, fuzzy
-#| msgid "Широкий выбор строительных инструментов в аренду по доступным ценам."
 msgid "К сожалению, этот инструмент сейчас недоступен."
-msgstr ""
-"Din păcate, această unealtă nu este disponibilă în prezent.O gamă largă de "
-"unelte de construcție de închiriat la prețuri accesibile."
+msgstr "Din păcate, această unealtă nu este disponibilă în prezent."
 
 #, python-format
 msgid ""
 "Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время."
-msgstr ""
+msgstr "Cererea #%(number)s a fost creată cu succes! Vă vom contacta în curând."
 
 #, python-format
 msgid "Заявка #%(number)s успешно отменена."
@@ -407,9 +401,7 @@ msgid "Эту заявку нельзя отменить."
 msgstr "Această cerere nu poate fi anulată."
 
 msgid "Широкий выбор строительных инструментов в аренду по доступным ценам."
-msgstr ""
-"O gamă largă de unelte de construcție de închiriat la prețuri accesibile.O "
-"gamă largă de unelte de construcție de închiriat la prețuri accesibile."
+msgstr "O gamă largă de unelte de construcție de închiriat la prețuri accesibile."
 
 msgid ""
 "аренда инструментов, строительные инструменты, прокат инструментов, Молдова, "
@@ -891,10 +883,8 @@ msgstr "Nume"
 msgid "Introduceți numele"
 msgstr ""
 
-#, fuzzy
-#| msgid "email"
 msgid "Email"
-msgstr "email"
+msgstr "Email"
 
 msgid "Emailul nu poate fi modificat"
 msgstr ""
@@ -902,50 +892,32 @@ msgstr ""
 msgid "Для изменения email свяжитесь с администратором"
 msgstr "Pentru modificarea emailului, contactați administratorul"
 
-#, fuzzy
-#| msgid "телефон"
 msgid "Телефон"
-msgstr "telefon"
+msgstr "Telefon"
 
-#, fuzzy
-#| msgid "получать уведомления"
 msgid "Получать уведомления о статусе аренды"
-msgstr "primește notificări"
+msgstr "Primește notificări despre statusul închirierii"
 
-#, fuzzy
-#| msgid "получать уведомления"
 msgid "Сохранить изменения"
-msgstr "primește notificări"
+msgstr "Salvează modificările"
 
-#, fuzzy
-#| msgid "Отменена"
 msgid "Отмена"
-msgstr "Anulată"
+msgstr "Anulare"
 
-#, fuzzy
-#| msgid "Информация о заявке"
 msgid "Информация об аккаунте"
-msgstr "Informații despre cerere"
+msgstr "Informații despre cont"
 
-#, fuzzy
-#| msgid "дата регистрации"
 msgid "Дата регистрации"
-msgstr "data înregistrării"
+msgstr "Data înregistrării"
 
-#, fuzzy
-#| msgid "основное изображение"
 msgid "Последнее обновление"
-msgstr "imagine principală"
+msgstr "Ultima actualizare"
 
-#, fuzzy
-#| msgid "Информация о заявке"
 msgid "Статус аккаунта"
-msgstr "Informații despre cerere"
+msgstr "Statusul contului"
 
-#, fuzzy
-#| msgid "активен"
 msgid "Активен"
-msgstr "activ"
+msgstr "Activ"
 
 msgid "Работаем по всей Молдове"
 msgstr "Lucrăm în toată Moldova"
@@ -1083,8 +1055,6 @@ msgstr "Popular"
 msgid "Самые востребованные инструменты для аренды"
 msgstr "Cele mai solicitate instrumente pentru închiriere"
 
-#, fuzzy
-#| msgid "/ день"
 msgid "/ день"
 msgstr "/ zi"
 
@@ -1175,80 +1145,54 @@ msgstr "Favorite"
 msgid "Panou de control"
 msgstr "Panou de control"
 
-#, fuzzy
-#| msgid "Условия аренды"
 msgid "Оформление аренды"
-msgstr "Condiții de închiriere"
+msgstr "Plasare comandă"
 
 msgid "Иван Иванов"
 msgstr "Ion Popescu"
 
-#, fuzzy
-#| msgid "Комментарии"
 msgid "Комментарий"
-msgstr "Comentarii"
+msgstr "Comentariu"
 
-#, fuzzy
-#| msgid "цена за день"
 msgid "Цена за день"
-msgstr "preț pe zi"
+msgstr "Preț pe zi"
 
-#, fuzzy
-#| msgid "Количество дней:"
 msgid "Количество дней"
-msgstr "Număr de zile:"
+msgstr "Număr de zile"
 
-#, fuzzy
-#| msgid "Каталог"
 msgid "Залог"
-msgstr "Catalog"
+msgstr "Garanție"
 
-#, fuzzy
-#| msgid "Итого к оплате:"
 msgid "Итого к оплате"
-msgstr "Total de plată:"
+msgstr "Total de plată"
 
-#, fuzzy
-#| msgid "Все права защищены."
 msgid "Отправить заявку"
-msgstr "Toate drepturile rezervate."
+msgstr "Trimite cererea"
 
 msgid "Отправляя заявку, вы соглашаетесь с условиями аренды"
 msgstr "Trimițând cererea, sunteți de acord cu condițiile de închiriere"
 
-#, fuzzy
-#| msgid "Панель управления"
 msgid "Заявка отправлена"
-msgstr "Panou de control"
+msgstr "Cerere trimisă"
 
-#, fuzzy
-#| msgid "Панель управления"
 msgid "Заявка отправлена!"
-msgstr "Panou de control"
+msgstr "Cerere trimisă!"
 
 #, python-format
 msgid "Ваша заявка <strong>#%(number)s</strong> успешно создана."
-msgstr ""
+msgstr "Cererea dvs. <strong>#%(number)s</strong> a fost creată cu succes."
 
-#, fuzzy
-#| msgid "Мы свяжемся для подтверждения"
 msgid "Мы свяжемся с вами в ближайшее время для подтверждения."
-msgstr "Vă vom contacta pentru confirmare"
+msgstr "Vă vom contacta în curând pentru confirmare."
 
-#, fuzzy
-#| msgid "Позвонить нам"
 msgid "Продолжить выбор"
-msgstr "Sună-ne"
+msgstr "Continuă selecția"
 
-#, fuzzy
-#| msgid "номер заявки"
 msgid "Мои заявки"
-msgstr "număr cerere"
+msgstr "Cererile mele"
 
-#, fuzzy
-#| msgid "количество просмотров"
 msgid "Если у вас есть вопросы, звоните:"
-msgstr "număr de vizualizări"
+msgstr "Dacă aveți întrebări, sunați:"
 
 msgid "Messages"
 msgstr "Mesaje"
@@ -2470,3 +2414,77 @@ msgstr "%(site_name)s își rezervă dreptul de a refuza o comandă"
 #, python-brace-format
 msgid "%(site_name)s не несет ответственности за:"
 msgstr "%(site_name)s nu este responsabil pentru:"
+
+# Dashboard translations
+msgid "Личный кабинет"
+msgstr "Cont personal"
+
+msgid "Обзор"
+msgstr "Prezentare generală"
+
+msgid "Мои заказы"
+msgstr "Comenzile mele"
+
+msgid "Настройки профиля"
+msgstr "Setări profil"
+
+msgid "Управление вашим аккаунтом"
+msgstr "Gestionarea contului dvs."
+
+msgid "Личные данные"
+msgstr "Date personale"
+
+msgid "Введите имя"
+msgstr "Introduceți prenumele"
+
+msgid "Введите фамилию"
+msgstr "Introduceți numele"
+
+msgid "Получать уведомления о заказах"
+msgstr "Primește notificări despre comenzi"
+
+msgid "Обзор вашего аккаунта"
+msgstr "Prezentarea contului dvs."
+
+msgid "Активные"
+msgstr "Active"
+
+msgid "Завершённые"
+msgstr "Finalizate"
+
+msgid "Все заказы"
+msgstr "Toate comenzile"
+
+msgid "У вас пока нет заказов"
+msgstr "Nu aveți încă comenzi"
+
+msgid "Все избранные"
+msgstr "Toate favoritele"
+
+msgid "день"
+msgstr "zi"
+
+msgid "История заказов"
+msgstr "Istoricul comenzilor"
+
+msgid "Фильтр по статусу"
+msgstr "Filtrare după status"
+
+msgid "Все статусы"
+msgstr "Toate statusurile"
+
+msgid "Нет заказов с таким статусом"
+msgstr "Nu există comenzi cu acest status"
+
+msgid "Удалить из избранного"
+msgstr "Elimină din favorite"
+
+msgid "В избранном пусто"
+msgstr "Favorite goale"
+
+msgid "Добавляйте инструменты в избранное, чтобы быстро находить их"
+msgstr "Adăugați instrumente la favorite pentru a le găsi rapid"
+
+msgid "Перейти к каталогу"
+msgstr "Mergi la catalog"
+
