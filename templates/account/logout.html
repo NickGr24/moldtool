@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Выход" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-dark flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.08)_0%,_transparent_50%)]"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-md">
+        <!-- Logout Card -->
+        <div class="bg-dark-100/80 backdrop-blur-xl border border-dark-border rounded-2xl shadow-2xl p-8 text-center">
+            <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+            </div>
+
+            <h1 class="text-2xl font-bold text-white mb-4">
+                {% trans "Выйти из аккаунта?" %}
+            </h1>
+            <p class="text-gray-400 mb-8">
+                {% trans "Вы уверены, что хотите выйти из своего аккаунта?" %}
+            </p>
+
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{% url 'core:home' %}"
+                       class="flex-1 px-6 py-3 bg-dark-200 border border-dark-border text-white font-medium rounded-xl transition-all duration-300 hover:bg-dark-300 hover:border-gray-600">
+                        {% trans "Отмена" %}
+                    </a>
+                    <button type="submit"
+                            class="flex-1 px-6 py-3 bg-gradient-to-r from-brand-red to-brand-red-dark text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-red/30">
+                        {% trans "Выйти" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
