@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Despre noi - {{ SITE_NAME }}{% endblock %}
+
+{% block meta_description %}{{ SITE_NAME }} - {{ SITE_TAGLINE }}. Aflați mai multe despre compania noastră și serviciile pe care le oferim.{% endblock %}
+
+{% block content %}
+<!-- ============================================
+     ABOUT HERO SECTION
+     ============================================ -->
+<section class="relative py-20 lg:py-28 bg-dark overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(245,166,35,0.12)_0%,_transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(229,57,53,0.08)_0%,_transparent_50%)]"></div>
+        <div class="absolute top-20 right-1/4 w-80 h-80 bg-brand-yellow/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-20 left-1/4 w-72 h-72 bg-brand-red/10 rounded-full blur-[80px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Acasă</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">Despre noi</span>
+        </nav>
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
+                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+                <span class="text-sm font-medium text-gray-300">De peste 5 ani pe piață</span>
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+                Despre <span class="text-gradient">{{ SITE_NAME }}</span>
+            </h1>
+            <p class="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto">
+                Suntem o companie de încredere specializată în închirierea de scule și echipamente de construcție 
+                pentru profesioniști și amatori din toată Moldova.
+            </p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
+                <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">5+</div>
+                <div class="text-gray-400">Ani de experiență</div>
+            </div>
+            <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
+                <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">500+</div>
+                <div class="text-gray-400">Unelte disponibile</div>
+            </div>
+            <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
+                <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">1000+</div>
+                <div class="text-gray-400">Clienți mulțumiți</div>
+            </div>
+            <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
+                <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">24/7</div>
+                <div class="text-gray-400">Suport disponibil</div>
+            </div>
+        </div>
+
+        <!-- About Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <!-- Left: Image -->
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-brand-yellow/20 to-brand-red/20 rounded-3xl blur-2xl"></div>
+                <div class="relative bg-dark-100 rounded-2xl p-4 border border-dark-border overflow-hidden">
+                    <img src="{% static 'images/logo.jpg' %}" 
+                         alt="{{ SITE_NAME }}"
+                         class="w-full h-auto rounded-xl"
+                         onerror="this.src='https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=400&fit=crop'">
+                </div>
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark px-6 py-3 rounded-xl font-bold shadow-glow-yellow">
+                    Din 2019
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-white">
+                    Povestea noastră
+                </h2>
+                <p class="text-gray-400 leading-relaxed">
+                    {{ SITE_NAME }} a fost fondată în 2019 cu o misiune simplă: să facem accesibile sculele profesionale 
+                    pentru toți cei care au nevoie de ele. Am început cu câteva unelte de bază și am crescut constant, 
+                    devenind una dintre cele mai de încredere companii de închiriere din Moldova.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Astăzi, dispunem de peste 500 de unelte și echipamente de construcție, de la perforatoare și 
+                    polizoare până la generatoare și scule specializate. Fiecare unealtă este verificată și 
+                    întreținută regulat pentru a asigura funcționarea perfectă.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{% url 'catalog:catalog' %}"
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
+                        Vezi catalogul
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="{% url 'core:contacts' %}"
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-dark-200 border border-dark-border text-white font-bold rounded-xl hover:border-brand-yellow transition-all duration-300">
+                        Contactează-ne
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     WHY CHOOSE US SECTION
+     ============================================ -->
+<section class="py-20 bg-dark-100 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-red/5 rounded-full blur-[80px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="inline-block px-4 py-2 bg-brand-yellow/10 text-brand-yellow font-semibold rounded-full text-sm mb-4">
+                Avantajele noastre
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                De ce să alegeți <span class="text-gradient">{{ SITE_NAME }}</span>?
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Oferim cele mai bune condiții pentru închirierea de scule în Moldova
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Calitate verificată</h3>
+                <p class="text-gray-400">
+                    Toate sculele sunt verificate înainte de fiecare închiriere. Garantăm funcționarea perfectă.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Prețuri accesibile</h3>
+                <p class="text-gray-400">
+                    Cele mai competitive prețuri de pe piață. Reduceri pentru închirieri pe termen lung.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Livrare rapidă</h3>
+                <p class="text-gray-400">
+                    Livrăm în toată Moldova. Ridicare gratuită din biroul nostru din Chișinău.
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Echipă experimentată</h3>
+                <p class="text-gray-400">
+                    Specialiștii noștri vă vor ajuta să alegeți unealta potrivită pentru sarcina dvs.
+                </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Înregistrare simplă</h3>
+                <p class="text-gray-400">
+                    Minimum de documente. Rezervare online disponibilă 24/7.
+                </p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
+                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Grijă pentru clienți</h3>
+                <p class="text-gray-400">
+                    Abordare individuală. Suport tehnic pe toată durata închirierii.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     OUR VALUES SECTION
+     ============================================ -->
+<section class="py-20 bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="space-y-8">
+                <div>
+                    <span class="inline-block px-4 py-2 bg-brand-red/10 text-brand-red font-semibold rounded-full text-sm mb-4">
+                        Valorile noastre
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                        Ce ne ghidează în activitatea noastră
+                    </h2>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Onestitate</h3>
+                            <p class="text-gray-400">Transparență totală în relațiile cu clienții. Fără costuri ascunse sau surprize neplăcute.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-brand-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Eficiență</h3>
+                            <p class="text-gray-400">Procesăm cererile rapid. Sculele sunt întotdeauna pregătite pentru utilizare.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Fiabilitate</h3>
+                            <p class="text-gray-400">Puteți conta pe noi. Respectăm întotdeauna promisiunile și termenele stabilite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: CTA Card -->
+            <div class="bg-gradient-to-br from-brand-yellow via-brand-yellow-dark to-brand-red rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+                <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                <div class="relative">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-dark mb-4">
+                        Sunteți gata să începeți?
+                    </h3>
+                    <p class="text-dark/80 mb-8">
+                        Alegeți unealta din catalog sau sunați-ne pentru consultație. 
+                        Echipa noastră vă va ajuta să găsiți soluția perfectă.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="{% url 'catalog:catalog' %}"
+                           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark text-white font-bold rounded-xl hover:bg-dark-100 transition-all">
+                            Vezi catalogul
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="tel:{{ SITE_PHONE }}"
+                           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark/10 text-dark font-bold rounded-xl border-2 border-dark/20 hover:bg-dark/20 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            {{ SITE_PHONE }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

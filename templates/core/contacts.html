@@ -1,0 +1,367 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contacte - {{ SITE_NAME }}{% endblock %}
+
+{% block meta_description %}Contactați {{ SITE_NAME }}. Telefon: {{ SITE_PHONE }}, Email: {{ SITE_EMAIL }}. Adresa: {{ SITE_ADDRESS }}{% endblock %}
+
+{% block content %}
+<!-- ============================================
+     CONTACTS HERO SECTION
+     ============================================ -->
+<section class="relative py-20 lg:py-28 bg-dark overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(245,166,35,0.12)_0%,_transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(229,57,53,0.08)_0%,_transparent_50%)]"></div>
+        <div class="absolute top-20 right-1/4 w-80 h-80 bg-brand-yellow/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-20 left-1/4 w-72 h-72 bg-brand-red/10 rounded-full blur-[80px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Acasă</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">Contacte</span>
+        </nav>
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span class="text-sm font-medium text-gray-300">Suport online 24/7</span>
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+                Contactați-<span class="text-gradient">ne</span>
+            </h1>
+            <p class="text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto">
+                Suntem mereu disponibili! Sunați, scrieți sau vizitați biroul nostru — 
+                vom fi bucuroși să vă ajutăm cu alegerea sculei.
+            </p>
+        </div>
+
+        <!-- Contact Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Phone Card -->
+            <a href="tel:{{ SITE_PHONE }}"
+               class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-yellow/10 overflow-hidden">
+                <!-- Glow effect -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-yellow group-hover:to-brand-yellow-dark group-hover:rotate-6">
+                        <svg class="w-8 h-8 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <!-- Ping animation -->
+                        <span class="absolute inset-0 rounded-2xl bg-brand-yellow/30 animate-ping opacity-0 group-hover:opacity-75"></span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Telefon</h3>
+                    <p class="text-2xl font-bold text-brand-yellow mb-2">{{ SITE_PHONE }}</p>
+                    <p class="text-gray-500 text-sm">Sunați oricând — suntem disponibili!</p>
+                </div>
+            </a>
+
+            <!-- Email Card -->
+            <a href="mailto:{{ SITE_EMAIL }}"
+               class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-red/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-red/10 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-red group-hover:to-brand-red-dark group-hover:-rotate-6">
+                        <svg class="w-8 h-8 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors">Email</h3>
+                    <p class="text-xl font-semibold text-brand-red mb-2 break-all">{{ SITE_EMAIL }}</p>
+                    <p class="text-gray-500 text-sm">Răspundem în maxim o oră</p>
+                </div>
+            </a>
+
+            <!-- Address Card -->
+            <a href="https://maps.google.com/?q={{ SITE_ADDRESS|urlencode }}" target="_blank" rel="noopener"
+               class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-yellow/10 overflow-hidden md:col-span-2 lg:col-span-1">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-yellow group-hover:to-brand-yellow-dark group-hover:rotate-6">
+                        <svg class="w-8 h-8 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Adresă</h3>
+                    <p class="text-lg font-medium text-white mb-2">{{ SITE_ADDRESS }}</p>
+                    <p class="text-gray-500 text-sm flex items-center gap-2">
+                        <span>Deschide pe hartă</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Left Column: Working Hours & Social -->
+            <div class="space-y-8">
+                <!-- Working Hours Card -->
+                <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Program de lucru</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Luni - Vineri</span>
+                            <span class="text-white font-semibold">08:00 - 20:00</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Sâmbătă</span>
+                            <span class="text-white font-semibold">09:00 - 18:00</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-dark-border">
+                            <span class="text-gray-400">Duminică</span>
+                            <span class="text-white font-semibold">10:00 - 16:00</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <span class="text-gray-400">Telefon suport</span>
+                            <span class="text-brand-yellow font-semibold">24/7</span>
+                        </div>
+                    </div>
+
+                    <!-- Status Badge -->
+                    <div class="mt-6 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                        <div class="flex items-center gap-3">
+                            <div class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </div>
+                            <span class="text-green-400 font-medium">Suntem deschiși acum!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Networks -->
+                <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
+                    <h3 class="text-xl font-bold text-white mb-6">Rețele sociale</h3>
+                    <p class="text-gray-400 mb-6">Urmăriți-ne pentru promoții și noutăți!</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-[#0088cc]/50 hover:bg-[#0088cc]/10 group">
+                            <div class="w-10 h-10 bg-[#0088cc]/20 rounded-xl flex items-center justify-center transition-all group-hover:bg-[#0088cc] group-hover:scale-110">
+                                <svg class="w-5 h-5 text-[#0088cc] group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </div>
+                            <span class="text-white font-medium group-hover:text-[#0088cc] transition-colors">Telegram</span>
+                        </a>
+
+                        <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-[#7360f2]/50 hover:bg-[#7360f2]/10 group">
+                            <div class="w-10 h-10 bg-[#7360f2]/20 rounded-xl flex items-center justify-center transition-all group-hover:bg-[#7360f2] group-hover:scale-110">
+                                <svg class="w-5 h-5 text-[#7360f2] group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.398.002C9.473.028 5.331.344 3.014 2.467 1.294 4.182.535 6.745.384 9.968c-.15 3.222-.036 6.155 3.63 7.148h.003l-.004 2.477s-.03.963.596 1.162c.756.24 1.2-.486 1.924-1.262.398-.426.945-1.053 1.36-1.532 3.753.316 6.64-.407 6.973-.518.77-.257 5.126-.808 5.837-6.595.735-5.986-.343-9.77-2.24-11.478C16.628.847 13.853.007 12.069.001c-.239-.002-.458-.001-.671.001z"/>
+                                </svg>
+                            </div>
+                            <span class="text-white font-medium group-hover:text-[#7360f2] transition-colors">Viber</span>
+                        </a>
+
+                        <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-pink-500/50 hover:bg-pink-500/10 group">
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center transition-all group-hover:from-purple-500 group-hover:to-pink-500 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-pink-500 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </div>
+                            <span class="text-white font-medium group-hover:text-pink-500 transition-colors">Instagram</span>
+                        </a>
+
+                        <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-blue-500/50 hover:bg-blue-500/10 group">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center transition-all group-hover:bg-blue-500 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-blue-500 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </div>
+                            <span class="text-white font-medium group-hover:text-blue-500 transition-colors">Facebook</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-gradient-to-r from-brand-yellow via-brand-yellow-dark to-brand-red rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-dark mb-4">Aveți nevoie de ajutor?</h3>
+                        <p class="text-dark/80 mb-6">Specialiștii noștri vă vor ajuta să alegeți unealta perfectă pentru sarcina dvs.</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="tel:{{ SITE_PHONE }}"
+                               class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark text-white font-semibold rounded-xl transition-all hover:bg-dark-100 hover:shadow-xl">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                                Sunați
+                            </a>
+                            <a href="{% url 'catalog:catalog' %}"
+                               class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark/10 text-dark font-semibold rounded-xl border-2 border-dark/20 transition-all hover:bg-dark/20">
+                                Vezi catalogul
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Map -->
+            <div class="space-y-8">
+                <!-- Map Container -->
+                <div class="bg-dark-100 rounded-2xl p-4 border border-dark-border overflow-hidden">
+                    <div class="rounded-xl overflow-hidden aspect-[4/3] lg:aspect-[3/4]">
+                        <!-- Google Maps Embed -->
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Strada+Independenței+7,+Chișinău,+Moldova&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; min-height: 400px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="grayscale hover:grayscale-0 transition-all duration-500">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Address Details -->
+                <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
+                    <h3 class="text-xl font-bold text-white mb-6">Cum să ne găsiți</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Adresa biroului</h4>
+                                <p class="text-gray-400">{{ SITE_ADDRESS }}</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-brand-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Parcare</h4>
+                                <p class="text-gray-400">Parcare gratuită lângă clădire</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Punct de reper</h4>
+                                <p class="text-gray-400">Lângă centrul comercial</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Get Directions Button -->
+                    <a href="https://maps.google.com/maps/dir//{{ SITE_ADDRESS|urlencode }}" target="_blank" rel="noopener"
+                       class="mt-6 w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark rounded-xl border border-dark-border font-semibold text-white transition-all duration-300 hover:border-brand-yellow hover:text-brand-yellow group">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                        Construiește ruta
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Mini Section -->
+<section class="py-16 bg-dark-100 border-t border-dark-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-bold text-white mb-2">Întrebări frecvente</h2>
+            <p class="text-gray-400">Răspunsuri la întrebările populare despre contacte și vizite</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                    <span class="text-white font-medium">Cum pot plăti închirierea?</span>
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </summary>
+                <div class="px-5 pb-5 text-gray-400">
+                    Acceptăm numerar, carduri bancare, precum și transfer bancar pentru persoane juridice.
+                </div>
+            </details>
+
+            <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                    <span class="text-white font-medium">Este posibilă livrarea sculelor?</span>
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </summary>
+                <div class="px-5 pb-5 text-gray-400">
+                    Da, efectuăm livrare în toată Moldova. Costul livrării depinde de distanță și volumul comenzii.
+                </div>
+            </details>
+
+            <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                    <span class="text-white font-medium">Trebuie să las o garanție?</span>
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </summary>
+                <div class="px-5 pb-5 text-gray-400">
+                    Da, la închirierea unei scule este necesară o garanție sau un act de identitate. Mărimea garanției depinde de tipul sculei.
+                </div>
+            </details>
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="{% url 'catalog:faq' %}" class="inline-flex items-center gap-2 text-brand-yellow hover:text-brand-yellow-dark transition-colors font-medium">
+                Toate întrebările și răspunsurile
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
