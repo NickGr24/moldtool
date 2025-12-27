@@ -50,6 +50,12 @@ class ContactsView(TemplateView):
     template_name = 'core/contacts.html'
 
 
+class AboutView(TemplateView):
+    """Страница о нас."""
+
+    template_name = 'core/about.html'
+
+
 @method_decorator(staff_member_required, name='dispatch')
 class AdminDashboardView(TemplateView):
     """Мини админ-панель со статистикой."""
