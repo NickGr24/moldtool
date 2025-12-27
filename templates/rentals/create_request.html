@@ -3,6 +3,9 @@
 
 {% block title %}{% trans "Арендовать" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
+{% block extra_css %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <!-- Breadcrumbs -->
@@ -145,4 +148,114 @@
         </p>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get dates from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const startDateParam = urlParams.get('start_date');
+    const endDateParam = urlParams.get('end_date');
+    
+    console.log('URL parameters:', { startDateParam, endDateParam });
+    
+    const startInput = document.getElementById('id_start_date');
+    const endInput = document.getElementById('id_end_date');
+    
+    if (!startInput || !endInput) {
+        console.error('Date inputs not found');
+        return;
+    }
+    
+    // Set dates from URL if provided
+    if (startDateParam && endDateParam) {
+        startInput.value = startDateParam;
+        endInput.value = endDateParam;
+        
+        // Set min date for end date input
+        endInput.setAttribute('min', startDateParam);
+        
+        console.log('Dates set from URL - Start:', startDateParam, 'End:', endDateParam);
+        
+        // Calculate total after setting dates
+        setTimeout(calculateTotal, 100);
+    }
+    
+    // Set min date to today for both inputs
+    const today = new Date().toISOString().split('T')[0];
+    startInput.setAttribute('min', today);
+    if (!endInput.getAttribute('min')) {
+        endInput.setAttribute('min', today);
+    }
+    
+    // Update min date for end input when start date changes
+    startInput.addEventListener('change', function() {
+        if (this.value) {
+            endInput.setAttribute('min', this.value);
+            if (endInput.value && endInput.value < this.value) {
+                endInput.value = this.value;
+            }
+        }
+        calculateTotal();
+    });
+    
+    // Calculate total when end date changes
+    endInput.addEventListener('change', function() {
+        calculateTotal();
+    });
+    
+    function calculateTotal() {
+        const summary = document.querySelector('.rental-summary');
+        if (!summary) return;
+        
+        const pricePerDay = parseFloat(summary.dataset.pricePerDay) || 0;
+        const deposit = parseFloat(summary.dataset.deposit) || 0;
+        
+        const startValue = startInput.value;
+        const endValue = endInput.value;
+        
+        if (startValue && endValue) {
+            const start = new Date(startValue);
+            const end = new Date(endValue);
+            
+            if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end >= start) {
+                const diffTime = end - start;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                
+                if (diffDays > 0) {
+                    const totalRent = diffDays * pricePerDay;
+                    const totalPrice = totalRent + deposit;
+                    
+                    const daysDisplay = document.getElementById('totalDays');
+                    const priceDisplay = document.getElementById('totalPrice');
+                    
+                    if (daysDisplay) daysDisplay.textContent = diffDays;
+                    if (priceDisplay) priceDisplay.textContent = totalPrice + ' MDL';
+                } else {
+                    const daysDisplay = document.getElementById('totalDays');
+                    const priceDisplay = document.getElementById('totalPrice');
+                    if (daysDisplay) daysDisplay.textContent = '-';
+                    if (priceDisplay) priceDisplay.textContent = '-';
+                }
+            } else {
+                const daysDisplay = document.getElementById('totalDays');
+                const priceDisplay = document.getElementById('totalPrice');
+                if (daysDisplay) daysDisplay.textContent = '-';
+                if (priceDisplay) priceDisplay.textContent = '-';
+            }
+        } else {
+            const daysDisplay = document.getElementById('totalDays');
+            const priceDisplay = document.getElementById('totalPrice');
+            if (daysDisplay) daysDisplay.textContent = '-';
+            if (priceDisplay) priceDisplay.textContent = '-';
+        }
+    }
+    
+    // Initial calculation if dates are already set
+    if (startInput.value && endInput.value) {
+        calculateTotal();
+    }
+});
+</script>
 {% endblock %}
