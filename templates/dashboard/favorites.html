@@ -1,0 +1,140 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Избранное" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block dashboard_content %}
+<!-- Header -->
+<div class="mb-8">
+    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Избранное" %}</h1>
+    <p class="text-gray-400">{% trans "Инструменты, которые вы сохранили" %}</p>
+</div>
+
+{% if favorites %}
+<!-- Favorites Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for fav in favorites %}
+    <div class="bg-dark-100 border border-dark-border rounded-2xl overflow-hidden group hover:border-dark-300 transition-all">
+        <!-- Image -->
+        <a href="{{ fav.tool.get_absolute_url }}" class="block aspect-[4/3] bg-dark-200 overflow-hidden relative">
+            {% if fav.tool.image %}
+            <img src="{{ fav.tool.image.url }}" alt="{{ fav.tool.name }}" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            {% endif %}
+            
+            <!-- Remove from favorites button -->
+            <button onclick="toggleFavorite({{ fav.tool.id }}, this)"
+                    class="absolute top-3 right-3 w-10 h-10 bg-dark/80 backdrop-blur-sm rounded-full flex items-center justify-center text-red-400 hover:bg-red-500 hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </button>
+
+            <!-- Availability badge -->
+            {% if fav.tool.is_available %}
+            <span class="absolute bottom-3 left-3 px-3 py-1 bg-green-500/90 text-white text-xs font-medium rounded-full">
+                {% trans "Доступен" %}
+            </span>
+            {% else %}
+            <span class="absolute bottom-3 left-3 px-3 py-1 bg-red-500/90 text-white text-xs font-medium rounded-full">
+                {% trans "Недоступен" %}
+            </span>
+            {% endif %}
+        </a>
+
+        <!-- Content -->
+        <div class="p-5">
+            <div class="mb-3">
+                <span class="text-gray-500 text-sm">{{ fav.tool.category.name }}</span>
+                <h3 class="text-white font-medium text-lg group-hover:text-brand-yellow transition-colors">
+                    <a href="{{ fav.tool.get_absolute_url }}">{{ fav.tool.name }}</a>
+                </h3>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-2xl font-bold text-brand-yellow">{{ fav.tool.price_per_day }}</span>
+                    <span class="text-gray-400 text-sm">MDL/{% trans "день" %}</span>
+                </div>
+                
+                {% if fav.tool.is_available %}
+                <a href="{% url 'rentals:create_request' slug=fav.tool.slug %}"
+                   class="px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors text-sm">
+                    {% trans "Арендовать" %}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if page_obj.has_other_pages %}
+<div class="flex justify-center mt-8">
+    <nav class="flex items-center gap-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+           class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
+            {% trans "Назад" %}
+        </a>
+        {% endif %}
+        
+        <span class="px-4 py-2 text-gray-400">
+            {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </span>
+        
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+           class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
+            {% trans "Далее" %}
+        </a>
+        {% endif %}
+    </nav>
+</div>
+{% endif %}
+
+{% else %}
+<!-- Empty State -->
+<div class="bg-dark-100 border border-dark-border rounded-2xl p-12 text-center">
+    <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+        </svg>
+    </div>
+    <h3 class="text-xl font-bold text-white mb-2">{% trans "Избранное пусто" %}</h3>
+    <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Добавляйте инструменты в избранное, чтобы быстро находить их" %}</p>
+    <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        {% trans "Перейти в каталог" %}
+    </a>
+</div>
+{% endif %}
+
+<script>
+function toggleFavorite(toolId, button) {
+    fetch('/catalog/favorite/' + toolId + '/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'removed') {
+            // Remove the card from the page
+            button.closest('.bg-dark-100').remove();
+            
+            // Check if there are no more favorites
+            const grid = document.querySelector('.grid');
+            if (grid && grid.children.length === 0) {
+                location.reload();
+            }
+        }
+    });
+}
+</script>
+{% endblock %}
