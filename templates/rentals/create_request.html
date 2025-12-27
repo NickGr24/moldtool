@@ -4,59 +4,6 @@
 {% block title %}{% trans "Арендовать" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
 {% block extra_css %}
-<!-- Flatpickr CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
-<style>
-    .flatpickr-calendar {
-        background: #1a1a1a !important;
-        border: 1px solid #333 !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
-        border-radius: 12px !important;
-    }
-    .flatpickr-months {
-        background: #1a1a1a !important;
-        border-radius: 12px 12px 0 0 !important;
-    }
-    .flatpickr-current-month {
-        color: #fbbf24 !important;
-    }
-    .flatpickr-weekday {
-        color: #9ca3af !important;
-    }
-    .flatpickr-day {
-        color: #fff !important;
-        border-radius: 8px !important;
-    }
-    .flatpickr-day:hover {
-        background: #fbbf24 !important;
-        color: #000 !important;
-        border-color: #fbbf24 !important;
-    }
-    .flatpickr-day.selected,
-    .flatpickr-day.startRange,
-    .flatpickr-day.endRange {
-        background: #fbbf24 !important;
-        color: #000 !important;
-        border-color: #fbbf24 !important;
-    }
-    .flatpickr-day.inRange {
-        background: rgba(251, 191, 36, 0.2) !important;
-        border-color: transparent !important;
-        box-shadow: none !important;
-    }
-    .flatpickr-day.disabled {
-        color: #4b5563 !important;
-    }
-    .flatpickr-months .flatpickr-prev-month:hover svg,
-    .flatpickr-months .flatpickr-next-month:hover svg {
-        fill: #fbbf24 !important;
-    }
-    .flatpickr-months .flatpickr-prev-month svg,
-    .flatpickr-months .flatpickr-next-month svg {
-        fill: #fff !important;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -131,19 +78,9 @@
             <div class="rental-dates">
                 <div class="form-group">
                     <label class="form-label required" for="id_start_date">{% trans "Дата начала" %}</label>
-                    <div style="position: relative;">
-                        <input type="text" name="start_date" id="id_start_date"
-                               class="form-control {% if form.start_date.errors %}is-invalid{% endif %}"
-                               value="{{ form.start_date.value|default:'' }}"
-                               placeholder="Selectați data" required readonly
-                               style="padding-left: 2.75rem; cursor: pointer;">
-                        <svg style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: #9ca3af; pointer-events: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/>
-                            <line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/>
-                            <line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/>
-                        </svg>
-                    </div>
+                    <input type="date" name="start_date" id="id_start_date"
+                           class="form-control {% if form.start_date.errors %}is-invalid{% endif %}"
+                           value="{{ form.start_date.value|default:'' }}" required>
                     {% if form.start_date.errors %}
                     <p class="form-error">{{ form.start_date.errors.0 }}</p>
                     {% endif %}
@@ -151,19 +88,9 @@
 
                 <div class="form-group">
                     <label class="form-label required" for="id_end_date">{% trans "Дата окончания" %}</label>
-                    <div style="position: relative;">
-                        <input type="text" name="end_date" id="id_end_date"
-                               class="form-control {% if form.end_date.errors %}is-invalid{% endif %}"
-                               value="{{ form.end_date.value|default:'' }}"
-                               placeholder="Selectați data" required readonly
-                               style="padding-left: 2.75rem; cursor: pointer;">
-                        <svg style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: #9ca3af; pointer-events: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/>
-                            <line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/>
-                            <line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/>
-                        </svg>
-                    </div>
+                    <input type="date" name="end_date" id="id_end_date"
+                           class="form-control {% if form.end_date.errors %}is-invalid{% endif %}"
+                           value="{{ form.end_date.value|default:'' }}" required>
                     {% if form.end_date.errors %}
                     <p class="form-error">{{ form.end_date.errors.0 }}</p>
                     {% endif %}
@@ -221,93 +148,113 @@
         </p>
     </div>
 </div>
+{% endblock %}
 
-<!-- Flatpickr JS -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Flatpickr Romanian locale
-    const Romanian = {
-        weekdays: {
-            shorthand: ['Du', 'Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Sâ'],
-            longhand: ['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă']
-        },
-        months: {
-            shorthand: ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Noi', 'Dec'],
-            longhand: ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie']
-        },
-        firstDayOfWeek: 1,
-        ordinal: function() {
-            return '';
-        },
-        rangeSeparator: ' — ',
-        weekAbbreviation: 'Săpt.',
-        scrollTitle: 'Derulați pentru a mări',
-        toggleTitle: 'Click pentru a comuta',
-        amPM: ['AM', 'PM'],
-        yearAriaLabel: 'An',
-        time_24hr: true
-    };
-
-    const startDateInput = document.getElementById('id_start_date');
-    const endDateInput = document.getElementById('id_end_date');
-
-    // Initialize Flatpickr for start date
-    const startDatePicker = flatpickr(startDateInput, {
-        locale: Romanian,
-        dateFormat: 'Y-m-d',
-        minDate: 'today',
-        disableMobile: true,
-        onChange: function(selectedDates, dateStr, instance) {
-            if (endDatePicker) {
-                endDatePicker.set('minDate', selectedDates[0]);
-                const endDate = endDateInput._flatpickr.selectedDates[0];
-                if (endDate && endDate < selectedDates[0]) {
-                    endDatePicker.clear();
-                }
+    // Get dates from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const startDateParam = urlParams.get('start_date');
+    const endDateParam = urlParams.get('end_date');
+    
+    console.log('URL parameters:', { startDateParam, endDateParam });
+    
+    const startInput = document.getElementById('id_start_date');
+    const endInput = document.getElementById('id_end_date');
+    
+    if (!startInput || !endInput) {
+        console.error('Date inputs not found');
+        return;
+    }
+    
+    // Set dates from URL if provided
+    if (startDateParam && endDateParam) {
+        startInput.value = startDateParam;
+        endInput.value = endDateParam;
+        
+        // Set min date for end date input
+        endInput.setAttribute('min', startDateParam);
+        
+        console.log('Dates set from URL - Start:', startDateParam, 'End:', endDateParam);
+        
+        // Calculate total after setting dates
+        setTimeout(calculateTotal, 100);
+    }
+    
+    // Set min date to today for both inputs
+    const today = new Date().toISOString().split('T')[0];
+    startInput.setAttribute('min', today);
+    if (!endInput.getAttribute('min')) {
+        endInput.setAttribute('min', today);
+    }
+    
+    // Update min date for end input when start date changes
+    startInput.addEventListener('change', function() {
+        if (this.value) {
+            endInput.setAttribute('min', this.value);
+            if (endInput.value && endInput.value < this.value) {
+                endInput.value = this.value;
             }
-            calculateTotal();
         }
+        calculateTotal();
     });
-
-    // Initialize Flatpickr for end date
-    const endDatePicker = flatpickr(endDateInput, {
-        locale: Romanian,
-        dateFormat: 'Y-m-d',
-        minDate: 'today',
-        disableMobile: true,
-        onChange: function(selectedDates, dateStr, instance) {
-            calculateTotal();
-        }
+    
+    // Calculate total when end date changes
+    endInput.addEventListener('change', function() {
+        calculateTotal();
     });
-
-    // Store flatpickr instances in input elements for later access
-    startDateInput._flatpickr = startDatePicker;
-    endDateInput._flatpickr = endDatePicker;
-
+    
     function calculateTotal() {
         const summary = document.querySelector('.rental-summary');
+        if (!summary) return;
+        
         const pricePerDay = parseFloat(summary.dataset.pricePerDay) || 0;
         const deposit = parseFloat(summary.dataset.deposit) || 0;
         
-        const startDate = startDateInput._flatpickr.selectedDates[0];
-        const endDate = endDateInput._flatpickr.selectedDates[0];
+        const startValue = startInput.value;
+        const endValue = endInput.value;
         
-        if (startDate && endDate) {
-            const diffTime = endDate - startDate;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        if (startValue && endValue) {
+            const start = new Date(startValue);
+            const end = new Date(endValue);
             
-            if (diffDays > 0) {
-                const totalRent = diffDays * pricePerDay;
-                const totalPrice = totalRent + deposit;
+            if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end >= start) {
+                const diffTime = end - start;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
                 
-                document.getElementById('totalDays').textContent = diffDays;
-                document.getElementById('totalPrice').textContent = totalPrice + ' MDL';
+                if (diffDays > 0) {
+                    const totalRent = diffDays * pricePerDay;
+                    const totalPrice = totalRent + deposit;
+                    
+                    const daysDisplay = document.getElementById('totalDays');
+                    const priceDisplay = document.getElementById('totalPrice');
+                    
+                    if (daysDisplay) daysDisplay.textContent = diffDays;
+                    if (priceDisplay) priceDisplay.textContent = totalPrice + ' MDL';
+                } else {
+                    const daysDisplay = document.getElementById('totalDays');
+                    const priceDisplay = document.getElementById('totalPrice');
+                    if (daysDisplay) daysDisplay.textContent = '-';
+                    if (priceDisplay) priceDisplay.textContent = '-';
+                }
             } else {
-                document.getElementById('totalDays').textContent = '-';
-                document.getElementById('totalPrice').textContent = '-';
+                const daysDisplay = document.getElementById('totalDays');
+                const priceDisplay = document.getElementById('totalPrice');
+                if (daysDisplay) daysDisplay.textContent = '-';
+                if (priceDisplay) priceDisplay.textContent = '-';
             }
+        } else {
+            const daysDisplay = document.getElementById('totalDays');
+            const priceDisplay = document.getElementById('totalPrice');
+            if (daysDisplay) daysDisplay.textContent = '-';
+            if (priceDisplay) priceDisplay.textContent = '-';
         }
+    }
+    
+    // Initial calculation if dates are already set
+    if (startInput.value && endInput.value) {
+        calculateTotal();
     }
 });
 </script>
