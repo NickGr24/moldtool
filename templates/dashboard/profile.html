@@ -1,157 +1,99 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
 {% block title %}{% trans "Профиль" %} - {{ SITE_NAME }}{% endblock %}
 
-{% block content %}
-<section class="py-8 lg:py-12 bg-dark min-h-screen">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-sm mb-6">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-            <a href="{% url 'dashboard:index' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Панель управления" %}</a>
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-            <span class="text-white">{% trans "Профиль" %}</span>
-        </nav>
+{% block dashboard_content %}
+<!-- Header -->
+<div class="mb-8">
+    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Настройки профиля" %}</h1>
+    <p class="text-gray-400">{% trans "Управление вашим аккаунтом" %}</p>
+</div>
 
-        <!-- Page Header -->
-        <div class="mb-8">
-            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Мой профиль" %}</h1>
-            <p class="text-gray-400">{% trans "Обновите свои личные данные" %}</p>
-        </div>
-
-        <!-- Messages -->
-        {% if messages %}
-        <div class="mb-6">
-            {% for message in messages %}
-            <div class="px-6 py-4 rounded-xl border {% if message.tags == 'success' %}bg-green-500/10 border-green-500/50 text-green-400{% elif message.tags == 'error' %}bg-red-500/10 border-red-500/50 text-red-400{% else %}bg-blue-500/10 border-blue-500/50 text-blue-400{% endif %}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-
-        <!-- Profile Form -->
-        <div class="bg-dark-100 rounded-2xl border border-dark-border p-6 lg:p-8">
-            <form method="post" enctype="multipart/form-data" class="space-y-6">
-                {% csrf_token %}
-
-                <!-- Avatar -->
-                <div class="flex items-center gap-6">
-                    <div class="relative">
-                        {% if user.avatar %}
-                        <img src="{{ user.avatar.url }}" alt="{{ user.get_full_name }}" class="w-24 h-24 rounded-full object-cover border-2 border-brand-yellow/50">
-                        {% else %}
-                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-brand-yellow to-brand-red flex items-center justify-center text-3xl font-bold text-dark">
-                            {{ user.get_short_name|slice:":1"|upper }}
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="flex-1">
-                        <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Аватар" %}</label>
-                        {{ form.avatar }}
-                        <p class="text-sm text-gray-500 mt-1">{% trans "Формат: JPG, PNG. Максимальный размер: 2MB" %}</p>
-                    </div>
-                </div>
-
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Profile Form -->
+    <div class="lg:col-span-2">
+        <form method="post" enctype="multipart/form-data" class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+            {% csrf_token %}
+            
+            <h2 class="text-xl font-bold text-white mb-6">{% trans "Личные данные" %}</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <!-- First Name -->
                 <div>
-                    <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
+                    <label for="id_first_name" class="block text-sm font-medium text-gray-300 mb-2">
                         {% trans "Имя" %}
                     </label>
-                    <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
-                           value="{{ form.first_name.value|default:'' }}"
-                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
-                           placeholder="{% trans 'Introduceți prenumele' %}">
-                    {% if form.first_name.errors %}
-                    <p class="text-red-400 text-sm mt-1">{{ form.first_name.errors.0 }}</p>
-                    {% endif %}
+                    <input type="text" name="first_name" id="id_first_name" value="{{ form.first_name.value|default:'' }}"
+                           class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
+                           placeholder="{% trans 'Введите имя' %}">
                 </div>
 
                 <!-- Last Name -->
                 <div>
-                    <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
+                    <label for="id_last_name" class="block text-sm font-medium text-gray-300 mb-2">
                         {% trans "Фамилия" %}
                     </label>
-                    <input type="text" name="{{ form.last_name.name }}" id="{{ form.last_name.id_for_label }}"
-                           value="{{ form.last_name.value|default:'' }}"
-                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
-                           placeholder="{% trans 'Introduceți numele' %}">
-                    {% if form.last_name.errors %}
-                    <p class="text-red-400 text-sm mt-1">{{ form.last_name.errors.0 }}</p>
-                    {% endif %}
+                    <input type="text" name="last_name" id="id_last_name" value="{{ form.last_name.value|default:'' }}"
+                           class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
+                           placeholder="{% trans 'Введите фамилию' %}">
                 </div>
+            </div>
 
-                <!-- Email (read-only) -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Email" %}</label>
-                    <input type="email" value="{{ user.email }}" readonly
-                           class="w-full px-4 py-3 bg-dark-200 rounded-xl border border-dark-border text-gray-500 cursor-not-allowed"
-                           title="{% trans 'Emailul nu poate fi modificat' %}">
-                    <p class="text-sm text-gray-500 mt-1">{% trans "Для изменения email свяжитесь с администратором" %}</p>
-                </div>
+            <!-- Phone -->
+            <div class="mb-6">
+                <label for="id_phone" class="block text-sm font-medium text-gray-300 mb-2">
+                    {% trans "Телефон" %}
+                </label>
+                <input type="tel" name="phone" id="id_phone" value="{{ form.phone.value|default:'' }}"
+                       class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
+                       placeholder="+373 XX XXX XXX">
+            </div>
 
-                <!-- Phone -->
-                <div>
-                    <label for="{{ form.phone.id_for_label }}" class="block text-sm font-medium text-gray-400 mb-2">
-                        {% trans "Телефон" %}
-                    </label>
-                    <input type="tel" name="{{ form.phone.name }}" id="{{ form.phone.id_for_label }}"
-                           value="{{ form.phone.value|default:'' }}"
-                           class="w-full px-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
-                           placeholder="+373 XX XXX XXX">
-                    {% if form.phone.errors %}
-                    <p class="text-red-400 text-sm mt-1">{{ form.phone.errors.0 }}</p>
-                    {% endif %}
-                </div>
-
-                <!-- Notifications -->
-                <div class="flex items-center gap-3">
-                    <input type="checkbox" name="{{ form.receive_notifications.name }}" id="{{ form.receive_notifications.id_for_label }}"
+            <!-- Notifications -->
+            <div class="mb-8">
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" name="receive_notifications" id="id_receive_notifications"
                            {% if form.receive_notifications.value %}checked{% endif %}
-                           class="w-5 h-5 rounded border-dark-border bg-dark text-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all">
-                    <label for="{{ form.receive_notifications.id_for_label }}" class="text-gray-400">
-                        {% trans "Получать уведомления о статусе аренды" %}
-                    </label>
-                </div>
+                           class="w-5 h-5 rounded border-dark-border bg-dark-200 text-brand-yellow focus:ring-brand-yellow focus:ring-offset-0">
+                    <span class="text-gray-300">{% trans "Получать уведомления о заказах" %}</span>
+                </label>
+            </div>
 
-                <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <button type="submit"
-                            class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
-                        {% trans "Сохранить изменения" %}
-                    </button>
-                    <a href="{% url 'dashboard:index' %}"
-                       class="px-6 py-3 bg-dark-200 border border-dark-border text-white font-medium rounded-xl hover:border-brand-yellow/50 transition-all duration-300 text-center">
-                        {% trans "Отмена" %}
-                    </a>
-                </div>
-            </form>
+            <!-- Submit -->
+            <button type="submit"
+                    class="px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
+                {% trans "Сохранить изменения" %}
+            </button>
+        </form>
+    </div>
+
+    <!-- Account Info -->
+    <div class="space-y-6">
+        <!-- Email Card -->
+        <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-4">{% trans "Email" %}</h3>
+            <p class="text-gray-400">{{ user.email }}</p>
         </div>
 
-        <!-- Account Info -->
-        <div class="mt-8 bg-dark-100 rounded-2xl border border-dark-border p-6">
-            <h3 class="text-lg font-semibold text-white mb-4">{% trans "Информация об аккаунте" %}</h3>
-            <div class="space-y-3 text-sm">
-                <div class="flex justify-between py-2 border-b border-dark-border">
+        <!-- Account Stats -->
+        <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-4">{% trans "Статистика" %}</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-400">{% trans "Всего заказов" %}</span>
+                    <span class="text-white font-medium">{{ user.rental_requests.count }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-400">{% trans "В избранном" %}</span>
+                    <span class="text-white font-medium">{{ favorites_count }}</span>
+                </div>
+                <div class="flex justify-between">
                     <span class="text-gray-400">{% trans "Дата регистрации" %}</span>
-                    <span class="text-white">{{ user.date_joined|date:"d.m.Y" }}</span>
-                </div>
-                <div class="flex justify-between py-2 border-b border-dark-border">
-                    <span class="text-gray-400">{% trans "Последнее обновление" %}</span>
-                    <span class="text-white">{{ user.last_login|date:"d.m.Y H:i" }}</span>
-                </div>
-                <div class="flex justify-between py-2">
-                    <span class="text-gray-400">{% trans "Статус аккаунта" %}</span>
-                    <span class="text-green-400 font-medium">{% trans "Активен" %}</span>
+                    <span class="text-white font-medium">{{ user.created_at|date:"d.m.Y" }}</span>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
