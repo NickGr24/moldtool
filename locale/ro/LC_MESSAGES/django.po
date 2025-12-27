@@ -1,18 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# MoldTool Romanian translations
+# Copyright (C) 2025 MoldTool
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MoldTool 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-26 17:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-12-27 12:00+0200\n"
+"Last-Translator: MoldTool Team\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,38 +241,26 @@ msgstr "răspuns"
 msgid "FAQ"
 msgstr "FAQ"
 
-#, fuzzy
-#| msgid "Инструменты, которые вы добавили в избранное"
 msgid "Удалено из избранного"
-msgstr "Uneltele pe care le-ați adăugat la favorite"
+msgstr "Eliminat din favorite"
 
-#, fuzzy
-#| msgid "Инструменты, которые вы добавили в избранное"
 msgid "Добавлено в избранное"
-msgstr "Uneltele pe care le-ați adăugat la favorite"
+msgstr "Adăugat la favorite"
 
-#, fuzzy
-#| msgid "Поделитесь вашим опытом использования этого инструмента..."
 msgid "Вы уже оставляли отзыв для этого инструмента"
-msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+msgstr "Ați lăsat deja o recenzie pentru acest instrument"
 
 msgid "Рейтинг должен быть от 1 до 5"
-msgstr ""
+msgstr "Evaluarea trebuie să fie între 1 și 5"
 
-#, fuzzy
-#| msgid "дата добавления"
 msgid "Отзыв добавлен"
-msgstr "data adăugării"
+msgstr "Recenzia a fost adăugată"
 
-#, fuzzy
-#| msgid "Защита данных"
 msgid "Неверные данные"
-msgstr "Protecția datelor"
+msgstr "Date invalide"
 
-#, fuzzy
-#| msgid "основное изображение"
 msgid "Профиль успешно обновлён."
-msgstr "imagine principală"
+msgstr "Profilul a fost actualizat cu succes."
 
 msgid "Информация о заявке"
 msgstr "Informații despre cerere"
@@ -452,13 +437,9 @@ msgstr "Toate categoriile"
 msgid "Новые"
 msgstr "Noi"
 
-#, fuzzy
-#| msgid "Сначала дешевле"
 msgid "Сначала дешевые"
 msgstr "Mai întâi cele ieftine"
 
-#, fuzzy
-#| msgid "Сначала дороже"
 msgid "Сначала дорогие"
 msgstr "Mai întâi cele scumpe"
 
@@ -471,10 +452,8 @@ msgstr "Căutare"
 msgid "Цена (MDL/день):"
 msgstr "Preț (MDL/zi):"
 
-#, fuzzy
-#| msgid "Позвонить"
 msgid "Применить"
-msgstr "Sunați"
+msgstr "Aplică"
 
 msgid "Сбросить"
 msgstr "Resetare"
@@ -494,10 +473,8 @@ msgstr "Mai multe detalii"
 msgid "MDL/zi"
 msgstr "MDL/zi"
 
-#, fuzzy
-#| msgid "Инструменты скоро появятся"
 msgid "Инструменты не найдены"
-msgstr "Instrumentele vor apărea în curând"
+msgstr "Nu au fost găsite instrumente"
 
 msgid "Попробуйте изменить параметры поиска или сбросьте фильтры"
 msgstr "Încercați să schimbați parametrii de căutare sau resetați filtrele"
@@ -505,30 +482,20 @@ msgstr "Încercați să schimbați parametrii de căutare sau resetați filtrele
 msgid "Сбросить фильтры"
 msgstr "Resetare filtre"
 
-#, fuzzy
-#| msgid "Категории инструментов"
 msgid "В этой категории пока нет инструментов"
-msgstr "Categorii de instrumente"
+msgstr "Deocamdată nu există instrumente în această categorie"
 
-#, fuzzy
-#| msgid "Скоро здесь появятся ответы на частые вопросы"
 msgid "Скоро появятся новые товары"
-msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
+msgstr "În curând vor apărea produse noi"
 
-#, fuzzy
-#| msgid "Перейти в каталог"
 msgid "Назад в каталог"
-msgstr "Mergi la catalog"
+msgstr "Înapoi la catalog"
 
-#, fuzzy
-#| msgid "Частые вопросы"
 msgid "Часто задаваемые вопросы"
 msgstr "Întrebări frecvente"
 
-#, fuzzy
-#| msgid "Ответы на популярные вопросы об аренде инструментов"
 msgid "Ответы на часто задаваемые вопросы об аренде инструментов"
-msgstr "Răspunsuri la întrebările frecvente despre închirierea uneltelor"
+msgstr "Răspunsuri la întrebările frecvente despre închirierea instrumentelor"
 
 msgid "Не нашли ответ на свой вопрос?"
 msgstr "Nu ați găsit răspuns la întrebarea dumneavoastră?"
@@ -563,68 +530,47 @@ msgstr "Uneltele pe care le-ați adăugat la favorite"
 msgid "Всего:"
 msgstr "Total:"
 
-#, fuzzy
-#| msgid "избранное"
 msgid "Избранное пусто"
-msgstr "favorite"
+msgstr "Favorite goale"
 
-#, fuzzy
-#| msgid ""
-#| "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
 msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять"
-msgstr "Adăugați uneltele preferate la favorite pentru a nu le pierde"
+msgstr "Adăugați instrumentele preferate la favorite pentru a nu le pierde"
 
 msgid "отзывов"
 msgstr "recenzii"
 
-#, fuzzy
-#| msgid "/ день"
 msgid "MDL / день"
-msgstr "/ zi"
+msgstr "MDL / zi"
 
-#, fuzzy
-#| msgid "Каталог"
 msgid "Залог:"
-msgstr "Catalog"
+msgstr "Garanție:"
 
-#, fuzzy
-#| msgid "Условия аренды"
 msgid "Калькулятор аренды"
-msgstr "Condiții de închiriere"
+msgstr "Calculator de închiriere"
 
 msgid "Дата начала"
 msgstr "Data de început"
 
-#, fuzzy
-#| msgid "Забота о клиентах"
 msgid "Дата окончания"
-msgstr "Grija pentru clienți"
+msgstr "Data de sfârșit"
 
 msgid "Количество дней:"
 msgstr "Număr de zile:"
 
-#, fuzzy
-#| msgid "Условия аренды"
 msgid "Стоимость аренды:"
-msgstr "Condiții de închiriere"
+msgstr "Costul închirierii:"
 
 msgid "Итого к оплате:"
 msgstr "Total de plată:"
 
-#, fuzzy
-#| msgid "Доступные цены"
 msgid "Доступен для аренды"
-msgstr "Prețuri accesibile"
+msgstr "Disponibil pentru închiriere"
 
-#, fuzzy
-#| msgid "В аренде"
 msgid "Сейчас в аренде"
-msgstr "În închiriere"
+msgstr "Momentan în închiriere"
 
-#, fuzzy
-#| msgid "Аренда"
 msgid "Арендовать"
-msgstr "Închiriere"
+msgstr "Închiriază"
 
 msgid "Описание"
 msgstr "Descriere"
@@ -632,10 +578,8 @@ msgstr "Descriere"
 msgid "Отзывы"
 msgstr "Recenzii"
 
-#, fuzzy
-#| msgid "Отправить отзыв"
 msgid "Оставить отзыв"
-msgstr "Trimite recenzia"
+msgstr "Lasă o recenzie"
 
 msgid "Ваша оценка"
 msgstr "Evaluarea dumneavoastră"
@@ -649,10 +593,8 @@ msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
 msgid "Отправить отзыв"
 msgstr "Trimite recenzia"
 
-#, fuzzy
-#| msgid "Укажите даты и оставьте заявку"
 msgid "Войдите, чтобы оставить отзыв"
-msgstr "Indicați datele și lăsați o cerere"
+msgstr "Autentificați-vă pentru a lăsa o recenzie"
 
 msgid "Войти"
 msgstr "Autentificare"
@@ -660,33 +602,23 @@ msgstr "Autentificare"
 msgid "Пока нет отзывов. Будьте первым!"
 msgstr "Încă nu există recenzii. Fiți primul!"
 
-#, fuzzy
-#| msgid "Все инструменты"
 msgid "Похожие инструменты"
-msgstr "Toate instrumentele"
+msgstr "Instrumente similare"
 
-#, fuzzy
-#| msgid "Перейти в каталог"
 msgid "Все в категории"
-msgstr "Mergi la catalog"
+msgstr "Toate din categorie"
 
-#, fuzzy
-#| msgid "/ день"
 msgid " / день"
-msgstr "/ zi"
+msgstr " / zi"
 
-#, fuzzy
-#| msgid "Укажите даты и оставьте заявку"
 msgid "Войдите, чтобы добавить в избранное"
-msgstr "Indicați datele și lăsați o cerere"
+msgstr "Autentificați-vă pentru a adăuga la favorite"
 
 msgid "Пожалуйста, выберите оценку"
 msgstr "Vă rugăm să selectați o evaluare"
 
-#, fuzzy
-#| msgid "Отправить отзыв"
 msgid "Ошибка при отправке отзыва"
-msgstr "Trimite recenzia"
+msgstr "Eroare la trimiterea recenziei"
 
 msgid "Панель управления"
 msgstr "Panou de control"
@@ -694,33 +626,23 @@ msgstr "Panou de control"
 msgid "Статистика и аналитика MoldTool"
 msgstr "Statistici și analiză MoldTool"
 
-#, fuzzy
-#| msgid "инструменты"
 msgid "Инструменты"
-msgstr "unelte"
+msgstr "Instrumente"
 
-#, fuzzy
-#| msgid "доступность"
 msgid "доступно"
-msgstr "disponibilitate"
+msgstr "disponibil"
 
-#, fuzzy
-#| msgid "пользователи"
 msgid "Пользователи"
-msgstr "utilizatori"
+msgstr "Utilizatori"
 
 msgid "за неделю"
 msgstr "pe săptămână"
 
-#, fuzzy
-#| msgid "дата регистрации"
 msgid "на модерации"
-msgstr "data înregistrării"
+msgstr "în moderare"
 
-#, fuzzy
-#| msgid "избранное"
 msgid "В избранном"
-msgstr "favorite"
+msgstr "În favorite"
 
 msgid "Средний рейтинг:"
 msgstr "Rating mediu:"
@@ -728,99 +650,62 @@ msgstr "Rating mediu:"
 msgid "Популярные инструменты"
 msgstr "Instrumente populare"
 
-#, fuzzy
-#| msgid "количество просмотров"
 msgid "просмотров"
-msgstr "număr de vizualizări"
+msgstr "vizualizări"
 
 msgid "Нет данных"
 msgstr "Nu există date"
 
-#, fuzzy
-#| msgid "Инструменты, которые вы добавили в избранное"
 msgid "Чаще добавляемые в избранное"
-msgstr "Uneltele pe care le-ați adăugat la favorite"
+msgstr "Cele mai adăugate la favorite"
 
-#, fuzzy
-#| msgid "/ день"
 msgid "MDL/день"
-msgstr "/ zi"
+msgstr "MDL/zi"
 
-#, fuzzy
-#| msgid "избранное"
 msgid "в избранном"
-msgstr "favorite"
+msgstr "în favorite"
 
-#, fuzzy
-#| msgid "Отправить отзыв"
 msgid "Последние отзывы"
-msgstr "Trimite recenzia"
+msgstr "Ultimele recenzii"
 
-#, fuzzy
-#| msgid "дата регистрации"
 msgid "На модерации"
-msgstr "data înregistrării"
+msgstr "În moderare"
 
-#, fuzzy
-#| msgid "отзывов"
 msgid "Нет отзывов"
-msgstr "recenzii"
+msgstr "Nu există recenzii"
 
-#, fuzzy
-#| msgid "категории"
 msgid "Категории"
-msgstr "categorii"
+msgstr "Categorii"
 
-#, fuzzy
-#| msgid "Все категории"
 msgid "Нет категорий"
-msgstr "Toate categoriile"
+msgstr "Nu există categorii"
 
-#, fuzzy
-#| msgid "Все категории"
 msgid "Всего категорий:"
-msgstr "Toate categoriile"
+msgstr "Total categorii:"
 
-#, fuzzy
-#| msgid "Быстрая доставка"
 msgid "Быстрые действия"
-msgstr "Livrare rapidă"
+msgstr "Acțiuni rapide"
 
-#, fuzzy
-#| msgid "изображения инструментов"
 msgid "Добавить инструмент"
-msgstr "imagini unelte"
+msgstr "Adaugă instrument"
 
-#, fuzzy
-#| msgid "Все категории"
 msgid "Управление категориями"
-msgstr "Toate categoriile"
+msgstr "Gestionare categorii"
 
-#, fuzzy
-#| msgid "Информация о заявке"
 msgid "Модерация отзывов"
-msgstr "Informații despre cerere"
+msgstr "Moderare recenzii"
 
 msgid "Политика конфиденциальности"
 msgstr "Politica de confidențialitate"
 
-#, fuzzy
-#| msgid "основное изображение"
 msgid "Последнее обновление:"
-msgstr "imagine principală"
+msgstr "Ultima actualizare:"
 
-#, python-format
-msgid ""
-"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> "
-"respectă confidențialitatea datelor cu caracter personal ale utilizatorilor "
-"săi și se angajează să le protejeze în conformitate cu legislația în vigoare "
-"din Republica Moldova."
-msgstr ""
+msgid "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
+msgstr "respectă confidențialitatea datelor personale ale utilizatorilor săi și se angajează să le protejeze în conformitate cu legislația în vigoare din Republica Moldova."
 
-#, fuzzy
-#| msgid "Системная информация"
 msgid "Собираемая информация"
-msgstr "Informații de sistem"
+msgstr "Informațiile colectate"
 
 msgid "Мы можем собирать следующие типы информации:"
 msgstr "Putem colecta următoarele tipuri de informații:"
@@ -828,41 +713,29 @@ msgstr "Putem colecta următoarele tipuri de informații:"
 msgid "Имя и фамилия"
 msgstr "Nume și prenume"
 
-#, fuzzy
-#| msgid "телефон"
 msgid "Номер телефона"
-msgstr "telefon"
+msgstr "Număr de telefon"
 
 msgid "Адрес электронной почты"
 msgstr "Adresă de e-mail"
 
-#, fuzzy
-#| msgid "Быстрая доставка"
 msgid "Адрес доставки"
-msgstr "Livrare rapidă"
+msgstr "Adresa de livrare"
 
-#, fuzzy
-#| msgid "Информация о заявке"
 msgid "Информация для аренды"
-msgstr "Informații despre cerere"
+msgstr "Informații privind închirierea"
 
 msgid "Технические данные (IP, браузер, cookie)"
 msgstr "Date tehnice (IP, browser, cookie)"
 
-#, fuzzy
-#| msgid "Панель управления"
 msgid "Цель сбора данных"
-msgstr "Panou de control"
+msgstr "Scopul colectării datelor"
 
-#, fuzzy
-#| msgid "Данные клиента"
 msgid "Данные собираются для:"
-msgstr "Datele clientului"
+msgstr "Datele sunt colectate pentru:"
 
-#, fuzzy
-#| msgid "заявка на аренду"
 msgid "Обработка заказов на аренду"
-msgstr "cerere de închiriere"
+msgstr "Procesarea comenzilor de închiriere"
 
 msgid "Связь с пользователями по вопросам услуг"
 msgstr "Contactarea utilizatorilor în legătură cu serviciile oferite"
@@ -882,10 +755,8 @@ msgid ""
 "accesul neautorizat, pierderea sau divulgarea datelor personale."
 msgstr ""
 
-#, fuzzy
-#| msgid "Защита данных"
 msgid "Раскрытие данных"
-msgstr "Protecția datelor"
+msgstr "Divulgarea datelor"
 
 msgid ""
 "Datele personale <span class=\"text-brand-yellow font-semibold px-2 py-0.5 "
@@ -894,42 +765,20 @@ msgid ""
 "furnizarea serviciilor (ex: livrare)."
 msgstr ""
 
-#, fuzzy
-#| msgid "Частые вопросы"
 msgid "Есть вопросы?"
-msgstr "Întrebări frecvente"
+msgstr "Aveți întrebări?"
 
-#, fuzzy
-#| msgid "Свяжитесь с нами любым удобным способом"
 msgid "Свяжитесь с нами по любым вопросам о ваших данных"
-msgstr "Contactați-ne în orice mod convenabil"
+msgstr "Contactați-ne pentru orice întrebări referitoare la datele dumneavoastră"
 
-#, fuzzy
-#| msgid "Перейти в каталог"
 msgid "Вернуться на главную"
-msgstr "Mergi la catalog"
+msgstr "Înapoi la pagina principală"
 
 msgid "Условия использования"
 msgstr "Termeni de utilizare"
 
-#, python-format
-msgid ""
-"Prin utilizarea site-ului <span class=\"text-brand-yellow font-"
-"semibold\">%(site_name)s</span>, sunteți de acord cu următorii termeni și "
-"condiții."
-msgstr ""
-
-#, fuzzy
-#| msgid "Описание"
 msgid "Описание сервиса"
-msgstr "Descriere"
-
-#, python-format
-msgid ""
-"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> oferă "
-"servicii de închiriere a uneltelor de construcții persoanelor fizice și "
-"juridice pe teritoriul Republicii Moldova."
-msgstr ""
+msgstr "Descrierea serviciului"
 
 msgid "Пользователь должен предоставить корректную и полную информацию"
 msgstr "Utilizatorul trebuie să furnizeze informații corecte și complete"
@@ -937,17 +786,11 @@ msgstr "Utilizatorul trebuie să furnizeze informații corecte și complete"
 msgid "Запрещено использование сайта в незаконных целях"
 msgstr "Este interzisă utilizarea site-ului în scopuri ilegale"
 
-#, python-format
-msgid "%(site_name)s își rezervă dreptul de a refuza o comandă"
-msgstr ""
-
 msgid "Аренда инструментов"
 msgstr "Închiriere instrumente"
 
-#, fuzzy
-#| msgid "Инструменты, которые вы добавили в избранное"
 msgid "Инструменты сдаются в аренду на определенный срок"
-msgstr "Uneltele pe care le-ați adăugat la favorite"
+msgstr "Instrumentele sunt închiriate pe o perioadă determinată"
 
 msgid "Пользователь несет ответственность за правильное использование"
 msgstr "Utilizatorul este responsabil pentru utilizarea corectă a acestora"
@@ -961,66 +804,41 @@ msgstr "Plăți și garanții"
 msgid "Оплата производится согласно указанным тарифам"
 msgstr "Plata se face conform tarifelor afișate"
 
-#, fuzzy
-#| msgid "Смотреть каталог"
 msgid "Может потребоваться залог"
-msgstr "Vezi catalogul"
+msgstr "Poate fi necesară o garanție"
 
 msgid "Задержка возврата может привести к дополнительным платежам"
 msgstr "Întârzierea returnării poate duce la taxe suplimentare"
 
-#, fuzzy
-#| msgid "доступность"
 msgid "Ответственность"
-msgstr "disponibilitate"
+msgstr "Responsabilitate"
 
-#, python-format
-msgid "%(site_name)s nu este responsabil pentru:"
-msgstr ""
-
-#, fuzzy
-#| msgid "Поделитесь вашим опытом использования этого инструмента..."
 msgid "Ненадлежащее использование инструментов"
-msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+msgstr "Utilizarea necorespunzătoare a instrumentelor"
 
-#, fuzzy
-#| msgid "Поделитесь вашим опытом использования этого инструмента..."
 msgid "Несчастные случаи, вызванные использованием оборудования"
-msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+msgstr "Accidentele cauzate de utilizarea echipamentelor"
 
-#, fuzzy
-#| msgid "Аренда"
 msgid "Готовы арендовать?"
-msgstr "Închiriere"
+msgstr "Sunteți gata să închiriați?"
 
-#, fuzzy
-#| msgid ""
-#| "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 msgid "Изучите наш каталог или свяжитесь с нами для помощи"
-msgstr "Alegeți un instrument din catalog sau contactați-ne pentru consultare"
+msgstr "Explorați catalogul nostru sau contactați-ne pentru asistență"
 
 msgid "Смотреть каталог"
 msgstr "Vezi catalogul"
 
-#, fuzzy
-#| msgid "Изображение"
 msgid "С возвращением"
-msgstr "Imagine"
+msgstr "Bine ați revenit"
 
-#, fuzzy
-#| msgid "Все заявки"
 msgid "Всего заявок"
-msgstr "Toate cererile"
+msgstr "Total cereri"
 
-#, fuzzy
-#| msgid "Все заявки"
 msgid "Активные заявки"
-msgstr "Toate cererile"
+msgstr "Cereri active"
 
-#, fuzzy
-#| msgid "Подтвердить выбранные заявки"
 msgid "Завершённые заявки"
-msgstr "Confirmă cererile selectate"
+msgstr "Cereri finalizate"
 
 msgid "Редактировать профиль"
 msgstr "Editează profilul"
@@ -1028,52 +846,35 @@ msgstr "Editează profilul"
 msgid "Все заявки"
 msgstr "Toate cererile"
 
-#, fuzzy
-#| msgid "Отправить отзыв"
 msgid "Последние заявки"
-msgstr "Trimite recenzia"
+msgstr "Ultimele cereri"
 
 msgid "Номер"
 msgstr "Număr"
 
-#, fuzzy
-#| msgid "инструменты"
 msgid "Инструмент"
-msgstr "unelte"
+msgstr "Instrument"
 
-#, fuzzy
-#| msgid "Период аренды"
 msgid "Период"
-msgstr "Perioada de închiriere"
+msgstr "Perioadă"
 
-#, fuzzy
-#| msgid "Все права защищены."
 msgid "У вас пока нет заявок"
-msgstr "Toate drepturile rezervate."
+msgstr "Nu aveți încă nicio cerere"
 
-#, fuzzy
-#| msgid ""
-#| "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 msgid "Выберите инструмент и создайте первую заявку на аренду"
-msgstr "Alegeți un instrument din catalog sau contactați-ne pentru consultare"
+msgstr "Alegeți un instrument și creați prima cerere de închiriere"
 
-#, fuzzy
-#| msgid "Профессиональный"
 msgid "Профиль"
-msgstr "Profesional"
+msgstr "Profil"
 
-#, fuzzy
-#| msgid "Редактировать профиль"
 msgid "Мой профиль"
-msgstr "Editează profilul"
+msgstr "Profilul meu"
 
 msgid "Обновите свои личные данные"
 msgstr "Actualizați informațiile dvs. personale"
 
-#, fuzzy
-#| msgid "аватар"
 msgid "Аватар"
-msgstr "avatar"
+msgstr "Avatar"
 
 msgid "Формат: JPG, PNG. Максимальный размер: 2MB"
 msgstr "Format: JPG, PNG. Dimensiune maximă: 2MB"
@@ -1084,10 +885,8 @@ msgstr "Prenume"
 msgid "Introduceți prenumele"
 msgstr ""
 
-#, fuzzy
-#| msgid "Имя и фамилия"
 msgid "Фамилия"
-msgstr "Nume și prenume"
+msgstr "Nume"
 
 msgid "Introduceți numele"
 msgstr ""
@@ -2434,3 +2233,240 @@ msgstr ""
 
 #~ msgid "лет"
 #~ msgstr "ani"
+
+# Registration form translations
+msgid "Регистрация"
+msgstr "Înregistrare"
+
+msgid "Создать аккаунт"
+msgstr "Creează cont"
+
+msgid "Заполните форму для регистрации"
+msgstr "Completați formularul pentru înregistrare"
+
+msgid "Имя"
+msgstr "Prenume"
+
+msgid "Фамилия"
+msgstr "Nume"
+
+msgid "Введите ваше имя"
+msgstr "Introduceți prenumele"
+
+msgid "Введите вашу фамилию"
+msgstr "Introduceți numele"
+
+msgid "Телефон"
+msgstr "Telefon"
+
+msgid "Пароль"
+msgstr "Parolă"
+
+msgid "Подтвердите пароль"
+msgstr "Confirmați parola"
+
+msgid "Минимум 8 символов"
+msgstr "Minim 8 caractere"
+
+msgid "Повторите пароль"
+msgstr "Repetați parola"
+
+msgid "Я принимаю условия использования и политику конфиденциальности"
+msgstr "Accept termenii și condițiile și politica de confidențialitate"
+
+msgid "Вы должны принять условия использования для регистрации."
+msgstr "Trebuie să acceptați termenii și condițiile pentru înregistrare."
+
+msgid "Получать уведомления о новых предложениях и акциях"
+msgstr "Primește notificări despre oferte și promoții noi"
+
+msgid "Зарегистрироваться"
+msgstr "Înregistrare"
+
+msgid "Уже есть аккаунт?"
+msgstr "Aveți deja un cont?"
+
+msgid "Войти"
+msgstr "Autentificare"
+
+msgid "необязательно"
+msgstr "opțional"
+
+msgid "Продолжить с Google"
+msgstr "Continuă cu Google"
+
+msgid "или"
+msgstr "sau"
+
+msgid "Минимум 8 символов, буквы и цифры"
+msgstr "Minim 8 caractere, litere și cifre"
+
+msgid "Вернуться на главную"
+msgstr "Înapoi la pagina principală"
+
+# Login form translations
+msgid "Вход"
+msgstr "Autentificare"
+
+msgid "Добро пожаловать"
+msgstr "Bine ați venit"
+
+msgid "Войдите в свой аккаунт"
+msgstr "Autentificați-vă în contul dvs."
+
+msgid "Войти через Google"
+msgstr "Autentificare cu Google"
+
+msgid "Введите пароль"
+msgstr "Introduceți parola"
+
+msgid "Забыли пароль?"
+msgstr "Ați uitat parola?"
+
+msgid "Запомнить меня"
+msgstr "Ține-mă minte"
+
+msgid "Нет аккаунта?"
+msgstr "Nu aveți cont?"
+
+# Password reset translations
+msgid "Восстановление пароля"
+msgstr "Recuperare parolă"
+
+msgid "Забыли пароль?"
+msgstr "Ați uitat parola?"
+
+msgid "Введите email и мы отправим ссылку для восстановления"
+msgstr "Introduceți email-ul și vă vom trimite un link pentru recuperare"
+
+msgid "Введите email для восстановления"
+msgstr "Introduceți email-ul pentru recuperare"
+
+msgid "Отправить ссылку"
+msgstr "Trimite link"
+
+msgid "Вспомнили пароль?"
+msgstr "V-ați amintit parola?"
+
+msgid "Проверьте почту"
+msgstr "Verificați email-ul"
+
+msgid "Мы отправили ссылку для восстановления пароля на указанный email. Проверьте папку \"Спам\", если письмо не пришло."
+msgstr "Am trimis un link pentru recuperarea parolei la email-ul specificat. Verificați folderul \"Spam\" dacă nu ați primit mesajul."
+
+msgid "Вернуться к входу"
+msgstr "Înapoi la autentificare"
+
+# Logout translations
+msgid "Выход"
+msgstr "Deconectare"
+
+msgid "Выйти из аккаунта?"
+msgstr "Deconectare din cont?"
+
+msgid "Вы уверены, что хотите выйти из своего аккаунта?"
+msgstr "Sunteți sigur că doriți să vă deconectați din cont?"
+
+msgid "Отмена"
+msgstr "Anulare"
+
+msgid "Выйти"
+msgstr "Deconectare"
+
+# Email verification translations
+msgid "Подтвердите email"
+msgstr "Confirmați email-ul"
+
+msgid "Мы отправили письмо с подтверждением на вашу почту. Перейдите по ссылке в письме для активации аккаунта."
+msgstr "Am trimis un email de confirmare. Faceți clic pe link-ul din email pentru a vă activa contul."
+
+msgid "На главную"
+msgstr "La pagina principală"
+
+msgid "Не получили письмо?"
+msgstr "Nu ați primit email-ul?"
+
+msgid "Отправить повторно"
+msgstr "Trimite din nou"
+
+msgid "Подтвердить email"
+msgstr "Confirmă email-ul"
+
+msgid "Подтверждение email"
+msgstr "Confirmare email"
+
+msgid "Подтвердить"
+msgstr "Confirmă"
+
+msgid "Ссылка недействительна"
+msgstr "Link-ul nu este valid"
+
+msgid "Эта ссылка для подтверждения email истекла или уже была использована."
+msgstr "Acest link pentru confirmarea email-ului a expirat sau a fost deja utilizat."
+
+# Form validation translations
+msgid "Имя должно содержать минимум 2 символа."
+msgstr "Prenumele trebuie să conțină minim 2 caractere."
+
+msgid "Имя может содержать только буквы, пробелы и дефисы."
+msgstr "Prenumele poate conține doar litere, spații și cratimi."
+
+msgid "Фамилия должна содержать минимум 2 символа."
+msgstr "Numele trebuie să conțină minim 2 caractere."
+
+msgid "Фамилия может содержать только буквы, пробелы и дефисы."
+msgstr "Numele poate conține doar litere, spații și cratimi."
+
+msgid "Введите корректный номер телефона (например: +373 XX XXX XXX)"
+msgstr "Introduceți un număr de telefon valid (de exemplu: +373 XX XXX XXX)"
+
+# Privacy Policy page translations
+msgid "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
+msgstr "respectă confidențialitatea datelor personale ale utilizatorilor săi și se angajează să le protejeze în conformitate cu legislația în vigoare din Republica Moldova."
+
+msgid "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных."
+msgstr "aplică măsuri tehnice și organizatorice pentru a preveni accesul neautorizat, pierderea sau divulgarea datelor personale."
+
+msgid "Персональные данные"
+msgstr "Datele personale"
+
+msgid "не продаются и не передаются третьим лицам"
+msgstr "nu sunt vândute sau transmise terților"
+
+msgid ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)."
+msgstr ", cu excepția cazurilor prevăzute de lege sau necesare pentru furnizarea serviciilor (de exemplu, livrare)."
+
+msgid "Ваши права"
+msgstr "Drepturile dumneavoastră"
+
+msgid "Вы имеете право:"
+msgstr "Aveți dreptul să:"
+
+msgid "Запросить доступ к своим персональным данным"
+msgstr "Solicitați acces la datele dumneavoastră personale"
+
+msgid "Требовать исправления неточных данных"
+msgstr "Cereți corectarea datelor inexacte"
+
+msgid "Запросить удаление ваших данных"
+msgstr "Solicitați ștergerea datelor dumneavoastră"
+
+msgid "Отозвать согласие на обработку данных"
+msgstr "Retrageți consimțământul pentru prelucrarea datelor"
+
+# Terms of Service page translations (blocktrans)
+#, python-brace-format
+msgid "Используя сайт <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и положениями."
+msgstr "Folosind site-ul <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, sunteți de acord cu următorii termeni și condiții."
+
+#, python-brace-format
+msgid "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> предоставляет услуги аренды строительного инструмента физическим и юридическим лицам на территории Республики Молдова."
+msgstr "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> oferă servicii de închiriere a uneltelor de construcție persoanelor fizice și juridice pe teritoriul Republicii Moldova."
+
+#, python-brace-format
+msgid "%(site_name)s оставляет за собой право отказать в заказе"
+msgstr "%(site_name)s își rezervă dreptul de a refuza o comandă"
+
+#, python-brace-format
+msgid "%(site_name)s не несет ответственности за:"
+msgstr "%(site_name)s nu este responsabil pentru:"
