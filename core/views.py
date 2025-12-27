@@ -97,8 +97,8 @@ class AdminDashboardView(TemplateView):
         context['category_stats'] = Category.objects.filter(
             is_active=True
         ).annotate(
-            tools_count=Count('tools', filter=models.Q(tools__is_active=True))
-        ).order_by('-tools_count')[:5]
+            num_tools=Count('tools', filter=models.Q(tools__is_active=True))
+        ).order_by('-num_tools')[:5]
 
         # Средний рейтинг всех инструментов
         avg_rating = Review.objects.filter(is_approved=True).aggregate(
