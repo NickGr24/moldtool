@@ -127,19 +127,20 @@ LOGOUT_REDIRECT_URL = '/'
 
 SITE_ID = 1
 
-# Account settings (updated for allauth 0.63+)
+# Account settings (updated for allauth 65+)
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGOUT_ON_GET = False
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_PRESERVE_USERNAME_CASING = False
 ACCOUNT_PREVENT_ENUMERATION = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
-# New allauth settings format
-ACCOUNT_LOGIN_METHODS = {'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+# Username is disabled - using email only
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
 
 # Custom forms and adapters
 ACCOUNT_FORMS = {
