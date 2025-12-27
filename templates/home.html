@@ -119,27 +119,33 @@
                     </a>
                 </div>
 
-                <!-- Stats with animation -->
+                <!-- Stats with counter animation -->
                 <div class="grid grid-cols-3 gap-4 lg:gap-8 mt-12">
                     <div class="relative group">
                         <div class="absolute inset-0 bg-gradient-to-r from-brand-yellow/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="relative p-4 lg:p-6 bg-dark-100/50 rounded-xl border border-dark-border/50">
-                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">500+</div>
+                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">
+                                <span class="hero-counter" data-target="500" data-suffix="+">0</span>
+                            </div>
                             <div class="text-xs sm:text-sm text-gray-500">{% trans "Единиц техники" %}</div>
                         </div>
                     </div>
                     <div class="relative group">
                         <div class="absolute inset-0 bg-gradient-to-r from-brand-yellow/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="relative p-4 lg:p-6 bg-dark-100/50 rounded-xl border border-dark-border/50">
-                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">1000+</div>
+                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">
+                                <span class="hero-counter" data-target="1000" data-suffix="+">0</span>
+                            </div>
                             <div class="text-xs sm:text-sm text-gray-500">{% trans "Довольных клиентов" %}</div>
                         </div>
                     </div>
                     <div class="relative group">
                         <div class="absolute inset-0 bg-gradient-to-r from-brand-yellow/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="relative p-4 lg:p-6 bg-dark-100/50 rounded-xl border border-dark-border/50">
-                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">5+</div>
-                            <div class="text-xs sm:text-sm text-gray-500">{% trans "Лет опыта" %}</div>
+                            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">
+                                <span class="hero-counter" data-target="5" data-suffix="{% trans ' лет' %}">0</span>
+                            </div>
+                            <div class="text-xs sm:text-sm text-gray-500">{% trans "На рынке" %}</div>
                         </div>
                     </div>
                 </div>
@@ -564,7 +570,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Counter Animation - fast count up from 0
     const counters = document.querySelectorAll('.counter');
+    const heroCounters = document.querySelectorAll('.hero-counter');
     let countersAnimated = false;
+    let heroCountersAnimated = false;
 
     const animateCounter = (counter) => {
         const target = parseInt(counter.dataset.target);
@@ -595,6 +603,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateCounters = () => {
         counters.forEach(counter => animateCounter(counter));
     };
+
+    const animateHeroCounters = () => {
+        heroCounters.forEach(counter => animateCounter(counter));
+    };
+
+    // Animate hero counters immediately on page load (with small delay for better UX)
+    if (heroCounters.length > 0 && !heroCountersAnimated) {
+        heroCountersAnimated = true;
+        setTimeout(() => {
+            animateHeroCounters();
+        }, 500);
+    }
 
     // Trigger counter animation when section is visible
     const statsSection = document.querySelector('.counter');

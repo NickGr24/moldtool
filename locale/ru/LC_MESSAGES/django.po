@@ -1,9 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# MoldTool Russian translations
+# Copyright (C) 2025 MoldTool
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -576,28 +573,20 @@ msgid "Сбросить фильтры"
 msgstr "Сбросить фильтры"
 
 #: templates/catalog/category.html:193
-#, fuzzy
-#| msgid "Категории инструментов"
 msgid "В этой категории пока нет инструментов"
-msgstr "Категории инструментов"
+msgstr "В этой категории пока нет инструментов"
 
 #: templates/catalog/category.html:194
-#, fuzzy
-#| msgid "Скоро здесь появятся ответы на частые вопросы"
 msgid "Скоро здесь появятся новые позиции"
-msgstr "Скоро здесь появятся ответы на частые вопросы"
+msgstr "Скоро здесь появятся новые позиции"
 
 #: templates/catalog/category.html:200
-#, fuzzy
-#| msgid "Перейти в каталог"
 msgid "Вернуться в каталог"
-msgstr "Перейти в каталог"
+msgstr "Вернуться в каталог"
 
 #: templates/catalog/faq.html:15 templates/catalog/faq.html:20
-#, fuzzy
-#| msgid "вопрос"
 msgid "Частые вопросы"
-msgstr "вопрос"
+msgstr "Частые вопросы"
 
 #: templates/catalog/faq.html:21
 msgid "Ответы на популярные вопросы об аренде инструментов"
@@ -651,10 +640,8 @@ msgid "Всего:"
 msgstr "Всего:"
 
 #: templates/catalog/favorites.html:111
-#, fuzzy
-#| msgid "избранное"
 msgid "В избранном пусто"
-msgstr "избранное"
+msgstr "В избранном пусто"
 
 #: templates/catalog/favorites.html:112
 msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
@@ -674,44 +661,32 @@ msgid "Калькулятор аренды"
 msgstr "Калькулятор аренды"
 
 #: templates/catalog/tool_detail.html:136
-#, fuzzy
-#| msgid "дата начала"
 msgid "Дата начала"
-msgstr "дата начала"
+msgstr "Дата начала"
 
 #: templates/catalog/tool_detail.html:141
-#, fuzzy
-#| msgid "дата окончания"
 msgid "Дата окончания"
-msgstr "дата окончания"
+msgstr "Дата окончания"
 
 #: templates/catalog/tool_detail.html:148
-#, fuzzy
-#| msgid "количество дней"
 msgid "Количество дней:"
-msgstr "количество дней"
+msgstr "Количество дней:"
 
 #: templates/catalog/tool_detail.html:152
-#, fuzzy
-#| msgid "Условия аренды"
 msgid "Стоимость аренды:"
-msgstr "Условия аренды"
+msgstr "Стоимость аренды:"
 
 #: templates/catalog/tool_detail.html:162
 msgid "Итого к оплате:"
 msgstr "Итого к оплате:"
 
 #: templates/catalog/tool_detail.html:175
-#, fuzzy
-#| msgid "Доступные цены"
 msgid "Доступен для аренды"
-msgstr "Доступные цены"
+msgstr "Доступен для аренды"
 
 #: templates/catalog/tool_detail.html:180
-#, fuzzy
-#| msgid "В аренде"
 msgid "Сейчас в аренде"
-msgstr "В аренде"
+msgstr "Сейчас в аренде"
 
 #: templates/catalog/tool_detail.html:196
 #: templates/rentals/create_request.html:4
@@ -728,22 +703,16 @@ msgid "Отзывы"
 msgstr "Отзывы"
 
 #: templates/catalog/tool_detail.html:281
-#, fuzzy
-#| msgid "Отправить отзыв"
 msgid "Оставить отзыв"
-msgstr "Отправить отзыв"
+msgstr "Оставить отзыв"
 
 #: templates/catalog/tool_detail.html:284
-#, fuzzy
-#| msgid "оценка"
 msgid "Ваша оценка"
-msgstr "оценка"
+msgstr "Ваша оценка"
 
 #: templates/catalog/tool_detail.html:298
-#, fuzzy
-#| msgid "Удовлетворительное"
 msgid "Ваш отзыв (необязательно)"
-msgstr "Удовлетворительное"
+msgstr "Ваш отзыв (необязательно)"
 
 #: templates/catalog/tool_detail.html:301
 msgid "Поделитесь вашим опытом использования этого инструмента..."
@@ -754,10 +723,8 @@ msgid "Отправить отзыв"
 msgstr "Отправить отзыв"
 
 #: templates/catalog/tool_detail.html:311
-#, fuzzy
-#| msgid "Укажите даты и оставьте заявку"
 msgid "Войдите, чтобы оставить отзыв"
-msgstr "Укажите даты и оставьте заявку"
+msgstr "Войдите, чтобы оставить отзыв"
 
 #: templates/catalog/tool_detail.html:314 templates/includes/header.html:175
 msgid "Войти"
@@ -785,22 +752,16 @@ msgid "Статистика и аналитика MoldTool"
 msgstr ""
 
 #: templates/core/admin_dashboard.html:36
-#, fuzzy
-#| msgid "инструменты"
 msgid "Инструменты"
-msgstr "инструменты"
+msgstr "Инструменты"
 
 #: templates/core/admin_dashboard.html:38
-#, fuzzy
-#| msgid "доступность"
 msgid "доступно"
-msgstr "доступность"
+msgstr "доступно"
 
 #: templates/core/admin_dashboard.html:52
-#, fuzzy
-#| msgid "пользователи"
 msgid "Пользователи"
-msgstr "пользователи"
+msgstr "Пользователи"
 
 #: templates/core/admin_dashboard.html:54
 #: templates/core/admin_dashboard.html:73
@@ -808,16 +769,12 @@ msgid "за неделю"
 msgstr ""
 
 #: templates/core/admin_dashboard.html:71
-#, fuzzy
-#| msgid "дата регистрации"
 msgid "на модерации"
-msgstr "дата регистрации"
+msgstr "на модерации"
 
 #: templates/core/admin_dashboard.html:88
-#, fuzzy
-#| msgid "избранное"
 msgid "В избранном"
-msgstr "избранное"
+msgstr "В избранном"
 
 #: templates/core/admin_dashboard.html:90
 msgid "Ср. рейтинг:"
@@ -828,10 +785,8 @@ msgid "Популярные инструменты"
 msgstr "Популярные инструменты"
 
 #: templates/core/admin_dashboard.html:128
-#, fuzzy
-#| msgid "количество просмотров"
 msgid "просмотров"
-msgstr "количество просмотров"
+msgstr "просмотров"
 
 #: templates/core/admin_dashboard.html:132
 #: templates/core/admin_dashboard.html:171
@@ -839,10 +794,8 @@ msgid "Нет данных"
 msgstr ""
 
 #: templates/core/admin_dashboard.html:143
-#, fuzzy
-#| msgid "Инструменты, которые вы добавили в избранное"
 msgid "Чаще добавляют в избранное"
-msgstr "Инструменты, которые вы добавили в избранное"
+msgstr "Чаще добавляют в избранное"
 
 #: templates/core/admin_dashboard.html:163
 msgid "MDL/Zi"
@@ -2410,3 +2363,54 @@ msgstr ""
 
 #~ msgid "лет"
 #~ msgstr "лет"
+
+# Privacy Policy page translations
+msgid "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
+msgstr "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
+
+msgid "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных."
+msgstr "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных."
+
+msgid "Персональные данные"
+msgstr "Персональные данные"
+
+msgid "не продаются и не передаются третьим лицам"
+msgstr "не продаются и не передаются третьим лицам"
+
+msgid ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)."
+msgstr ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)."
+
+msgid "Ваши права"
+msgstr "Ваши права"
+
+msgid "Вы имеете право:"
+msgstr "Вы имеете право:"
+
+msgid "Запросить доступ к своим персональным данным"
+msgstr "Запросить доступ к своим персональным данным"
+
+msgid "Требовать исправления неточных данных"
+msgstr "Требовать исправления неточных данных"
+
+msgid "Запросить удаление ваших данных"
+msgstr "Запросить удаление ваших данных"
+
+msgid "Отозвать согласие на обработку данных"
+msgstr "Отозвать согласие на обработку данных"
+
+# Terms of Service page translations (blocktrans)
+#, python-brace-format
+msgid "Используя сайт <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и положениями."
+msgstr "Используя сайт <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и положениями."
+
+#, python-brace-format
+msgid "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> предоставляет услуги аренды строительного инструмента физическим и юридическим лицам на территории Республики Молдова."
+msgstr "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> предоставляет услуги аренды строительного инструмента физическим и юридическим лицам на территории Республики Молдова."
+
+#, python-brace-format
+msgid "%(site_name)s оставляет за собой право отказать в заказе"
+msgstr "%(site_name)s оставляет за собой право отказать в заказе"
+
+#, python-brace-format
+msgid "%(site_name)s не несет ответственности за:"
+msgstr "%(site_name)s не несет ответственности за:"
