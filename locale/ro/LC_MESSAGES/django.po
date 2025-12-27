@@ -407,6 +407,8 @@ msgid ""
 "аренда инструментов, строительные инструменты, прокат инструментов, Молдова, "
 "Кишинёв"
 msgstr ""
+"închiriere unelte, unelte de construcție, închiriere echipamente, Moldova, "
+"Chișinău"
 
 msgid "Каталог инструментов"
 msgstr "Catalog de instrumente"
@@ -2487,4 +2489,38 @@ msgstr "Adăugați instrumente la favorite pentru a le găsi rapid"
 
 msgid "Перейти к каталогу"
 msgstr "Mergi la catalog"
+
+# Dashboard orders page translations
+msgid "История ваших заказов на аренду"
+msgstr "Istoricul comenzilor dvs. de închiriere"
+
+msgid "Новый заказ"
+msgstr "Comandă nouă"
+
+msgid "Все"
+msgstr "Toate"
+
+msgid "дней"
+msgstr "zile"
+
+msgid "Назад"
+msgstr "Înapoi"
+
+msgid "Далее"
+msgstr "Următorul"
+
+msgid "Заказов пока нет"
+msgstr "Nu aveți încă comenzi"
+
+msgid "Выберите инструмент из каталога и создайте свой первый заказ на аренду"
+msgstr "Alegeți un instrument din catalog și creați prima comandă de închiriere"
+
+msgid "Последние заказы"
+msgstr "Ultimele comenzi"
+
+msgid "Добро пожаловать"
+msgstr "Bine ați venit"
+
+msgid "Всего заказов"
+msgstr "Total comenzi"
 
