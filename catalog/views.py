@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Min, Max
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext as _
 from django.views import View
 from django.views.decorators.http import require_POST
 from django.views.generic import DetailView, ListView, TemplateView
@@ -210,9 +211,9 @@ class ToggleFavoriteView(LoginRequiredMixin, View):
 
         if not created:
             favorite.delete()
-            return JsonResponse({'status': 'removed', 'message': 'Удалено из избранного'})
+            return JsonResponse({'status': 'removed', 'message': _('Удалено из избранного')})
 
-        return JsonResponse({'status': 'added', 'message': 'Добавлено в избранное'})
+        return JsonResponse({'status': 'added', 'message': _('Добавлено в избранное')})
 
 
 class FavoritesListView(LoginRequiredMixin, ListView):
@@ -239,7 +240,7 @@ class AddReviewView(LoginRequiredMixin, View):
         if Review.objects.filter(user=request.user, tool=tool).exists():
             return JsonResponse({
                 'status': 'error',
-                'message': 'Вы уже оставляли отзыв для этого инструмента'
+                'message': _('Вы уже оставляли отзыв для этого инструмента')
             }, status=400)
 
         try:
@@ -250,7 +251,7 @@ class AddReviewView(LoginRequiredMixin, View):
             if not 1 <= rating <= 5:
                 return JsonResponse({
                     'status': 'error',
-                    'message': 'Рейтинг должен быть от 1 до 5'
+                    'message': _('Рейтинг должен быть от 1 до 5')
                 }, status=400)
 
             review = Review.objects.create(
@@ -262,7 +263,7 @@ class AddReviewView(LoginRequiredMixin, View):
 
             return JsonResponse({
                 'status': 'success',
-                'message': 'Отзыв добавлен',
+                'message': _('Отзыв добавлен'),
                 'review': {
                     'id': review.id,
                     'rating': review.rating,
@@ -274,7 +275,7 @@ class AddReviewView(LoginRequiredMixin, View):
         except (json.JSONDecodeError, ValueError) as e:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Неверные данные'
+                'message': _('Неверные данные')
             }, status=400)
 
 

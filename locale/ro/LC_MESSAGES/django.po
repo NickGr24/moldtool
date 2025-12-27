@@ -1,0 +1,2436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-26 17:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+
+msgid "Личная информация"
+msgstr "Informații personale"
+
+msgid "Права доступа"
+msgstr "Drepturi de acces"
+
+msgid "Настройки"
+msgstr "Setări"
+
+msgid "Важные даты"
+msgstr "Date importante"
+
+msgid "Email обязателен"
+msgstr "Email-ul este obligatoriu"
+
+msgid "Суперпользователь должен иметь is_staff=True"
+msgstr "Superutilizatorul trebuie să aibă is_staff=True"
+
+msgid "Суперпользователь должен иметь is_superuser=True"
+msgstr "Superutilizatorul trebuie să aibă is_superuser=True"
+
+msgid "email"
+msgstr "email"
+
+msgid "Пользователь с таким email уже существует."
+msgstr "Un utilizator cu acest email există deja."
+
+msgid "телефон"
+msgstr "telefon"
+
+msgid "аватар"
+msgstr "avatar"
+
+msgid "получать уведомления"
+msgstr "primește notificări"
+
+msgid "дата регистрации"
+msgstr "data înregistrării"
+
+msgid "дата обновления"
+msgstr "data actualizării"
+
+msgid "пользователь"
+msgstr "utilizator"
+
+msgid "пользователи"
+msgstr "utilizatori"
+
+msgid "Основная информация"
+msgstr "Informații de bază"
+
+msgid "Изображение"
+msgstr "Imagine"
+
+msgid "Характеристики"
+msgstr "Caracteristici"
+
+msgid "Цены"
+msgstr "Prețuri"
+
+msgid "Статус"
+msgstr "Status"
+
+msgid "Статистика"
+msgstr "Statistici"
+
+msgid "Фото"
+msgstr "Foto"
+
+msgid "Превью"
+msgstr "Previzualizare"
+
+msgid "название"
+msgstr "nume"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "описание"
+msgstr "descriere"
+
+msgid "изображение"
+msgstr "imagine"
+
+msgid "CSS-класс иконки"
+msgstr "Clasa CSS a iconiței"
+
+msgid "Например: icon-drill, icon-hammer"
+msgstr "De exemplu: icon-drill, icon-hammer"
+
+msgid "родительская категория"
+msgstr "categoria părinte"
+
+msgid "активна"
+msgstr "activă"
+
+msgid "порядок сортировки"
+msgstr "ordine de sortare"
+
+msgid "дата создания"
+msgstr "data creării"
+
+msgid "категория"
+msgstr "categorie"
+
+msgid "категории"
+msgstr "categorii"
+
+msgid "Новый"
+msgstr "Nou"
+
+msgid "Отличное"
+msgstr "Excelent"
+
+msgid "Хорошее"
+msgstr "Bun"
+
+msgid "Удовлетворительное"
+msgstr "Satisfăcător"
+
+msgid "Доступен"
+msgstr "Disponibil"
+
+msgid "В аренде"
+msgstr "În închiriere"
+
+msgid "На обслуживании"
+msgstr "În întreținere"
+
+msgid "Недоступен"
+msgstr "Indisponibil"
+
+msgid "краткое описание"
+msgstr "descriere scurtă"
+
+msgid "основное изображение"
+msgstr "imagine principală"
+
+msgid "бренд"
+msgstr "brand"
+
+msgid "модель"
+msgstr "model"
+
+msgid "характеристики"
+msgstr "caracteristici"
+
+msgid "Технические характеристики в формате JSON"
+msgstr "Caracteristici tehnice în format JSON"
+
+msgid "цена за день"
+msgstr "preț pe zi"
+
+msgid "залог"
+msgstr "depozit"
+
+msgid "состояние"
+msgstr "stare"
+
+msgid "доступность"
+msgstr "disponibilitate"
+
+msgid "количество"
+msgstr "cantitate"
+
+msgid "доступное количество"
+msgstr "cantitate disponibilă"
+
+msgid "активен"
+msgstr "activ"
+
+msgid "рекомендуемый"
+msgstr "recomandat"
+
+msgid "количество просмотров"
+msgstr "număr de vizualizări"
+
+msgid "дата добавления"
+msgstr "data adăugării"
+
+msgid "инструмент"
+msgstr "unealtă"
+
+msgid "инструменты"
+msgstr "unelte"
+
+msgid "альтернативный текст"
+msgstr "text alternativ"
+
+msgid "порядок"
+msgstr "ordine"
+
+msgid "изображение инструмента"
+msgstr "imagine unealtă"
+
+msgid "изображения инструментов"
+msgstr "imagini unelte"
+
+msgid "избранное"
+msgstr "favorite"
+
+msgid "оценка"
+msgstr "evaluare"
+
+msgid "текст отзыва"
+msgstr "text recenzie"
+
+msgid "одобрен"
+msgstr "aprobat"
+
+msgid "отзыв"
+msgstr "recenzie"
+
+msgid "отзывы"
+msgstr "recenzii"
+
+msgid "вопрос"
+msgstr "întrebare"
+
+msgid "ответ"
+msgstr "răspuns"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+#, fuzzy
+#| msgid "Инструменты, которые вы добавили в избранное"
+msgid "Удалено из избранного"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+#, fuzzy
+#| msgid "Инструменты, которые вы добавили в избранное"
+msgid "Добавлено в избранное"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+#, fuzzy
+#| msgid "Поделитесь вашим опытом использования этого инструмента..."
+msgid "Вы уже оставляли отзыв для этого инструмента"
+msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+
+msgid "Рейтинг должен быть от 1 до 5"
+msgstr ""
+
+#, fuzzy
+#| msgid "дата добавления"
+msgid "Отзыв добавлен"
+msgstr "data adăugării"
+
+#, fuzzy
+#| msgid "Защита данных"
+msgid "Неверные данные"
+msgstr "Protecția datelor"
+
+#, fuzzy
+#| msgid "основное изображение"
+msgid "Профиль успешно обновлён."
+msgstr "imagine principală"
+
+msgid "Информация о заявке"
+msgstr "Informații despre cerere"
+
+msgid "Данные клиента"
+msgstr "Datele clientului"
+
+msgid "Период аренды"
+msgstr "Perioada de închiriere"
+
+msgid "Финансы"
+msgstr "Finanțe"
+
+msgid "Комментарии"
+msgstr "Comentarii"
+
+msgid "Системная информация"
+msgstr "Informații de sistem"
+
+msgid "Сумма"
+msgstr "Sumă"
+
+msgid "Подтвердить выбранные заявки"
+msgstr "Confirmă cererile selectate"
+
+#, python-brace-format
+msgid "Подтверждено заявок: {count}"
+msgstr "Cereri confirmate: {count}"
+
+msgid "Отклонить выбранные заявки"
+msgstr "Respinge cererile selectate"
+
+#, python-brace-format
+msgid "Отклонено заявок: {count}"
+msgstr "Cereri respinse: {count}"
+
+msgid "Отменить выбранные заявки"
+msgstr "Anulează cererile selectate"
+
+#, python-brace-format
+msgid "Отменено заявок: {count}"
+msgstr "Cereri anulate: {count}"
+
+msgid "Ваше имя"
+msgstr "Numele dvs."
+
+msgid "email@example.com"
+msgstr "email@exemplu.com"
+
+msgid "+373 XX XXX XXX"
+msgstr "+373 XX XXX XXX"
+
+#, fuzzy
+#| msgid "Строительное оборудование"
+msgid "Дополнительные пожелания..."
+msgstr "Echipament de construcție"
+
+msgid "Дата начала не может быть в прошлом."
+msgstr "Data de început nu poate fi în trecut."
+
+msgid "Дата окончания должна быть позже даты начала."
+msgstr "Data de sfârșit trebuie să fie după data de început."
+
+msgid "Ожидает рассмотрения"
+msgstr "În așteptare"
+
+msgid "Подтверждена"
+msgstr "Confirmată"
+
+msgid "В процессе аренды"
+msgstr "În proces de închiriere"
+
+msgid "Завершена"
+msgstr "Finalizată"
+
+msgid "Отменена"
+msgstr "Anulată"
+
+msgid "Отклонена"
+msgstr "Respinsă"
+
+msgid "номер заявки"
+msgstr "număr cerere"
+
+msgid "имя клиента"
+msgstr "nume client"
+
+msgid "email клиента"
+msgstr "email client"
+
+msgid "телефон клиента"
+msgstr "telefon client"
+
+msgid "дата начала"
+msgstr "data început"
+
+msgid "дата окончания"
+msgstr "data sfârșit"
+
+msgid "количество дней"
+msgstr "număr de zile"
+
+msgid "общая стоимость"
+msgstr "cost total"
+
+msgid "сумма залога"
+msgstr "sumă depozit"
+
+msgid "статус"
+msgstr "status"
+
+msgid "комментарий клиента"
+msgstr "comentariu client"
+
+msgid "заметки менеджера"
+msgstr "notițe manager"
+
+msgid "дата подтверждения"
+msgstr "data confirmării"
+
+msgid "заявка на аренду"
+msgstr "cerere de închiriere"
+
+msgid "заявки на аренду"
+msgstr "cereri de închiriere"
+
+#, fuzzy
+#| msgid "Широкий выбор строительных инструментов в аренду по доступным ценам."
+msgid "К сожалению, этот инструмент сейчас недоступен."
+msgstr ""
+"Din păcate, această unealtă nu este disponibilă în prezent.O gamă largă de "
+"unelte de construcție de închiriat la prețuri accesibile."
+
+#, python-format
+msgid ""
+"Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время."
+msgstr ""
+
+#, python-format
+msgid "Заявка #%(number)s успешно отменена."
+msgstr "Cererea #%(number)s a fost anulată cu succes."
+
+msgid "Эту заявку нельзя отменить."
+msgstr "Această cerere nu poate fi anulată."
+
+msgid "Широкий выбор строительных инструментов в аренду по доступным ценам."
+msgstr ""
+"O gamă largă de unelte de construcție de închiriat la prețuri accesibile.O "
+"gamă largă de unelte de construcție de închiriat la prețuri accesibile."
+
+msgid ""
+"аренда инструментов, строительные инструменты, прокат инструментов, Молдова, "
+"Кишинёв"
+msgstr ""
+
+msgid "Каталог инструментов"
+msgstr "Catalog de instrumente"
+
+msgid "Главная"
+msgstr "Acasă"
+
+msgid "Каталог"
+msgstr "Catalog"
+
+msgid "Найдите подходящий инструмент для вашего проекта"
+msgstr "Găsiți instrumentul potrivit pentru proiectul dumneavoastră"
+
+msgid "Поиск инструментов..."
+msgstr "Căutare instrumente..."
+
+msgid "Все категории"
+msgstr "Toate categoriile"
+
+msgid "Новые"
+msgstr "Noi"
+
+#, fuzzy
+#| msgid "Сначала дешевле"
+msgid "Сначала дешевые"
+msgstr "Mai întâi cele ieftine"
+
+#, fuzzy
+#| msgid "Сначала дороже"
+msgid "Сначала дорогие"
+msgstr "Mai întâi cele scumpe"
+
+msgid "По названию"
+msgstr "După nume"
+
+msgid "Поиск"
+msgstr "Căutare"
+
+msgid "Цена (MDL/день):"
+msgstr "Preț (MDL/zi):"
+
+#, fuzzy
+#| msgid "Позвонить"
+msgid "Применить"
+msgstr "Sunați"
+
+msgid "Сбросить"
+msgstr "Resetare"
+
+msgid "Найдено:"
+msgstr "Găsite:"
+
+msgid "инструментов"
+msgstr "de construcție"
+
+msgid "Хит"
+msgstr "Hit"
+
+msgid "Подробнее"
+msgstr "Mai multe detalii"
+
+msgid "MDL/zi"
+msgstr "MDL/zi"
+
+#, fuzzy
+#| msgid "Инструменты скоро появятся"
+msgid "Инструменты не найдены"
+msgstr "Instrumentele vor apărea în curând"
+
+msgid "Попробуйте изменить параметры поиска или сбросьте фильтры"
+msgstr "Încercați să schimbați parametrii de căutare sau resetați filtrele"
+
+msgid "Сбросить фильтры"
+msgstr "Resetare filtre"
+
+#, fuzzy
+#| msgid "Категории инструментов"
+msgid "В этой категории пока нет инструментов"
+msgstr "Categorii de instrumente"
+
+#, fuzzy
+#| msgid "Скоро здесь появятся ответы на частые вопросы"
+msgid "Скоро появятся новые товары"
+msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
+
+#, fuzzy
+#| msgid "Перейти в каталог"
+msgid "Назад в каталог"
+msgstr "Mergi la catalog"
+
+#, fuzzy
+#| msgid "Частые вопросы"
+msgid "Часто задаваемые вопросы"
+msgstr "Întrebări frecvente"
+
+#, fuzzy
+#| msgid "Ответы на популярные вопросы об аренде инструментов"
+msgid "Ответы на часто задаваемые вопросы об аренде инструментов"
+msgstr "Răspunsuri la întrebările frecvente despre închirierea uneltelor"
+
+msgid "Не нашли ответ на свой вопрос?"
+msgstr "Nu ați găsit răspuns la întrebarea dumneavoastră?"
+
+msgid "Свяжитесь с нами любым удобным способом"
+msgstr "Contactați-ne în orice mod convenabil"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "Позвонить"
+msgstr "Sunați"
+
+msgid "FAQ пока пусто"
+msgstr "FAQ încă gol"
+
+msgid "Скоро здесь появятся ответы на частые вопросы"
+msgstr "În curând vor apărea răspunsuri la întrebările frecvente"
+
+msgid "Перейти в каталог"
+msgstr "Mergi la catalog"
+
+msgid "Избранное"
+msgstr "Favorite"
+
+msgid "Инструменты, которые вы добавили в избранное"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+msgid "Всего:"
+msgstr "Total:"
+
+#, fuzzy
+#| msgid "избранное"
+msgid "Избранное пусто"
+msgstr "favorite"
+
+#, fuzzy
+#| msgid ""
+#| "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
+msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять"
+msgstr "Adăugați uneltele preferate la favorite pentru a nu le pierde"
+
+msgid "отзывов"
+msgstr "recenzii"
+
+#, fuzzy
+#| msgid "/ день"
+msgid "MDL / день"
+msgstr "/ zi"
+
+#, fuzzy
+#| msgid "Каталог"
+msgid "Залог:"
+msgstr "Catalog"
+
+#, fuzzy
+#| msgid "Условия аренды"
+msgid "Калькулятор аренды"
+msgstr "Condiții de închiriere"
+
+msgid "Дата начала"
+msgstr "Data de început"
+
+#, fuzzy
+#| msgid "Забота о клиентах"
+msgid "Дата окончания"
+msgstr "Grija pentru clienți"
+
+msgid "Количество дней:"
+msgstr "Număr de zile:"
+
+#, fuzzy
+#| msgid "Условия аренды"
+msgid "Стоимость аренды:"
+msgstr "Condiții de închiriere"
+
+msgid "Итого к оплате:"
+msgstr "Total de plată:"
+
+#, fuzzy
+#| msgid "Доступные цены"
+msgid "Доступен для аренды"
+msgstr "Prețuri accesibile"
+
+#, fuzzy
+#| msgid "В аренде"
+msgid "Сейчас в аренде"
+msgstr "În închiriere"
+
+#, fuzzy
+#| msgid "Аренда"
+msgid "Арендовать"
+msgstr "Închiriere"
+
+msgid "Описание"
+msgstr "Descriere"
+
+msgid "Отзывы"
+msgstr "Recenzii"
+
+#, fuzzy
+#| msgid "Отправить отзыв"
+msgid "Оставить отзыв"
+msgstr "Trimite recenzia"
+
+msgid "Ваша оценка"
+msgstr "Evaluarea dumneavoastră"
+
+msgid "Ваш отзыв (необязательно)"
+msgstr "Recenzia dumneavoastră (opțional)"
+
+msgid "Поделитесь вашим опытом использования этого инструмента..."
+msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+
+msgid "Отправить отзыв"
+msgstr "Trimite recenzia"
+
+#, fuzzy
+#| msgid "Укажите даты и оставьте заявку"
+msgid "Войдите, чтобы оставить отзыв"
+msgstr "Indicați datele și lăsați o cerere"
+
+msgid "Войти"
+msgstr "Autentificare"
+
+msgid "Пока нет отзывов. Будьте первым!"
+msgstr "Încă nu există recenzii. Fiți primul!"
+
+#, fuzzy
+#| msgid "Все инструменты"
+msgid "Похожие инструменты"
+msgstr "Toate instrumentele"
+
+#, fuzzy
+#| msgid "Перейти в каталог"
+msgid "Все в категории"
+msgstr "Mergi la catalog"
+
+#, fuzzy
+#| msgid "/ день"
+msgid " / день"
+msgstr "/ zi"
+
+#, fuzzy
+#| msgid "Укажите даты и оставьте заявку"
+msgid "Войдите, чтобы добавить в избранное"
+msgstr "Indicați datele și lăsați o cerere"
+
+msgid "Пожалуйста, выберите оценку"
+msgstr "Vă rugăm să selectați o evaluare"
+
+#, fuzzy
+#| msgid "Отправить отзыв"
+msgid "Ошибка при отправке отзыва"
+msgstr "Trimite recenzia"
+
+msgid "Панель управления"
+msgstr "Panou de control"
+
+msgid "Статистика и аналитика MoldTool"
+msgstr "Statistici și analiză MoldTool"
+
+#, fuzzy
+#| msgid "инструменты"
+msgid "Инструменты"
+msgstr "unelte"
+
+#, fuzzy
+#| msgid "доступность"
+msgid "доступно"
+msgstr "disponibilitate"
+
+#, fuzzy
+#| msgid "пользователи"
+msgid "Пользователи"
+msgstr "utilizatori"
+
+msgid "за неделю"
+msgstr "pe săptămână"
+
+#, fuzzy
+#| msgid "дата регистрации"
+msgid "на модерации"
+msgstr "data înregistrării"
+
+#, fuzzy
+#| msgid "избранное"
+msgid "В избранном"
+msgstr "favorite"
+
+msgid "Средний рейтинг:"
+msgstr "Rating mediu:"
+
+msgid "Популярные инструменты"
+msgstr "Instrumente populare"
+
+#, fuzzy
+#| msgid "количество просмотров"
+msgid "просмотров"
+msgstr "număr de vizualizări"
+
+msgid "Нет данных"
+msgstr "Nu există date"
+
+#, fuzzy
+#| msgid "Инструменты, которые вы добавили в избранное"
+msgid "Чаще добавляемые в избранное"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+#, fuzzy
+#| msgid "/ день"
+msgid "MDL/день"
+msgstr "/ zi"
+
+#, fuzzy
+#| msgid "избранное"
+msgid "в избранном"
+msgstr "favorite"
+
+#, fuzzy
+#| msgid "Отправить отзыв"
+msgid "Последние отзывы"
+msgstr "Trimite recenzia"
+
+#, fuzzy
+#| msgid "дата регистрации"
+msgid "На модерации"
+msgstr "data înregistrării"
+
+#, fuzzy
+#| msgid "отзывов"
+msgid "Нет отзывов"
+msgstr "recenzii"
+
+#, fuzzy
+#| msgid "категории"
+msgid "Категории"
+msgstr "categorii"
+
+#, fuzzy
+#| msgid "Все категории"
+msgid "Нет категорий"
+msgstr "Toate categoriile"
+
+#, fuzzy
+#| msgid "Все категории"
+msgid "Всего категорий:"
+msgstr "Toate categoriile"
+
+#, fuzzy
+#| msgid "Быстрая доставка"
+msgid "Быстрые действия"
+msgstr "Livrare rapidă"
+
+#, fuzzy
+#| msgid "изображения инструментов"
+msgid "Добавить инструмент"
+msgstr "imagini unelte"
+
+#, fuzzy
+#| msgid "Все категории"
+msgid "Управление категориями"
+msgstr "Toate categoriile"
+
+#, fuzzy
+#| msgid "Информация о заявке"
+msgid "Модерация отзывов"
+msgstr "Informații despre cerere"
+
+msgid "Политика конфиденциальности"
+msgstr "Politica de confidențialitate"
+
+#, fuzzy
+#| msgid "основное изображение"
+msgid "Последнее обновление:"
+msgstr "imagine principală"
+
+#, python-format
+msgid ""
+"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> "
+"respectă confidențialitatea datelor cu caracter personal ale utilizatorilor "
+"săi și se angajează să le protejeze în conformitate cu legislația în vigoare "
+"din Republica Moldova."
+msgstr ""
+
+#, fuzzy
+#| msgid "Системная информация"
+msgid "Собираемая информация"
+msgstr "Informații de sistem"
+
+msgid "Мы можем собирать следующие типы информации:"
+msgstr "Putem colecta următoarele tipuri de informații:"
+
+msgid "Имя и фамилия"
+msgstr "Nume și prenume"
+
+#, fuzzy
+#| msgid "телефон"
+msgid "Номер телефона"
+msgstr "telefon"
+
+msgid "Адрес электронной почты"
+msgstr "Adresă de e-mail"
+
+#, fuzzy
+#| msgid "Быстрая доставка"
+msgid "Адрес доставки"
+msgstr "Livrare rapidă"
+
+#, fuzzy
+#| msgid "Информация о заявке"
+msgid "Информация для аренды"
+msgstr "Informații despre cerere"
+
+msgid "Технические данные (IP, браузер, cookie)"
+msgstr "Date tehnice (IP, browser, cookie)"
+
+#, fuzzy
+#| msgid "Панель управления"
+msgid "Цель сбора данных"
+msgstr "Panou de control"
+
+#, fuzzy
+#| msgid "Данные клиента"
+msgid "Данные собираются для:"
+msgstr "Datele clientului"
+
+#, fuzzy
+#| msgid "заявка на аренду"
+msgid "Обработка заказов на аренду"
+msgstr "cerere de închiriere"
+
+msgid "Связь с пользователями по вопросам услуг"
+msgstr "Contactarea utilizatorilor în legătură cu serviciile oferite"
+
+msgid "Улучшение работы сайта"
+msgstr "Îmbunătățirea experienței pe site"
+
+msgid "Соблюдение законодательных требований"
+msgstr "Respectarea obligațiilor legale"
+
+msgid "Защита данных"
+msgstr "Protecția datelor"
+
+#, python-format
+msgid ""
+"%(site_name)s aplică măsuri tehnice și organizatorice pentru a preveni "
+"accesul neautorizat, pierderea sau divulgarea datelor personale."
+msgstr ""
+
+#, fuzzy
+#| msgid "Защита данных"
+msgid "Раскрытие данных"
+msgstr "Protecția datelor"
+
+msgid ""
+"Datele personale <span class=\"text-brand-yellow font-semibold px-2 py-0.5 "
+"bg-brand-yellow/10 rounded-lg\">nu sunt vândute sau transferate către terți</"
+"span>, cu excepția cazurilor prevăzute de lege sau când este necesar pentru "
+"furnizarea serviciilor (ex: livrare)."
+msgstr ""
+
+#, fuzzy
+#| msgid "Частые вопросы"
+msgid "Есть вопросы?"
+msgstr "Întrebări frecvente"
+
+#, fuzzy
+#| msgid "Свяжитесь с нами любым удобным способом"
+msgid "Свяжитесь с нами по любым вопросам о ваших данных"
+msgstr "Contactați-ne în orice mod convenabil"
+
+#, fuzzy
+#| msgid "Перейти в каталог"
+msgid "Вернуться на главную"
+msgstr "Mergi la catalog"
+
+msgid "Условия использования"
+msgstr "Termeni de utilizare"
+
+#, python-format
+msgid ""
+"Prin utilizarea site-ului <span class=\"text-brand-yellow font-"
+"semibold\">%(site_name)s</span>, sunteți de acord cu următorii termeni și "
+"condiții."
+msgstr ""
+
+#, fuzzy
+#| msgid "Описание"
+msgid "Описание сервиса"
+msgstr "Descriere"
+
+#, python-format
+msgid ""
+"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> oferă "
+"servicii de închiriere a uneltelor de construcții persoanelor fizice și "
+"juridice pe teritoriul Republicii Moldova."
+msgstr ""
+
+msgid "Пользователь должен предоставить корректную и полную информацию"
+msgstr "Utilizatorul trebuie să furnizeze informații corecte și complete"
+
+msgid "Запрещено использование сайта в незаконных целях"
+msgstr "Este interzisă utilizarea site-ului în scopuri ilegale"
+
+#, python-format
+msgid "%(site_name)s își rezervă dreptul de a refuza o comandă"
+msgstr ""
+
+msgid "Аренда инструментов"
+msgstr "Închiriere instrumente"
+
+#, fuzzy
+#| msgid "Инструменты, которые вы добавили в избранное"
+msgid "Инструменты сдаются в аренду на определенный срок"
+msgstr "Uneltele pe care le-ați adăugat la favorite"
+
+msgid "Пользователь несет ответственность за правильное использование"
+msgstr "Utilizatorul este responsabil pentru utilizarea corectă a acestora"
+
+msgid "Любое повреждение или потеря является ответственностью арендатора"
+msgstr "Orice deteriorare sau pierdere este responsabilitatea chiriașului"
+
+msgid "Платежи и гарантии"
+msgstr "Plăți și garanții"
+
+msgid "Оплата производится согласно указанным тарифам"
+msgstr "Plata se face conform tarifelor afișate"
+
+#, fuzzy
+#| msgid "Смотреть каталог"
+msgid "Может потребоваться залог"
+msgstr "Vezi catalogul"
+
+msgid "Задержка возврата может привести к дополнительным платежам"
+msgstr "Întârzierea returnării poate duce la taxe suplimentare"
+
+#, fuzzy
+#| msgid "доступность"
+msgid "Ответственность"
+msgstr "disponibilitate"
+
+#, python-format
+msgid "%(site_name)s nu este responsabil pentru:"
+msgstr ""
+
+#, fuzzy
+#| msgid "Поделитесь вашим опытом использования этого инструмента..."
+msgid "Ненадлежащее использование инструментов"
+msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+
+#, fuzzy
+#| msgid "Поделитесь вашим опытом использования этого инструмента..."
+msgid "Несчастные случаи, вызванные использованием оборудования"
+msgstr "Împărtășiți experiența dumneavoastră cu această unealtă..."
+
+#, fuzzy
+#| msgid "Аренда"
+msgid "Готовы арендовать?"
+msgstr "Închiriere"
+
+#, fuzzy
+#| msgid ""
+#| "Выберите инструмент из каталога или свяжитесь с нами для консультации"
+msgid "Изучите наш каталог или свяжитесь с нами для помощи"
+msgstr "Alegeți un instrument din catalog sau contactați-ne pentru consultare"
+
+msgid "Смотреть каталог"
+msgstr "Vezi catalogul"
+
+#, fuzzy
+#| msgid "Изображение"
+msgid "С возвращением"
+msgstr "Imagine"
+
+#, fuzzy
+#| msgid "Все заявки"
+msgid "Всего заявок"
+msgstr "Toate cererile"
+
+#, fuzzy
+#| msgid "Все заявки"
+msgid "Активные заявки"
+msgstr "Toate cererile"
+
+#, fuzzy
+#| msgid "Подтвердить выбранные заявки"
+msgid "Завершённые заявки"
+msgstr "Confirmă cererile selectate"
+
+msgid "Редактировать профиль"
+msgstr "Editează profilul"
+
+msgid "Все заявки"
+msgstr "Toate cererile"
+
+#, fuzzy
+#| msgid "Отправить отзыв"
+msgid "Последние заявки"
+msgstr "Trimite recenzia"
+
+msgid "Номер"
+msgstr "Număr"
+
+#, fuzzy
+#| msgid "инструменты"
+msgid "Инструмент"
+msgstr "unelte"
+
+#, fuzzy
+#| msgid "Период аренды"
+msgid "Период"
+msgstr "Perioada de închiriere"
+
+#, fuzzy
+#| msgid "Все права защищены."
+msgid "У вас пока нет заявок"
+msgstr "Toate drepturile rezervate."
+
+#, fuzzy
+#| msgid ""
+#| "Выберите инструмент из каталога или свяжитесь с нами для консультации"
+msgid "Выберите инструмент и создайте первую заявку на аренду"
+msgstr "Alegeți un instrument din catalog sau contactați-ne pentru consultare"
+
+#, fuzzy
+#| msgid "Профессиональный"
+msgid "Профиль"
+msgstr "Profesional"
+
+#, fuzzy
+#| msgid "Редактировать профиль"
+msgid "Мой профиль"
+msgstr "Editează profilul"
+
+msgid "Обновите свои личные данные"
+msgstr "Actualizați informațiile dvs. personale"
+
+#, fuzzy
+#| msgid "аватар"
+msgid "Аватар"
+msgstr "avatar"
+
+msgid "Формат: JPG, PNG. Максимальный размер: 2MB"
+msgstr "Format: JPG, PNG. Dimensiune maximă: 2MB"
+
+msgid "Имя"
+msgstr "Prenume"
+
+msgid "Introduceți prenumele"
+msgstr ""
+
+#, fuzzy
+#| msgid "Имя и фамилия"
+msgid "Фамилия"
+msgstr "Nume și prenume"
+
+msgid "Introduceți numele"
+msgstr ""
+
+#, fuzzy
+#| msgid "email"
+msgid "Email"
+msgstr "email"
+
+msgid "Emailul nu poate fi modificat"
+msgstr ""
+
+msgid "Для изменения email свяжитесь с администратором"
+msgstr "Pentru modificarea emailului, contactați administratorul"
+
+#, fuzzy
+#| msgid "телефон"
+msgid "Телефон"
+msgstr "telefon"
+
+#, fuzzy
+#| msgid "получать уведомления"
+msgid "Получать уведомления о статусе аренды"
+msgstr "primește notificări"
+
+#, fuzzy
+#| msgid "получать уведомления"
+msgid "Сохранить изменения"
+msgstr "primește notificări"
+
+#, fuzzy
+#| msgid "Отменена"
+msgid "Отмена"
+msgstr "Anulată"
+
+#, fuzzy
+#| msgid "Информация о заявке"
+msgid "Информация об аккаунте"
+msgstr "Informații despre cerere"
+
+#, fuzzy
+#| msgid "дата регистрации"
+msgid "Дата регистрации"
+msgstr "data înregistrării"
+
+#, fuzzy
+#| msgid "основное изображение"
+msgid "Последнее обновление"
+msgstr "imagine principală"
+
+#, fuzzy
+#| msgid "Информация о заявке"
+msgid "Статус аккаунта"
+msgstr "Informații despre cerere"
+
+#, fuzzy
+#| msgid "активен"
+msgid "Активен"
+msgstr "activ"
+
+msgid "Работаем по всей Молдове"
+msgstr "Lucrăm în toată Moldova"
+
+msgid "Аренда"
+msgstr "Închiriere"
+
+msgid "строительных"
+msgstr "de instrumente"
+
+msgid "Профессиональное оборудование для любых задач."
+msgstr "Echipament profesional pentru orice sarcină."
+
+msgid "Качественный инструмент"
+msgstr "Instrumente de calitate"
+
+msgid "по доступным ценам с"
+msgstr "la prețuri accesibile cu"
+
+msgid "бесплатной доставкой"
+msgstr "livrare gratuită"
+
+msgid "по всей стране."
+msgstr "în toată țara."
+
+msgid "Позвонить нам"
+msgstr "Sună-ne"
+
+msgid "Единиц техники"
+msgstr "Unități de echipament"
+
+msgid "Довольных клиентов"
+msgstr "Clienți mulțumiți"
+
+msgid "Лет опыта"
+msgstr "Ani de experiență"
+
+msgid "О компании"
+msgstr "Despre companie"
+
+msgid "Почему выбирают"
+msgstr "De ce aleg"
+
+msgid ""
+"Мы предоставляем профессиональное строительное оборудование в аренду уже "
+"более 5 лет, обеспечивая качество и надёжность для каждого клиента."
+msgstr ""
+"Oferim echipamente profesionale de construcție în închiriere de peste 5 ani, "
+"asigurând calitate și fiabilitate pentru fiecare client."
+
+msgid "Проверенное качество"
+msgstr "Calitate verificată"
+
+msgid ""
+"Весь инструмент проходит тщательную проверку перед каждой арендой. Мы "
+"гарантируем исправность и надёжность оборудования."
+msgstr ""
+"Toate instrumentele trec printr-o verificare amănunțită înainte de fiecare "
+"închiriere. Garantăm funcționarea și fiabilitatea echipamentului."
+
+msgid "Доступные цены"
+msgstr "Prețuri accesibile"
+
+msgid ""
+"Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при "
+"длительной аренде и для постоянных клиентов."
+msgstr ""
+"Prețuri competitive pe piața de închiriere de instrumente. Sistem flexibil "
+"de reduceri pentru închirieri pe termen lung și pentru clienți permanenți."
+
+msgid "Быстрая доставка"
+msgstr "Livrare rapidă"
+
+msgid ""
+"Доставляем инструменты по всей Молдове. Возможен самовывоз из нашего офиса в "
+"Кишинёве или доставка на объект."
+msgstr ""
+"Livrăm instrumente în toată Moldova. Este posibilă ridicarea de la biroul "
+"nostru din Chișinău sau livrarea la șantier."
+
+msgid "Опытная команда"
+msgstr "Echipă experimentată"
+
+msgid ""
+"Наши специалисты помогут подобрать подходящий инструмент и проконсультируют "
+"по вопросам эксплуатации."
+msgstr ""
+"Specialiștii noștri vă vor ajuta să alegeți instrumentul potrivit și vă vor "
+"consulta cu privire la utilizare."
+
+msgid "Простое оформление"
+msgstr "Înregistrare simplă"
+
+msgid ""
+"Минимум документов и быстрое оформление аренды. Онлайн-бронирование доступно "
+"круглосуточно."
+msgstr ""
+"Documente minime și procesare rapidă a închirierii. Rezervarea online este "
+"disponibilă non-stop."
+
+msgid "Забота о клиентах"
+msgstr "Grija pentru clienți"
+
+msgid ""
+"Индивидуальный подход к каждому заказу. Техническая поддержка на протяжении "
+"всего срока аренды."
+msgstr ""
+"Abordare individuală pentru fiecare comandă. Suport tehnic pe toată durata "
+"închirierii."
+
+msgid "Готовы начать работу?"
+msgstr "Gata să începeți lucrul?"
+
+msgid "Выберите инструмент из каталога или свяжитесь с нами для консультации"
+msgstr "Alegeți un instrument din catalog sau contactați-ne pentru consultare"
+
+msgid " лет"
+msgstr " ani"
+
+msgid "На рынке"
+msgstr "Pe piață"
+
+msgid "Категории инструментов"
+msgstr "Categorii de instrumente"
+
+msgid "Выберите нужную категорию и найдите подходящий инструмент"
+msgstr "Alegeți categoria dorită și găsiți instrumentul potrivit"
+
+msgid "Категории скоро появятся"
+msgstr "Categoriile vor apărea în curând"
+
+msgid "Популярное"
+msgstr "Popular"
+
+msgid "Самые востребованные инструменты для аренды"
+msgstr "Cele mai solicitate instrumente pentru închiriere"
+
+#, fuzzy
+#| msgid "/ день"
+msgid "/ день"
+msgstr "/ zi"
+
+msgid "Инструменты скоро появятся"
+msgstr "Instrumentele vor apărea în curând"
+
+msgid "Мы активно наполняем каталог"
+msgstr "Completăm activ catalogul"
+
+msgid "Смотреть все инструменты"
+msgstr "Vezi toate instrumentele"
+
+msgid "Процесс"
+msgstr "Proces"
+
+msgid "Как это работает"
+msgstr "Cum funcționează"
+
+msgid "Простой процесс аренды в 4 шага"
+msgstr "Proces simplu de închiriere în 4 pași"
+
+msgid "Выберите"
+msgstr "Alegeți"
+
+msgid "Найдите нужный инструмент в каталоге"
+msgstr "Găsiți instrumentul necesar în catalog"
+
+msgid "Забронируйте"
+msgstr "Rezervați"
+
+msgid "Укажите даты и оставьте заявку"
+msgstr "Indicați datele și lăsați o cerere"
+
+msgid "Подтвердите"
+msgstr "Confirmați"
+
+msgid "Мы свяжемся для подтверждения"
+msgstr "Vă vom contacta pentru confirmare"
+
+msgid "Получите"
+msgstr "Primiți"
+
+msgid "Заберите или закажите доставку"
+msgstr "Ridicați sau comandați livrarea"
+
+msgid "Онлайн 24/7"
+msgstr "Online 24/7"
+
+msgid "Нужна консультация?"
+msgstr "Aveți nevoie de consultare?"
+
+msgid ""
+"Поможем подобрать инструмент для вашей задачи. Звоните или оставьте заявку!"
+msgstr ""
+"Vă vom ajuta să alegeți instrumentul pentru sarcina dumneavoastră. Sunați "
+"sau lăsați o cerere!"
+
+msgid "Профессиональное оборудование для любых строительных задач."
+msgstr "Echipament profesional pentru orice sarcină de construcție."
+
+msgid "Все инструменты"
+msgstr "Toate instrumentele"
+
+msgid "Электроинструменты"
+msgstr "Scule electrice"
+
+msgid "Ручной инструмент"
+msgstr "Unelte manuale"
+
+msgid "Строительное оборудование"
+msgstr "Echipament de construcție"
+
+msgid "Информация"
+msgstr "Informații"
+
+msgid "Контакты"
+msgstr "Contacte"
+
+msgid "Все права защищены."
+msgstr "Toate drepturile rezervate."
+
+msgid "О нас"
+msgstr "Despre noi"
+
+msgid "Favorite"
+msgstr "Favorite"
+
+msgid "Panou de control"
+msgstr "Panou de control"
+
+#, fuzzy
+#| msgid "Условия аренды"
+msgid "Оформление аренды"
+msgstr "Condiții de închiriere"
+
+msgid "Иван Иванов"
+msgstr "Ion Popescu"
+
+#, fuzzy
+#| msgid "Комментарии"
+msgid "Комментарий"
+msgstr "Comentarii"
+
+#, fuzzy
+#| msgid "цена за день"
+msgid "Цена за день"
+msgstr "preț pe zi"
+
+#, fuzzy
+#| msgid "Количество дней:"
+msgid "Количество дней"
+msgstr "Număr de zile:"
+
+#, fuzzy
+#| msgid "Каталог"
+msgid "Залог"
+msgstr "Catalog"
+
+#, fuzzy
+#| msgid "Итого к оплате:"
+msgid "Итого к оплате"
+msgstr "Total de plată:"
+
+#, fuzzy
+#| msgid "Все права защищены."
+msgid "Отправить заявку"
+msgstr "Toate drepturile rezervate."
+
+msgid "Отправляя заявку, вы соглашаетесь с условиями аренды"
+msgstr "Trimițând cererea, sunteți de acord cu condițiile de închiriere"
+
+#, fuzzy
+#| msgid "Панель управления"
+msgid "Заявка отправлена"
+msgstr "Panou de control"
+
+#, fuzzy
+#| msgid "Панель управления"
+msgid "Заявка отправлена!"
+msgstr "Panou de control"
+
+#, python-format
+msgid "Ваша заявка <strong>#%(number)s</strong> успешно создана."
+msgstr ""
+
+#, fuzzy
+#| msgid "Мы свяжемся для подтверждения"
+msgid "Мы свяжемся с вами в ближайшее время для подтверждения."
+msgstr "Vă vom contacta pentru confirmare"
+
+#, fuzzy
+#| msgid "Позвонить нам"
+msgid "Продолжить выбор"
+msgstr "Sună-ne"
+
+#, fuzzy
+#| msgid "номер заявки"
+msgid "Мои заявки"
+msgstr "număr cerere"
+
+#, fuzzy
+#| msgid "количество просмотров"
+msgid "Если у вас есть вопросы, звоните:"
+msgstr "număr de vizualizări"
+
+msgid "Messages"
+msgstr "Mesaje"
+
+msgid "Site Maps"
+msgstr ""
+
+msgid "Static Files"
+msgstr ""
+
+msgid "Syndication"
+msgstr "Sindicalizare"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+msgid "…"
+msgstr ""
+
+msgid "That page number is not an integer"
+msgstr ""
+
+msgid "That page number is less than 1"
+msgstr ""
+
+msgid "That page contains no results"
+msgstr ""
+
+msgid "Enter a valid value."
+msgstr ""
+
+msgid "Enter a valid domain name."
+msgstr ""
+
+msgid "Enter a valid URL."
+msgstr ""
+
+msgid "Enter a valid integer."
+msgstr ""
+
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "IPv4 or IPv6"
+msgstr ""
+
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Enter a number."
+msgstr ""
+
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+msgid "Null characters are not allowed."
+msgstr ""
+
+msgid "and"
+msgstr ""
+
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+msgid "This field cannot be null."
+msgstr ""
+
+msgid "This field cannot be blank."
+msgstr ""
+
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+msgid "String (unlimited)"
+msgstr ""
+
+msgid "Comma-separated integers"
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+msgid "Date (without time)"
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+msgid "Date (with time)"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+msgid "Decimal number"
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "File path"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+msgid "Floating point number"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+msgid "Integer"
+msgstr ""
+
+msgid "Big (8 byte) integer"
+msgstr ""
+
+msgid "Small integer"
+msgstr ""
+
+msgid "IPv4 address"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+msgid "Positive big integer"
+msgstr ""
+
+msgid "Positive integer"
+msgstr ""
+
+msgid "Positive small integer"
+msgstr ""
+
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Raw binary data"
+msgstr ""
+
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+msgid "Universally unique identifier"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "A JSON object"
+msgstr ""
+
+msgid "Value must be valid JSON."
+msgstr ""
+
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+msgid "One-to-one relationship"
+msgstr ""
+
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+msgid ":?.!"
+msgstr ""
+
+msgid "This field is required."
+msgstr ""
+
+msgid "Enter a whole number."
+msgstr ""
+
+msgid "Enter a valid date."
+msgstr ""
+
+msgid "Enter a valid time."
+msgstr ""
+
+msgid "Enter a valid date/time."
+msgstr ""
+
+msgid "Enter a valid duration."
+msgstr ""
+
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+msgid "No file was submitted."
+msgstr ""
+
+msgid "The submitted file is empty."
+msgstr ""
+
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+msgid "Enter a list of values."
+msgstr ""
+
+msgid "Enter a complete value."
+msgstr ""
+
+msgid "Enter a valid UUID."
+msgstr ""
+
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+msgid ":"
+msgstr ""
+
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Currently"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+msgid "yes,no,maybe"
+msgstr ""
+
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+msgid "p.m."
+msgstr ""
+
+msgid "a.m."
+msgstr ""
+
+msgid "PM"
+msgstr ""
+
+msgid "AM"
+msgstr ""
+
+msgid "midnight"
+msgstr ""
+
+msgid "noon"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
+
+msgid "Sun"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+msgid "jan"
+msgstr ""
+
+msgid "feb"
+msgstr ""
+
+msgid "mar"
+msgstr ""
+
+msgid "apr"
+msgstr ""
+
+msgid "may"
+msgstr ""
+
+msgid "jun"
+msgstr ""
+
+msgid "jul"
+msgstr ""
+
+msgid "aug"
+msgstr ""
+
+msgid "sep"
+msgstr ""
+
+msgid "oct"
+msgstr ""
+
+msgid "nov"
+msgstr ""
+
+msgid "dec"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+msgid ", "
+msgstr ""
+
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Forbidden"
+msgstr ""
+
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+msgid "No year specified"
+msgstr ""
+
+msgid "Date out of range"
+msgstr ""
+
+msgid "No month specified"
+msgstr ""
+
+msgid "No day specified"
+msgstr ""
+
+msgid "No week specified"
+msgstr ""
+
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+msgid "Django Documentation"
+msgstr ""
+
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+msgid "Get started with Django"
+msgstr ""
+
+msgid "Django Community"
+msgstr ""
+
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Категории инструментов"
+#~ msgid "В этой категории пока нет instrumente"
+#~ msgstr "Categorii de instrumente"
+
+#~ msgid "Найти"
+#~ msgstr "Căutare"
+
+#~ msgid "Личный кабинет"
+#~ msgstr "Cont personal"
+
+#, fuzzy
+#~| msgid "Популярное"
+#~ msgid "Популярные"
+#~ msgstr "Popular"
+
+#~ msgid "Перфоратор Bosch"
+#~ msgstr "Ciocan rotopercutor Bosch"
+
+#~ msgid "Болгарка Makita"
+#~ msgstr "Polizor unghiular Makita"
+
+#~ msgid "Хит продаж"
+#~ msgstr "Hit de vânzări"
+
+#~ msgid "В наличии"
+#~ msgstr "În stoc"
+
+#~ msgid "клиентов"
+#~ msgstr "clienți"
+
+#~ msgid "Доставка"
+#~ msgstr "Livrare"
+
+#~ msgid "лет"
+#~ msgstr "ani"

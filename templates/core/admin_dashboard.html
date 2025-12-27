@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Панель управления - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Панель управления" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-8 lg:py-12 bg-dark min-h-screen">
@@ -9,8 +9,8 @@
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">Панель управления</h1>
-                <p class="text-gray-400">Статистика и аналитика MoldTool</p>
+                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Панель управления" %}</h1>
+                <p class="text-gray-400">{% trans "Статистика и аналитика MoldTool" %}</p>
             </div>
             <a href="/admin/" target="_blank"
                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
@@ -33,9 +33,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Инструменты</p>
+                        <p class="text-gray-400 text-sm">{% trans "Инструменты" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_tools }}</p>
-                        <p class="text-green-400 text-xs">{{ available_tools }} доступно</p>
+                        <p class="text-green-400 text-xs">{{ available_tools }} {% trans "доступно" %}</p>
                     </div>
                 </div>
             </div>
@@ -49,9 +49,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Пользователи</p>
+                        <p class="text-gray-400 text-sm">{% trans "Пользователи" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_users }}</p>
-                        <p class="text-green-400 text-xs">+{{ new_users_week }} за неделю</p>
+                        <p class="text-green-400 text-xs">+{{ new_users_week }} {% trans "за неделю" %}</p>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,12 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">Отзывы</p>
+                        <p class="text-gray-400 text-sm">{% trans "Отзывы" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_reviews }}</p>
                         {% if pending_reviews > 0 %}
-                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} на модерации</p>
+                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} {% trans "на модерации" %}</p>
                         {% else %}
-                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} за неделю</p>
+                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} {% trans "за неделю" %}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -85,9 +85,9 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">В избранном</p>
+                        <p class="text-gray-400 text-sm">{% trans "В избранном" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_favorites }}</p>
-                        <p class="text-gray-500 text-xs">Ср. рейтинг: {{ average_rating }}</p>
+                        <p class="text-gray-500 text-xs">{% trans "Средний рейтинг:" %} {{ average_rating }}</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                     </svg>
-                    Популярные инструменты
+                    {% trans "Популярные инструменты" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in popular_tools %}
@@ -125,11 +125,11 @@
                         </div>
                         <div class="text-right">
                             <p class="text-brand-yellow font-bold">{{ tool.views_count }}</p>
-                            <p class="text-gray-500 text-xs">просмотров</p>
+                            <p class="text-gray-500 text-xs">{% trans "просмотров" %}</p>
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет данных</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -140,7 +140,7 @@
                     <svg class="w-5 h-5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
-                    Чаще добавляют в избранное
+                    {% trans "Чаще добавляемые в избранное" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in most_favorited %}
@@ -160,15 +160,15 @@
                             <a href="{{ tool.get_absolute_url }}" class="text-white font-medium hover:text-brand-yellow transition-colors line-clamp-1">
                                 {{ tool.name }}
                             </a>
-                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} MDL/день</p>
+                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} {% trans "MDL/день" %}</p>
                         </div>
                         <div class="text-right">
                             <p class="text-brand-red font-bold">{{ tool.favorites_count }}</p>
-                            <p class="text-gray-500 text-xs">в избранном</p>
+                            <p class="text-gray-500 text-xs">{% trans "в избранном" %}</p>
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет данных</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -179,7 +179,7 @@
                     <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                     </svg>
-                    Последние отзывы
+                    {% trans "Последние отзывы" %}
                 </h3>
                 <div class="space-y-4">
                     {% for review in recent_reviews %}
@@ -209,12 +209,12 @@
                         <div class="flex items-center justify-between mt-2">
                             <span class="text-gray-600 text-xs">{{ review.created_at|date:"d.m.Y" }}</span>
                             {% if not review.is_approved %}
-                            <span class="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">На модерации</span>
+                            <span class="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">{% trans "На модерации" %}</span>
                             {% endif %}
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет отзывов</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет отзывов" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -225,24 +225,24 @@
                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
-                    Категории
+                    {% trans "Категории" %}
                 </h3>
                 <div class="space-y-4">
                     {% for cat in category_stats %}
                     <div class="flex items-center justify-between p-3 bg-dark rounded-xl">
                         <span class="text-white">{{ cat.name }}</span>
                         <span class="px-3 py-1 bg-brand-yellow/10 text-brand-yellow text-sm font-medium rounded-lg">
-                            {{ cat.tools_count }} инструментов
+                            {{ cat.num_tools }} {% trans "инструментов" %}
                         </span>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">Нет категорий</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Нет категорий" %}</p>
                     {% endfor %}
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-dark-border">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400">Всего категорий:</span>
+                        <span class="text-gray-400">{% trans "Всего категорий:" %}</span>
                         <span class="text-white font-bold">{{ total_categories }}</span>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
 
         <!-- Quick Links -->
         <div class="mt-8 bg-dark-100 rounded-2xl p-6 border border-dark-border">
-            <h3 class="text-xl font-bold text-white mb-6">Быстрые действия</h3>
+            <h3 class="text-xl font-bold text-white mb-6">{% trans "Быстрые действия" %}</h3>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="/admin/catalog/tool/add/" target="_blank"
                    class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border hover:border-brand-yellow/50 transition-colors group">
@@ -260,7 +260,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                         </svg>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">Добавить инструмент</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Добавить инструмент" %}</span>
                 </a>
 
                 <a href="/admin/catalog/category/" target="_blank"
@@ -270,7 +270,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                         </svg>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">Управление категориями</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Управление категориями" %}</span>
                 </a>
 
                 <a href="/admin/catalog/review/?is_approved__exact=0" target="_blank"
@@ -280,7 +280,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">Модерация отзывов</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Модерация отзывов" %}</span>
                 </a>
 
                 <a href="/admin/accounts/user/" target="_blank"
@@ -290,7 +290,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
                         </svg>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">Пользователи</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Пользователи" %}</span>
                 </a>
             </div>
         </div>

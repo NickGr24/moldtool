@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from accounts.models import User
 from rentals.models import RentalRequest
@@ -51,5 +52,5 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        messages.success(self.request, 'Профиль успешно обновлён.')
+        messages.success(self.request, _('Профиль успешно обновлён.'))
         return super().form_valid(form)

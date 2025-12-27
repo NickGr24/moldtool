@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Условия использования" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="py-8 lg:py-16 bg-dark min-h-screen relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-20 left-1/4 w-80 h-80 bg-brand-red/5 rounded-full blur-[100px] animate-pulse"></div>
+        <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-brand-red/3 to-brand-yellow/3 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- Decorative Grid Pattern -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8 animate-fade-in">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300">{% trans "Главная" %}</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">{% trans "Условия использования" %}</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <!-- Animated Icon Container -->
+            <div class="relative inline-flex items-center justify-center mb-6 group">
+                <!-- Outer Ring -->
+                <div class="absolute w-24 h-24 border border-brand-red/20 rounded-full animate-spin" style="animation-duration: 15s;"></div>
+                <div class="absolute w-20 h-20 border border-brand-yellow/20 rounded-full animate-spin" style="animation-duration: 10s; animation-direction: reverse;"></div>
+                <!-- Icon -->
+                <div class="relative w-16 h-16 bg-gradient-to-br from-brand-red/20 to-brand-yellow/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-brand-red/20 group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-3xl lg:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white via-brand-red/90 to-white bg-clip-text">
+                {% trans "Условия использования" %}
+            </h1>
+            <p class="text-gray-400">{% trans "Последнее обновление:" %} {{ current_date|date:"d.m.Y" }}</p>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="relative bg-gradient-to-br from-brand-red/10 via-dark-100 to-brand-yellow/5 border border-brand-red/30 rounded-3xl p-6 lg:p-8 mb-10 overflow-hidden group hover:border-brand-red/50 transition-all duration-500">
+            <!-- Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <!-- Corner Decoration -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div class="relative flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center border border-brand-red/20">
+                    <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                </div>
+                <p class="text-gray-300 leading-relaxed text-lg pt-1">
+                    {% blocktrans with site_name=SITE_NAME %}Prin utilizarea site-ului <span class="text-brand-yellow font-semibold">{{ site_name }}</span>, sunteți de acord cu următorii termeni și condiții.{% endblocktrans %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6">
+            <!-- Section 1 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">1</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Описание сервиса" %}</h2>
+                </div>
+                <div class="relative flex items-start gap-4 p-4 bg-gradient-to-r from-brand-yellow/5 to-transparent rounded-2xl border border-brand-yellow/10">
+                    <div class="flex-shrink-0 w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        {% blocktrans with site_name=SITE_NAME %}<span class="text-brand-yellow font-semibold">{{ site_name }}</span> oferă servicii de închiriere a uneltelor de construcții persoanelor fizice și juridice pe teritoriul Republicii Moldova.{% endblocktrans %}
+                    </p>
+                </div>
+            </article>
+
+            <!-- Section 2 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-red/40 hover:shadow-lg hover:shadow-brand-red/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">2</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Условия использования" %}</h2>
+                </div>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Пользователь должен предоставить корректную и полную информацию" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Запрещено использование сайта в незаконных целях" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300">{% blocktrans with site_name=SITE_NAME %}{{ site_name }} își rezervă dreptul de a refuza o comandă{% endblocktrans %}</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Section 3 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">3</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Аренда инструментов" %}</h2>
+                </div>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Инструменты сдаются в аренду на определенный срок" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Пользователь несет ответственность за правильное использование" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300">{% trans "Любое повреждение или потеря является ответственностью арендатора" %}</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Section 4 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-red/40 hover:shadow-lg hover:shadow-brand-red/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">4</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Платежи и гарантии" %}</h2>
+                </div>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-brand-yellow rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Оплата производится согласно указанным тарифам" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-brand-yellow rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Может потребоваться залог" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300 font-medium">{% trans "Задержка возврата может привести к дополнительным платежам" %}</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Section 5 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">5</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Ответственность" %}</h2>
+                </div>
+                <p class="relative text-gray-400 mb-4 pl-16">{% blocktrans with site_name=SITE_NAME %}{{ site_name }} nu este responsabil pentru:{% endblocktrans %}</p>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Ненадлежащее использование инструментов" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Несчастные случаи, вызванные использованием оборудования" %}</span>
+                    </li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="relative mt-12 bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-red rounded-3xl p-8 lg:p-10 text-center overflow-hidden group">
+            <!-- Animated Shine -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <!-- Corner Decorations -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-dark/10 rounded-full blur-xl"></div>
+
+            <h3 class="relative text-2xl font-bold text-dark mb-3">{% trans "Готовы арендовать?" %}</h3>
+            <p class="relative text-dark/80 mb-6 text-lg">{% trans "Изучите наш каталог или свяжитесь с нами для помощи" %}</p>
+            <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark text-white font-semibold rounded-xl hover:bg-dark-100 hover:scale-105 transition-all duration-300 shadow-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    {% trans "Смотреть каталог" %}
+                </a>
+                <a href="tel:{{ SITE_PHONE }}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark/20 text-dark font-semibold rounded-xl border-2 border-dark/30 hover:bg-dark/30 hover:scale-105 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    {{ SITE_PHONE }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="mt-10 text-center">
+            <a href="{% url 'core:home' %}" class="inline-flex items-center gap-2 text-gray-400 hover:text-brand-yellow transition-all duration-300 group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                {% trans "Вернуться на главную" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

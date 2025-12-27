@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Контакты - {{ SITE_NAME }}{% endblock %}
+{% block title %}Contacte - {{ SITE_NAME }}{% endblock %}
 
-{% block meta_description %}Свяжитесь с {{ SITE_NAME }}. Телефон: {{ SITE_PHONE }}, Email: {{ SITE_EMAIL }}. Адрес: {{ SITE_ADDRESS }}{% endblock %}
+{% block meta_description %}Contactați {{ SITE_NAME }}. Telefon: {{ SITE_PHONE }}, Email: {{ SITE_EMAIL }}. Adresa: {{ SITE_ADDRESS }}{% endblock %}
 
 {% block content %}
 <!-- ============================================
@@ -20,6 +20,15 @@
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Acasă</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">Contacte</span>
+        </nav>
+
         <!-- Section Header -->
         <div class="text-center mb-16 animate-slide-up">
             <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
@@ -27,14 +36,14 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                 </span>
-                <span class="text-sm font-medium text-gray-300">Онлайн поддержка 24/7</span>
+                <span class="text-sm font-medium text-gray-300">Suport online 24/7</span>
             </span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
-                Свяжитесь с <span class="text-gradient">нами</span>
+                Contactați-<span class="text-gradient">ne</span>
             </h1>
             <p class="text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto">
-                Мы всегда на связи! Позвоните, напишите или приезжайте к нам в офис — 
-                будем рады помочь с выбором инструмента.
+                Suntem mereu disponibili! Sunați, scrieți sau vizitați biroul nostru — 
+                vom fi bucuroși să vă ajutăm cu alegerea sculei.
             </p>
         </div>
 
@@ -54,9 +63,9 @@
                         <!-- Ping animation -->
                         <span class="absolute inset-0 rounded-2xl bg-brand-yellow/30 animate-ping opacity-0 group-hover:opacity-75"></span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Телефон</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Telefon</h3>
                     <p class="text-2xl font-bold text-brand-yellow mb-2">{{ SITE_PHONE }}</p>
-                    <p class="text-gray-500 text-sm">Звоните в любое время — мы на связи!</p>
+                    <p class="text-gray-500 text-sm">Sunați oricând — suntem disponibili!</p>
                 </div>
             </a>
 
@@ -74,7 +83,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors">Email</h3>
                     <p class="text-xl font-semibold text-brand-red mb-2 break-all">{{ SITE_EMAIL }}</p>
-                    <p class="text-gray-500 text-sm">Отвечаем в течение часа</p>
+                    <p class="text-gray-500 text-sm">Răspundem în maxim o oră</p>
                 </div>
             </a>
 
@@ -90,10 +99,10 @@
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Адрес</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Adresă</h3>
                     <p class="text-lg font-medium text-white mb-2">{{ SITE_ADDRESS }}</p>
                     <p class="text-gray-500 text-sm flex items-center gap-2">
-                        <span>Открыть на карте</span>
+                        <span>Deschide pe hartă</span>
                         <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                         </svg>
@@ -115,24 +124,24 @@
                                 <polyline points="12 6 12 12 16 14"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Часы работы</h3>
+                        <h3 class="text-xl font-bold text-white">Program de lucru</h3>
                     </div>
                     
                     <div class="space-y-4">
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Понедельник - Пятница</span>
+                            <span class="text-gray-400">Luni - Vineri</span>
                             <span class="text-white font-semibold">08:00 - 20:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Суббота</span>
+                            <span class="text-gray-400">Sâmbătă</span>
                             <span class="text-white font-semibold">09:00 - 18:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Воскресенье</span>
+                            <span class="text-gray-400">Duminică</span>
                             <span class="text-white font-semibold">10:00 - 16:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3">
-                            <span class="text-gray-400">Телефон поддержки</span>
+                            <span class="text-gray-400">Telefon suport</span>
                             <span class="text-brand-yellow font-semibold">24/7</span>
                         </div>
                     </div>
@@ -144,15 +153,15 @@
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </div>
-                            <span class="text-green-400 font-medium">Сейчас мы открыты!</span>
+                            <span class="text-green-400 font-medium">Suntem deschiși acum!</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Social Networks -->
                 <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
-                    <h3 class="text-xl font-bold text-white mb-6">Мы в социальных сетях</h3>
-                    <p class="text-gray-400 mb-6">Подписывайтесь, чтобы быть в курсе акций и новинок!</p>
+                    <h3 class="text-xl font-bold text-white mb-6">Rețele sociale</h3>
+                    <p class="text-gray-400 mb-6">Urmăriți-ne pentru promoții și noutăți!</p>
                     
                     <div class="grid grid-cols-2 gap-4">
                         <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-[#0088cc]/50 hover:bg-[#0088cc]/10 group">
@@ -199,19 +208,19 @@
                 <div class="bg-gradient-to-r from-brand-yellow via-brand-yellow-dark to-brand-red rounded-2xl p-8 relative overflow-hidden">
                     <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
                     <div class="relative">
-                        <h3 class="text-2xl font-bold text-dark mb-4">Нужна помощь с выбором?</h3>
-                        <p class="text-dark/80 mb-6">Наши специалисты помогут подобрать идеальный инструмент для вашей задачи</p>
+                        <h3 class="text-2xl font-bold text-dark mb-4">Aveți nevoie de ajutor?</h3>
+                        <p class="text-dark/80 mb-6">Specialiștii noștri vă vor ajuta să alegeți unealta perfectă pentru sarcina dvs.</p>
                         <div class="flex flex-col sm:flex-row gap-3">
                             <a href="tel:{{ SITE_PHONE }}"
                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark text-white font-semibold rounded-xl transition-all hover:bg-dark-100 hover:shadow-xl">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                 </svg>
-                                Позвонить
+                                Sunați
                             </a>
                             <a href="{% url 'catalog:catalog' %}"
                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark/10 text-dark font-semibold rounded-xl border-2 border-dark/20 transition-all hover:bg-dark/20">
-                                Смотреть каталог
+                                Vezi catalogul
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                 </svg>
@@ -226,7 +235,7 @@
                 <!-- Map Container -->
                 <div class="bg-dark-100 rounded-2xl p-4 border border-dark-border overflow-hidden">
                     <div class="rounded-xl overflow-hidden aspect-[4/3] lg:aspect-[3/4]">
-                        <!-- Google Maps Embed - ул. Индепендеций 7, Кишинёв -->
+                        <!-- Google Maps Embed -->
                         <iframe 
                             src="https://maps.google.com/maps?q=Strada+Independenței+7,+Chișinău,+Moldova&t=&z=17&ie=UTF8&iwloc=&output=embed"
                             width="100%" 
@@ -242,7 +251,7 @@
 
                 <!-- Address Details -->
                 <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
-                    <h3 class="text-xl font-bold text-white mb-6">Как нас найти</h3>
+                    <h3 class="text-xl font-bold text-white mb-6">Cum să ne găsiți</h3>
                     
                     <div class="space-y-4">
                         <div class="flex items-start gap-4">
@@ -252,7 +261,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Адрес офиса</h4>
+                                <h4 class="text-white font-medium mb-1">Adresa biroului</h4>
                                 <p class="text-gray-400">{{ SITE_ADDRESS }}</p>
                             </div>
                         </div>
@@ -264,8 +273,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Парковка</h4>
-                                <p class="text-gray-400">Бесплатная парковка возле здания</p>
+                                <h4 class="text-white font-medium mb-1">Parcare</h4>
+                                <p class="text-gray-400">Parcare gratuită lângă clădire</p>
                             </div>
                         </div>
 
@@ -276,8 +285,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Ориентир</h4>
-                                <p class="text-gray-400">Рядом с торговым центром</p>
+                                <h4 class="text-white font-medium mb-1">Punct de reper</h4>
+                                <p class="text-gray-400">Lângă centrul comercial</p>
                             </div>
                         </div>
                     </div>
@@ -288,7 +297,7 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
                         </svg>
-                        Построить маршрут
+                        Construiește ruta
                         <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                         </svg>
@@ -303,51 +312,51 @@
 <section class="py-16 bg-dark-100 border-t border-dark-border">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
-            <h2 class="text-2xl font-bold text-white mb-2">Часто задаваемые вопросы</h2>
-            <p class="text-gray-400">Ответы на популярные вопросы о контактах и посещении</p>
+            <h2 class="text-2xl font-bold text-white mb-2">Întrebări frecvente</h2>
+            <p class="text-gray-400">Răspunsuri la întrebările populare despre contacte și vizite</p>
         </div>
 
         <div class="space-y-4">
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Как можно оплатить аренду?</span>
+                    <span class="text-white font-medium">Cum pot plăti închirierea?</span>
                     <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Мы принимаем наличные, банковские карты, а также банковский перевод для юридических лиц.
+                    Acceptăm numerar, carduri bancare, precum și transfer bancar pentru persoane juridice.
                 </div>
             </details>
 
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Возможна ли доставка инструментов?</span>
+                    <span class="text-white font-medium">Este posibilă livrarea sculelor?</span>
                     <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Да, мы осуществляем доставку по всей Молдове. Стоимость доставки зависит от расстояния и объёма заказа.
+                    Da, efectuăm livrare în toată Moldova. Costul livrării depinde de distanță și volumul comenzii.
                 </div>
             </details>
 
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Нужно ли оставлять залог?</span>
+                    <span class="text-white font-medium">Trebuie să las o garanție?</span>
                     <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Да, при аренде инструмента требуется залог или документ, удостоверяющий личность. Размер залога зависит от типа инструмента.
+                    Da, la închirierea unei scule este necesară o garanție sau un act de identitate. Mărimea garanției depinde de tipul sculei.
                 </div>
             </details>
         </div>
 
         <div class="text-center mt-8">
             <a href="{% url 'catalog:faq' %}" class="inline-flex items-center gap-2 text-brand-yellow hover:text-brand-yellow-dark transition-colors font-medium">
-                Все вопросы и ответы
+                Toate întrebările și răspunsurile
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
@@ -356,4 +365,3 @@
     </div>
 </section>
 {% endblock %}
-
