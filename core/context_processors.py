@@ -11,7 +11,7 @@ def site_settings(request):
     """
     return {
         'SITE_NAME': 'MoldTool',
-        'SITE_TAGLINE': 'Аренда строительных инструментов',
+        'SITE_TAGLINE': 'Închiriere instrumente de construcție',
         'SITE_PHONE': '+373 XX XXX XXX',
         'SITE_EMAIL': 'info@moldtool.md',
         'SITE_ADDRESS': 'г. Кишинёв, ул. Примерная, 123',

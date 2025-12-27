@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Подтвердите email" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-dark flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.1)_0%,_transparent_50%)]"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-md">
+        <div class="bg-dark-100/80 backdrop-blur-xl border border-dark-border rounded-2xl shadow-2xl p-8 text-center">
+            <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+
+            <h1 class="text-2xl font-bold text-white mb-4">
+                {% trans "Подтвердите email" %}
+            </h1>
+            <p class="text-gray-400 mb-8">
+                {% trans "Мы отправили письмо с подтверждением на вашу почту. Перейдите по ссылке в письме для активации аккаунта." %}
+            </p>
+
+            <div class="space-y-4">
+                <a href="{% url 'core:home' %}"
+                   class="block w-full px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-yellow/30">
+                    {% trans "На главную" %}
+                </a>
+                <p class="text-sm text-gray-500">
+                    {% trans "Не получили письмо?" %}
+                    <a href="{% url 'account_email' %}" class="text-brand-yellow hover:underline">
+                        {% trans "Отправить повторно" %}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

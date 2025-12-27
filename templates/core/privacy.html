@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Политика конфиденциальности" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="py-8 lg:py-16 bg-dark min-h-screen relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-20 right-1/4 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-20 left-1/4 w-80 h-80 bg-brand-red/5 rounded-full blur-[100px] animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-brand-yellow/3 to-brand-red/3 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- Decorative Grid Pattern -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-8 animate-fade-in">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300">{% trans "Главная" %}</a>
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-white">{% trans "Политика конфиденциальности" %}</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <!-- Animated Icon Container -->
+            <div class="relative inline-flex items-center justify-center mb-6 group">
+                <!-- Outer Ring -->
+                <div class="absolute w-24 h-24 border border-brand-yellow/20 rounded-full animate-spin" style="animation-duration: 15s;"></div>
+                <div class="absolute w-20 h-20 border border-brand-red/20 rounded-full animate-spin" style="animation-duration: 10s; animation-direction: reverse;"></div>
+                <!-- Icon -->
+                <div class="relative w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-red/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-brand-yellow/20 group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-3xl lg:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white via-brand-yellow/90 to-white bg-clip-text">
+                {% trans "Политика конфиденциальности" %}
+            </h1>
+            <p class="text-gray-400">{% trans "Последнее обновление:" %} {{ current_date|date:"d.m.Y" }}</p>
+        </div>
+
+        <!-- Intro Card -->
+        <div class="relative bg-gradient-to-br from-brand-yellow/10 via-dark-100 to-brand-red/5 border border-brand-yellow/30 rounded-3xl p-6 lg:p-8 mb-10 overflow-hidden group hover:border-brand-yellow/50 transition-all duration-500">
+            <!-- Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <!-- Corner Decoration -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <p class="relative text-gray-300 leading-relaxed text-lg">
+                <span class="text-brand-yellow font-semibold">{{ SITE_NAME }}</span> {% trans "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова." %}
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6">
+            <!-- Section 1 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">1</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Собираемая информация" %}</h2>
+                </div>
+                <p class="relative text-gray-400 mb-5">{% trans "Мы можем собирать следующие типы информации:" %}</p>
+                <div class="relative grid sm:grid-cols-2 gap-3">
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Имя и фамилия" %}</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Номер телефона" %}</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Адрес электронной почты" %}</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Адрес доставки" %}</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Информация для аренды" %}</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-dark/50 rounded-2xl border border-dark-border hover:border-brand-yellow/30 hover:bg-brand-yellow/5 transition-all duration-300 group/item">
+                        <div class="w-8 h-8 rounded-lg bg-brand-yellow/10 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                            <svg class="w-4 h-4 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-300">{% trans "Технические данные (IP, браузер, cookie)" %}</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 2 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-red/40 hover:shadow-lg hover:shadow-brand-red/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">2</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Цель сбора данных" %}</h2>
+                </div>
+                <p class="relative text-gray-400 mb-5">{% trans "Данные собираются для:" %}</p>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Обработка заказов на аренду" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Связь с пользователями по вопросам услуг" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300">{% trans "Улучшение работы сайта" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-red/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.6s;"></span>
+                        <span class="text-gray-300">{% trans "Соблюдение законодательных требований" %}</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Section 3 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">3</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Защита данных" %}</h2>
+                </div>
+                <div class="relative flex items-start gap-4 p-4 bg-gradient-to-r from-brand-yellow/5 to-transparent rounded-2xl border border-brand-yellow/10">
+                    <div class="flex-shrink-0 w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        {{ SITE_NAME }} {% trans "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных." %}
+                    </p>
+                </div>
+            </article>
+
+            <!-- Section 4 -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-red/40 hover:shadow-lg hover:shadow-brand-red/5 overflow-hidden">
+                <!-- Hover Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Decorative Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center text-brand-red font-bold text-lg border border-brand-red/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">4</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-red/90 transition-colors duration-300">{% trans "Раскрытие данных" %}</h2>
+                </div>
+                <div class="relative flex items-start gap-4 p-4 bg-gradient-to-r from-brand-red/5 to-transparent rounded-2xl border border-brand-red/10">
+                    <div class="flex-shrink-0 w-10 h-10 bg-brand-red/10 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        {% trans "Персональные данные" %} <span class="text-brand-yellow font-semibold px-2 py-0.5 bg-brand-yellow/10 rounded-lg">{% trans "не продаются и не передаются третьим лицам" %}</span>{% trans ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)." %}
+                    </p>
+                </div>
+            </article>
+
+            <!-- Section 5 - Rights -->
+            <article class="group relative bg-dark-100/80 backdrop-blur-sm border border-dark-border rounded-3xl p-6 lg:p-8 transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-lg hover:shadow-brand-yellow/5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                <div class="relative flex items-start gap-4 mb-6">
+                    <span class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center text-brand-yellow font-bold text-lg border border-brand-yellow/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">5</span>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white pt-2 group-hover:text-brand-yellow/90 transition-colors duration-300">{% trans "Ваши права" %}</h2>
+                </div>
+                <p class="relative text-gray-400 mb-5">{% trans "Вы имеете право:" %}</p>
+                <ul class="relative space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                        <span class="text-gray-300">{% trans "Запросить доступ к своим персональным данным" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.2s;"></span>
+                        <span class="text-gray-300">{% trans "Требовать исправления неточных данных" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.4s;"></span>
+                        <span class="text-gray-300">{% trans "Запросить удаление ваших данных" %}</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-xl hover:bg-brand-yellow/5 transition-colors duration-300">
+                        <span class="w-2 h-2 bg-gradient-to-br from-brand-yellow to-brand-red rounded-full mt-2 flex-shrink-0 animate-pulse" style="animation-delay: 0.6s;"></span>
+                        <span class="text-gray-300">{% trans "Отозвать согласие на обработку данных" %}</span>
+                    </li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="relative mt-12 bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-red rounded-3xl p-8 lg:p-10 text-center overflow-hidden group">
+            <!-- Animated Shine -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <!-- Corner Decorations -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-dark/10 rounded-full blur-xl"></div>
+
+            <h3 class="relative text-2xl font-bold text-dark mb-3">{% trans "Есть вопросы?" %}</h3>
+            <p class="relative text-dark/80 mb-6 text-lg">{% trans "Свяжитесь с нами по любым вопросам о ваших данных" %}</p>
+            <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:{{ SITE_EMAIL }}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark text-white font-semibold rounded-xl hover:bg-dark-100 hover:scale-105 transition-all duration-300 shadow-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    {{ SITE_EMAIL }}
+                </a>
+                <a href="tel:{{ SITE_PHONE }}" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark/20 text-dark font-semibold rounded-xl border-2 border-dark/30 hover:bg-dark/30 hover:scale-105 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    {{ SITE_PHONE }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="mt-10 text-center">
+            <a href="{% url 'core:home' %}" class="inline-flex items-center gap-2 text-gray-400 hover:text-brand-yellow transition-all duration-300 group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                {% trans "Вернуться на главную" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
