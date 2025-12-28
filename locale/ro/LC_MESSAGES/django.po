@@ -2524,3 +2524,25 @@ msgstr "Bine ați venit"
 msgid "Всего заказов"
 msgstr "Total comenzi"
 
+# FAQ page translations
+msgid "Часто задаваемые вопросы"
+msgstr "Intrebari frecvente"
+
+msgid "Ответы на популярные вопросы об аренде инструментов"
+msgstr "Raspunsuri la intrebarile populare despre inchirierea uneltelor"
+
+msgid "Не нашли ответ?"
+msgstr "Nu ati gasit raspunsul?"
+
+msgid "Свяжитесь с нами любым удобным способом"
+msgstr "Contactati-ne prin orice metoda convenabila"
+
+msgid "Позвонить"
+msgstr "Sunati"
+
+msgid "FAQ пока пуст"
+msgstr "FAQ este gol deocamdata"
+
+msgid "Скоро здесь появятся ответы на частые вопросы"
+msgstr "In curand vor aparea raspunsuri la intrebarile frecvente"
+
