@@ -12,6 +12,9 @@ requests>=2.31.0
 PyJWT>=2.8.0
 cryptography>=41.0.0
 
+# PDF generation
+WeasyPrint>=62.0
+
 # Production server
 gunicorn>=21.0.0
 
