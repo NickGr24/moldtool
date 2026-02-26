@@ -1,0 +1,24 @@
+Bună ziua, {{ rental.customer_name }}!
+
+Cererea dumneavoastră de închiriere a fost înregistrată cu succes.
+
+Detalii cerere:
+- Nr. cerere: #{{ rental.number }}
+- Sculă: {{ tool.name }}
+- Perioada: {{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}
+- Zile: {{ rental.total_days }}
+- Preț/zi: {{ rental.price_per_day }} MDL
+{% if rental.deposit_amount %}- Garanție: {{ rental.deposit_amount }} MDL
+{% endif %}- Total: {{ rental.total_price }} MDL
+
+Contractul de închiriere este atașat la acest email în format PDF.
+
+Vă vom contacta în cel mai scurt timp pentru confirmare.
+
+Dacă aveți întrebări, contactați-ne:
+Telefon: {{ SITE_PHONE }}
+Email: {{ SITE_EMAIL }}
+
+--
+{{ SITE_NAME }}
+{{ SITE_ADDRESS }}

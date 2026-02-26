@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, Helvetica, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 30px 0;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #E53935; padding: 25px 30px; text-align: center;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: bold;">{{ SITE_NAME }}</h1>
+                            <p style="margin: 5px 0 0 0; color: rgba(255,255,255,0.85); font-size: 13px;">{{ SITE_TAGLINE }}</p>
+                        </td>
+                    </tr>
+
+                    <!-- Body -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            <h2 style="color: #333; margin: 0 0 15px 0; font-size: 20px;">Bună ziua, {{ rental.customer_name }}!</h2>
+
+                            <p style="color: #555; line-height: 1.6; margin: 0 0 20px 0;">
+                                Cererea dumneavoastră de închiriere a fost înregistrată cu succes.
+                                Vă vom contacta în cel mai scurt timp pentru confirmare.
+                            </p>
+
+                            <!-- Order summary -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9f9f9; border-radius: 6px; margin: 0 0 20px 0;">
+                                <tr>
+                                    <td style="padding: 15px 15px 5px 15px;">
+                                        <p style="margin: 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Detalii cerere</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 15px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Nr. cerere</td>
+                                                <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">#{{ rental.number }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Sculă</td>
+                                                <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ tool.name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Perioada</td>
+                                                <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Zile</td>
+                                                <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.total_days }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Preț/zi</td>
+                                                <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.price_per_day }} MDL</td>
+                                            </tr>
+                                            {% if rental.deposit_amount %}
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Garanție</td>
+                                                <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.deposit_amount }} MDL</td>
+                                            </tr>
+                                            {% endif %}
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 15px 15px 15px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="padding: 10px 0 0 0; color: #E53935; font-weight: bold; font-size: 15px;">Total</td>
+                                                <td style="padding: 10px 0 0 0; text-align: right; font-weight: bold; font-size: 20px; color: #E53935;">{{ rental.total_price }} MDL</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #555; line-height: 1.6; margin: 0 0 15px 0;">
+                                Contractul de închiriere este atașat la acest email în format PDF.
+                            </p>
+
+                            <!-- Contact info -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #FFF8E1; border-radius: 6px; border-left: 4px solid #F5A623; margin: 0 0 10px 0;">
+                                <tr>
+                                    <td style="padding: 15px;">
+                                        <p style="margin: 0 0 5px 0; color: #555; font-size: 13px;">Dacă aveți întrebări, nu ezitați să ne contactați:</p>
+                                        <p style="margin: 0; color: #333; font-size: 14px;">
+                                            <strong>Telefon:</strong> {{ SITE_PHONE }}<br>
+                                            <strong>Email:</strong> {{ SITE_EMAIL }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; padding: 20px 30px; text-align: center;">
+                            <p style="margin: 0; color: #888; font-size: 12px;">
+                                &copy; {{ SITE_NAME }} | {{ SITE_ADDRESS }}
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

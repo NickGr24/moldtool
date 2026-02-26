@@ -289,6 +289,11 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
+        'rentals': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
     },
 }
 

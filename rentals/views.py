@@ -13,6 +13,7 @@ from catalog.models import Tool
 
 from .forms import RentalRequestForm
 from .models import RentalRequest
+from .services import send_rental_confirmation_email
 
 
 class CreateRentalRequestView(CreateView):
@@ -24,7 +25,11 @@ class CreateRentalRequestView(CreateView):
 
     def get_tool(self):
         """Получает инструмент по slug из URL."""
-        return get_object_or_404(Tool, slug=self.kwargs['tool_slug'], is_active=True)
+        return get_object_or_404(
+            Tool.objects.select_related('category'),
+            slug=self.kwargs['tool_slug'],
+            is_active=True,
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,6 +67,10 @@ class CreateRentalRequestView(CreateView):
             form.instance.user = self.request.user
 
         response = super().form_valid(form)
+
+        # Отправляем email с PDF контрактом
+        send_rental_confirmation_email(self.object)
+
         messages.success(
             self.request,
             _('Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время.') % {'number': self.object.number}

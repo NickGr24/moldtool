@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+            @bottom-center {
+                content: "{{ SITE_NAME }} | {{ SITE_ADDRESS }} | {{ SITE_PHONE }}";
+                font-size: 8pt;
+                color: #999;
+            }
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #F5A623;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .company-name {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #E53935;
+            margin: 0;
+        }
+
+        .company-tagline {
+            font-size: 10pt;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .company-details {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        /* Title */
+        h1 {
+            text-align: center;
+            font-size: 16pt;
+            color: #333;
+            margin: 25px 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contract-number {
+            text-align: center;
+            font-size: 11pt;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #E53935;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin: 25px 0 10px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        table td {
+            padding: 7px 10px;
+            border: 1px solid #ddd;
+            font-size: 10pt;
+        }
+
+        table td:first-child {
+            width: 40%;
+            background-color: #f9f9f9;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .total-row td {
+            font-weight: bold;
+            font-size: 11pt;
+        }
+
+        .total-row td:first-child {
+            background-color: #FFF8E1;
+        }
+
+        .total-row td:last-child {
+            background-color: #FFF8E1;
+            color: #E53935;
+        }
+
+        /* Terms */
+        .terms {
+            font-size: 9pt;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .terms ol {
+            padding-left: 20px;
+        }
+
+        .terms li {
+            margin-bottom: 4px;
+        }
+
+        /* Signatures */
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .signature-block {
+            width: 45%;
+            text-align: center;
+        }
+
+        .signature-label {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 5px;
+        }
+
+        .signature-name {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+            font-size: 9pt;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <div class="company-name">{{ SITE_NAME }}</div>
+            <div class="company-tagline">{{ SITE_TAGLINE }}</div>
+        </div>
+        <div class="company-details">
+            {{ SITE_ADDRESS }}<br>
+            Tel: {{ SITE_PHONE }}<br>
+            Email: {{ SITE_EMAIL }}
+        </div>
+    </div>
+
+    <!-- Title -->
+    <h1>Contract de închiriere</h1>
+    <div class="contract-number">
+        Nr. {{ rental.number }} din {{ rental.created_at|date:"d.m.Y" }}
+    </div>
+
+    <!-- 1. Client details -->
+    <div class="section-title">1. Datele clientului</div>
+    <table>
+        <tr>
+            <td>Numele complet</td>
+            <td>{{ rental.customer_name }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ rental.customer_email }}</td>
+        </tr>
+        <tr>
+            <td>Telefon</td>
+            <td>{{ rental.customer_phone }}</td>
+        </tr>
+    </table>
+
+    <!-- 2. Tool details -->
+    <div class="section-title">2. Obiectul închirierii</div>
+    <table>
+        <tr>
+            <td>Denumirea sculei</td>
+            <td>{{ tool.name }}</td>
+        </tr>
+        {% if tool.brand %}
+        <tr>
+            <td>Marca</td>
+            <td>{{ tool.brand }}</td>
+        </tr>
+        {% endif %}
+        {% if tool.model_name %}
+        <tr>
+            <td>Modelul</td>
+            <td>{{ tool.model_name }}</td>
+        </tr>
+        {% endif %}
+        {% if tool.category %}
+        <tr>
+            <td>Categoria</td>
+            <td>{{ tool.category.name }}</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <!-- 3. Rental period -->
+    <div class="section-title">3. Perioada de închiriere</div>
+    <table>
+        <tr>
+            <td>Data de început</td>
+            <td>{{ rental.start_date|date:"d.m.Y" }}</td>
+        </tr>
+        <tr>
+            <td>Data de sfârșit</td>
+            <td>{{ rental.end_date|date:"d.m.Y" }}</td>
+        </tr>
+        <tr>
+            <td>Numărul de zile</td>
+            <td>{{ rental.total_days }}</td>
+        </tr>
+    </table>
+
+    <!-- 4. Financial conditions -->
+    <div class="section-title">4. Condiții financiare</div>
+    <table>
+        <tr>
+            <td>Prețul pe zi</td>
+            <td>{{ rental.price_per_day }} MDL</td>
+        </tr>
+        <tr>
+            <td>Numărul de zile</td>
+            <td>{{ rental.total_days }}</td>
+        </tr>
+        {% if rental.deposit_amount %}
+        <tr>
+            <td>Garanție (depozit)</td>
+            <td>{{ rental.deposit_amount }} MDL</td>
+        </tr>
+        {% endif %}
+        <tr class="total-row">
+            <td>Suma totală</td>
+            <td>{{ rental.total_price }} MDL</td>
+        </tr>
+    </table>
+
+    <!-- 5. Terms and conditions -->
+    <div class="terms">
+        <div class="section-title">5. Condiții generale</div>
+        <ol>
+            <li>Chiriașul se obligă să utilizeze scula conform destinației și să o returneze în starea primită.</li>
+            <li>În caz de deteriorare sau pierdere, chiriașul va suporta costul de reparație sau de înlocuire.</li>
+            <li>Garanția (depozitul) se returnează la restituirea sculei în stare corespunzătoare.</li>
+            <li>Prelungirea perioadei de închiriere se face doar cu acordul prealabil al locatorului.</li>
+            <li>Prezentul contract intră în vigoare de la data semnării de către ambele părți.</li>
+        </ol>
+    </div>
+
+    <!-- Signatures -->
+    <div class="signatures">
+        <div class="signature-block">
+            <div class="signature-label">Locator</div>
+            <div class="signature-name">{{ SITE_NAME }}</div>
+            <div class="signature-line">Semnătura / Ștampila</div>
+        </div>
+        <div class="signature-block">
+            <div class="signature-label">Chiriaș</div>
+            <div class="signature-name">{{ rental.customer_name }}</div>
+            <div class="signature-line">Semnătura</div>
+        </div>
+    </div>
+</body>
+</html>
