@@ -109,6 +109,12 @@ class RentalRequest(models.Model):
         blank=True,
     )
 
+    # Напоминание
+    reminder_sent = models.BooleanField(
+        _('напоминание отправлено'),
+        default=False,
+    )
+
     # Метаданные
     created_at = models.DateTimeField(
         _('дата создания'),

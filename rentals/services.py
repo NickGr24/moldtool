@@ -108,6 +108,11 @@ def send_rental_confirmation_email(rental_request):
         body=text_content,
         from_email=settings.DEFAULT_FROM_EMAIL,
         to=[rental_request.customer_email],
+        reply_to=[settings.EMAIL_HOST_USER],
+        headers={
+            'X-Mailer': 'MoldTool',
+            'List-Unsubscribe': f'<mailto:{settings.EMAIL_HOST_USER}?subject=unsubscribe>',
+        },
     )
     email.attach_alternative(html_content, 'text/html')
 
