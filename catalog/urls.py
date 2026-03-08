@@ -10,6 +10,7 @@ app_name = 'catalog'
 
 urlpatterns = [
     path('', views.CatalogView.as_view(), name='catalog'),
+    path('compare/', views.CompareView.as_view(), name='compare'),
     re_path(r'^category/(?P<slug>[\w-]+)/$', views.CategoryView.as_view(), name='category'),
     re_path(r'^tool/(?P<slug>[\w-]+)/$', views.ToolDetailView.as_view(), name='tool_detail'),
     path('favorites/', views.FavoritesListView.as_view(), name='favorites'),

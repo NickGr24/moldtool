@@ -1,0 +1,196 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Финансовый отчёт" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block dashboard_content %}
+<!-- Header -->
+<div class="flex items-center justify-between mb-8">
+    <div>
+        <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Финансовый отчёт" %}</h1>
+        <p class="text-gray-400">{% trans "Обзор финансовых показателей" %}</p>
+    </div>
+    <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-500/10 text-orange-400 text-xs font-medium rounded-full border border-orange-500/20">
+        <i class="fa-solid fa-flask text-xs"></i>
+        Demo
+    </span>
+</div>
+
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-green-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-money-bill-trend-up text-lg text-green-400"></i>
+            </div>
+            <div class="flex items-center gap-1 text-green-400 text-xs font-medium">
+                <i class="fa-solid fa-arrow-up text-xs"></i>
+                {{ summary.growth_percent }}%
+            </div>
+        </div>
+        <span class="text-2xl font-bold text-green-400">{{ summary.total_revenue }} <span class="text-sm font-normal">MDL</span></span>
+        <p class="text-gray-400 text-sm mt-1">{% trans "Общая выручка" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-brand-yellow/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-receipt text-lg text-brand-yellow"></i>
+            </div>
+            <span class="text-2xl font-bold text-white">{{ summary.total_orders }}</span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Всего заказов" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-calculator text-lg text-cyan-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-cyan-400">{{ summary.avg_order_value }} <span class="text-sm font-normal">MDL</span></span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Средний чек" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-orange-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-calendar-days text-lg text-orange-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-orange-400">{{ summary.total_rental_days }}</span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Дней аренды" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-purple-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-shield-halved text-lg text-purple-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-purple-400">{{ summary.outstanding_deposits }} <span class="text-sm font-normal">MDL</span></span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Активные залоги" %}</p>
+    </div>
+</div>
+
+<!-- Monthly Revenue Chart (bar chart via CSS) -->
+<div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <i class="fa-solid fa-chart-column text-lg text-brand-yellow"></i>
+        {% trans "Выручка по месяцам" %}
+    </h2>
+
+    <div class="space-y-4">
+        {% for item in monthly_revenue %}
+        <div class="flex items-center gap-4">
+            <div class="w-36 flex-shrink-0 text-sm text-gray-400 text-right">{{ item.month }}</div>
+            <div class="flex-1 relative">
+                {% widthratio item.revenue 21600 100 as bar_width %}
+                <div class="h-8 rounded-lg bg-gradient-to-r from-brand-yellow/80 to-brand-yellow flex items-center transition-all"
+                     style="width: {{ bar_width }}%; min-width: 60px;">
+                    <span class="text-dark text-xs font-bold px-3 whitespace-nowrap">{{ item.revenue }} MDL</span>
+                </div>
+            </div>
+            <div class="w-20 flex-shrink-0 text-right">
+                <span class="text-white text-sm font-medium">{{ item.orders }}</span>
+                <span class="text-gray-500 text-xs"> {% trans "заказов" %}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Two columns: Top Tools + Order Status -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <!-- Top Tools by Revenue -->
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+        <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-trophy text-lg text-brand-yellow"></i>
+            {% trans "Топ инструменты по доходу" %}
+        </h2>
+
+        <div class="space-y-4">
+            {% for tool in top_tools_revenue %}
+            <div>
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-white text-sm font-medium truncate mr-2">{{ tool.name }}</span>
+                    <span class="text-brand-yellow text-sm font-bold whitespace-nowrap">{{ tool.revenue }} MDL</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex-1 h-2 bg-dark-300 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-brand-yellow to-brand-red rounded-full transition-all"
+                             style="width: {{ tool.percent }}%;"></div>
+                    </div>
+                    <span class="text-gray-500 text-xs w-16 text-right">{{ tool.rentals }} {% trans "аренд" %}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Orders by Status -->
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+        <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-lg text-brand-yellow"></i>
+            {% trans "Заказы по статусу" %}
+        </h2>
+
+        <div class="space-y-4">
+            {% for item in orders_by_status %}
+            <div class="flex items-center justify-between p-4 bg-dark-200/50 rounded-xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full bg-{{ item.color }}-400"></div>
+                    <span class="text-white text-sm font-medium">{{ item.status }}</span>
+                </div>
+                <span class="text-2xl font-bold text-{{ item.color }}-400">{{ item.count }}</span>
+            </div>
+            {% endfor %}
+
+            <!-- Total -->
+            <div class="flex items-center justify-between p-4 bg-brand-yellow/5 rounded-xl border border-brand-yellow/20">
+                <span class="text-brand-yellow text-sm font-bold">{% trans "Итого" %}</span>
+                <span class="text-2xl font-bold text-brand-yellow">150</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Transactions -->
+<div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <i class="fa-solid fa-clock-rotate-left text-lg text-brand-yellow"></i>
+        {% trans "Последние транзакции" %}
+    </h2>
+
+    <!-- Table header -->
+    <div class="hidden sm:grid grid-cols-12 gap-4 px-4 py-2 text-gray-500 text-xs font-medium uppercase tracking-wider border-b border-dark-border mb-2">
+        <div class="col-span-2">{% trans "Дата" %}</div>
+        <div class="col-span-3">{% trans "Клиент" %}</div>
+        <div class="col-span-4">{% trans "Инструмент" %}</div>
+        <div class="col-span-2 text-right">{% trans "Сумма" %}</div>
+        <div class="col-span-1 text-right">{% trans "Статус" %}</div>
+    </div>
+
+    <div class="space-y-2">
+        {% for tx in recent_transactions %}
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 p-4 bg-dark-200/50 rounded-xl hover:bg-dark-200 transition-colors items-center">
+            <div class="sm:col-span-2 text-gray-400 text-sm">{{ tx.date }}</div>
+            <div class="sm:col-span-3 text-white text-sm font-medium">{{ tx.client }}</div>
+            <div class="sm:col-span-4 text-gray-300 text-sm truncate">{{ tx.tool }}</div>
+            <div class="sm:col-span-2 text-right text-white text-sm font-bold">{{ tx.amount }} MDL</div>
+            <div class="sm:col-span-1 text-right">
+                {% if tx.status == 'paid' %}
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400">
+                    {% trans "Оплачено" %}
+                </span>
+                {% else %}
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-400">
+                    {% trans "Ожидает" %}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

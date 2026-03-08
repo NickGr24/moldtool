@@ -24,24 +24,16 @@
 
         <!-- Floating Tool Icons -->
         <div class="absolute top-32 left-[10%] opacity-10 animate-float" style="animation-delay: 0s;">
-            <svg class="w-16 h-16 text-brand-yellow" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
+            <i class="fa-solid fa-wrench text-5xl text-brand-yellow"></i>
         </div>
         <div class="absolute top-48 right-[15%] opacity-10 animate-float-slow" style="animation-delay: 1s;">
-            <svg class="w-12 h-12 text-brand-red" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-            </svg>
+            <i class="fa-solid fa-wrench text-4xl text-brand-red"></i>
         </div>
         <div class="absolute bottom-32 left-[20%] opacity-10 animate-float" style="animation-delay: 2s;">
-            <svg class="w-14 h-14 text-brand-yellow" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7 21H3V8l4 2v11zm4-14l8.5 4.5V21h-4v-8h-5V8l.5-.5z"/>
-            </svg>
+            <i class="fa-solid fa-building text-5xl text-brand-yellow"></i>
         </div>
         <div class="absolute bottom-48 right-[10%] opacity-10 animate-float-slow" style="animation-delay: 3s;">
-            <svg class="w-10 h-10 text-brand-red" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+            <i class="fa-solid fa-layer-group text-3xl text-brand-red"></i>
         </div>
     </div>
 
@@ -50,21 +42,6 @@
         <div class="text-center">
             <!-- Left Content -->
             <div class="animate-slide-up">
-                <!-- Premium Badge -->
-                <div class="inline-flex items-center gap-3 px-5 py-2.5 bg-glass rounded-full mb-8 group cursor-default">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <span class="text-sm font-medium text-gray-300">{% trans "Работаем по всей Молдове" %}</span>
-                    <span class="hidden sm:inline-flex items-center gap-1 text-xs text-brand-yellow font-semibold">
-                        24/7
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                        </svg>
-                    </span>
-                </div>
-
                 <!-- Main Title with Gradient -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-8">
                     <span class="text-white">{% trans "Аренда" %}</span>
@@ -94,14 +71,10 @@
                         <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:translate-x-full transition-transform duration-700"></span>
                         <!-- Icon -->
                         <span class="relative flex items-center justify-center w-8 h-8 bg-dark/20 rounded-lg">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                            </svg>
+                            <i class="fa-solid fa-box-open text-lg"></i>
                         </span>
                         <span class="relative">{% trans "Смотреть каталог" %}</span>
-                        <svg class="relative w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                        <i class="fa-solid fa-arrow-right text-lg transition-transform group-hover:translate-x-1"></i>
                     </a>
                     <a href="tel:{{ SITE_PHONE }}"
                        class="relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 bg-dark-200 border-2 border-dark-border text-white font-bold text-base rounded-xl transition-all duration-300 hover:border-brand-yellow hover:text-brand-yellow hover:-translate-y-1 group">
@@ -109,9 +82,7 @@
                         <span class="absolute inset-0 rounded-xl border-2 border-brand-yellow/0 group-hover:border-brand-yellow/50 group-hover:scale-105 transition-all duration-500"></span>
                         <!-- Icon with animation -->
                         <span class="relative flex items-center justify-center w-8 h-8 bg-brand-yellow/10 rounded-lg group-hover:bg-brand-yellow/20 transition-colors">
-                            <svg class="w-5 h-5 text-brand-yellow transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
+                            <i class="fa-solid fa-phone text-lg text-brand-yellow transition-transform group-hover:rotate-12"></i>
                             <!-- Ping effect -->
                             <span class="absolute inset-0 rounded-lg bg-brand-yellow/30 animate-ping opacity-0 group-hover:opacity-75"></span>
                         </span>
@@ -196,9 +167,7 @@
             <!-- Feature 1 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Проверенное качество" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -209,9 +178,7 @@
             <!-- Feature 2 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-coins text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Доступные цены" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -222,9 +189,7 @@
             <!-- Feature 3 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+                    <i class="fa-solid fa-bolt text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Быстрая доставка" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -235,9 +200,7 @@
             <!-- Feature 4 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-users text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Опытная команда" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -248,9 +211,7 @@
             <!-- Feature 5 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                    </svg>
+                    <i class="fa-solid fa-clipboard-list text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Простое оформление" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -261,9 +222,7 @@
             <!-- Feature 6 -->
             <article class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-yellow/5">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
+                    <i class="fa-regular fa-heart text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">{% trans "Забота о клиентах" %}</h3>
                 <p class="text-gray-400 leading-relaxed">
@@ -287,15 +246,11 @@
                     <a href="{% url 'catalog:catalog' %}"
                        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark text-white font-semibold rounded-xl transition-all hover:bg-dark-100 hover:shadow-2xl hover:-translate-y-0.5">
                         {% trans "Перейти в каталог" %}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
+                        <i class="fa-solid fa-arrow-right text-lg"></i>
                     </a>
                     <a href="tel:{{ SITE_PHONE }}"
                        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark/10 text-dark font-semibold rounded-xl border-2 border-dark/20 transition-all hover:bg-dark/20">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
+                        <i class="fa-solid fa-phone text-lg"></i>
                         {{ SITE_PHONE }}
                     </a>
                 </div>
@@ -367,9 +322,7 @@
             <a href="{{ category.get_absolute_url }}"
                class="group flex flex-col items-center p-6 bg-dark-100 rounded-2xl border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-yellow/10">
                 <div class="w-16 h-16 bg-gradient-to-br from-brand-yellow/10 to-brand-red/10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-brand-yellow group-hover:to-brand-yellow-dark group-hover:scale-110">
-                    <svg class="w-8 h-8 text-brand-yellow transition-colors group-hover:text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
+                    <i class="fa-solid fa-wrench text-2xl text-brand-yellow transition-colors group-hover:text-dark"></i>
                 </div>
                 <h3 class="text-lg font-semibold text-white mb-1 text-center group-hover:text-brand-yellow transition-colors">{{ category.name }}</h3>
                 <span class="text-sm text-gray-500">{{ category.tools_count }} {% trans "инструментов" %}</span>
@@ -377,9 +330,7 @@
             {% empty %}
             <div class="col-span-full py-12 text-center">
                 <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-10 h-10 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
+                    <i class="fa-solid fa-wrench text-4xl text-gray-600"></i>
                 </div>
                 <p class="text-gray-500">{% trans "Категории скоро появятся" %}</p>
             </div>
@@ -458,9 +409,7 @@
             {% empty %}
             <div class="col-span-full py-16 text-center">
                 <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-10 h-10 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
+                    <i class="fa-solid fa-wrench text-4xl text-gray-600"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">{% trans "Инструменты скоро появятся" %}</h3>
                 <p class="text-gray-500">{% trans "Мы активно наполняем каталог" %}</p>
@@ -473,9 +422,7 @@
             <a href="{% url 'catalog:catalog' %}"
                class="btn-outline">
                 {% trans "Смотреть все инструменты" %}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+                <i class="fa-solid fa-arrow-right text-lg"></i>
             </a>
         </div>
         {% endif %}
@@ -508,10 +455,7 @@
                 </div>
                 <div class="relative z-10 w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-glow-yellow group-hover:rotate-6">
                     <span class="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-brand-yellow to-brand-yellow-dark text-dark text-sm font-bold rounded-full flex items-center justify-center shadow-lg step-number">1</span>
-                    <svg class="w-8 h-8 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/>
-                        <path d="M21 21l-4.35-4.35"/>
-                    </svg>
+                    <i class="fa-solid fa-magnifying-glass text-2xl text-brand-yellow"></i>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-yellow transition-colors">{% trans "Выберите" %}</h4>
                 <p class="text-gray-500">{% trans "Найдите нужный инструмент в каталоге" %}</p>
@@ -524,12 +468,7 @@
                 </div>
                 <div class="relative z-10 w-16 h-16 bg-gradient-to-br from-brand-red/20 to-brand-yellow/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-glow-red group-hover:-rotate-6">
                     <span class="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-brand-red to-brand-red-dark text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg step-number">2</span>
-                    <svg class="w-8 h-8 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                    <i class="fa-solid fa-calendar-days text-2xl text-brand-red"></i>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-red transition-colors">{% trans "Забронируйте" %}</h4>
                 <p class="text-gray-500">{% trans "Укажите даты и оставьте заявку" %}</p>
@@ -542,9 +481,7 @@
                 </div>
                 <div class="relative z-10 w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-glow-yellow group-hover:rotate-6">
                     <span class="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-brand-yellow to-brand-yellow-dark text-dark text-sm font-bold rounded-full flex items-center justify-center shadow-lg step-number">3</span>
-                    <svg class="w-8 h-8 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
+                    <i class="fa-solid fa-phone text-2xl text-brand-yellow"></i>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-yellow transition-colors">{% trans "Подтвердите" %}</h4>
                 <p class="text-gray-500">{% trans "Мы свяжемся для подтверждения" %}</p>
@@ -554,9 +491,7 @@
             <div class="relative text-center group reveal-on-scroll" data-delay="400">
                 <div class="relative z-10 w-16 h-16 bg-gradient-to-br from-brand-red/20 to-brand-yellow/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-glow-red group-hover:-rotate-6">
                     <span class="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-brand-red to-brand-red-dark text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg step-number">4</span>
-                    <svg class="w-8 h-8 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
+                    <i class="fa-solid fa-wrench text-2xl text-brand-red"></i>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-red transition-colors">{% trans "Получите" %}</h4>
                 <p class="text-gray-500">{% trans "Заберите или закажите доставку" %}</p>
@@ -706,17 +641,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:{{ SITE_PHONE }}"
                class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-dark text-white text-lg font-bold rounded-2xl transition-all hover:bg-dark-100 hover:shadow-2xl hover:-translate-y-1">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
+                <i class="fa-solid fa-phone text-xl"></i>
                 {% trans "Позвонить" %} {{ SITE_PHONE }}
             </a>
             <a href="{% url 'catalog:catalog' %}"
                class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-dark/10 text-dark text-lg font-bold rounded-2xl border-2 border-dark/20 transition-all hover:bg-dark/20">
                 {% trans "Смотреть каталог" %}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+                <i class="fa-solid fa-arrow-right text-lg"></i>
             </a>
         </div>
     </div>

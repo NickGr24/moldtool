@@ -11,9 +11,7 @@
         <p class="text-gray-400">{% trans "История ваших заказов на аренду" %}</p>
     </div>
     <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-        </svg>
+        <i class="fa-solid fa-plus text-lg"></i>
         {% trans "Новый заказ" %}
     </a>
 </div>
@@ -81,9 +79,7 @@
                 <a href="{% url 'rentals:request_detail' number=order.number %}"
                    class="inline-flex items-center gap-2 px-4 py-2 bg-dark-200 text-white rounded-lg hover:bg-dark-300 transition-colors text-sm">
                     {% trans "Подробнее" %}
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
                 </a>
             </div>
         </div>
@@ -120,16 +116,12 @@
 <!-- Empty State -->
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-12 text-center">
     <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
-        <svg class="w-10 h-10 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
+        <i class="fa-solid fa-clipboard-list text-3xl text-gray-600"></i>
     </div>
     <h3 class="text-xl font-bold text-white mb-2">{% trans "Заказов пока нет" %}</h3>
     <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Выберите инструмент из каталога и создайте свой первый заказ на аренду" %}</p>
     <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
         {% trans "Перейти в каталог" %}
     </a>
 </div>

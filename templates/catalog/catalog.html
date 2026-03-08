@@ -9,9 +9,7 @@
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-6">
             <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
+            <i class="fa-solid fa-chevron-right text-sm text-gray-600"></i>
             <span class="text-white">{% trans "Каталог" %}</span>
         </nav>
 
@@ -31,10 +29,7 @@
                                class="w-full pl-12 pr-4 py-3 bg-dark rounded-xl border border-dark-border text-white placeholder-gray-500 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all"
                                placeholder="{% trans 'Поиск инструментов...' %}"
                                value="{{ search_query }}">
-                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                        </svg>
+                        <i class="fa-solid fa-magnifying-glass text-lg absolute text-gray-500"></i>
                     </div>
 
                     <!-- Category Select -->
@@ -47,9 +42,7 @@
                             <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
                             {% endfor %}
                         </select>
-                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-yellow pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
+                        <i class="fa-solid fa-chevron-down text-lg text-brand-yellow"></i>
                     </div>
 
                     <!-- Sort Select -->
@@ -62,18 +55,13 @@
                             <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>{% trans "Сначала дорогие" %}</option>
                             <option value="name" {% if current_sort == 'name' %}selected{% endif %}>{% trans "По названию" %}</option>
                         </select>
-                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-yellow pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
+                        <i class="fa-solid fa-chevron-down text-lg text-brand-yellow"></i>
                     </div>
 
                     <!-- Search Button -->
                     <button type="submit"
                             class="px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
-                        <svg class="w-5 h-5 lg:hidden mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                        </svg>
+                        <i class="fa-solid fa-magnifying-glass text-lg lg:hidden"></i>
                         <span class="hidden lg:inline">{% trans "Поиск" %}</span>
                     </button>
                 </div>
@@ -147,18 +135,22 @@
                                 class="absolute top-3 right-3 p-2 bg-dark/80 backdrop-blur-sm rounded-full transition-all duration-300 hover:scale-110 z-10 favorite-btn"
                                 data-tool-id="{{ tool.id }}"
                                 onclick="toggleFavorite(this.dataset.toolId, this); return false;">
-                            <svg class="w-5 h-5 transition-colors {% if tool.id in favorite_ids %}text-brand-red fill-current{% else %}text-gray-400{% endif %}"
-                                 fill="{% if tool.id in favorite_ids %}currentColor{% else %}none{% endif %}"
-                                 stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
+                            <i class="fa-regular fa-heart text-lg transition-colors"></i>
                         </button>
                         {% else %}
                         <span class="absolute top-3 right-3 px-2 py-1 bg-dark/80 backdrop-blur-sm text-gray-300 text-xs rounded-lg">
                             {{ tool.category.name }}
                         </span>
                         {% endif %}
+
+                        <!-- Compare button -->
+                        <button type="button"
+                                class="absolute bottom-3 right-3 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10 compare-btn border border-transparent opacity-0 group-hover:opacity-100 bg-dark-100/90 backdrop-blur-sm"
+                                data-tool-id="{{ tool.id }}"
+                                onclick="addToCompare(this.dataset.toolId); return false;"
+                                title="{% trans 'Сравнить' %}">
+                            <i class="fa-solid fa-chart-bar text-sm text-gray-400 transition-colors"></i>
+                        </button>
 
                         <!-- Overlay gradient -->
                         <div class="absolute inset-0 bg-gradient-to-t from-dark-100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -206,9 +198,7 @@
             {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}&category={{ current_category }}&sort={{ current_sort }}&q={{ search_query }}&price_min={{ current_price_min }}&price_max={{ current_price_max }}"
                class="flex items-center justify-center w-10 h-10 bg-dark-100 border border-dark-border rounded-xl text-white hover:border-brand-yellow hover:text-brand-yellow transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i class="fa-solid fa-chevron-left text-lg"></i>
             </a>
             {% endif %}
 
@@ -228,9 +218,7 @@
             {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}&category={{ current_category }}&sort={{ current_sort }}&q={{ search_query }}&price_min={{ current_price_min }}&price_max={{ current_price_max }}"
                class="flex items-center justify-center w-10 h-10 bg-dark-100 border border-dark-border rounded-xl text-white hover:border-brand-yellow hover:text-brand-yellow transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
+                <i class="fa-solid fa-chevron-right text-lg"></i>
             </a>
             {% endif %}
         </div>
@@ -240,18 +228,13 @@
         <!-- Empty State -->
         <div class="text-center py-20">
             <div class="w-24 h-24 bg-dark-100 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-dark-border">
-                <svg class="w-12 h-12 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="M21 21l-4.35-4.35"/>
-                </svg>
+                <i class="fa-solid fa-magnifying-glass text-4xl text-gray-600"></i>
             </div>
             <h3 class="text-2xl font-bold text-white mb-3">{% trans "Инструменты не найдены" %}</h3>
             <p class="text-gray-400 mb-8 max-w-md mx-auto">{% trans "Попробуйте изменить параметры поиска или сбросьте фильтры" %}</p>
             <a href="{% url 'catalog:catalog' %}"
                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
+                <i class="fa-solid fa-rotate text-lg"></i>
                 {% trans "Сбросить фильтры" %}
             </a>
         </div>
@@ -301,6 +284,75 @@ function showToast(message) {
         toast.classList.add('translate-y-full', 'opacity-0');
     }, 3000);
 }
+</script>
+
+<!-- Compare Floating Bar -->
+<div id="compareBar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 hidden">
+    <div class="flex items-center gap-3 px-5 py-3 bg-dark-100 border border-dark-border rounded-2xl shadow-2xl shadow-black/50">
+        <i class="fa-solid fa-chart-bar text-lg text-brand-yellow"></i>
+        <span id="compareCount" class="text-white text-sm font-medium"></span>
+        <a id="compareLink" href="#" class="px-4 py-1.5 bg-brand-yellow text-dark text-sm font-bold rounded-lg hover:bg-brand-yellow-dark transition-colors">
+            {% trans "Сравнить" %}
+        </a>
+        <button onclick="clearCompare()" class="text-gray-400 hover:text-red-400 transition-colors p-1">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+const COMPARE_KEY = 'moldtool_compare';
+const COMPARE_URL = '{% url "catalog:compare" %}';
+
+function getCompareList() {
+    try { return JSON.parse(localStorage.getItem(COMPARE_KEY)) || []; }
+    catch { return []; }
+}
+function saveCompareList(list) {
+    localStorage.setItem(COMPARE_KEY, JSON.stringify(list.slice(0, 2)));
+    updateCompareBar();
+    updateCompareButtons();
+}
+function addToCompare(toolId) {
+    let list = getCompareList();
+    toolId = Number(toolId);
+    if (list.includes(toolId)) {
+        list = list.filter(id => id !== toolId);
+    } else {
+        if (list.length >= 2) list.shift();
+        list.push(toolId);
+    }
+    saveCompareList(list);
+    showToast(list.includes(toolId) ? '{% trans "Добавлено к сравнению" %}' : '{% trans "Удалено из сравнения" %}');
+}
+function clearCompare() { saveCompareList([]); }
+function updateCompareBar() {
+    const list = getCompareList();
+    const bar = document.getElementById('compareBar');
+    if (!bar) return;
+    if (list.length > 0) {
+        bar.classList.remove('hidden');
+        document.getElementById('compareCount').textContent = list.length + '/2';
+        document.getElementById('compareLink').href = COMPARE_URL + '?ids=' + list.join(',');
+    } else {
+        bar.classList.add('hidden');
+    }
+}
+function updateCompareButtons() {
+    const list = getCompareList();
+    document.querySelectorAll('.compare-btn').forEach(btn => {
+        const id = Number(btn.dataset.toolId);
+        const icon = btn.querySelector('.compare-icon');
+        if (list.includes(id)) {
+            btn.classList.add('!border-brand-yellow', '!opacity-100');
+            if (icon) { icon.classList.remove('text-gray-400'); icon.classList.add('text-brand-yellow'); }
+        } else {
+            btn.classList.remove('!border-brand-yellow', '!opacity-100');
+            if (icon) { icon.classList.add('text-gray-400'); icon.classList.remove('text-brand-yellow'); }
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', () => { updateCompareBar(); updateCompareButtons(); });
 </script>
 
 <style>
