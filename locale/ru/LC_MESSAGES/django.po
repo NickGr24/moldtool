@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 16:55+0200\n"
+"POT-Creation-Date: 2026-03-02 18:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,9 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: accounts/admin.py:23
 msgid "Личная информация"
@@ -33,6 +31,45 @@ msgstr "Настройки"
 msgid "Важные даты"
 msgstr "Важные даты"
 
+#: accounts/forms.py:24 accounts/forms.py:58
+msgid "example@email.com"
+msgstr "example@email.com"
+
+#: accounts/forms.py:27 accounts/forms.py:61 accounts/forms.py:92
+#: templates/account/login.html:70 templates/account/password_reset.html:42
+#: templates/dashboard/profile.html:75
+msgid "Email"
+msgstr "Email"
+
+#: accounts/forms.py:33
+msgid "Придумайте пароль"
+msgstr "Придумайте пароль"
+
+#: accounts/forms.py:36 accounts/forms.py:69 templates/account/login.html:82
+#: templates/account/signup.html:53
+msgid "Пароль"
+msgstr "Пароль"
+
+#: accounts/forms.py:41
+msgid "Повторите пароль"
+msgstr "Повторите пароль"
+
+#: accounts/forms.py:44 templates/account/signup.html:71
+msgid "Подтвердите пароль"
+msgstr "Подтвердите пароль"
+
+#: accounts/forms.py:66
+msgid "Введите пароль"
+msgstr "Введите пароль"
+
+#: accounts/forms.py:75 templates/account/login.html:105
+msgid "Запомнить меня"
+msgstr "Запомнить меня"
+
+#: accounts/forms.py:89
+msgid "Введите email для восстановления"
+msgstr "Введите email для восстановления"
+
 #: accounts/models.py:19
 msgid "Email обязателен"
 msgstr "Email обязателен"
@@ -47,7 +84,7 @@ msgstr "Суперпользователь должен иметь is_superuser=
 
 #: accounts/models.py:47
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: accounts/models.py:50
 msgid "Пользователь с таким email уже существует."
@@ -69,7 +106,7 @@ msgstr "получать уведомления"
 msgid "дата регистрации"
 msgstr "дата регистрации"
 
-#: accounts/models.py:79 catalog/models.py:203 rentals/models.py:118
+#: accounts/models.py:79 catalog/models.py:203 rentals/models.py:126
 msgid "дата обновления"
 msgstr "дата обновления"
 
@@ -90,7 +127,7 @@ msgstr "Основная информация"
 msgid "Изображение"
 msgstr "Изображение"
 
-#: catalog/admin.py:60 templates/catalog/tool_detail.html:224
+#: catalog/admin.py:60 templates/catalog/tool_detail.html:275
 msgid "Характеристики"
 msgstr "Характеристики"
 
@@ -102,7 +139,7 @@ msgstr "Цены"
 msgid "Статус"
 msgstr "Статус"
 
-#: catalog/admin.py:72
+#: catalog/admin.py:72 templates/dashboard/profile.html:81
 msgid "Статистика"
 msgstr "Статистика"
 
@@ -119,9 +156,8 @@ msgid "название"
 msgstr "название"
 
 #: catalog/models.py:21 catalog/models.py:106
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2642
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: catalog/models.py:27 catalog/models.py:118
 msgid "описание"
@@ -152,7 +188,7 @@ msgid "порядок сортировки"
 msgstr "порядок сортировки"
 
 #: catalog/models.py:59 catalog/models.py:343 catalog/models.py:380
-#: rentals/models.py:114
+#: rentals/models.py:122
 msgid "дата создания"
 msgstr "дата создания"
 
@@ -180,15 +216,15 @@ msgstr "Хорошее"
 msgid "Удовлетворительное"
 msgstr "Удовлетворительное"
 
-#: catalog/models.py:95 templates/catalog/catalog.html:194
-#: templates/catalog/category.html:140 templates/catalog/favorites.html:94
-#: templates/home.html:446
+#: catalog/models.py:95 templates/catalog/catalog.html:186
+#: templates/catalog/category.html:127 templates/catalog/favorites.html:88
+#: templates/dashboard/favorites.html:34 templates/home.html:403
 msgid "Доступен"
 msgstr "Доступен"
 
-#: catalog/models.py:96 templates/catalog/catalog.html:194
-#: templates/catalog/category.html:140 templates/catalog/favorites.html:94
-#: templates/home.html:446
+#: catalog/models.py:96 templates/catalog/catalog.html:186
+#: templates/catalog/category.html:127 templates/catalog/favorites.html:88
+#: templates/home.html:403
 msgid "В аренде"
 msgstr "В аренде"
 
@@ -196,7 +232,9 @@ msgstr "В аренде"
 msgid "На обслуживании"
 msgstr "На обслуживании"
 
-#: catalog/models.py:98 templates/catalog/tool_detail.html:203
+#: catalog/models.py:98 templates/catalog/compare.html:163
+#: templates/catalog/tool_detail.html:250
+#: templates/dashboard/favorites.html:38
 msgid "Недоступен"
 msgstr "Недоступен"
 
@@ -228,7 +266,7 @@ msgstr "Технические характеристики в формате JS
 msgid "цена за день"
 msgstr "цена за день"
 
-#: catalog/models.py:157 templates/catalog/tool_detail.html:164
+#: catalog/models.py:157 templates/catalog/tool_detail.html:218
 msgid "залог"
 msgstr "залог"
 
@@ -266,6 +304,7 @@ msgstr "дата добавления"
 
 #: catalog/models.py:208 catalog/models.py:264 catalog/models.py:302
 #: catalog/models.py:332 rentals/models.py:49
+#: templates/catalog/compare.html:289
 msgid "инструмент"
 msgstr "инструмент"
 
@@ -323,7 +362,35 @@ msgstr "ответ"
 
 #: catalog/models.py:385 catalog/models.py:386
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
+
+#: catalog/views.py:266
+msgid "Удалено из избранного"
+msgstr "Удалено из избранного"
+
+#: catalog/views.py:268
+msgid "Добавлено в избранное"
+msgstr "Добавлено в избранное"
+
+#: catalog/views.py:295
+msgid "Вы уже оставляли отзыв для этого инструмента"
+msgstr "Вы уже оставляли отзыв для этого инструмента"
+
+#: catalog/views.py:306
+msgid "Рейтинг должен быть от 1 до 5"
+msgstr "Рейтинг должен быть от 1 до 5"
+
+#: catalog/views.py:318
+msgid "Отзыв добавлен"
+msgstr "Отзыв добавлен"
+
+#: catalog/views.py:330
+msgid "Неверные данные"
+msgstr "Неверные данные"
+
+#: dashboard/views.py:156
+msgid "Профиль успешно обновлён."
+msgstr "Профиль успешно обновлён."
 
 #: rentals/admin.py:35
 msgid "Информация о заявке"
@@ -333,7 +400,7 @@ msgstr "Информация о заявке"
 msgid "Данные клиента"
 msgstr "Данные клиента"
 
-#: rentals/admin.py:41
+#: rentals/admin.py:41 templates/rentals/request_success.html:27
 msgid "Период аренды"
 msgstr "Период аренды"
 
@@ -349,7 +416,7 @@ msgstr "Комментарии"
 msgid "Системная информация"
 msgstr "Системная информация"
 
-#: rentals/admin.py:81
+#: rentals/admin.py:81 templates/rentals/request_success.html:35
 msgid "Сумма"
 msgstr "Сумма"
 
@@ -380,11 +447,27 @@ msgstr "Отменить выбранные заявки"
 msgid "Отменено заявок: {count}"
 msgstr "Отменено заявок: {count}"
 
-#: rentals/forms.py:58
+#: rentals/forms.py:30 templates/rentals/create_request.html:45
+msgid "Ваше имя"
+msgstr "Ваше имя"
+
+#: rentals/forms.py:34
+msgid "email@example.com"
+msgstr "email@example.com"
+
+#: rentals/forms.py:38
+msgid "+373 XX XXX XXX"
+msgstr "+373 XX XXX XXX"
+
+#: rentals/forms.py:54 templates/rentals/create_request.html:116
+msgid "Дополнительные пожелания..."
+msgstr "Дополнительные пожелания..."
+
+#: rentals/forms.py:63
 msgid "Дата начала не может быть в прошлом."
 msgstr "Дата начала не может быть в прошлом."
 
-#: rentals/forms.py:69
+#: rentals/forms.py:74
 msgid "Дата окончания должна быть позже даты начала."
 msgstr "Дата окончания должна быть позже даты начала."
 
@@ -453,1889 +536,1472 @@ msgid "статус"
 msgstr "статус"
 
 #: rentals/models.py:104
+msgid "фото удостоверения личности"
+msgstr ""
+
+#: rentals/models.py:112
 msgid "комментарий клиента"
 msgstr "комментарий клиента"
 
-#: rentals/models.py:108
+#: rentals/models.py:116
 msgid "заметки менеджера"
 msgstr "заметки менеджера"
 
-#: rentals/models.py:122
+#: rentals/models.py:130
 msgid "дата подтверждения"
 msgstr "дата подтверждения"
 
-#: rentals/models.py:128
+#: rentals/models.py:136
 msgid "заявка на аренду"
 msgstr "заявка на аренду"
 
-#: rentals/models.py:129
+#: rentals/models.py:137
 msgid "заявки на аренду"
 msgstr "заявки на аренду"
 
-#: templates/catalog/catalog.html:4 templates/catalog/catalog.html:20
+#: rentals/views.py:58
+msgid "К сожалению, этот инструмент сейчас недоступен."
+msgstr "К сожалению, этот инструмент сейчас недоступен."
+
+#: rentals/views.py:76
+#, python-format
+msgid ""
+"Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время."
+msgstr ""
+"Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время."
+
+#: rentals/views.py:133
+#, python-format
+msgid "Заявка #%(number)s успешно отменена."
+msgstr "Заявка #%(number)s успешно отменена."
+
+#: rentals/views.py:135
+msgid "Эту заявку нельзя отменить."
+msgstr "Эту заявку нельзя отменить."
+
+#: templates/account/email_confirm.html:4
+msgid "Подтверждение email"
+msgstr "Подтверждение email"
+
+#: templates/account/email_confirm.html:20
+msgid "Подтвердить email"
+msgstr "Подтвердить email"
+
+#: templates/account/email_confirm.html:23
+#, python-format
+msgid ""
+"\n"
+"                Вы подтверждаете email %(email)s?\n"
+"                "
+msgstr ""
+"\n"
+"                Вы подтверждаете email %(email)s?\n"
+"                "
+
+#: templates/account/email_confirm.html:32
+msgid "Подтвердить"
+msgstr "Подтвердить"
+
+#: templates/account/email_confirm.html:41
+msgid "Ссылка недействительна"
+msgstr "Ссылка недействительна"
+
+#: templates/account/email_confirm.html:44
+msgid "Эта ссылка для подтверждения email истекла или уже была использована."
+msgstr "Эта ссылка для подтверждения email истекла или уже была использована."
+
+#: templates/account/email_confirm.html:49 templates/account/login.html:122
+#: templates/account/password_reset.html:68 templates/account/signup.html:107
+#: templates/catalog/tool_detail.html:357
+msgid "Войти"
+msgstr "Войти"
+
+#: templates/account/login.html:4
+msgid "Вход"
+msgstr "Вход"
+
+#: templates/account/login.html:30 templates/dashboard/index.html:9
+msgid "Добро пожаловать"
+msgstr "Добро пожаловать"
+
+#: templates/account/login.html:33
+msgid "Войдите в свой аккаунт"
+msgstr "Войдите в свой аккаунт"
+
+#: templates/account/login.html:47
+msgid "Войти через Google"
+msgstr "Войти через Google"
+
+#: templates/account/login.html:57
+msgid "или"
+msgstr "или"
+
+#: templates/account/login.html:85 templates/account/password_reset.html:30
+msgid "Забыли пароль?"
+msgstr "Забыли пароль?"
+
+#: templates/account/login.html:128
+msgid "Нет аккаунта?"
+msgstr "Нет аккаунта?"
+
+#: templates/account/login.html:130 templates/account/signup.html:99
+msgid "Зарегистрироваться"
+msgstr "Зарегистрироваться"
+
+#: templates/account/login.html:139 templates/account/password_reset.html:77
+#: templates/core/privacy.html:240 templates/core/terms.html:215
+msgid "Вернуться на главную"
+msgstr "Вернуться на главную"
+
+#: templates/account/logout.html:4
+msgid "Выход"
+msgstr "Выход"
+
+#: templates/account/logout.html:21
+msgid "Выйти из аккаунта?"
+msgstr "Выйти из аккаунта?"
+
+#: templates/account/logout.html:24
+msgid "Вы уверены, что хотите выйти из своего аккаунта?"
+msgstr "Вы уверены, что хотите выйти из своего аккаунта?"
+
+#: templates/account/logout.html:32
+msgid "Отмена"
+msgstr "Отмена"
+
+#: templates/account/logout.html:36 templates/dashboard/base_dashboard.html:58
+#: templates/includes/header.html:192 templates/includes/header.html:280
+msgid "Выйти"
+msgstr "Выйти"
+
+#: templates/account/password_reset.html:4
+msgid "Восстановление пароля"
+msgstr "Восстановление пароля"
+
+#: templates/account/password_reset.html:33
+msgid "Введите email и мы отправим ссылку для восстановления"
+msgstr "Введите email и мы отправим ссылку для восстановления"
+
+#: templates/account/password_reset.html:61
+msgid "Отправить ссылку"
+msgstr "Отправить ссылку"
+
+#: templates/account/password_reset.html:66
+msgid "Вспомнили пароль?"
+msgstr "Вспомнили пароль?"
+
+#: templates/account/password_reset_done.html:4
+msgid "Письмо отправлено"
+msgstr "Письмо отправлено"
+
+#: templates/account/password_reset_done.html:19
+msgid "Проверьте почту"
+msgstr "Проверьте почту"
+
+#: templates/account/password_reset_done.html:22
+msgid ""
+"Мы отправили ссылку для восстановления пароля на указанный email. Проверьте "
+"папку \\"
+msgstr ""
+"Мы отправили ссылку для восстановления пароля на указанный email. Проверьте "
+"папку \\"
+
+#: templates/account/password_reset_done.html:27
+msgid "Вернуться к входу"
+msgstr "Вернуться к входу"
+
+#: templates/account/signup.html:4 templates/account/signup.html:28
+msgid "Регистрация"
+msgstr "Регистрация"
+
+#: templates/account/signup.html:31
+msgid "Создайте аккаунт"
+msgstr "Создайте аккаунт"
+
+#: templates/account/signup.html:105
+msgid "Уже есть аккаунт?"
+msgstr "Уже есть аккаунт?"
+
+#: templates/account/signup.html:116
+#: templates/account/verification_sent.html:28
+msgid "На главную"
+msgstr "На главную"
+
+#: templates/account/verification_sent.html:4
+#: templates/account/verification_sent.html:19
+msgid "Подтвердите email"
+msgstr "Подтвердите email"
+
+#: templates/account/verification_sent.html:22
+msgid ""
+"Мы отправили письмо с подтверждением на вашу почту. Перейдите по ссылке в "
+"письме для активации аккаунта."
+msgstr ""
+"Мы отправили письмо с подтверждением на вашу почту. Перейдите по ссылке в "
+"письме для активации аккаунта."
+
+#: templates/account/verification_sent.html:31
+msgid "Не получили письмо?"
+msgstr "Не получили письмо?"
+
+#: templates/account/verification_sent.html:33
+msgid "Отправить повторно"
+msgstr "Отправить повторно"
+
+#: templates/base.html:7
+msgid "Широкий выбор строительных инструментов в аренду по доступным ценам."
+msgstr "Широкий выбор строительных инструментов в аренду по доступным ценам."
+
+#: templates/base.html:8
+msgid ""
+"аренда инструментов, строительные инструменты, прокат инструментов, Молдова,"
+" Кишинёв"
+msgstr ""
+"аренда инструментов, строительные инструменты, прокат инструментов, Молдова,"
+" Кишинёв"
+
+#: templates/catalog/catalog.html:4 templates/catalog/catalog.html:18
 msgid "Каталог инструментов"
 msgstr "Каталог инструментов"
 
 #: templates/catalog/catalog.html:11 templates/catalog/category.html:11
-#: templates/catalog/faq.html:11 templates/catalog/favorites.html:11
-#: templates/catalog/tool_detail.html:13 templates/includes/header.html:45
-#: templates/includes/header.html:207
+#: templates/catalog/compare.html:11 templates/catalog/faq.html:17
+#: templates/catalog/favorites.html:11 templates/catalog/tool_detail.html:75
+#: templates/core/privacy.html:21 templates/core/terms.html:21
+#: templates/rentals/create_request.html:13
 msgid "Главная"
 msgstr "Главная"
 
-#: templates/catalog/catalog.html:15 templates/catalog/category.html:15
-#: templates/catalog/tool_detail.html:17 templates/dashboard/index.html:34
-#: templates/home.html:353 templates/includes/footer.html:50
-#: templates/includes/header.html:53 templates/includes/header.html:215
+#: templates/catalog/catalog.html:13 templates/catalog/category.html:13
+#: templates/catalog/compare.html:13 templates/catalog/tool_detail.html:77
+#: templates/dashboard/index.html:169 templates/home.html:314
+#: templates/rentals/create_request.html:15
 msgid "Каталог"
 msgstr "Каталог"
 
-#: templates/catalog/catalog.html:21
+#: templates/catalog/catalog.html:19
 msgid "Найдите подходящий инструмент для вашего проекта"
 msgstr "Найдите подходящий инструмент для вашего проекта"
 
-#: templates/catalog/catalog.html:32
+#: templates/catalog/catalog.html:30
 msgid "Поиск инструментов..."
 msgstr "Поиск инструментов..."
 
-#: templates/catalog/catalog.html:45
+#: templates/catalog/catalog.html:40
 msgid "Все категории"
 msgstr "Все категории"
 
-#: templates/catalog/catalog.html:60 templates/catalog/category.html:57
+#: templates/catalog/catalog.html:53 templates/catalog/category.html:51
 msgid "Новые"
 msgstr "Новые"
 
-#: templates/catalog/catalog.html:61 templates/catalog/category.html:58
-msgid "Сначала дешевле"
-msgstr "Сначала дешевле"
+#: templates/catalog/catalog.html:54 templates/catalog/category.html:52
+msgid "Сначала дешевые"
+msgstr "Сначала дешевые"
 
-#: templates/catalog/catalog.html:62 templates/catalog/category.html:59
-msgid "Сначала дороже"
-msgstr "Сначала дороже"
+#: templates/catalog/catalog.html:55 templates/catalog/category.html:53
+msgid "Сначала дорогие"
+msgstr "Сначала дорогие"
 
-#: templates/catalog/catalog.html:63 templates/catalog/category.html:60
+#: templates/catalog/catalog.html:56 templates/catalog/category.html:54
 msgid "По названию"
 msgstr "По названию"
 
-#: templates/catalog/catalog.html:77
-msgid "Найти"
-msgstr "Найти"
+#: templates/catalog/catalog.html:65
+msgid "Поиск"
+msgstr "Поиск"
 
-#: templates/catalog/catalog.html:83
+#: templates/catalog/catalog.html:71
 msgid "Цена (MDL/день):"
 msgstr "Цена (MDL/день):"
 
-#: templates/catalog/catalog.html:98
+#: templates/catalog/catalog.html:86
 msgid "Применить"
 msgstr "Применить"
 
-#: templates/catalog/catalog.html:103
+#: templates/catalog/catalog.html:91
 msgid "Сбросить"
 msgstr "Сбросить"
 
-#: templates/catalog/catalog.html:114 templates/catalog/category.html:51
+#: templates/catalog/catalog.html:102 templates/catalog/category.html:45
 msgid "Найдено:"
 msgstr "Найдено:"
 
-#: templates/catalog/catalog.html:114 templates/catalog/category.html:42
-#: templates/catalog/category.html:51 templates/catalog/favorites.html:32
-#: templates/home.html:78 templates/home.html:369
+#: templates/catalog/catalog.html:102 templates/catalog/category.html:36
+#: templates/catalog/category.html:45 templates/catalog/favorites.html:28
+#: templates/core/admin_dashboard.html:208 templates/home.html:55
+#: templates/home.html:328
 msgid "инструментов"
 msgstr "инструментов"
 
-#: templates/catalog/catalog.html:140 templates/catalog/category.html:90
-#: templates/catalog/favorites.html:53 templates/catalog/tool_detail.html:45
-#: templates/home.html:420
+#: templates/catalog/catalog.html:128 templates/catalog/category.html:82
+#: templates/catalog/favorites.html:49 templates/catalog/tool_detail.html:101
+#: templates/home.html:377
 msgid "Хит"
 msgstr "Хит"
 
-#: templates/catalog/catalog.html:169 templates/catalog/category.html:115
-#: templates/catalog/favorites.html:73 templates/home.html:428
+#: templates/catalog/catalog.html:151 templates/catalog/catalog.html:295
+#: templates/catalog/compare.html:232 templates/catalog/tool_detail.html:259
+#: templates/catalog/tool_detail.html:998
+msgid "Сравнить"
+msgstr "Сравнить"
+
+#: templates/catalog/catalog.html:161 templates/catalog/category.html:102
+#: templates/catalog/favorites.html:67 templates/dashboard/orders.html:81
+#: templates/home.html:385
 msgid "Подробнее"
 msgstr "Подробнее"
 
-#: templates/catalog/catalog.html:190 templates/catalog/category.html:136
-#: templates/catalog/favorites.html:90
-msgid "MDL/день"
-msgstr "MDL/день"
+#: templates/catalog/catalog.html:182 templates/catalog/category.html:123
+#: templates/catalog/favorites.html:84
+msgid "MDL/zi"
+msgstr "MDL/zi"
 
-#: templates/catalog/catalog.html:248
+#: templates/catalog/catalog.html:233
 msgid "Инструменты не найдены"
 msgstr "Инструменты не найдены"
 
-#: templates/catalog/catalog.html:249
+#: templates/catalog/catalog.html:234
 msgid "Попробуйте изменить параметры поиска или сбросьте фильтры"
 msgstr "Попробуйте изменить параметры поиска или сбросьте фильтры"
 
-#: templates/catalog/catalog.html:255
+#: templates/catalog/catalog.html:238
 msgid "Сбросить фильтры"
 msgstr "Сбросить фильтры"
 
-#: templates/catalog/category.html:193
+#: templates/catalog/catalog.html:326 templates/catalog/tool_detail.html:961
+msgid "Добавлено к сравнению"
+msgstr "Добавлено к сравнению"
+
+#: templates/catalog/catalog.html:326 templates/catalog/tool_detail.html:957
+msgid "Удалено из сравнения"
+msgstr "Удалено из сравнения"
+
+#: templates/catalog/category.html:174
 msgid "В этой категории пока нет инструментов"
 msgstr "В этой категории пока нет инструментов"
 
-#: templates/catalog/category.html:194
-msgid "Скоро здесь появятся новые позиции"
-msgstr "Скоро здесь появятся новые позиции"
+#: templates/catalog/category.html:175
+msgid "Скоро появятся новые товары"
+msgstr "Скоро появятся новые товары"
 
-#: templates/catalog/category.html:200
-msgid "Вернуться в каталог"
-msgstr "Вернуться в каталог"
+#: templates/catalog/category.html:179
+msgid "Назад в каталог"
+msgstr "Назад в каталог"
 
-#: templates/catalog/faq.html:15 templates/catalog/faq.html:20
-msgid "Частые вопросы"
-msgstr "Частые вопросы"
+#: templates/catalog/compare.html:4 templates/catalog/compare.html:19
+msgid "Сравнение инструментов"
+msgstr "Сравнение инструментов"
 
-#: templates/catalog/faq.html:21
-msgid "Ответы на популярные вопросы об аренде инструментов"
-msgstr "Ответы на популярные вопросы об аренде инструментов"
+#: templates/catalog/compare.html:15
+msgid "Сравнение"
+msgstr "Сравнение"
 
-#: templates/catalog/faq.html:50
-msgid "Не нашли ответ на свой вопрос?"
-msgstr "Не нашли ответ на свой вопрос?"
+#: templates/catalog/compare.html:20
+msgid "Сравните характеристики двух инструментов"
+msgstr "Сравните характеристики двух инструментов"
 
-#: templates/catalog/faq.html:51
-msgid "Свяжитесь с нами любым удобным способом"
-msgstr "Свяжитесь с нами любым удобным способом"
+#: templates/catalog/compare.html:44
+msgid "Удалить"
+msgstr "Удалить"
 
-#: templates/catalog/faq.html:58
-msgid "WhatsApp"
-msgstr ""
+#: templates/catalog/compare.html:52 templates/rentals/create_request.html:122
+msgid "Цена за день"
+msgstr "Цена за день"
 
-#: templates/catalog/faq.html:65
-msgid "Telegram"
-msgstr ""
+#: templates/catalog/compare.html:56 templates/catalog/compare.html:201
+#: templates/dashboard/favorites.html:55 templates/dashboard/index.html:100
+#: templates/dashboard/index.html:182 templates/dashboard/index.html:211
+#: templates/dashboard/orders.html:77
+msgid "день"
+msgstr "день"
 
-#: templates/catalog/faq.html:72 templates/home.html:692
-msgid "Позвонить"
-msgstr "Позвонить"
+#: templates/catalog/compare.html:63 templates/rentals/create_request.html:131
+msgid "Залог"
+msgstr "Залог"
 
-#: templates/catalog/faq.html:85
-msgid "FAQ пока пусто"
-msgstr "FAQ пока пусто"
+#: templates/catalog/compare.html:73
+msgid "Категория"
+msgstr "Категория"
 
-#: templates/catalog/faq.html:86
-msgid "Скоро здесь появятся ответы на частые вопросы"
-msgstr "Скоро здесь появятся ответы на частые вопросы"
+#: templates/catalog/compare.html:83
+msgid "Бренд"
+msgstr "Бренд"
 
-#: templates/catalog/faq.html:89 templates/catalog/favorites.html:118
-#: templates/home.html:283
-msgid "Перейти в каталог"
-msgstr "Перейти в каталог"
+#: templates/catalog/compare.html:93
+msgid "Модель"
+msgstr "Модель"
 
-#: templates/catalog/favorites.html:4 templates/catalog/favorites.html:15
-#: templates/catalog/favorites.html:24 templates/includes/header.html:123
-#: templates/includes/header.html:248
-msgid "Избранное"
-msgstr "Избранное"
+#: templates/catalog/compare.html:103
+msgid "Состояние"
+msgstr "Состояние"
 
-#: templates/catalog/favorites.html:26
-msgid "Инструменты, которые вы добавили в избранное"
-msgstr "Инструменты, которые вы добавили в избранное"
+#: templates/catalog/compare.html:119
+msgid "Доступность"
+msgstr "Доступность"
 
-#: templates/catalog/favorites.html:32
-msgid "Всего:"
-msgstr "Всего:"
+#: templates/catalog/compare.html:134
+msgid "Технические характеристики"
+msgstr "Технические характеристики"
 
-#: templates/catalog/favorites.html:111
-msgid "В избранном пусто"
-msgstr "В избранном пусто"
-
-#: templates/catalog/favorites.html:112
-msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
-msgstr "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять их"
-
-#: templates/catalog/tool_detail.html:98
-msgid "отзывов"
-msgstr "отзывов"
-
-#: templates/catalog/tool_detail.html:121
-#: templates/catalog/tool_detail.html:157
-msgid "Залог:"
-msgstr "Залог:"
-
-#: templates/catalog/tool_detail.html:132
-msgid "Калькулятор аренды"
-msgstr "Калькулятор аренды"
-
-#: templates/catalog/tool_detail.html:136
-msgid "Дата начала"
-msgstr "Дата начала"
-
-#: templates/catalog/tool_detail.html:141
-msgid "Дата окончания"
-msgstr "Дата окончания"
-
-#: templates/catalog/tool_detail.html:148
-msgid "Количество дней:"
-msgstr "Количество дней:"
-
-#: templates/catalog/tool_detail.html:152
-msgid "Стоимость аренды:"
-msgstr "Стоимость аренды:"
-
-#: templates/catalog/tool_detail.html:162
-msgid "Итого к оплате:"
-msgstr "Итого к оплате:"
-
-#: templates/catalog/tool_detail.html:175
-msgid "Доступен для аренды"
-msgstr "Доступен для аренды"
-
-#: templates/catalog/tool_detail.html:180
-msgid "Сейчас в аренде"
-msgstr "Сейчас в аренде"
-
-#: templates/catalog/tool_detail.html:196
+#: templates/catalog/compare.html:160 templates/catalog/tool_detail.html:245
+#: templates/dashboard/favorites.html:61
 #: templates/rentals/create_request.html:4
 msgid "Арендовать"
 msgstr "Арендовать"
 
-#: templates/catalog/tool_detail.html:246
+#: templates/catalog/compare.html:185
+msgid "Выберите второй инструмент для сравнения"
+msgstr "Выберите второй инструмент для сравнения"
+
+#: templates/catalog/compare.html:189
+msgid "Инструменты из категории"
+msgstr "Инструменты из категории"
+
+#: templates/catalog/compare.html:216
+msgid "Нет инструментов для сравнения"
+msgstr "Нет инструментов для сравнения"
+
+#: templates/catalog/compare.html:217
+msgid "Добавьте инструменты для сравнения из каталога"
+msgstr "Добавьте инструменты для сравнения из каталога"
+
+#: templates/catalog/compare.html:219 templates/catalog/faq.html:93
+#: templates/catalog/favorites.html:108 templates/dashboard/favorites.html:105
+#: templates/dashboard/index.html:154 templates/dashboard/orders.html:125
+#: templates/home.html:248
+msgid "Перейти в каталог"
+msgstr "Перейти в каталог"
+
+#: templates/catalog/compare.html:289
+msgid "инструмента"
+msgstr "инструмента"
+
+#: templates/catalog/faq.html:4 templates/catalog/faq.html:19
+#: templates/catalog/faq.html:27
+msgid "Часто задаваемые вопросы"
+msgstr "Часто задаваемые вопросы"
+
+#: templates/catalog/faq.html:28
+msgid "Ответы на популярные вопросы об аренде инструментов"
+msgstr "Ответы на популярные вопросы об аренде инструментов"
+
+#: templates/catalog/faq.html:62
+msgid "Не нашли ответ?"
+msgstr "Не нашли ответ?"
+
+#: templates/catalog/faq.html:63
+msgid "Свяжитесь с нами любым удобным способом"
+msgstr "Свяжитесь с нами любым удобным способом"
+
+#: templates/catalog/faq.html:78 templates/home.html:645
+msgid "Позвонить"
+msgstr "Позвонить"
+
+#: templates/catalog/faq.html:89
+msgid "FAQ пока пуст"
+msgstr "FAQ пока пуст"
+
+#: templates/catalog/faq.html:90
+msgid "Скоро здесь появятся ответы на частые вопросы"
+msgstr "Скоро здесь появятся ответы на частые вопросы"
+
+#: templates/catalog/favorites.html:4 templates/catalog/favorites.html:13
+#: templates/catalog/favorites.html:20
+#: templates/dashboard/base_dashboard.html:42
+#: templates/dashboard/favorites.html:4 templates/dashboard/favorites.html:9
+#: templates/dashboard/index.html:196 templates/includes/header.html:177
+msgid "Избранное"
+msgstr "Избранное"
+
+#: templates/catalog/favorites.html:22
+msgid "Инструменты, которые вы добавили в избранное"
+msgstr "Инструменты, которые вы добавили в избранное"
+
+#: templates/catalog/favorites.html:28
+msgid "Всего:"
+msgstr "Всего:"
+
+#: templates/catalog/favorites.html:103 templates/dashboard/favorites.html:101
+msgid "Избранное пусто"
+msgstr "Избранное пусто"
+
+#: templates/catalog/favorites.html:104
+msgid "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять"
+msgstr "Добавляйте понравившиеся инструменты в избранное, чтобы не потерять"
+
+#: templates/catalog/tool_detail.html:148
+msgid "отзывов"
+msgstr "отзывов"
+
+#: templates/catalog/tool_detail.html:164
+msgid "MDL / день"
+msgstr "MDL / день"
+
+#: templates/catalog/tool_detail.html:169
+#: templates/catalog/tool_detail.html:211
+msgid "Залог:"
+msgstr "Залог:"
+
+#: templates/catalog/tool_detail.html:178
+msgid "Калькулятор аренды"
+msgstr "Калькулятор аренды"
+
+#: templates/catalog/tool_detail.html:182
+#: templates/rentals/create_request.html:80
+msgid "Дата начала"
+msgstr "Дата начала"
+
+#: templates/catalog/tool_detail.html:191
+#: templates/rentals/create_request.html:90
+msgid "Дата окончания"
+msgstr "Дата окончания"
+
+#: templates/catalog/tool_detail.html:202
+msgid "Количество дней:"
+msgstr "Количество дней:"
+
+#: templates/catalog/tool_detail.html:206
+msgid "Стоимость аренды:"
+msgstr "Стоимость аренды:"
+
+#: templates/catalog/tool_detail.html:216
+msgid "Итого к оплате:"
+msgstr "Итого к оплате:"
+
+#: templates/catalog/tool_detail.html:229
+msgid "Доступен для аренды"
+msgstr "Доступен для аренды"
+
+#: templates/catalog/tool_detail.html:234
+msgid "Сейчас в аренде"
+msgstr "Сейчас в аренде"
+
+#: templates/catalog/tool_detail.html:295
 msgid "Описание"
 msgstr "Описание"
 
-#: templates/catalog/tool_detail.html:261
-#: templates/core/admin_dashboard.html:68
+#: templates/catalog/tool_detail.html:308
+#: templates/core/admin_dashboard.html:59
 msgid "Отзывы"
 msgstr "Отзывы"
 
-#: templates/catalog/tool_detail.html:281
+#: templates/catalog/tool_detail.html:326
 msgid "Оставить отзыв"
 msgstr "Оставить отзыв"
 
-#: templates/catalog/tool_detail.html:284
+#: templates/catalog/tool_detail.html:329
 msgid "Ваша оценка"
 msgstr "Ваша оценка"
 
-#: templates/catalog/tool_detail.html:298
+#: templates/catalog/tool_detail.html:341
 msgid "Ваш отзыв (необязательно)"
 msgstr "Ваш отзыв (необязательно)"
 
-#: templates/catalog/tool_detail.html:301
+#: templates/catalog/tool_detail.html:344
 msgid "Поделитесь вашим опытом использования этого инструмента..."
 msgstr "Поделитесь вашим опытом использования этого инструмента..."
 
-#: templates/catalog/tool_detail.html:305
+#: templates/catalog/tool_detail.html:348
 msgid "Отправить отзыв"
 msgstr "Отправить отзыв"
 
-#: templates/catalog/tool_detail.html:311
+#: templates/catalog/tool_detail.html:354
 msgid "Войдите, чтобы оставить отзыв"
 msgstr "Войдите, чтобы оставить отзыв"
 
-#: templates/catalog/tool_detail.html:314 templates/includes/header.html:175
-msgid "Войти"
-msgstr "Войти"
-
-#: templates/catalog/tool_detail.html:347
+#: templates/catalog/tool_detail.html:388
 msgid "Пока нет отзывов. Будьте первым!"
 msgstr "Пока нет отзывов. Будьте первым!"
 
-#: templates/catalog/tool_detail.html:359
+#: templates/catalog/tool_detail.html:400
 msgid "Похожие инструменты"
 msgstr "Похожие инструменты"
 
-#: templates/catalog/tool_detail.html:363
+#: templates/catalog/tool_detail.html:404
 msgid "Все в категории"
 msgstr "Все в категории"
 
-#: templates/core/admin_dashboard.html:4 templates/core/admin_dashboard.html:12
-#: templates/includes/header.html:133 templates/includes/header.html:257
+#: templates/catalog/tool_detail.html:429
+msgid " / день"
+msgstr " / день"
+
+#: templates/catalog/tool_detail.html:704
+msgid "Войдите, чтобы добавить в избранное"
+msgstr "Войдите, чтобы добавить в избранное"
+
+#: templates/catalog/tool_detail.html:759
+msgid "Пожалуйста, выберите оценку"
+msgstr "Пожалуйста, выберите оценку"
+
+#: templates/catalog/tool_detail.html:788
+msgid "Ошибка при отправке отзыва"
+msgstr "Ошибка при отправке отзыва"
+
+#: templates/core/admin_dashboard.html:4
+#: templates/core/admin_dashboard.html:12 templates/includes/header.html:126
+#: templates/includes/header.html:183 templates/includes/header.html:272
 msgid "Панель управления"
 msgstr "Панель управления"
 
 #: templates/core/admin_dashboard.html:13
 msgid "Статистика и аналитика MoldTool"
-msgstr ""
+msgstr "Статистика и аналитика MoldTool"
 
-#: templates/core/admin_dashboard.html:36
+#: templates/core/admin_dashboard.html:31
 msgid "Инструменты"
 msgstr "Инструменты"
 
-#: templates/core/admin_dashboard.html:38
+#: templates/core/admin_dashboard.html:33
 msgid "доступно"
 msgstr "доступно"
 
-#: templates/core/admin_dashboard.html:52
+#: templates/core/admin_dashboard.html:45
+#: templates/core/admin_dashboard.html:258
 msgid "Пользователи"
 msgstr "Пользователи"
 
-#: templates/core/admin_dashboard.html:54
-#: templates/core/admin_dashboard.html:73
+#: templates/core/admin_dashboard.html:47
+#: templates/core/admin_dashboard.html:64
 msgid "за неделю"
-msgstr ""
+msgstr "за неделю"
 
-#: templates/core/admin_dashboard.html:71
+#: templates/core/admin_dashboard.html:62
 msgid "на модерации"
 msgstr "на модерации"
 
-#: templates/core/admin_dashboard.html:88
+#: templates/core/admin_dashboard.html:77 templates/dashboard/profile.html:88
 msgid "В избранном"
 msgstr "В избранном"
 
-#: templates/core/admin_dashboard.html:90
-msgid "Ср. рейтинг:"
-msgstr ""
+#: templates/core/admin_dashboard.html:79
+msgid "Средний рейтинг:"
+msgstr "Средний рейтинг:"
 
-#: templates/core/admin_dashboard.html:104 templates/home.html:398
+#: templates/core/admin_dashboard.html:91 templates/dashboard/index.html:166
+#: templates/home.html:355
 msgid "Популярные инструменты"
 msgstr "Популярные инструменты"
 
-#: templates/core/admin_dashboard.html:128
+#: templates/core/admin_dashboard.html:113
 msgid "просмотров"
 msgstr "просмотров"
 
-#: templates/core/admin_dashboard.html:132
-#: templates/core/admin_dashboard.html:171
+#: templates/core/admin_dashboard.html:117
+#: templates/core/admin_dashboard.html:152
 msgid "Нет данных"
+msgstr "Нет данных"
+
+#: templates/core/admin_dashboard.html:126
+msgid "Чаще добавляемые в избранное"
+msgstr "Чаще добавляемые в избранное"
+
+#: templates/core/admin_dashboard.html:144
+msgid "MDL/день"
+msgstr "MDL/день"
+
+#: templates/core/admin_dashboard.html:148
+msgid "в избранном"
+msgstr "в избранном"
+
+#: templates/core/admin_dashboard.html:161
+msgid "Последние отзывы"
+msgstr "Последние отзывы"
+
+#: templates/core/admin_dashboard.html:187
+msgid "На модерации"
+msgstr "На модерации"
+
+#: templates/core/admin_dashboard.html:192
+msgid "Нет отзывов"
+msgstr "Нет отзывов"
+
+#: templates/core/admin_dashboard.html:201
+msgid "Категории"
+msgstr "Категории"
+
+#: templates/core/admin_dashboard.html:212
+msgid "Нет категорий"
+msgstr "Нет категорий"
+
+#: templates/core/admin_dashboard.html:218
+msgid "Всего категорий:"
+msgstr "Всего категорий:"
+
+#: templates/core/admin_dashboard.html:227
+msgid "Быстрые действия"
+msgstr "Быстрые действия"
+
+#: templates/core/admin_dashboard.html:234
+msgid "Добавить инструмент"
+msgstr "Добавить инструмент"
+
+#: templates/core/admin_dashboard.html:242
+msgid "Управление категориями"
+msgstr "Управление категориями"
+
+#: templates/core/admin_dashboard.html:250
+msgid "Модерация отзывов"
+msgstr "Модерация отзывов"
+
+#: templates/core/privacy.html:4 templates/core/privacy.html:23
+#: templates/core/privacy.html:39 templates/includes/footer.html:144
+msgid "Политика конфиденциальности"
+msgstr "Политика конфиденциальности"
+
+#: templates/core/privacy.html:41 templates/core/terms.html:41
+msgid "Последнее обновление:"
+msgstr "Последнее обновление:"
+
+# Privacy Policy page translations
+#: templates/core/privacy.html:51
+msgid ""
+"уважает конфиденциальность персональных данных своих пользователей и "
+"обязуется защищать их в соответствии с действующим законодательством "
+"Республики Молдова."
 msgstr ""
+"уважает конфиденциальность персональных данных своих пользователей и "
+"обязуется защищать их в соответствии с действующим законодательством "
+"Республики Молдова."
 
-#: templates/core/admin_dashboard.html:143
-msgid "Чаще добавляют в избранное"
-msgstr "Чаще добавляют в избранное"
+#: templates/core/privacy.html:66
+msgid "Собираемая информация"
+msgstr "Собираемая информация"
 
-#: templates/core/admin_dashboard.html:163
-msgid "MDL/Zi"
+#: templates/core/privacy.html:68
+msgid "Мы можем собирать следующие типы информации:"
+msgstr "Мы можем собирать следующие типы информации:"
+
+#: templates/core/privacy.html:74
+msgid "Имя и фамилия"
+msgstr "Имя и фамилия"
+
+#: templates/core/privacy.html:80
+msgid "Номер телефона"
+msgstr "Номер телефона"
+
+#: templates/core/privacy.html:86
+msgid "Адрес электронной почты"
+msgstr "Адрес электронной почты"
+
+#: templates/core/privacy.html:92
+msgid "Адрес доставки"
+msgstr "Адрес доставки"
+
+#: templates/core/privacy.html:98
+msgid "Информация для аренды"
+msgstr "Информация для аренды"
+
+#: templates/core/privacy.html:104
+msgid "Технические данные (IP, браузер, cookie)"
+msgstr "Технические данные (IP, браузер, cookie)"
+
+#: templates/core/privacy.html:118
+msgid "Цель сбора данных"
+msgstr "Цель сбора данных"
+
+#: templates/core/privacy.html:120
+msgid "Данные собираются для:"
+msgstr "Данные собираются для:"
+
+#: templates/core/privacy.html:124
+msgid "Обработка заказов на аренду"
+msgstr "Обработка заказов на аренду"
+
+#: templates/core/privacy.html:128
+msgid "Связь с пользователями по вопросам услуг"
+msgstr "Связь с пользователями по вопросам услуг"
+
+#: templates/core/privacy.html:132
+msgid "Улучшение работы сайта"
+msgstr "Улучшение работы сайта"
+
+#: templates/core/privacy.html:136
+msgid "Соблюдение законодательных требований"
+msgstr "Соблюдение законодательных требований"
+
+#: templates/core/privacy.html:150
+msgid "Защита данных"
+msgstr "Защита данных"
+
+#: templates/core/privacy.html:157
+msgid ""
+"применяет технические и организационные меры для предотвращения "
+"несанкционированного доступа, потери или разглашения персональных данных."
 msgstr ""
+"применяет технические и организационные меры для предотвращения "
+"несанкционированного доступа, потери или разглашения персональных данных."
 
-#: templates/dashboard/index.html:4
-msgid "Личный кабинет"
-msgstr "Личный кабинет"
+#: templates/core/privacy.html:171
+msgid "Раскрытие данных"
+msgstr "Раскрытие данных"
 
-#: templates/dashboard/index.html:41
-msgid "Редактировать профиль"
-msgstr "Редактировать профиль"
+#: templates/core/privacy.html:178
+msgid "Персональные данные"
+msgstr "Персональные данные"
 
-#: templates/dashboard/index.html:44
-msgid "Все заявки"
-msgstr "Все заявки"
+#: templates/core/privacy.html:178
+msgid "не продаются и не передаются третьим лицам"
+msgstr "не продаются и не передаются третьим лицам"
 
-#: templates/home.html:59
-msgid "Работаем по всей Молдове"
-msgstr "Работаем по всей Молдове"
+#: templates/core/privacy.html:178
+msgid ""
+", за исключением случаев, предусмотренных законом или необходимых для "
+"оказания услуг (например, доставка)."
+msgstr ""
+", за исключением случаев, предусмотренных законом или необходимых для "
+"оказания услуг (например, доставка)."
 
-#: templates/home.html:70
-msgid "Аренда"
-msgstr "Аренда"
+#: templates/core/privacy.html:190
+msgid "Ваши права"
+msgstr "Ваши права"
 
-#: templates/home.html:73
-msgid "строительных"
-msgstr "строительных"
+#: templates/core/privacy.html:192
+msgid "Вы имеете право:"
+msgstr "Вы имеете право:"
 
-#: templates/home.html:83
-msgid "Профессиональное оборудование для любых задач."
-msgstr "Профессиональное оборудование для любых задач."
+#: templates/core/privacy.html:196
+msgid "Запросить доступ к своим персональным данным"
+msgstr "Запросить доступ к своим персональным данным"
 
-#: templates/home.html:84
-msgid "Качественный инструмент"
-msgstr "Качественный инструмент"
+#: templates/core/privacy.html:200
+msgid "Требовать исправления неточных данных"
+msgstr "Требовать исправления неточных данных"
 
-#: templates/home.html:84
-msgid "по доступным ценам с"
-msgstr "по доступным ценам с"
+#: templates/core/privacy.html:204
+msgid "Запросить удаление ваших данных"
+msgstr "Запросить удаление ваших данных"
 
-#: templates/home.html:85
-msgid "бесплатной доставкой"
-msgstr "бесплатной доставкой"
+#: templates/core/privacy.html:208
+msgid "Отозвать согласие на обработку данных"
+msgstr "Отозвать согласие на обработку данных"
 
-#: templates/home.html:85
-msgid "по всей стране."
-msgstr "по всей стране."
+#: templates/core/privacy.html:222
+msgid "Есть вопросы?"
+msgstr "Есть вопросы?"
 
-#: templates/home.html:101 templates/home.html:696
+#: templates/core/privacy.html:223
+msgid "Свяжитесь с нами по любым вопросам о ваших данных"
+msgstr "Свяжитесь с нами по любым вопросам о ваших данных"
+
+#: templates/core/terms.html:4 templates/core/terms.html:23
+#: templates/core/terms.html:39 templates/core/terms.html:92
+#: templates/includes/footer.html:147
+msgid "Условия использования"
+msgstr "Условия использования"
+
+# Terms of Service page translations (blocktrans)
+#: templates/core/terms.html:55
+#, python-format
+msgid ""
+"Используя сайт <span class=\"text-brand-yellow font-"
+"semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и "
+"положениями."
+msgstr ""
+"Используя сайт <span class=\"text-brand-yellow font-"
+"semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и "
+"положениями."
+
+#: templates/core/terms.html:71
+msgid "Описание сервиса"
+msgstr "Описание сервиса"
+
+#: templates/core/terms.html:78
+#, python-format
+msgid ""
+"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> "
+"предоставляет услуги аренды строительного инструмента физическим и "
+"юридическим лицам на территории Республики Молдова."
+msgstr ""
+"<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> "
+"предоставляет услуги аренды строительного инструмента физическим и "
+"юридическим лицам на территории Республики Молдова."
+
+#: templates/core/terms.html:97
+msgid "Пользователь должен предоставить корректную и полную информацию"
+msgstr "Пользователь должен предоставить корректную и полную информацию"
+
+#: templates/core/terms.html:101
+msgid "Запрещено использование сайта в незаконных целях"
+msgstr "Запрещено использование сайта в незаконных целях"
+
+#: templates/core/terms.html:105
+#, python-format
+msgid "%(site_name)s оставляет за собой право отказать в заказе"
+msgstr "%(site_name)s оставляет за собой право отказать в заказе"
+
+#: templates/core/terms.html:119
+msgid "Аренда инструментов"
+msgstr "Аренда инструментов"
+
+#: templates/core/terms.html:124
+msgid "Инструменты сдаются в аренду на определенный срок"
+msgstr "Инструменты сдаются в аренду на определенный срок"
+
+#: templates/core/terms.html:128
+msgid "Пользователь несет ответственность за правильное использование"
+msgstr "Пользователь несет ответственность за правильное использование"
+
+#: templates/core/terms.html:132
+msgid "Любое повреждение или потеря является ответственностью арендатора"
+msgstr "Любое повреждение или потеря является ответственностью арендатора"
+
+#: templates/core/terms.html:146
+msgid "Платежи и гарантии"
+msgstr "Платежи и гарантии"
+
+#: templates/core/terms.html:151
+msgid "Оплата производится согласно указанным тарифам"
+msgstr "Оплата производится согласно указанным тарифам"
+
+#: templates/core/terms.html:155
+msgid "Может потребоваться залог"
+msgstr "Может потребоваться залог"
+
+#: templates/core/terms.html:159
+msgid "Задержка возврата может привести к дополнительным платежам"
+msgstr "Задержка возврата может привести к дополнительным платежам"
+
+#: templates/core/terms.html:173
+msgid "Ответственность"
+msgstr "Ответственность"
+
+#: templates/core/terms.html:175
+#, python-format
+msgid "%(site_name)s не несет ответственности за:"
+msgstr "%(site_name)s не несет ответственности за:"
+
+#: templates/core/terms.html:179
+msgid "Ненадлежащее использование инструментов"
+msgstr "Ненадлежащее использование инструментов"
+
+#: templates/core/terms.html:183
+msgid "Несчастные случаи, вызванные использованием оборудования"
+msgstr "Несчастные случаи, вызванные использованием оборудования"
+
+#: templates/core/terms.html:197
+msgid "Готовы арендовать?"
+msgstr "Готовы арендовать?"
+
+#: templates/core/terms.html:198
+msgid "Изучите наш каталог или свяжитесь с нами для помощи"
+msgstr "Изучите наш каталог или свяжитесь с нами для помощи"
+
+#: templates/core/terms.html:202 templates/home.html:76
+#: templates/home.html:649
 msgid "Смотреть каталог"
 msgstr "Смотреть каталог"
 
-#: templates/home.html:118
+#: templates/dashboard/base_dashboard.html:27
+msgid "Обзор"
+msgstr "Обзор"
+
+#: templates/dashboard/base_dashboard.html:33
+#: templates/dashboard/orders.html:4 templates/dashboard/orders.html:10
+msgid "Мои заказы"
+msgstr "Мои заказы"
+
+#: templates/dashboard/base_dashboard.html:51
+#: templates/dashboard/profile.html:4
+msgid "Профиль"
+msgstr "Профиль"
+
+#: templates/dashboard/favorites.html:10
+msgid "Инструменты, которые вы сохранили"
+msgstr "Инструменты, которые вы сохранили"
+
+#: templates/dashboard/favorites.html:77 templates/dashboard/orders.html:97
+msgid "Назад"
+msgstr "Назад"
+
+#: templates/dashboard/favorites.html:88 templates/dashboard/orders.html:108
+msgid "Далее"
+msgstr "Далее"
+
+#: templates/dashboard/favorites.html:102
+msgid "Добавляйте инструменты в избранное, чтобы быстро находить их"
+msgstr "Добавляйте инструменты в избранное, чтобы быстро находить их"
+
+#: templates/dashboard/index.html:4 templates/includes/header.html:172
+msgid "Личный кабинет"
+msgstr "Личный кабинет"
+
+#: templates/dashboard/index.html:10
+msgid "Обзор вашего аккаунта"
+msgstr "Обзор вашего аккаунта"
+
+#: templates/dashboard/index.html:22 templates/dashboard/profile.html:84
+msgid "Всего заказов"
+msgstr "Всего заказов"
+
+#: templates/dashboard/index.html:32
+msgid "Активные"
+msgstr "Активные"
+
+#: templates/dashboard/index.html:42
+msgid "Завершённые"
+msgstr "Завершённые"
+
+#: templates/dashboard/index.html:55
+msgid "Общая сумма"
+msgstr "Общая сумма"
+
+#: templates/dashboard/index.html:65
+msgid "Дней аренды"
+msgstr "Дней аренды"
+
+#: templates/dashboard/index.html:75
+msgid "Средний чек"
+msgstr "Средний чек"
+
+#: templates/dashboard/index.html:85
+msgid "Вы чаще всего арендуете"
+msgstr "Вы чаще всего арендуете"
+
+#: templates/dashboard/index.html:99
+msgid "раз"
+msgstr "раз"
+
+#: templates/dashboard/index.html:111
+msgid "Последние заказы"
+msgstr "Последние заказы"
+
+#: templates/dashboard/index.html:113
+msgid "Все заказы"
+msgstr "Все заказы"
+
+#: templates/dashboard/index.html:152
+msgid "У вас пока нет заказов"
+msgstr "У вас пока нет заказов"
+
+#: templates/dashboard/index.html:184
+msgid "аренд"
+msgstr "аренд"
+
+#: templates/dashboard/index.html:198
+msgid "Все избранные"
+msgstr "Все избранные"
+
+#: templates/dashboard/orders.html:11
+msgid "История ваших заказов на аренду"
+msgstr "История ваших заказов на аренду"
+
+#: templates/dashboard/orders.html:15
+msgid "Новый заказ"
+msgstr "Новый заказ"
+
+#: templates/dashboard/orders.html:23
+msgid "Все"
+msgstr "Все"
+
+#: templates/dashboard/orders.html:69
+msgid "дней"
+msgstr "дней"
+
+#: templates/dashboard/orders.html:121
+msgid "Заказов пока нет"
+msgstr "Заказов пока нет"
+
+#: templates/dashboard/orders.html:122
+msgid "Выберите инструмент из каталога и создайте свой первый заказ на аренду"
+msgstr ""
+"Выберите инструмент из каталога и создайте свой первый заказ на аренду"
+
+#: templates/dashboard/profile.html:9
+msgid "Настройки профиля"
+msgstr "Настройки профиля"
+
+#: templates/dashboard/profile.html:10
+msgid "Управление вашим аккаунтом"
+msgstr "Управление вашим аккаунтом"
+
+#: templates/dashboard/profile.html:19
+msgid "Личные данные"
+msgstr "Личные данные"
+
+#: templates/dashboard/profile.html:25
+msgid "Имя"
+msgstr "Имя"
+
+#: templates/dashboard/profile.html:29
+msgid "Введите имя"
+msgstr "Введите имя"
+
+#: templates/dashboard/profile.html:35
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: templates/dashboard/profile.html:39
+msgid "Введите фамилию"
+msgstr "Введите фамилию"
+
+#: templates/dashboard/profile.html:46
+#: templates/rentals/create_request.html:67
+msgid "Телефон"
+msgstr "Телефон"
+
+#: templates/dashboard/profile.html:59
+msgid "Получать уведомления о заказах"
+msgstr "Получать уведомления о заказах"
+
+#: templates/dashboard/profile.html:66
+msgid "Сохранить изменения"
+msgstr "Сохранить изменения"
+
+#: templates/dashboard/profile.html:92
+msgid "Дата регистрации"
+msgstr "Дата регистрации"
+
+#: templates/home.html:47
+msgid "Аренда"
+msgstr "Аренда"
+
+#: templates/home.html:50
+msgid "строительных"
+msgstr "строительных"
+
+#: templates/home.html:60
+msgid "Профессиональное оборудование для любых задач."
+msgstr "Профессиональное оборудование для любых задач."
+
+#: templates/home.html:61
+msgid "Качественный инструмент"
+msgstr "Качественный инструмент"
+
+#: templates/home.html:61
+msgid "по доступным ценам с"
+msgstr "по доступным ценам с"
+
+#: templates/home.html:62
+msgid "бесплатной доставкой"
+msgstr "бесплатной доставкой"
+
+#: templates/home.html:62
+msgid "по всей стране."
+msgstr "по всей стране."
+
+#: templates/home.html:89
 msgid "Позвонить нам"
 msgstr "Позвонить нам"
 
-#: templates/home.html:128 templates/home.html:318
+#: templates/home.html:101 templates/home.html:279
 msgid "Единиц техники"
 msgstr "Единиц техники"
 
-#: templates/home.html:135 templates/home.html:329
+#: templates/home.html:110 templates/home.html:290
 msgid "Довольных клиентов"
 msgstr "Довольных клиентов"
 
-#: templates/home.html:142
-msgid "Лет опыта"
-msgstr "Лет опыта"
+#: templates/home.html:117 templates/home.html:298
+msgid " лет"
+msgstr " лет"
 
-#: templates/home.html:178 templates/includes/footer.html:100
+#: templates/home.html:119 templates/home.html:301
+msgid "На рынке"
+msgstr "На рынке"
+
+#: templates/home.html:155
 msgid "О компании"
 msgstr "О компании"
 
-#: templates/home.html:181
+#: templates/home.html:158
 msgid "Почему выбирают"
 msgstr "Почему выбирают"
 
-#: templates/home.html:184
+#: templates/home.html:161
 msgid ""
 "Мы предоставляем профессиональное строительное оборудование в аренду уже "
 "более 5 лет, обеспечивая качество и надёжность для каждого клиента."
 msgstr ""
+"Мы предоставляем профессиональное строительное оборудование в аренду уже "
+"более 5 лет, обеспечивая качество и надёжность для каждого клиента."
 
-#: templates/home.html:197
+#: templates/home.html:172
 msgid "Проверенное качество"
 msgstr "Проверенное качество"
 
-#: templates/home.html:199
+#: templates/home.html:174
 msgid ""
 "Весь инструмент проходит тщательную проверку перед каждой арендой. Мы "
 "гарантируем исправность и надёжность оборудования."
 msgstr ""
+"Весь инструмент проходит тщательную проверку перед каждой арендой. Мы "
+"гарантируем исправность и надёжность оборудования."
 
-#: templates/home.html:210
+#: templates/home.html:183
 msgid "Доступные цены"
 msgstr "Доступные цены"
 
-#: templates/home.html:212
+#: templates/home.html:185
 msgid ""
 "Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при "
 "длительной аренде и для постоянных клиентов."
 msgstr ""
+"Конкурентные цены на рынке аренды инструментов. Гибкая система скидок при "
+"длительной аренде и для постоянных клиентов."
 
-#: templates/home.html:223
+#: templates/home.html:194
 msgid "Быстрая доставка"
 msgstr "Быстрая доставка"
 
-#: templates/home.html:225
+#: templates/home.html:196
 msgid ""
-"Доставляем инструменты по всей Молдове. Возможен самовывоз из нашего офиса в "
-"Кишинёве или доставка на объект."
+"Доставляем инструменты по всей Молдове. Возможен самовывоз из нашего офиса в"
+" Кишинёве или доставка на объект."
 msgstr ""
+"Доставляем инструменты по всей Молдове. Возможен самовывоз из нашего офиса в"
+" Кишинёве или доставка на объект."
 
-#: templates/home.html:236
+#: templates/home.html:205
 msgid "Опытная команда"
 msgstr "Опытная команда"
 
-#: templates/home.html:238
+#: templates/home.html:207
 msgid ""
 "Наши специалисты помогут подобрать подходящий инструмент и проконсультируют "
 "по вопросам эксплуатации."
 msgstr ""
+"Наши специалисты помогут подобрать подходящий инструмент и проконсультируют "
+"по вопросам эксплуатации."
 
-#: templates/home.html:249
+#: templates/home.html:216
 msgid "Простое оформление"
 msgstr "Простое оформление"
 
-#: templates/home.html:251
+#: templates/home.html:218
 msgid ""
-"Минимум документов и быстрое оформление аренды. Онлайн-бронирование доступно "
-"круглосуточно."
+"Минимум документов и быстрое оформление аренды. Онлайн-бронирование доступно"
+" круглосуточно."
 msgstr ""
+"Минимум документов и быстрое оформление аренды. Онлайн-бронирование доступно"
+" круглосуточно."
 
-#: templates/home.html:262
+#: templates/home.html:227
 msgid "Забота о клиентах"
 msgstr "Забота о клиентах"
 
-#: templates/home.html:264
+#: templates/home.html:229
 msgid ""
 "Индивидуальный подход к каждому заказу. Техническая поддержка на протяжении "
 "всего срока аренды."
 msgstr ""
+"Индивидуальный подход к каждому заказу. Техническая поддержка на протяжении "
+"всего срока аренды."
 
-#: templates/home.html:275
+#: templates/home.html:240
 msgid "Готовы начать работу?"
 msgstr "Готовы начать работу?"
 
-#: templates/home.html:278
+#: templates/home.html:243
 msgid "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 msgstr "Выберите инструмент из каталога или свяжитесь с нами для консультации"
 
-#: templates/home.html:337
-msgid " лет"
-msgstr ""
-
-#: templates/home.html:340
-msgid "На рынке"
-msgstr "На рынке"
-
-#: templates/home.html:355
+#: templates/home.html:316
 msgid "Категории инструментов"
 msgstr "Категории инструментов"
 
-#: templates/home.html:356
+#: templates/home.html:317
 msgid "Выберите нужную категорию и найдите подходящий инструмент"
 msgstr "Выберите нужную категорию и найдите подходящий инструмент"
 
-#: templates/home.html:378
+#: templates/home.html:335
 msgid "Категории скоро появятся"
 msgstr "Категории скоро появятся"
 
-#: templates/home.html:396
+#: templates/home.html:353
 msgid "Популярное"
 msgstr "Популярное"
 
-#: templates/home.html:399
+#: templates/home.html:356
 msgid "Самые востребованные инструменты для аренды"
 msgstr "Самые востребованные инструменты для аренды"
 
-#: templates/home.html:442
-msgid "/ Zi"
-msgstr ""
+#: templates/home.html:399
+msgid "/ день"
+msgstr "/ день"
 
-#: templates/home.html:459
+#: templates/home.html:414
 msgid "Инструменты скоро появятся"
 msgstr "Инструменты скоро появятся"
 
-#: templates/home.html:460
+#: templates/home.html:415
 msgid "Мы активно наполняем каталог"
 msgstr "Мы активно наполняем каталог"
 
-#: templates/home.html:469
+#: templates/home.html:424
 msgid "Смотреть все инструменты"
 msgstr "Смотреть все инструменты"
 
-#: templates/home.html:490
+#: templates/home.html:443
 msgid "Процесс"
 msgstr "Процесс"
 
-#: templates/home.html:492
+#: templates/home.html:445
 msgid "Как это работает"
 msgstr "Как это работает"
 
-#: templates/home.html:493
+#: templates/home.html:446
 msgid "Простой процесс аренды в 4 шага"
 msgstr "Простой процесс аренды в 4 шага"
 
-#: templates/home.html:510
+#: templates/home.html:460
 msgid "Выберите"
 msgstr "Выберите"
 
-#: templates/home.html:511
+#: templates/home.html:461
 msgid "Найдите нужный инструмент в каталоге"
 msgstr "Найдите нужный инструмент в каталоге"
 
-#: templates/home.html:528
+#: templates/home.html:473
 msgid "Забронируйте"
 msgstr "Забронируйте"
 
-#: templates/home.html:529
+#: templates/home.html:474
 msgid "Укажите даты и оставьте заявку"
 msgstr "Укажите даты и оставьте заявку"
 
-#: templates/home.html:543
+#: templates/home.html:486
 msgid "Подтвердите"
 msgstr "Подтвердите"
 
-#: templates/home.html:544
+#: templates/home.html:487
 msgid "Мы свяжемся для подтверждения"
 msgstr "Мы свяжемся для подтверждения"
 
-#: templates/home.html:555
+#: templates/home.html:496
 msgid "Получите"
 msgstr "Получите"
 
-#: templates/home.html:556
+#: templates/home.html:497
 msgid "Заберите или закажите доставку"
 msgstr "Заберите или закажите доставку"
 
-#: templates/home.html:677
+#: templates/home.html:632
 msgid "Онлайн 24/7"
 msgstr "Онлайн 24/7"
 
-#: templates/home.html:681
+#: templates/home.html:636
 msgid "Нужна консультация?"
 msgstr "Нужна консультация?"
 
-#: templates/home.html:684
+#: templates/home.html:639
 msgid ""
 "Поможем подобрать инструмент для вашей задачи. Звоните или оставьте заявку!"
 msgstr ""
+"Поможем подобрать инструмент для вашей задачи. Звоните или оставьте заявку!"
 
-#: templates/includes/footer.html:17
-msgid "Профессиональное оборудование для любых строительных задач."
-msgstr "Профессиональное оборудование для любых строительных задач."
-
-#: templates/includes/footer.html:58
-msgid "Все инструменты"
-msgstr "Все инструменты"
-
-#: templates/includes/footer.html:66
-msgid "Электроинструменты"
-msgstr "Электроинструменты"
-
-#: templates/includes/footer.html:74
-msgid "Ручной инструмент"
-msgstr "Ручной инструмент"
-
-#: templates/includes/footer.html:82
-msgid "Строительное оборудование"
-msgstr "Строительное оборудование"
-
-#: templates/includes/footer.html:92
-msgid "Информация"
-msgstr "Информация"
-
-#: templates/includes/footer.html:124 templates/includes/footer.html:134
-#: templates/includes/header.html:67 templates/includes/header.html:231
-msgid "Контакты"
-msgstr "Контакты"
-
-#: templates/includes/footer.html:177
+#: templates/includes/footer.html:140
 msgid "Все права защищены."
 msgstr "Все права защищены."
 
-#: templates/includes/header.html:34
-msgid "Аренда инструментов"
-msgstr "Аренда инструментов"
+#: templates/rentals/create_request.html:19
+#: templates/rentals/create_request.html:22
+msgid "Оформление аренды"
+msgstr "Оформление аренды"
 
-#: templates/includes/header.html:60 templates/includes/header.html:223
-msgid "О нас"
-msgstr "О нас"
-
-#: templates/rentals/create_request.html:46
+#: templates/rentals/create_request.html:49
 msgid "Иван Иванов"
 msgstr "Иван Иванов"
 
-#: templates/rentals/create_request.html:101
-msgid "Дополнительные пожелания..."
-msgstr "Дополнительные пожелания..."
+#: templates/rentals/create_request.html:109
+msgid "Загрузите фото удостоверения личности"
+msgstr "Загрузите фото удостоверения личности"
 
-#: templates/rentals/create_request.html:139
+#: templates/rentals/create_request.html:114
+msgid "Комментарий"
+msgstr "Комментарий"
+
+#: templates/rentals/create_request.html:126
+#: templates/rentals/request_success.html:31
+msgid "Количество дней"
+msgstr "Количество дней"
+
+#: templates/rentals/create_request.html:136
+msgid "Итого к оплате"
+msgstr "Итого к оплате"
+
+#: templates/rentals/create_request.html:151
 msgid "Отправить заявку"
 msgstr "Отправить заявку"
 
-#: templates/rentals/create_request.html:144
+#: templates/rentals/create_request.html:156
 msgid "Отправляя заявку, вы соглашаетесь с условиями аренды"
 msgstr "Отправляя заявку, вы соглашаетесь с условиями аренды"
 
-#: venv/lib/python3.12/site-packages/django/contrib/messages/apps.py:16
-msgid "Messages"
-msgstr ""
+#: templates/rentals/request_success.html:4
+msgid "Заявка отправлена"
+msgstr "Заявка отправлена"
 
-#: venv/lib/python3.12/site-packages/django/contrib/sitemaps/apps.py:8
-msgid "Site Maps"
-msgstr ""
+#: templates/rentals/request_success.html:14
+msgid "Заявка отправлена!"
+msgstr "Заявка отправлена!"
 
-#: venv/lib/python3.12/site-packages/django/contrib/staticfiles/apps.py:9
-msgid "Static Files"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/contrib/syndication/apps.py:7
-msgid "Syndication"
-msgstr ""
-
-#. Translators: String used to replace omitted page numbers in elided page
-#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
-#: venv/lib/python3.12/site-packages/django/core/paginator.py:30
-msgid "…"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/paginator.py:32
-msgid "That page number is not an integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/paginator.py:33
-msgid "That page number is less than 1"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/paginator.py:34
-msgid "That page contains no results"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:22
-msgid "Enter a valid value."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:70
-msgid "Enter a valid domain name."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:153
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:775
-msgid "Enter a valid URL."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:200
-msgid "Enter a valid integer."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:211
-msgid "Enter a valid email address."
-msgstr ""
-
-#. Translators: "letters" means latin letters: a-z and A-Z.
-#: venv/lib/python3.12/site-packages/django/core/validators.py:289
-msgid ""
-"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:297
-msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:309
-#: venv/lib/python3.12/site-packages/django/core/validators.py:318
-#: venv/lib/python3.12/site-packages/django/core/validators.py:332
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2220
-#, python-format
-msgid "Enter a valid %(protocol)s address."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:311
-msgid "IPv4"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:320
-#: venv/lib/python3.12/site-packages/django/utils/ipv6.py:43
-msgid "IPv6"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:334
-msgid "IPv4 or IPv6"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:375
-msgid "Enter only digits separated by commas."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:381
-#, python-format
-msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:416
-#, python-format
-msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:425
-#, python-format
-msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:434
-#, python-format
-msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:441
-#, python-format
-msgid ""
-"Ensure this value is a multiple of step size %(limit_value)s, starting from "
-"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:473
-#, python-format
-msgid ""
-"Ensure this value has at least %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at least %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:491
-#, python-format
-msgid ""
-"Ensure this value has at most %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at most %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:514
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:366
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:405
-msgid "Enter a number."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:516
-#, python-format
-msgid "Ensure that there are no more than %(max)s digit in total."
-msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:521
-#, python-format
-msgid "Ensure that there are no more than %(max)s decimal place."
-msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:526
-#, python-format
-msgid ""
-"Ensure that there are no more than %(max)s digit before the decimal point."
-msgid_plural ""
-"Ensure that there are no more than %(max)s digits before the decimal point."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:597
-#, python-format
-msgid ""
-"File extension “%(extension)s” is not allowed. Allowed extensions are: "
-"%(allowed_extensions)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/core/validators.py:659
-msgid "Null characters are not allowed."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/base.py:1600
-#: venv/lib/python3.12/site-packages/django/forms/models.py:908
-msgid "and"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/base.py:1602
-#, python-format
-msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/constraints.py:22
-#, python-format
-msgid "Constraint “%(name)s” is violated."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:134
-#, python-format
-msgid "Value %(value)r is not a valid choice."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:135
-msgid "This field cannot be null."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:136
-msgid "This field cannot be blank."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:137
-#, python-format
-msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr ""
-
-#. Translators: The 'lookup_type' is one of 'date', 'year' or
-#. 'month'. Eg: "Title must be unique for pub_date year"
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:141
-#, python-format
-msgid ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:180
-#, python-format
-msgid "Field of type: %(field_type)s"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1162
-#, python-format
-msgid "“%(value)s” value must be either True or False."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1163
-#, python-format
-msgid "“%(value)s” value must be either True, False, or None."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1165
-msgid "Boolean (Either True or False)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1215
-#, python-format
-msgid "String (up to %(max_length)s)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1217
-msgid "String (unlimited)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1326
-msgid "Comma-separated integers"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1427
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
-"format."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1431
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1566
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
-"date."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1435
-msgid "Date (without time)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1562
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1570
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1575
-msgid "Date (with time)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1702
-#, python-format
-msgid "“%(value)s” value must be a decimal number."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1704
-msgid "Decimal number"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1864
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
-"uuuuuu] format."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1868
-msgid "Duration"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
-msgid "Email address"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1945
-msgid "File path"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2023
-#, python-format
-msgid "“%(value)s” value must be a float."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2025
-msgid "Floating point number"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2065
-#, python-format
-msgid "“%(value)s” value must be an integer."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2067
-msgid "Integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2163
-msgid "Big (8 byte) integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2180
-msgid "Small integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2188
-msgid "IPv4 address"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2219
-msgid "IP address"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2310
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2311
-#, python-format
-msgid "“%(value)s” value must be either None, True or False."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2313
-msgid "Boolean (Either True, False or None)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2364
-msgid "Positive big integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2379
-msgid "Positive integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2394
-msgid "Positive small integer"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2410
-#, python-format
-msgid "Slug (up to %(max_length)s)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2446
-msgid "Text"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2526
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-"format."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2530
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-"invalid time."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2534
-msgid "Time"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2666
-msgid "Raw binary data"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2731
-#, python-format
-msgid "“%(value)s” is not a valid UUID."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2733
-msgid "Universally unique identifier"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/files.py:244
-msgid "File"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/files.py:420
-msgid "Image"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/json.py:24
-msgid "A JSON object"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/json.py:26
-msgid "Value must be valid JSON."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:979
-#, python-format
-msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:982
-msgid "Foreign Key (type determined by related field)"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:1276
-msgid "One-to-one relationship"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:1333
-#, python-format
-msgid "%(from)s-%(to)s relationship"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:1335
-#, python-format
-msgid "%(from)s-%(to)s relationships"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:1383
-msgid "Many-to-many relationship"
-msgstr ""
-
-#. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
-#: venv/lib/python3.12/site-packages/django/forms/boundfield.py:185
-msgid ":?.!"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:95
-msgid "This field is required."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:315
-msgid "Enter a whole number."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:486
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1267
-msgid "Enter a valid date."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:509
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1268
-msgid "Enter a valid time."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:536
-msgid "Enter a valid date/time."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:570
-msgid "Enter a valid duration."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:571
-#, python-brace-format
-msgid "The number of days must be between {min_days} and {max_days}."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:640
-msgid "No file was submitted. Check the encoding type on the form."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:641
-msgid "No file was submitted."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:642
-msgid "The submitted file is empty."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:644
-#, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
-msgid_plural ""
-"Ensure this filename has at most %(max)d characters (it has %(length)d)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:649
-msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:717
-msgid ""
-"Upload a valid image. The file you uploaded was either not an image or a "
-"corrupted image."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:889
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:975
-#: venv/lib/python3.12/site-packages/django/forms/models.py:1592
-#, python-format
-msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:977
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1096
-#: venv/lib/python3.12/site-packages/django/forms/models.py:1590
-msgid "Enter a list of values."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1097
-msgid "Enter a complete value."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1339
-msgid "Enter a valid UUID."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/fields.py:1369
-msgid "Enter a valid JSON."
-msgstr ""
-
-#. Translators: This is the default suffix added to form field labels
-#: venv/lib/python3.12/site-packages/django/forms/forms.py:97
-msgid ":"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/forms.py:239
-#, python-format
-msgid "(Hidden field %(name)s) %(error)s"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:61
-#, python-format
-msgid ""
-"ManagementForm data is missing or has been tampered with. Missing fields: "
-"%(field_names)s. You may need to file a bug report if the issue persists."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:65
-#, python-format
-msgid "Please submit at most %(num)d form."
-msgid_plural "Please submit at most %(num)d forms."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:70
-#, python-format
-msgid "Please submit at least %(num)d form."
-msgid_plural "Please submit at least %(num)d forms."
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:484
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:491
-msgid "Order"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/formsets.py:499
-msgid "Delete"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:901
-#, python-format
-msgid "Please correct the duplicate data for %(field)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:906
-#, python-format
-msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:913
-#, python-format
-msgid ""
-"Please correct the duplicate data for %(field_name)s which must be unique "
-"for the %(lookup)s in %(date_field)s."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:922
-msgid "Please correct the duplicate values below."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:1359
-msgid "The inline value did not match the parent instance."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:1450
-msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/models.py:1594
-#, python-format
-msgid "“%(pk)s” is not a valid value."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/utils.py:229
-#, python-format
-msgid ""
-"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
-"may be ambiguous or it may not exist."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:527
-msgid "Clear"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:528
-msgid "Currently"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:529
-msgid "Change"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:866
-msgid "Unknown"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:867
-msgid "Yes"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:868
-msgid "No"
-msgstr ""
-
-#. Translators: Please do not add spaces around commas.
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:873
-msgid "yes,no,maybe"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:903
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:920
-#, python-format
-msgid "%(size)d byte"
-msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:922
-#, python-format
-msgid "%s KB"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:924
-#, python-format
-msgid "%s MB"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:926
-#, python-format
-msgid "%s GB"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:928
-#, python-format
-msgid "%s TB"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:930
-#, python-format
-msgid "%s PB"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:74
-msgid "p.m."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:75
-msgid "a.m."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:80
-msgid "PM"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:81
-msgid "AM"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:153
-msgid "midnight"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dateformat.py:155
-msgid "noon"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:7
-msgid "Monday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:8
-msgid "Tuesday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:9
-msgid "Wednesday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:10
-msgid "Thursday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:11
-msgid "Friday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:12
-msgid "Saturday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:13
-msgid "Sunday"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:16
-msgid "Mon"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:17
-msgid "Tue"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:18
-msgid "Wed"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:19
-msgid "Thu"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:20
-msgid "Fri"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:21
-msgid "Sat"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:22
-msgid "Sun"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:25
-msgid "January"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:26
-msgid "February"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:27
-msgid "March"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:28
-msgid "April"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:29
-msgid "May"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:30
-msgid "June"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:31
-msgid "July"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:32
-msgid "August"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:33
-msgid "September"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:34
-msgid "October"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:35
-msgid "November"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:36
-msgid "December"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:39
-msgid "jan"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:40
-msgid "feb"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:41
-msgid "mar"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:42
-msgid "apr"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:43
-msgid "may"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:44
-msgid "jun"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:45
-msgid "jul"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:46
-msgid "aug"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:47
-msgid "sep"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:48
-msgid "oct"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:49
-msgid "nov"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:50
-msgid "dec"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:53
-msgctxt "abbrev. month"
-msgid "Jan."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:54
-msgctxt "abbrev. month"
-msgid "Feb."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:55
-msgctxt "abbrev. month"
-msgid "March"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:56
-msgctxt "abbrev. month"
-msgid "April"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:57
-msgctxt "abbrev. month"
-msgid "May"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:58
-msgctxt "abbrev. month"
-msgid "June"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:59
-msgctxt "abbrev. month"
-msgid "July"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:60
-msgctxt "abbrev. month"
-msgid "Aug."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:61
-msgctxt "abbrev. month"
-msgid "Sept."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:62
-msgctxt "abbrev. month"
-msgid "Oct."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:63
-msgctxt "abbrev. month"
-msgid "Nov."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:64
-msgctxt "abbrev. month"
-msgid "Dec."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:67
-msgctxt "alt. month"
-msgid "January"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:68
-msgctxt "alt. month"
-msgid "February"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:69
-msgctxt "alt. month"
-msgid "March"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:70
-msgctxt "alt. month"
-msgid "April"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:71
-msgctxt "alt. month"
-msgid "May"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:72
-msgctxt "alt. month"
-msgid "June"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:73
-msgctxt "alt. month"
-msgid "July"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:74
-msgctxt "alt. month"
-msgid "August"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:75
-msgctxt "alt. month"
-msgid "September"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:76
-msgctxt "alt. month"
-msgid "October"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:77
-msgctxt "alt. month"
-msgid "November"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/dates.py:78
-msgctxt "alt. month"
-msgid "December"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/ipv6.py:20
-msgid "This is not a valid IPv6 address."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/text.py:76
-#, python-format
-msgctxt "String to return when truncating text"
-msgid "%(truncated_text)s…"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/text.py:287
-msgid "or"
-msgstr ""
-
-#. Translators: This string is used as a separator between list elements
-#: venv/lib/python3.12/site-packages/django/utils/text.py:306
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:135
-msgid ", "
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:8
-#, python-format
-msgid "%(num)d year"
-msgid_plural "%(num)d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:9
-#, python-format
-msgid "%(num)d month"
-msgid_plural "%(num)d months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:10
-#, python-format
-msgid "%(num)d week"
-msgid_plural "%(num)d weeks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:11
-#, python-format
-msgid "%(num)d day"
-msgid_plural "%(num)d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:12
-#, python-format
-msgid "%(num)d hour"
-msgid_plural "%(num)d hours"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/utils/timesince.py:13
-#, python-format
-msgid "%(num)d minute"
-msgid_plural "%(num)d minutes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:29
-msgid "Forbidden"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:30
-msgid "CSRF verification failed. Request aborted."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:34
-msgid ""
-"You are seeing this message because this HTTPS site requires a “Referer "
-"header” to be sent by your web browser, but none was sent. This header is "
-"required for security reasons, to ensure that your browser is not being "
-"hijacked by third parties."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:40
-msgid ""
-"If you have configured your browser to disable “Referer” headers, please re-"
-"enable them, at least for this site, or for HTTPS connections, or for “same-"
-"origin” requests."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:45
-msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" …> for links to third-party sites."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:54
-msgid ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:60
-msgid ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for “same-origin” requests."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/csrf.py:66
-msgid "More information is available with DEBUG=True."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:44
-msgid "No year specified"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:64
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:115
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:214
-msgid "Date out of range"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:94
-msgid "No month specified"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:147
-msgid "No day specified"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:194
-msgid "No week specified"
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:353
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:384
+#: templates/rentals/request_success.html:17
 #, python-format
-msgid "No %(verbose_name_plural)s available"
-msgstr ""
+msgid "Ваша заявка <strong>#%(number)s</strong> успешно создана."
+msgstr "Ваша заявка <strong>#%(number)s</strong> успешно создана."
 
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:680
-#, python-format
-msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/views/generic/dates.py:720
-#, python-format
-msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr ""
+#: templates/rentals/request_success.html:18
+msgid "Мы свяжемся с вами в ближайшее время для подтверждения."
+msgstr "Мы свяжемся с вами в ближайшее время для подтверждения."
 
-#: venv/lib/python3.12/site-packages/django/views/generic/detail.py:56
-#, python-format
-msgid "No %(verbose_name)s found matching the query"
-msgstr ""
+#: templates/rentals/request_success.html:23
+msgid "Инструмент"
+msgstr "Инструмент"
 
-#: venv/lib/python3.12/site-packages/django/views/generic/list.py:70
-msgid "Page is not “last”, nor can it be converted to an int."
-msgstr ""
+#: templates/rentals/request_success.html:42
+msgid "Продолжить выбор"
+msgstr "Продолжить выбор"
 
-#: venv/lib/python3.12/site-packages/django/views/generic/list.py:77
-#, python-format
-msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr ""
+#: templates/rentals/request_success.html:46
+msgid "Мои заявки"
+msgstr "Мои заявки"
 
-#: venv/lib/python3.12/site-packages/django/views/generic/list.py:173
-#, python-format
-msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr ""
+#: templates/rentals/request_success.html:52
+msgid "Если у вас есть вопросы, звоните:"
+msgstr "Если у вас есть вопросы, звоните:"
 
-#: venv/lib/python3.12/site-packages/django/views/static.py:49
-msgid "Directory indexes are not allowed here."
-msgstr ""
+#~ msgid "Работаем по всей Молдове"
+#~ msgstr "Работаем по всей Молдове"
 
-#: venv/lib/python3.12/site-packages/django/views/static.py:51
-#, python-format
-msgid "“%(path)s” does not exist"
-msgstr ""
+#~ msgid "Найти"
+#~ msgstr "Найти"
 
-#: venv/lib/python3.12/site-packages/django/views/static.py:68
-#: venv/lib/python3.12/site-packages/django/views/templates/directory_index.html:8
-#: venv/lib/python3.12/site-packages/django/views/templates/directory_index.html:11
-#, python-format
-msgid "Index of %(directory)s"
-msgstr ""
+#~ msgid "Редактировать профиль"
+#~ msgstr "Редактировать профиль"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:7
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:204
-msgid "The install worked successfully! Congratulations!"
-msgstr ""
+#~ msgid "Лет опыта"
+#~ msgstr "Лет опыта"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:206
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
+#~ msgid "Профессиональное оборудование для любых строительных задач."
+#~ msgstr "Профессиональное оборудование для любых строительных задач."
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:208
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
-msgstr ""
+#~ msgid "Все инструменты"
+#~ msgstr "Все инструменты"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:217
-msgid "Django Documentation"
-msgstr ""
+#~ msgid "Электроинструменты"
+#~ msgstr "Электроинструменты"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:218
-msgid "Topics, references, &amp; how-to’s"
-msgstr ""
+#~ msgid "Ручной инструмент"
+#~ msgstr "Ручной инструмент"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:226
-msgid "Tutorial: A Polling App"
-msgstr ""
+#~ msgid "Строительное оборудование"
+#~ msgstr "Строительное оборудование"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:227
-msgid "Get started with Django"
-msgstr ""
+#~ msgid "Информация"
+#~ msgstr "Информация"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:235
-msgid "Django Community"
-msgstr ""
+#~ msgid "Контакты"
+#~ msgstr "Контакты"
 
-#: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
-msgid "Connect, get help, or contribute"
-msgstr ""
+#~ msgid "О нас"
+#~ msgstr "О нас"
 
 #~ msgid "Популярные"
 #~ msgstr "Популярные"
 
 #~ msgid "Перфоратор Bosch"
 #~ msgstr "Перфоратор Bosch"
-
-#~ msgid "Профессиональный"
-#~ msgstr "Профессиональный"
-
-#~ msgid "/ день"
-#~ msgstr "/ день"
 
 #~ msgid "Болгарка Makita"
 #~ msgstr "Болгарка Makita"
@@ -2349,68 +2015,8 @@ msgstr ""
 #~ msgid "клиентов"
 #~ msgstr "клиентов"
 
-#~ msgid "Условия аренды"
-#~ msgstr "Условия аренды"
-
 #~ msgid "Доставка"
 #~ msgstr "Доставка"
 
-#~ msgid "Политика конфиденциальности"
-#~ msgstr "Политика конфиденциальности"
-
-#~ msgid "Условия использования"
-#~ msgstr "Условия использования"
-
 #~ msgid "лет"
 #~ msgstr "лет"
-
-# Privacy Policy page translations
-msgid "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
-msgstr "уважает конфиденциальность персональных данных своих пользователей и обязуется защищать их в соответствии с действующим законодательством Республики Молдова."
-
-msgid "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных."
-msgstr "применяет технические и организационные меры для предотвращения несанкционированного доступа, потери или разглашения персональных данных."
-
-msgid "Персональные данные"
-msgstr "Персональные данные"
-
-msgid "не продаются и не передаются третьим лицам"
-msgstr "не продаются и не передаются третьим лицам"
-
-msgid ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)."
-msgstr ", за исключением случаев, предусмотренных законом или необходимых для оказания услуг (например, доставка)."
-
-msgid "Ваши права"
-msgstr "Ваши права"
-
-msgid "Вы имеете право:"
-msgstr "Вы имеете право:"
-
-msgid "Запросить доступ к своим персональным данным"
-msgstr "Запросить доступ к своим персональным данным"
-
-msgid "Требовать исправления неточных данных"
-msgstr "Требовать исправления неточных данных"
-
-msgid "Запросить удаление ваших данных"
-msgstr "Запросить удаление ваших данных"
-
-msgid "Отозвать согласие на обработку данных"
-msgstr "Отозвать согласие на обработку данных"
-
-# Terms of Service page translations (blocktrans)
-#, python-brace-format
-msgid "Используя сайт <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и положениями."
-msgstr "Используя сайт <span class=\"text-brand-yellow font-semibold\">%(site_name)s</span>, вы соглашаетесь со следующими условиями и положениями."
-
-#, python-brace-format
-msgid "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> предоставляет услуги аренды строительного инструмента физическим и юридическим лицам на территории Республики Молдова."
-msgstr "<span class=\"text-brand-yellow font-semibold\">%(site_name)s</span> предоставляет услуги аренды строительного инструмента физическим и юридическим лицам на территории Республики Молдова."
-
-#, python-brace-format
-msgid "%(site_name)s оставляет за собой право отказать в заказе"
-msgstr "%(site_name)s оставляет за собой право отказать в заказе"
-
-#, python-brace-format
-msgid "%(site_name)s не несет ответственности за:"
-msgstr "%(site_name)s не несет ответственности за:"

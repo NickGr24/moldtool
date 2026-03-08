@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+            @bottom-center {
+                content: "{{ SITE_NAME }} | {{ SITE_ADDRESS }} | {{ SITE_PHONE }}";
+                font-size: 8pt;
+                color: #999;
+            }
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #F5A623;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .company-name {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #E53935;
+            margin: 0;
+        }
+
+        .company-tagline {
+            font-size: 10pt;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .company-details {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 16pt;
+            color: #333;
+            margin: 25px 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .invoice-number {
+            text-align: center;
+            font-size: 11pt;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #E53935;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin: 25px 0 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        table td, table th {
+            padding: 7px 10px;
+            border: 1px solid #ddd;
+            font-size: 10pt;
+        }
+
+        table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        table td:first-child {
+            width: 40%;
+            background-color: #f9f9f9;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* Items table */
+        .items-table th {
+            background-color: #E53935;
+            color: #fff;
+            font-size: 10pt;
+            text-align: center;
+        }
+
+        .items-table td {
+            background-color: #fff;
+            font-weight: normal;
+            color: #333;
+            text-align: center;
+        }
+
+        .items-table td:first-child {
+            background-color: #fff;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .items-table td:last-child {
+            font-weight: bold;
+        }
+
+        /* Totals */
+        .totals-table {
+            width: 50%;
+            margin-left: auto;
+            margin-top: 15px;
+        }
+
+        .totals-table td {
+            background-color: #fff;
+            font-weight: normal;
+            color: #333;
+        }
+
+        .totals-table td:first-child {
+            background-color: #f9f9f9;
+            width: 55%;
+        }
+
+        .totals-table td:last-child {
+            text-align: right;
+        }
+
+        .totals-table .grand-total td {
+            font-weight: bold;
+            font-size: 12pt;
+            background-color: #FFF8E1;
+        }
+
+        .totals-table .grand-total td:last-child {
+            color: #E53935;
+        }
+
+        /* Payment info */
+        .payment-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-left: 4px solid #F5A623;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 4px;
+        }
+
+        .payment-box p {
+            margin: 3px 0;
+            font-size: 10pt;
+            color: #333;
+        }
+
+        .payment-box .label {
+            color: #888;
+            display: inline-block;
+            width: 130px;
+        }
+
+        /* Notes */
+        .notes {
+            font-size: 9pt;
+            color: #555;
+            margin-top: 25px;
+        }
+
+        .notes ol {
+            padding-left: 20px;
+        }
+
+        .notes li {
+            margin-bottom: 4px;
+        }
+
+        .stamp-area {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stamp-block {
+            width: 45%;
+            text-align: center;
+        }
+
+        .stamp-label {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 5px;
+        }
+
+        .stamp-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+            font-size: 9pt;
+            color: #888;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 4px;
+            font-size: 10pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: #FFF3E0;
+            color: #E65100;
+            border: 1px solid #FFB74D;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <div class="company-name">{{ SITE_NAME }}</div>
+            <div class="company-tagline">{{ SITE_TAGLINE }}</div>
+        </div>
+        <div class="company-details">
+            {{ SITE_ADDRESS }}<br>
+            Tel: {{ SITE_PHONE }}<br>
+            Email: {{ SITE_EMAIL }}
+        </div>
+    </div>
+
+    <!-- Title -->
+    <h1>Factura pentru achitare</h1>
+    <div class="invoice-number">
+        Nr. {{ rental.number }} din {{ rental.created_at|date:"d.m.Y" }}
+        <br>
+        <span class="status-badge">Spre achitare</span>
+    </div>
+
+    <!-- Client details -->
+    <div class="section-title">Datele clientului</div>
+    <table>
+        <tr>
+            <td>Numele complet</td>
+            <td>{{ rental.customer_name }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ rental.customer_email }}</td>
+        </tr>
+        <tr>
+            <td>Telefon</td>
+            <td>{{ rental.customer_phone }}</td>
+        </tr>
+    </table>
+
+    <!-- Items -->
+    <div class="section-title">Servicii prestate</div>
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th style="width: 5%; text-align: center;">Nr.</th>
+                <th style="width: 40%; text-align: left;">Denumirea</th>
+                <th style="width: 15%;">Perioada</th>
+                <th style="width: 10%;">Zile</th>
+                <th style="width: 15%;">Preț/zi</th>
+                <th style="width: 15%;">Suma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: left;">
+                    Închiriere: {{ tool.name }}{% if tool.brand %} ({{ tool.brand }}){% endif %}
+                </td>
+                <td>{{ rental.start_date|date:"d.m" }} — {{ rental.end_date|date:"d.m.Y" }}</td>
+                <td>{{ rental.total_days }}</td>
+                <td>{{ rental.price_per_day }} MDL</td>
+                <td>{{ rental.total_price }} MDL</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Totals -->
+    <table class="totals-table">
+        <tr>
+            <td>Subtotal</td>
+            <td>{{ rental.total_price }} MDL</td>
+        </tr>
+        {% if rental.deposit_amount %}
+        <tr>
+            <td>Garanție (depozit)</td>
+            <td>{{ rental.deposit_amount }} MDL</td>
+        </tr>
+        <tr class="grand-total">
+            <td>Total de achitat</td>
+            <td>{{ total_with_deposit }} MDL</td>
+        </tr>
+        {% else %}
+        <tr class="grand-total">
+            <td>Total de achitat</td>
+            <td>{{ rental.total_price }} MDL</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <!-- Payment info -->
+    <div class="payment-box">
+        <p style="font-weight: bold; margin-bottom: 8px;">Modalități de achitare:</p>
+        <p><span class="label">Numerar:</span> La sediul companiei sau la livrare</p>
+        <p><span class="label">Transfer bancar:</span> Conform datelor de mai jos</p>
+        <p style="margin-top: 10px;"><span class="label">Beneficiar:</span> <strong>{{ SITE_NAME }}</strong></p>
+        <p><span class="label">Destinația:</span> Achitare factură nr. {{ rental.number }}</p>
+    </div>
+
+    <!-- Notes -->
+    <div class="notes">
+        <div class="section-title">Condiții</div>
+        <ol>
+            <li>Factura este valabilă fără semnătură și ștampilă.</li>
+            <li>Achitarea se efectuează până la data de începere a închirierii ({{ rental.start_date|date:"d.m.Y" }}).</li>
+            <li>Garanția (depozitul) se restituie la returnarea sculei în stare corespunzătoare.</li>
+            <li>Pentru întrebări, contactați-ne: {{ SITE_PHONE }} sau {{ SITE_EMAIL }}.</li>
+        </ol>
+    </div>
+
+    <!-- Stamp -->
+    <div class="stamp-area">
+        <div class="stamp-block">
+            <div class="stamp-label">Furnizor</div>
+            <div>{{ SITE_NAME }}</div>
+            <div class="stamp-line">Semnătura / Ștampila</div>
+        </div>
+        <div class="stamp-block">
+            <div class="stamp-label">Client</div>
+            <div>{{ rental.customer_name }}</div>
+            <div class="stamp-line">Semnătura</div>
+        </div>
+    </div>
+</body>
+</html>

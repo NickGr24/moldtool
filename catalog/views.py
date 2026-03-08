@@ -17,6 +17,58 @@ from django.views.generic import DetailView, ListView, TemplateView
 from .models import Category, Tool, Favorite, Review, FAQ
 
 
+class CompareView(TemplateView):
+    """Сравнение двух инструментов одной категории."""
+
+    template_name = 'catalog/compare.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        ids_param = self.request.GET.get('ids', '')
+        tool_ids = [x for x in ids_param.split(',') if x.isdigit()][:2]
+
+        tools = list(
+            Tool.objects.filter(id__in=tool_ids, is_active=True)
+            .select_related('category')
+        )
+
+        context['tools'] = tools
+
+        if len(tools) == 2:
+            # Собираем все ключи характеристик из обоих инструментов
+            all_spec_keys = []
+            seen = set()
+            for tool in tools:
+                for key in (tool.specifications or {}):
+                    if key not in seen:
+                        all_spec_keys.append(key)
+                        seen.add(key)
+
+            specs_rows = []
+            for key in all_spec_keys:
+                val1 = (tools[0].specifications or {}).get(key)
+                val2 = (tools[1].specifications or {}).get(key)
+                specs_rows.append({
+                    'key': key,
+                    'val1': val1 or '—',
+                    'val2': val2 or '—',
+                    'different': val1 != val2,
+                })
+
+            context['specs_rows'] = specs_rows
+            context['same_category'] = tools[0].category_id == tools[1].category_id
+
+        # Для выбора инструмента: товары той же категории
+        if tools:
+            category = tools[0].category
+            context['category_tools'] = Tool.objects.filter(
+                is_active=True, category=category,
+            ).exclude(id__in=[t.id for t in tools]).order_by('name')[:20]
+
+        return context
+
+
 class CatalogView(ListView):
     """Список всех инструментов."""
 

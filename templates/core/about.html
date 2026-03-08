@@ -23,18 +23,14 @@
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-8">
             <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Acasă</a>
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
+            <i class="fa-solid fa-chevron-right text-sm text-gray-600"></i>
             <span class="text-white">Despre noi</span>
         </nav>
 
         <!-- Section Header -->
         <div class="text-center mb-16 animate-slide-up">
             <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
-                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
+                <i class="fa-solid fa-building text-lg text-brand-yellow"></i>
                 <span class="text-sm font-medium text-gray-300">De peste 5 ani pe piață</span>
             </span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
@@ -102,9 +98,7 @@
                     <a href="{% url 'catalog:catalog' %}"
                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
                         Vezi catalogul
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
+                        <i class="fa-solid fa-arrow-right text-lg"></i>
                     </a>
                     <a href="{% url 'core:contacts' %}"
                        class="inline-flex items-center gap-2 px-6 py-3 bg-dark-200 border border-dark-border text-white font-bold rounded-xl hover:border-brand-yellow transition-all duration-300">
@@ -140,9 +134,7 @@
             <!-- Feature 1 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Calitate verificată</h3>
                 <p class="text-gray-400">
@@ -153,9 +145,7 @@
             <!-- Feature 2 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-coins text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Prețuri accesibile</h3>
                 <p class="text-gray-400">
@@ -166,9 +156,7 @@
             <!-- Feature 3 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+                    <i class="fa-solid fa-bolt text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Livrare rapidă</h3>
                 <p class="text-gray-400">
@@ -179,9 +167,7 @@
             <!-- Feature 4 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
+                    <i class="fa-solid fa-users text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Echipă experimentată</h3>
                 <p class="text-gray-400">
@@ -192,9 +178,7 @@
             <!-- Feature 5 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-yellow/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-yellow group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                    </svg>
+                    <i class="fa-solid fa-clipboard-list text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Înregistrare simplă</h3>
                 <p class="text-gray-400">
@@ -205,9 +189,7 @@
             <!-- Feature 6 -->
             <div class="group bg-dark rounded-2xl p-8 border border-dark-border transition-all duration-300 hover:border-brand-red/50 hover:-translate-y-1">
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
-                    <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
+                    <i class="fa-regular fa-heart text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">Grijă pentru clienți</h3>
                 <p class="text-gray-400">
@@ -238,9 +220,7 @@
                 <div class="space-y-6">
                     <div class="flex gap-4">
                         <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
+                            <i class="fa-solid fa-check text-xl text-brand-yellow"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold text-white mb-2">Onestitate</h3>
@@ -250,9 +230,7 @@
 
                     <div class="flex gap-4">
                         <div class="w-12 h-12 bg-brand-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
+                            <i class="fa-solid fa-bolt text-xl text-brand-red"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold text-white mb-2">Eficiență</h3>
@@ -262,9 +240,7 @@
 
                     <div class="flex gap-4">
                         <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                            </svg>
+                            <i class="fa-solid fa-shield-halved text-xl text-brand-yellow"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold text-white mb-2">Fiabilitate</h3>
@@ -289,15 +265,11 @@
                         <a href="{% url 'catalog:catalog' %}"
                            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark text-white font-bold rounded-xl hover:bg-dark-100 transition-all">
                             Vezi catalogul
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                            <i class="fa-solid fa-arrow-right text-lg"></i>
                         </a>
                         <a href="tel:{{ SITE_PHONE }}"
                            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark/10 text-dark font-bold rounded-xl border-2 border-dark/20 hover:bg-dark/20 transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                            </svg>
+                            <i class="fa-solid fa-phone text-lg"></i>
                             {{ SITE_PHONE }}
                         </a>
                     </div>

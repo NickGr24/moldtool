@@ -11,7 +11,9 @@ Detalii cerere:
 {% if rental.deposit_amount %}- Garanție: {{ rental.deposit_amount }} MDL
 {% endif %}- Total: {{ rental.total_price }} MDL
 
-Contractul de închiriere este atașat la acest email în format PDF.
+La acest email sunt atașate următoarele documente în format PDF:
+1. Contract de închiriere — condițiile de închiriere
+2. Factură pentru achitare — detalii de plată
 
 Vă vom contacta în cel mai scurt timp pentru confirmare.
 

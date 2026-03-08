@@ -10,14 +10,12 @@
     <p class="text-gray-400">{% trans "Обзор вашего аккаунта" %}</p>
 </div>
 
-<!-- Stats Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+<!-- Stats Cards - Row 1: Orders -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-brand-yellow/30 transition-all">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
-                <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                </svg>
+                <i class="fa-solid fa-clipboard-list text-lg text-brand-yellow"></i>
             </div>
             <span class="text-2xl font-bold text-white">{{ total_requests }}</span>
         </div>
@@ -27,9 +25,7 @@
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-green-500/30 transition-all">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
-                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
+                <i class="fa-solid fa-bolt text-lg text-green-400"></i>
             </div>
             <span class="text-2xl font-bold text-green-400">{{ active_requests }}</span>
         </div>
@@ -39,15 +35,75 @@
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-blue-500/30 transition-all">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center">
-                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+                <i class="fa-solid fa-circle-check text-lg text-blue-400"></i>
             </div>
             <span class="text-2xl font-bold text-blue-400">{{ completed_requests }}</span>
         </div>
         <p class="text-gray-400 text-sm">{% trans "Завершённые" %}</p>
     </div>
 </div>
+
+<!-- Stats Cards - Row 2: Financial -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-purple-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-coins text-lg text-purple-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-purple-400">{{ total_spent }} <span class="text-sm font-normal">MDL</span></span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Общая сумма" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-orange-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-calendar-days text-lg text-orange-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-orange-400">{{ total_rental_days }}</span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Дней аренды" %}</p>
+    </div>
+
+    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
+        <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center">
+                <i class="fa-solid fa-chart-bar text-lg text-cyan-400"></i>
+            </div>
+            <span class="text-2xl font-bold text-cyan-400">{{ avg_order_price }} <span class="text-sm font-normal">MDL</span></span>
+        </div>
+        <p class="text-gray-400 text-sm">{% trans "Средний чек" %}</p>
+    </div>
+</div>
+
+<!-- User's Most Rented Tools -->
+{% if user_top_tools %}
+<div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-chart-simple text-lg text-brand-yellow"></i>
+            {% trans "Вы чаще всего арендуете" %}
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {% for tool in user_top_tools %}
+        <a href="{{ tool.get_absolute_url }}" class="flex items-center gap-4 p-4 bg-dark-200/50 rounded-xl hover:bg-dark-200 transition-colors group">
+            <div class="w-16 h-16 bg-dark-300 rounded-xl overflow-hidden flex-shrink-0">
+                {% if tool.image %}
+                <img src="{{ tool.image.url }}" alt="{{ tool.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                {% endif %}
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="text-white font-medium truncate group-hover:text-brand-yellow transition-colors">{{ tool.name }}</p>
+                <p class="text-gray-500 text-sm">{{ tool.user_rentals }} {% trans "раз" %}</p>
+                <p class="text-brand-yellow text-sm font-bold">{{ tool.price_per_day }} MDL/{% trans "день" %}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
 
 <!-- Recent Orders -->
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
@@ -91,9 +147,7 @@
     {% else %}
     <div class="text-center py-12">
         <div class="w-16 h-16 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-            </svg>
+            <i class="fa-solid fa-clipboard-list text-2xl text-gray-600"></i>
         </div>
         <p class="text-gray-400 mb-4">{% trans "У вас пока нет заказов" %}</p>
         <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
@@ -102,6 +156,38 @@
     </div>
     {% endif %}
 </div>
+
+<!-- Popular Tools on Platform -->
+{% if popular_tools %}
+<div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-fire text-lg text-brand-red"></i>
+            {% trans "Популярные инструменты" %}
+        </h2>
+        <a href="{% url 'catalog:catalog' %}" class="text-brand-yellow hover:text-brand-yellow-dark text-sm font-medium transition-colors">
+            {% trans "Каталог" %} →
+        </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {% for tool in popular_tools %}
+        <a href="{{ tool.get_absolute_url }}" class="group text-center">
+            <div class="aspect-square bg-dark-200 rounded-xl overflow-hidden mb-2 border border-dark-border group-hover:border-brand-yellow/30 transition-all">
+                {% if tool.image %}
+                <img src="{{ tool.image.url }}" alt="{{ tool.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                {% endif %}
+            </div>
+            <p class="text-white text-xs font-medium truncate group-hover:text-brand-yellow transition-colors">{{ tool.name }}</p>
+            <p class="text-brand-yellow text-xs font-bold">{{ tool.price_per_day }} MDL/{% trans "день" %}</p>
+            {% if tool.rentals_count > 0 %}
+            <p class="text-gray-500 text-xs">{{ tool.rentals_count }} {% trans "аренд" %}</p>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
 
 <!-- Recent Favorites -->
 {% if recent_favorites %}

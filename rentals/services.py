@@ -53,6 +53,37 @@ def generate_rental_contract_pdf(rental_request):
     return pdf_file.getvalue()
 
 
+def generate_invoice_pdf(rental_request):
+    """
+    Генерирует PDF фактуру для оплаты (Factură pentru achitare).
+    Фактура всегда на румынском языке.
+
+    Args:
+        rental_request: экземпляр RentalRequest (с загруженным tool)
+
+    Returns:
+        bytes: содержимое PDF файла
+    """
+    total_with_deposit = rental_request.total_price + (
+        rental_request.deposit_amount or 0
+    )
+
+    context = {
+        'rental': rental_request,
+        'tool': rental_request.tool,
+        'total_with_deposit': total_with_deposit,
+        'now': timezone.now(),
+        **SITE_INFO,
+    }
+
+    with translation_override('ro'):
+        html_string = render_to_string('rentals/pdf/invoice.html', context)
+
+    pdf_file = BytesIO()
+    HTML(string=html_string).write_pdf(pdf_file)
+    return pdf_file.getvalue()
+
+
 def send_rental_confirmation_email(rental_request):
     """
     Отправляет email-подтверждение клиенту с PDF контрактом во вложении.
@@ -80,20 +111,31 @@ def send_rental_confirmation_email(rental_request):
     )
     email.attach_alternative(html_content, 'text/html')
 
-    # Генерируем и прикрепляем PDF
+    # Генерируем и прикрепляем PDF контракт
     try:
         pdf_content = generate_rental_contract_pdf(rental_request)
         filename = f'Contract_MoldTool_{rental_request.number}.pdf'
         email.attach(filename, pdf_content, 'application/pdf')
     except Exception:
         logger.exception(
-            'Не удалось сгенерировать PDF для заявки %s',
+            'Не удалось сгенерировать PDF контракт для заявки %s',
+            rental_request.number,
+        )
+
+    # Генерируем и прикрепляем PDF фактуру
+    try:
+        invoice_pdf = generate_invoice_pdf(rental_request)
+        invoice_filename = f'Factura_MoldTool_{rental_request.number}.pdf'
+        email.attach(invoice_filename, invoice_pdf, 'application/pdf')
+    except Exception:
+        logger.exception(
+            'Не удалось сгенерировать PDF фактуру для заявки %s',
             rental_request.number,
         )
 
     # Отправляем email
     try:
-        email.send()
+        email.send(fail_silently=False)
         logger.info(
             'Email-подтверждение отправлено для заявки %s на %s',
             rental_request.number,
@@ -101,6 +143,8 @@ def send_rental_confirmation_email(rental_request):
         )
     except Exception:
         logger.exception(
-            'Не удалось отправить email для заявки %s',
+            'Не удалось отправить email для заявки %s на %s. '
+            'Проверьте EMAIL_HOST_USER и EMAIL_HOST_PASSWORD в настройках.',
             rental_request.number,
+            rental_request.customer_email,
         )
