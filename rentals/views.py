@@ -34,6 +34,7 @@ class CreateRentalRequestView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tool'] = self.get_tool()
+        context['delivery_fee'] = RentalRequest.DELIVERY_FEE
         return context
 
     def get_initial(self):

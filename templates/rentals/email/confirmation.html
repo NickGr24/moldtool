@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load i18n %}<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -21,46 +21,45 @@
                     <!-- Body -->
                     <tr>
                         <td style="padding: 30px;">
-                            <h2 style="color: #333; margin: 0 0 15px 0; font-size: 20px;">Bună ziua, {{ rental.customer_name }}!</h2>
+                            <h2 style="color: #333; margin: 0 0 15px 0; font-size: 20px;">{% blocktrans with name=rental.customer_name %}Здравствуйте, {{ name }}!{% endblocktrans %}</h2>
 
                             <p style="color: #555; line-height: 1.6; margin: 0 0 20px 0;">
-                                Cererea dumneavoastră de închiriere a fost înregistrată cu succes.
-                                Vă vom contacta în cel mai scurt timp pentru confirmare.
+                                {% trans "Ваша заявка на аренду успешно зарегистрирована. Мы свяжемся с вами в ближайшее время для подтверждения." %}
                             </p>
 
                             <!-- Order summary -->
                             <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9f9f9; border-radius: 6px; margin: 0 0 20px 0;">
                                 <tr>
                                     <td style="padding: 15px 15px 5px 15px;">
-                                        <p style="margin: 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Detalii cerere</p>
+                                        <p style="margin: 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">{% trans "Детали заявки" %}</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px 15px;">
                                         <table width="100%" cellpadding="0" cellspacing="0">
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Nr. cerere</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Номер заявки" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">#{{ rental.number }}</td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Sculă</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Инструмент" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ tool.name }}</td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Perioada</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Период" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}</td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Zile</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Дни" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.total_days }}</td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Preț/zi</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Цена/день" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.price_per_day }} MDL</td>
                                             </tr>
                                             {% if rental.deposit_amount %}
                                             <tr>
-                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">Garanție</td>
+                                                <td style="padding: 8px 0; color: #888; font-size: 13px; border-bottom: 1px solid #eee;">{% trans "Залог" %}</td>
                                                 <td style="padding: 8px 0; text-align: right; color: #333; border-bottom: 1px solid #eee;">{{ rental.deposit_amount }} MDL</td>
                                             </tr>
                                             {% endif %}
@@ -71,7 +70,7 @@
                                     <td style="padding: 10px 15px 15px 15px;">
                                         <table width="100%" cellpadding="0" cellspacing="0">
                                             <tr>
-                                                <td style="padding: 10px 0 0 0; color: #E53935; font-weight: bold; font-size: 15px;">Total</td>
+                                                <td style="padding: 10px 0 0 0; color: #E53935; font-weight: bold; font-size: 15px;">{% trans "Итого" %}</td>
                                                 <td style="padding: 10px 0 0 0; text-align: right; font-weight: bold; font-size: 20px; color: #E53935;">{{ rental.total_price }} MDL</td>
                                             </tr>
                                         </table>
@@ -80,22 +79,22 @@
                             </table>
 
                             <p style="color: #555; line-height: 1.6; margin: 0 0 15px 0;">
-                                La acest email sunt atașate următoarele documente în format PDF:
+                                {% trans "К этому письму прикреплены следующие документы в формате PDF:" %}
                             </p>
                             <table width="100%" cellpadding="0" cellspacing="0" style="margin: 0 0 15px 0;">
                                 <tr>
                                     <td style="padding: 8px 15px; background-color: #f9f9f9; border-radius: 4px; margin-bottom: 5px;">
                                         <span style="color: #E53935; font-weight: bold;">1.</span>
-                                        <span style="color: #333; font-size: 14px;"> Contract de închiriere</span>
-                                        <span style="color: #888; font-size: 12px;"> — condițiile de închiriere</span>
+                                        <span style="color: #333; font-size: 14px;"> {% trans "Договор аренды" %}</span>
+                                        <span style="color: #888; font-size: 12px;"> — {% trans "условия аренды" %}</span>
                                     </td>
                                 </tr>
                                 <tr><td style="height: 5px;"></td></tr>
                                 <tr>
                                     <td style="padding: 8px 15px; background-color: #f9f9f9; border-radius: 4px;">
                                         <span style="color: #E53935; font-weight: bold;">2.</span>
-                                        <span style="color: #333; font-size: 14px;"> Factură pentru achitare</span>
-                                        <span style="color: #888; font-size: 12px;"> — detalii de plată</span>
+                                        <span style="color: #333; font-size: 14px;"> {% trans "Счёт на оплату" %}</span>
+                                        <span style="color: #888; font-size: 12px;"> — {% trans "детали оплаты" %}</span>
                                     </td>
                                 </tr>
                             </table>
@@ -104,9 +103,9 @@
                             <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #FFF8E1; border-radius: 6px; border-left: 4px solid #F5A623; margin: 0 0 10px 0;">
                                 <tr>
                                     <td style="padding: 15px;">
-                                        <p style="margin: 0 0 5px 0; color: #555; font-size: 13px;">Dacă aveți întrebări, nu ezitați să ne contactați:</p>
+                                        <p style="margin: 0 0 5px 0; color: #555; font-size: 13px;">{% trans "Если у вас есть вопросы, свяжитесь с нами:" %}</p>
                                         <p style="margin: 0; color: #333; font-size: 14px;">
-                                            <strong>Telefon:</strong> {{ SITE_PHONE }}<br>
+                                            <strong>{% trans "Телефон:" %}</strong> {{ SITE_PHONE }}<br>
                                             <strong>Email:</strong> {{ SITE_EMAIL }}
                                         </p>
                                     </td>
