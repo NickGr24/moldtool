@@ -1,0 +1,19 @@
+{% load i18n %}{% blocktrans with name=rental.customer_name %}Здравствуйте, {{ name }}!{% endblocktrans %}
+
+{% trans "Срок аренды истекает в ближайшие 2 часа!" %}
+
+{% blocktrans with tool=rental.tool.name date=rental.end_date|date:"d.m.Y" %}Напоминаем, что срок аренды инструмента "{{ tool }}" истекает сегодня, {{ date }}.{% endblocktrans %}
+
+{% trans "Номер заявки" %}: #{{ rental.number }}
+{% trans "Инструмент" %}: {{ rental.tool.name }}
+{% trans "Дата возврата" %}: {{ rental.end_date|date:"d.m.Y" }}
+
+{% trans "Пожалуйста, верните инструмент вовремя, чтобы избежать возможных штрафов. Если вы хотите продлить срок аренды — свяжитесь с нами." %}
+
+{% trans "Контакты:" %}
+{% trans "Телефон:" %} {{ SITE_PHONE }}
+Email: {{ SITE_EMAIL }}
+
+--
+{{ SITE_NAME }}
+{{ SITE_ADDRESS }}

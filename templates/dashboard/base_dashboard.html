@@ -45,11 +45,13 @@
                             {% endif %}
                         </a>
 
+                        {% if user.is_staff %}
                         <a href="{% url 'dashboard:financial' %}"
                            class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {% if active_tab == 'financial' %}bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/20{% else %}text-gray-400 hover:bg-dark-200 hover:text-white{% endif %}">
                             <i class="fa-solid fa-chart-pie text-lg"></i>
                             {% trans "Финансы" %}
                         </a>
+                        {% endif %}
 
                         <a href="{% url 'dashboard:profile' %}"
                            class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {% if active_tab == 'profile' %}bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/20{% else %}text-gray-400 hover:bg-dark-200 hover:text-white{% endif %}">

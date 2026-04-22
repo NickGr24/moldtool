@@ -21,6 +21,8 @@ class RentalRequestForm(forms.ModelForm):
             'customer_phone',
             'start_date',
             'end_date',
+            'delivery_method',
+            'delivery_address',
             'comment',
         ]
         widgets = {
@@ -44,6 +46,11 @@ class RentalRequestForm(forms.ModelForm):
                 'class': 'form-control',
                 'type': 'date',
             }),
+            'delivery_method': forms.RadioSelect(),
+            'delivery_address': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': _('Улица, дом, квартира, город'),
+            }),
             'comment': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': _('Дополнительные пожелания...'),
@@ -59,7 +66,7 @@ class RentalRequestForm(forms.ModelForm):
         return start_date
 
     def clean(self):
-        """Проверка дат."""
+        """Проверка дат и адреса доставки."""
         cleaned_data = super().clean()
         start_date = cleaned_data.get('start_date')
         end_date = cleaned_data.get('end_date')
@@ -71,5 +78,14 @@ class RentalRequestForm(forms.ModelForm):
             # Минимальный срок аренды - 1 день
             if start_date == end_date:
                 pass  # 1 день - нормально
+
+        # При доставке адрес обязателен
+        delivery_method = cleaned_data.get('delivery_method')
+        delivery_address = (cleaned_data.get('delivery_address') or '').strip()
+        if delivery_method == RentalRequest.DeliveryMethod.DELIVERY and not delivery_address:
+            self.add_error(
+                'delivery_address',
+                _('Укажите адрес доставки.'),
+            )
 
         return cleaned_data

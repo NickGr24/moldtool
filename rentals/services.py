@@ -84,6 +84,52 @@ def generate_invoice_pdf(rental_request):
     return pdf_file.getvalue()
 
 
+def send_rental_expiry_reminder(rental_request):
+    """
+    Отправляет клиенту email-напоминание о скором истечении срока аренды
+    (за 2 часа до конца дня возврата).
+    """
+    context = {
+        'rental': rental_request,
+        'tool': rental_request.tool,
+        **SITE_INFO,
+    }
+
+    subject = f'MoldTool — Termenul de închiriere expiră în curând #{rental_request.number}'
+
+    with translation_override('ro'):
+        text_content = render_to_string('rentals/email/expiry_reminder.txt', context)
+        html_content = render_to_string('rentals/email/expiry_reminder.html', context)
+
+    email = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[rental_request.customer_email],
+        reply_to=[settings.EMAIL_HOST_USER],
+        headers={
+            'X-Mailer': 'MoldTool',
+            'List-Unsubscribe': f'<mailto:{settings.EMAIL_HOST_USER}?subject=unsubscribe>',
+        },
+    )
+    email.attach_alternative(html_content, 'text/html')
+
+    try:
+        email.send(fail_silently=False)
+        logger.info(
+            'Напоминание об окончании аренды отправлено для заявки %s на %s',
+            rental_request.number,
+            rental_request.customer_email,
+        )
+    except Exception:
+        logger.exception(
+            'Не удалось отправить напоминание для заявки %s на %s',
+            rental_request.number,
+            rental_request.customer_email,
+        )
+        raise
+
+
 def send_rental_confirmation_email(rental_request):
     """
     Отправляет email-подтверждение клиенту с PDF контрактом во вложении.

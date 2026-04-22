@@ -14,7 +14,7 @@
                          class="h-12 w-auto rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-glow-yellow group-hover:scale-105">
                 </a>
                 <p class="text-gray-400 mb-6 leading-relaxed">
-                    {{ SITE_TAGLINE }}. Echipament profesional pentru orice sarcini de construcție.
+                    {{ SITE_TAGLINE }}. {% trans "Профессиональное оборудование для любых строительных задач." %}
                 </p>
                 <!-- Social Links -->
                 <div class="flex items-center gap-3">
@@ -34,31 +34,31 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Catalog
+                    {% trans "Каталог" %}
                 </h4>
                 <ul class="space-y-3">
                     <li>
                         <a href="{% url 'catalog:catalog' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Toate uneltele
+                            {% trans "Все инструменты" %}
                         </a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Scule electrice
+                            {% trans "Электроинструмент" %}
                         </a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Scule manuale
+                            {% trans "Ручной инструмент" %}
                         </a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Echipament de construcție
+                            {% trans "Строительное оборудование" %}
                         </a>
                     </li>
                 </ul>
@@ -68,31 +68,31 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
-                    Informații
+                    {% trans "Информация" %}
                 </h4>
                 <ul class="space-y-3">
                     <li>
                         <a href="{% url 'core:about' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Despre noi
+                            {% trans "О нас" %}
                         </a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Condiții de închiriere
+                            {% trans "Условия аренды" %}
                         </a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Livrare
+                            {% trans "Доставка" %}
                         </a>
                     </li>
                     <li>
                         <a href="{% url 'core:contacts' %}" class="text-gray-400 hover:text-brand-yellow transition-colors duration-300 flex items-center gap-2 group">
                             <i class="fa-solid fa-chevron-right text-xs opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
-                            Contacte
+                            {% trans "Контакты" %}
                         </a>
                     </li>
                 </ul>
@@ -102,7 +102,7 @@
             <div>
                 <h4 class="text-white font-semibold mb-6 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full"></span>
-                    Contacte
+                    {% trans "Контакты" %}
                 </h4>
                 <ul class="space-y-4">
                     <li>

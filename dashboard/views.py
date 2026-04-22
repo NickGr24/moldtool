@@ -4,7 +4,7 @@ Views для личного кабинета пользователя.
 
 from decimal import Decimal
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Count, Sum, Avg, F
 from django.views.generic import TemplateView, UpdateView, ListView
 from django.urls import reverse_lazy
@@ -159,10 +159,20 @@ class ProfileUpdateView(DashboardMixin, UpdateView):
         return super().form_valid(form)
 
 
-class FinancialReportView(DashboardMixin, TemplateView):
-    """Финансовый рапорт с мок-данными."""
+class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
+    """Финансовый рапорт. Доступен только администраторам."""
 
     template_name = 'dashboard/financial_report.html'
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def handle_no_permission(self):
+        # Аноним — на логин; авторизованный без прав — 403.
+        if not self.request.user.is_authenticated:
+            return super().handle_no_permission()
+        from django.core.exceptions import PermissionDenied
+        raise PermissionDenied
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
