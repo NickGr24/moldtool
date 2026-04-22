@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Мои заявки" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="py-12 bg-dark min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-6">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            <span class="text-white">{% trans "Мои заявки" %}</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Мои заявки" %}</h1>
+                <p class="text-gray-400">{% trans "История ваших заявок на аренду" %}</p>
+            </div>
+            <a href="{% url 'catalog:catalog' %}"
+               class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
+                <i class="fa-solid fa-plus text-lg"></i>
+                {% trans "Новая заявка" %}
+            </a>
+        </div>
+
+        {% if messages %}
+        <div class="mb-6 space-y-2">
+            {% for message in messages %}
+            <div class="px-4 py-3 rounded-lg {% if message.tags == 'success' %}bg-green-500/10 border border-green-500/30 text-green-400{% elif message.tags == 'error' %}bg-red-500/10 border border-red-500/30 text-red-400{% else %}bg-dark-100 border border-dark-border text-gray-300{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if rentals %}
+        <div class="space-y-4">
+            {% for rental in rentals %}
+            <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 hover:border-brand-yellow/40 transition-colors">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+
+                    <!-- Tool image -->
+                    <div class="w-20 h-20 bg-dark-200 rounded-xl overflow-hidden flex-shrink-0">
+                        {% if rental.tool.image %}
+                        <img src="{{ rental.tool.image.url }}" alt="{{ rental.tool.name }}" class="w-full h-full object-cover">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.jpg' %}" alt="" class="w-full h-full object-cover">
+                        {% endif %}
+                    </div>
+
+                    <!-- Main info -->
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span class="text-brand-yellow font-medium">#{{ rental.number }}</span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+                                {% if rental.status == 'pending' %}bg-yellow-500/10 text-yellow-400 border border-yellow-500/30
+                                {% elif rental.status == 'confirmed' %}bg-green-500/10 text-green-400 border border-green-500/30
+                                {% elif rental.status == 'in_progress' %}bg-blue-500/10 text-blue-400 border border-blue-500/30
+                                {% elif rental.status == 'completed' %}bg-gray-500/10 text-gray-400 border border-gray-500/30
+                                {% else %}bg-red-500/10 text-red-400 border border-red-500/30{% endif %}">
+                                {{ rental.get_status_display }}
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 truncate">{{ rental.tool.name }}</h3>
+                        <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-regular fa-calendar text-brand-yellow"></i>
+                                {{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <i class="fa-regular fa-clock text-brand-yellow"></i>
+                                {{ rental.total_days }} {% trans "дн." %}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-truck text-brand-yellow"></i>
+                                {{ rental.get_delivery_method_display }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Price + actions -->
+                    <div class="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-3 lg:min-w-[180px]">
+                        <div class="text-right">
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">{% trans "Итого" %}</div>
+                            <div class="text-xl font-bold text-white">{{ rental.total_price }} MDL</div>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="{% url 'rentals:request_detail' number=rental.number %}"
+                               class="px-3 py-2 bg-dark-200 border border-dark-border rounded-lg text-sm text-gray-300 hover:text-brand-yellow hover:border-brand-yellow transition-colors">
+                                {% trans "Подробнее" %}
+                            </a>
+                            {% if rental.can_be_cancelled %}
+                            <form action="{% url 'rentals:cancel_request' number=rental.number %}" method="post" class="inline"
+                                  onsubmit="return confirm('{% trans "Отменить эту заявку?" %}');">
+                                {% csrf_token %}
+                                <button type="submit"
+                                        class="px-3 py-2 bg-red-500/10 border border-red-500/30 rounded-lg text-sm text-red-400 hover:bg-red-500/20 transition-colors">
+                                    {% trans "Отменить" %}
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <div class="flex items-center justify-center gap-2 mt-8">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-brand-yellow transition-colors">
+                <i class="fa-solid fa-chevron-left"></i>
+            </a>
+            {% endif %}
+            <span class="px-4 py-2 text-gray-400">
+                {% blocktrans with num=page_obj.number total=page_obj.paginator.num_pages %}Страница {{ num }} из {{ total }}{% endblocktrans %}
+            </span>
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-brand-yellow transition-colors">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% else %}
+        <!-- Empty state -->
+        <div class="bg-dark-100 border border-dark-border rounded-2xl p-12 text-center">
+            <div class="w-20 h-20 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-clipboard-list text-3xl text-brand-yellow"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2">{% trans "У вас пока нет заявок" %}</h2>
+            <p class="text-gray-400 mb-6">{% trans "Выберите инструмент в каталоге и оформите первую заявку на аренду." %}</p>
+            <a href="{% url 'catalog:catalog' %}"
+               class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-semibold rounded-xl hover:bg-brand-yellow-dark transition-colors">
+                <i class="fa-solid fa-arrow-right"></i>
+                {% trans "К каталогу" %}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

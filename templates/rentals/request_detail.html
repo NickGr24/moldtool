@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Заявка" %} #{{ rental.number }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<section class="py-12 bg-dark min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm mb-6 flex-wrap">
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            <a href="{% url 'rentals:user_requests' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Мои заявки" %}</a>
+            <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            <span class="text-white">#{{ rental.number }}</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div>
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                    <h1 class="text-2xl lg:text-3xl font-bold text-white">{% trans "Заявка" %} #{{ rental.number }}</h1>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium
+                        {% if rental.status == 'pending' %}bg-yellow-500/10 text-yellow-400 border border-yellow-500/30
+                        {% elif rental.status == 'confirmed' %}bg-green-500/10 text-green-400 border border-green-500/30
+                        {% elif rental.status == 'in_progress' %}bg-blue-500/10 text-blue-400 border border-blue-500/30
+                        {% elif rental.status == 'completed' %}bg-gray-500/10 text-gray-400 border border-gray-500/30
+                        {% else %}bg-red-500/10 text-red-400 border border-red-500/30{% endif %}">
+                        {{ rental.get_status_display }}
+                    </span>
+                </div>
+                <p class="text-gray-400">{% trans "Создана" %}: {{ rental.created_at|date:"d.m.Y H:i" }}</p>
+            </div>
+            <a href="{% url 'rentals:user_requests' %}"
+               class="inline-flex items-center gap-2 px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-300 hover:text-brand-yellow hover:border-brand-yellow transition-colors">
+                <i class="fa-solid fa-arrow-left"></i>
+                {% trans "К списку заявок" %}
+            </a>
+        </div>
+
+        {% if messages %}
+        <div class="mb-6 space-y-2">
+            {% for message in messages %}
+            <div class="px-4 py-3 rounded-lg {% if message.tags == 'success' %}bg-green-500/10 border border-green-500/30 text-green-400{% elif message.tags == 'error' %}bg-red-500/10 border border-red-500/30 text-red-400{% else %}bg-dark-100 border border-dark-border text-gray-300{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="grid lg:grid-cols-3 gap-6">
+
+            <!-- Left column: tool + details -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- Tool card -->
+                <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Инструмент" %}</h2>
+                    <div class="flex gap-4">
+                        <div class="w-24 h-24 bg-dark-200 rounded-xl overflow-hidden flex-shrink-0">
+                            {% if rental.tool.image %}
+                            <img src="{{ rental.tool.image.url }}" alt="{{ rental.tool.name }}" class="w-full h-full object-cover">
+                            {% else %}
+                            <img src="{% static 'images/placeholder.jpg' %}" alt="" class="w-full h-full object-cover">
+                            {% endif %}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <a href="{{ rental.tool.get_absolute_url }}" class="text-lg font-semibold text-white hover:text-brand-yellow transition-colors">{{ rental.tool.name }}</a>
+                            {% if rental.tool.brand or rental.tool.model_name %}
+                            <p class="text-sm text-gray-400 mt-1">{{ rental.tool.brand }} {{ rental.tool.model_name }}</p>
+                            {% endif %}
+                            <p class="text-sm text-gray-400 mt-2">{{ rental.tool.category.name }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Period -->
+                <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Период аренды" %}</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Дата начала" %}</div>
+                            <div class="text-white font-medium">{{ rental.start_date|date:"d.m.Y" }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Дата окончания" %}</div>
+                            <div class="text-white font-medium">{{ rental.end_date|date:"d.m.Y" }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Количество дней" %}</div>
+                            <div class="text-white font-medium">{{ rental.total_days }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer + delivery -->
+                <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Контактная информация" %}</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
+                            <span class="text-gray-400">{% trans "Имя" %}</span>
+                            <span class="text-white text-right">{{ rental.customer_name }}</span>
+                        </div>
+                        <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
+                            <span class="text-gray-400">Email</span>
+                            <span class="text-white text-right">{{ rental.customer_email }}</span>
+                        </div>
+                        <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
+                            <span class="text-gray-400">{% trans "Телефон" %}</span>
+                            <span class="text-white text-right">{{ rental.customer_phone }}</span>
+                        </div>
+                        <div class="flex justify-between gap-4 {% if rental.delivery_address %}border-b border-dark-border pb-2{% endif %}">
+                            <span class="text-gray-400">{% trans "Способ получения" %}</span>
+                            <span class="text-white text-right">{{ rental.get_delivery_method_display }}</span>
+                        </div>
+                        {% if rental.delivery_address %}
+                        <div class="flex justify-between gap-4">
+                            <span class="text-gray-400">{% trans "Адрес доставки" %}</span>
+                            <span class="text-white text-right">{{ rental.delivery_address }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if rental.comment %}
+                <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
+                    <h2 class="text-lg font-bold text-white mb-2">{% trans "Комментарий" %}</h2>
+                    <p class="text-gray-300 whitespace-pre-wrap">{{ rental.comment }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Right column: price summary + actions -->
+            <div class="space-y-6">
+                <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 sticky top-24">
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Итого" %}</h2>
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">{% trans "Цена/день" %}</span>
+                            <span class="text-white">{{ rental.price_per_day }} MDL</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">{% trans "Дни" %}</span>
+                            <span class="text-white">× {{ rental.total_days }}</span>
+                        </div>
+                        {% if rental.delivery_price and rental.delivery_price > 0 %}
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">{% trans "Доставка" %}</span>
+                            <span class="text-white">{{ rental.delivery_price }} MDL</span>
+                        </div>
+                        {% endif %}
+                        {% if rental.deposit_amount and rental.deposit_amount > 0 %}
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">{% trans "Залог" %}</span>
+                            <span class="text-white">{{ rental.deposit_amount }} MDL</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="pt-4 border-t border-dark-border flex justify-between items-center">
+                        <span class="text-gray-400">{% trans "К оплате" %}</span>
+                        <span class="text-2xl font-bold text-brand-yellow">{{ rental.total_price }} MDL</span>
+                    </div>
+
+                    {% if rental.can_be_cancelled %}
+                    <form action="{% url 'rentals:cancel_request' number=rental.number %}" method="post" class="mt-6"
+                          onsubmit="return confirm('{% trans "Отменить эту заявку?" %}');">
+                        {% csrf_token %}
+                        <button type="submit"
+                                class="w-full px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 font-medium hover:bg-red-500/20 transition-colors">
+                            <i class="fa-solid fa-xmark mr-2"></i>
+                            {% trans "Отменить заявку" %}
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

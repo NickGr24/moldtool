@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MoldTool 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-20 23:23+0300\n"
+"POT-Creation-Date: 2026-04-22 22:44+0300\n"
 "PO-Revision-Date: 2025-12-27 12:00+0200\n"
 "Last-Translator: MoldTool Team\n"
 "Language-Team: Romanian\n"
@@ -405,13 +405,15 @@ msgstr "Informații despre cerere"
 msgid "Данные клиента"
 msgstr "Datele clientului"
 
-#: rentals/admin.py:42 templates/rentals/request_success.html:27
+#: rentals/admin.py:42 templates/rentals/request_detail.html:80
+#: templates/rentals/request_success.html:27
 msgid "Период аренды"
 msgstr "Perioada de închiriere"
 
 #: rentals/admin.py:45 rentals/models.py:32 templates/includes/footer.html:89
 #: templates/rentals/create_request.html:115
 #: templates/rentals/create_request.html:162
+#: templates/rentals/request_detail.html:149
 msgid "Доставка"
 msgstr "Livrare"
 
@@ -788,6 +790,11 @@ msgstr ""
 "închiriere unelte, unelte de construcție, închiriere echipamente, Moldova, "
 "Chișinău"
 
+#: templates/base.html:251
+#| msgid "Ваши права"
+msgid "Отправка…"
+msgstr "Se trimite…"
+
 #: templates/catalog/catalog.html:4 templates/catalog/catalog.html:18
 msgid "Каталог инструментов"
 msgstr "Catalog de instrumente"
@@ -799,6 +806,8 @@ msgstr "Catalog de instrumente"
 #: templates/core/privacy.html:21 templates/core/terms.html:21
 #: templates/includes/header.html:45 templates/includes/header.html:234
 #: templates/rentals/create_request.html:13
+#: templates/rentals/request_detail.html:12
+#: templates/rentals/user_requests.html:12
 msgid "Главная"
 msgstr "Acasă"
 
@@ -879,7 +888,7 @@ msgstr "Compară"
 
 #: templates/catalog/catalog.html:161 templates/catalog/category.html:102
 #: templates/catalog/favorites.html:67 templates/dashboard/orders.html:81
-#: templates/home.html:385
+#: templates/home.html:385 templates/rentals/user_requests.html:94
 msgid "Подробнее"
 msgstr "Mai multe detalii"
 
@@ -949,6 +958,7 @@ msgstr "zi"
 
 #: templates/catalog/compare.html:63 templates/rentals/create_request.html:157
 #: templates/rentals/email/confirmation.html:62
+#: templates/rentals/request_detail.html:155
 msgid "Залог"
 msgstr "Garanție"
 
@@ -1086,6 +1096,7 @@ msgstr "Calculator de închiriere"
 
 #: templates/catalog/tool_detail.html:182
 #: templates/rentals/create_request.html:80
+#: templates/rentals/request_detail.html:83
 msgid "Дата начала"
 msgstr "Data de început"
 
@@ -1096,6 +1107,7 @@ msgstr "Selectați data"
 
 #: templates/catalog/tool_detail.html:191
 #: templates/rentals/create_request.html:90
+#: templates/rentals/request_detail.html:87
 msgid "Дата окончания"
 msgstr "Data de sfârșit"
 
@@ -1512,6 +1524,7 @@ msgstr "Contactați %(brand)s."
 #: templates/core/contacts.html:6 templates/core/contacts.html:50
 #: templates/dashboard/profile.html:46
 #: templates/rentals/create_request.html:67
+#: templates/rentals/request_detail.html:110
 msgid "Телефон"
 msgstr "Telefon"
 
@@ -1708,6 +1721,7 @@ msgid "Адрес электронной почты"
 msgstr "Adresă de e-mail"
 
 #: templates/core/privacy.html:92 templates/rentals/create_request.html:128
+#: templates/rentals/request_detail.html:119
 msgid "Адрес доставки"
 msgstr "Adresa de livrare"
 
@@ -1996,6 +2010,8 @@ msgstr "Comenzi după status"
 
 #: templates/dashboard/financial_report.html:151
 #: templates/rentals/email/confirmation.html:73
+#: templates/rentals/request_detail.html:137
+#: templates/rentals/user_requests.html:88
 msgid "Итого"
 msgstr "Total"
 
@@ -2015,6 +2031,7 @@ msgstr "Client"
 #: templates/rentals/email/confirmation.html:45
 #: templates/rentals/email/expiry_reminder.html:39
 #: templates/rentals/email/expiry_reminder.txt:8
+#: templates/rentals/request_detail.html:59
 #: templates/rentals/request_success.html:23
 msgid "Инструмент"
 msgstr "Instrument"
@@ -2112,6 +2129,7 @@ msgid "Личные данные"
 msgstr "Date personale"
 
 #: templates/dashboard/profile.html:25
+#: templates/rentals/request_detail.html:102
 msgid "Имя"
 msgstr "Prenume"
 
@@ -2396,6 +2414,7 @@ msgid "Иван Иванов"
 msgstr "Ion Popescu"
 
 #: templates/rentals/create_request.html:102
+#: templates/rentals/request_detail.html:114
 msgid "Способ получения"
 msgstr "Metoda de primire"
 
@@ -2404,10 +2423,12 @@ msgid "Бесплатно"
 msgstr "Gratuit"
 
 #: templates/rentals/create_request.html:140
+#: templates/rentals/request_detail.html:128
 msgid "Комментарий"
 msgstr "Comentariu"
 
 #: templates/rentals/create_request.html:152
+#: templates/rentals/request_detail.html:91
 #: templates/rentals/request_success.html:31
 msgid "Количество дней"
 msgstr "Număr de zile"
@@ -2455,10 +2476,12 @@ msgid "Период"
 msgstr "Perioadă"
 
 #: templates/rentals/email/confirmation.html:53
+#: templates/rentals/request_detail.html:144
 msgid "Дни"
 msgstr "Zile"
 
 #: templates/rentals/email/confirmation.html:57
+#: templates/rentals/request_detail.html:140
 msgid "Цена/день"
 msgstr "Preț/zi"
 
@@ -2556,7 +2579,6 @@ msgstr ""
 
 #: templates/rentals/email/expiry_reminder.html:43
 #: templates/rentals/email/expiry_reminder.txt:9
-#| msgid "Дата начала"
 msgid "Дата возврата"
 msgstr "Data returnării"
 
@@ -2571,7 +2593,6 @@ msgstr ""
 
 #: templates/rentals/email/expiry_reminder.html:56
 #: templates/rentals/email/expiry_reminder.txt:13
-#| msgid "Контакты"
 msgid "Контакты:"
 msgstr "Contacte:"
 
@@ -2583,6 +2604,51 @@ msgid ""
 msgstr ""
 "Vă reamintim că termenul de închiriere a sculei „%(tool)s” expiră astăzi, "
 "%(date)s."
+
+#: templates/rentals/request_detail.html:4
+#: templates/rentals/request_detail.html:23
+#| msgid "Мои заявки"
+msgid "Заявка"
+msgstr "Cerere"
+
+#: templates/rentals/request_detail.html:14
+#: templates/rentals/request_success.html:46
+#: templates/rentals/user_requests.html:4
+#: templates/rentals/user_requests.html:14
+#: templates/rentals/user_requests.html:20
+msgid "Мои заявки"
+msgstr "Cererile mele"
+
+#: templates/rentals/request_detail.html:33
+#| msgid "дата создания"
+msgid "Создана"
+msgstr "Creată"
+
+#: templates/rentals/request_detail.html:38
+#| msgid "Всего заявок"
+msgid "К списку заявок"
+msgstr "La lista cererilor"
+
+#: templates/rentals/request_detail.html:99
+#| msgid "Собираемая информация"
+msgid "Контактная информация"
+msgstr "Informații de contact"
+
+#: templates/rentals/request_detail.html:161
+#| msgid "Итого к оплате"
+msgid "К оплате"
+msgstr "De plată"
+
+#: templates/rentals/request_detail.html:167
+#: templates/rentals/user_requests.html:98
+#| msgid "Отправить заявку"
+msgid "Отменить эту заявку?"
+msgstr "Anulați această cerere?"
+
+#: templates/rentals/request_detail.html:172
+#| msgid "Отправить заявку"
+msgid "Отменить заявку"
+msgstr "Anulează cererea"
 
 #: templates/rentals/request_success.html:4
 msgid "Заявка отправлена"
@@ -2601,13 +2667,49 @@ msgstr "Cererea dvs. <strong>#%(number)s</strong> a fost creată cu succes."
 msgid "Продолжить выбор"
 msgstr "Continuă selecția"
 
-#: templates/rentals/request_success.html:46
-msgid "Мои заявки"
-msgstr "Cererile mele"
-
 #: templates/rentals/request_success.html:52
 msgid "Если у вас есть вопросы, звоните:"
 msgstr "Dacă aveți întrebări, sunați:"
+
+# Dashboard orders page translations
+#: templates/rentals/user_requests.html:21
+#| msgid "История ваших заказов на аренду"
+msgid "История ваших заявок на аренду"
+msgstr "Istoricul cererilor dvs. de închiriere"
+
+#: templates/rentals/user_requests.html:26
+#| msgid "Номер заявки"
+msgid "Новая заявка"
+msgstr "Cerere nouă"
+
+#: templates/rentals/user_requests.html:76
+#| msgid "день"
+msgid "дн."
+msgstr "zile"
+
+#: templates/rentals/user_requests.html:102
+#| msgid "Применить"
+msgid "Отменить"
+msgstr "Anulează"
+
+#: templates/rentals/user_requests.html:123
+#, python-format
+msgid "Страница %(num)s из %(total)s"
+msgstr "Pagina %(num)s din %(total)s"
+
+#: templates/rentals/user_requests.html:140
+msgid "У вас пока нет заявок"
+msgstr "Nu aveți încă nicio cerere"
+
+#: templates/rentals/user_requests.html:141
+#| msgid "Выберите инструмент и создайте первую заявку на аренду"
+msgid "Выберите инструмент в каталоге и оформите первую заявку на аренду."
+msgstr "Alegeți o unealtă din catalog și depuneți prima cerere de închiriere."
+
+#: templates/rentals/user_requests.html:145
+#| msgid "Каталог"
+msgid "К каталогу"
+msgstr "La catalog"
 
 #~ msgid "MDL/zi"
 #~ msgstr "MDL/zi"
@@ -2648,9 +2750,6 @@ msgstr "Dacă aveți întrebări, sunați:"
 #~ msgid "С возвращением"
 #~ msgstr "Bine ați revenit"
 
-#~ msgid "Всего заявок"
-#~ msgstr "Total cereri"
-
 #~ msgid "Завершённые заявки"
 #~ msgstr "Cereri finalizate"
 
@@ -2665,12 +2764,6 @@ msgstr "Dacă aveți întrebări, sunați:"
 
 #~ msgid "Номер"
 #~ msgstr "Număr"
-
-#~ msgid "У вас пока нет заявок"
-#~ msgstr "Nu aveți încă nicio cerere"
-
-#~ msgid "Выберите инструмент и создайте первую заявку на аренду"
-#~ msgstr "Alegeți un instrument și creați prima cerere de închiriere"
 
 #~ msgid "Мой профиль"
 #~ msgstr "Profilul meu"
