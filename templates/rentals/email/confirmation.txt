@@ -1,24 +1,24 @@
-Bună ziua, {{ rental.customer_name }}!
+{% load i18n %}{% blocktrans with name=rental.customer_name %}Здравствуйте, {{ name }}!{% endblocktrans %}
 
-Cererea dumneavoastră de închiriere a fost înregistrată cu succes.
+{% trans "Ваша заявка на аренду успешно зарегистрирована." %}
 
-Detalii cerere:
-- Nr. cerere: #{{ rental.number }}
-- Sculă: {{ tool.name }}
-- Perioada: {{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}
-- Zile: {{ rental.total_days }}
-- Preț/zi: {{ rental.price_per_day }} MDL
-{% if rental.deposit_amount %}- Garanție: {{ rental.deposit_amount }} MDL
-{% endif %}- Total: {{ rental.total_price }} MDL
+{% trans "Детали заявки:" %}
+- {% trans "Номер заявки:" %} #{{ rental.number }}
+- {% trans "Инструмент:" %} {{ tool.name }}
+- {% trans "Период:" %} {{ rental.start_date|date:"d.m.Y" }} — {{ rental.end_date|date:"d.m.Y" }}
+- {% trans "Дни:" %} {{ rental.total_days }}
+- {% trans "Цена/день:" %} {{ rental.price_per_day }} MDL
+{% if rental.deposit_amount %}- {% trans "Залог:" %} {{ rental.deposit_amount }} MDL
+{% endif %}- {% trans "Итого:" %} {{ rental.total_price }} MDL
 
-La acest email sunt atașate următoarele documente în format PDF:
-1. Contract de închiriere — condițiile de închiriere
-2. Factură pentru achitare — detalii de plată
+{% trans "К этому письму прикреплены следующие документы в формате PDF:" %}
+1. {% trans "Договор аренды — условия аренды" %}
+2. {% trans "Счёт на оплату — детали оплаты" %}
 
-Vă vom contacta în cel mai scurt timp pentru confirmare.
+{% trans "Мы свяжемся с вами в ближайшее время для подтверждения." %}
 
-Dacă aveți întrebări, contactați-ne:
-Telefon: {{ SITE_PHONE }}
+{% trans "Если у вас есть вопросы, свяжитесь с нами:" %}
+{% trans "Телефон:" %} {{ SITE_PHONE }}
 Email: {{ SITE_EMAIL }}
 
 --

@@ -33,7 +33,7 @@
             </div>
             <div class="rental-form-tool-info">
                 <h3>{{ tool.name }}</h3>
-                <p>{{ tool.price_per_day }} MDL / Zi</p>
+                <p>{{ tool.price_per_day }} MDL / {% trans "День" %}</p>
             </div>
         </div>
 
@@ -46,7 +46,7 @@
                 <input type="text" name="customer_name" id="id_customer_name"
                        class="form-control {% if form.customer_name.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_name.value|default:'' }}"
-                       placeholder="{% trans "Иван Иванов" %}" required>
+                       placeholder="{% trans 'Иван Иванов' %}" required>
                 {% if form.customer_name.errors %}
                 <p class="form-error">{{ form.customer_name.errors.0 }}</p>
                 {% endif %}
@@ -97,15 +97,53 @@
                 </div>
             </div>
 
+            <!-- Delivery Method -->
+            <div class="form-group">
+                <label class="form-label required">{% trans "Способ получения" %}</label>
+                {% with dm=form.delivery_method.value|default:'pickup' %}
+                <div class="delivery-options" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:6px;">
+                    <label class="delivery-option" style="flex:1 1 200px; display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid #ddd; border-radius:8px; cursor:pointer;">
+                        <input type="radio" name="delivery_method" value="pickup" {% if dm == 'pickup' %}checked{% endif %}>
+                        <span>
+                            <strong>{% trans "Самовывоз" %}</strong><br>
+                            <small class="text-muted">{% trans "Бесплатно" %}</small>
+                        </span>
+                    </label>
+                    <label class="delivery-option" style="flex:1 1 200px; display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid #ddd; border-radius:8px; cursor:pointer;">
+                        <input type="radio" name="delivery_method" value="delivery" {% if dm == 'delivery' %}checked{% endif %}>
+                        <span>
+                            <strong>{% trans "Доставка" %}</strong><br>
+                            <small class="text-muted">{{ delivery_fee }} MDL</small>
+                        </span>
+                    </label>
+                </div>
+                {% endwith %}
+                {% if form.delivery_method.errors %}
+                <p class="form-error">{{ form.delivery_method.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Delivery Address (visible only when delivery selected) -->
+            <div class="form-group" id="deliveryAddressGroup" style="display:none;">
+                <label class="form-label required" for="id_delivery_address">{% trans "Адрес доставки" %}</label>
+                <input type="text" name="delivery_address" id="id_delivery_address"
+                       class="form-control {% if form.delivery_address.errors %}is-invalid{% endif %}"
+                       value="{{ form.delivery_address.value|default:'' }}"
+                       placeholder="{% trans 'Улица, дом, квартира, город' %}">
+                {% if form.delivery_address.errors %}
+                <p class="form-error">{{ form.delivery_address.errors.0 }}</p>
+                {% endif %}
+            </div>
+
             <!-- Comment -->
             <div class="form-group">
                 <label class="form-label" for="id_comment">{% trans "Комментарий" %}</label>
                 <textarea name="comment" id="id_comment" class="form-control" rows="3"
-                          placeholder="{% trans "Дополнительные пожелания..." %}">{{ form.comment.value|default:'' }}</textarea>
+                          placeholder="{% trans 'Дополнительные пожелания...' %}">{{ form.comment.value|default:'' }}</textarea>
             </div>
 
             <!-- Price Summary -->
-            <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-deposit="{{ tool.deposit|default:0 }}">
+            <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-deposit="{{ tool.deposit|default:0 }}" data-delivery-fee="{{ delivery_fee|default:0 }}">
                 <div class="rental-summary-row">
                     <span>{% trans "Цена за день" %}</span>
                     <span>{{ tool.price_per_day }} MDL</span>
@@ -120,6 +158,10 @@
                     <span id="depositAmount">{{ tool.deposit }} MDL</span>
                 </div>
                 {% endif %}
+                <div class="rental-summary-row" id="deliveryRow" style="display:none;">
+                    <span>{% trans "Доставка" %}</span>
+                    <span id="deliveryPrice">{{ delivery_fee }} MDL</span>
+                </div>
                 <div class="rental-summary-row">
                     <span>{% trans "Итого к оплате" %}</span>
                     <span id="totalPrice">-</span>
@@ -202,53 +244,72 @@ document.addEventListener('DOMContentLoaded', function() {
         calculateTotal();
     });
     
+    function getDeliveryFee() {
+        const summary = document.querySelector('.rental-summary');
+        if (!summary) return 0;
+        const fee = parseFloat(summary.dataset.deliveryFee) || 0;
+        const selected = document.querySelector('input[name="delivery_method"]:checked');
+        return selected && selected.value === 'delivery' ? fee : 0;
+    }
+
     function calculateTotal() {
         const summary = document.querySelector('.rental-summary');
         if (!summary) return;
-        
+
         const pricePerDay = parseFloat(summary.dataset.pricePerDay) || 0;
         const deposit = parseFloat(summary.dataset.deposit) || 0;
-        
+        const deliveryFee = getDeliveryFee();
+
+        const daysDisplay = document.getElementById('totalDays');
+        const priceDisplay = document.getElementById('totalPrice');
+
         const startValue = startInput.value;
         const endValue = endInput.value;
-        
+
         if (startValue && endValue) {
             const start = new Date(startValue);
             const end = new Date(endValue);
-            
+
             if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end >= start) {
                 const diffTime = end - start;
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-                
+
                 if (diffDays > 0) {
                     const totalRent = diffDays * pricePerDay;
-                    const totalPrice = totalRent + deposit;
-                    
-                    const daysDisplay = document.getElementById('totalDays');
-                    const priceDisplay = document.getElementById('totalPrice');
-                    
+                    const totalPrice = totalRent + deposit + deliveryFee;
+
                     if (daysDisplay) daysDisplay.textContent = diffDays;
                     if (priceDisplay) priceDisplay.textContent = totalPrice + ' MDL';
-                } else {
-                    const daysDisplay = document.getElementById('totalDays');
-                    const priceDisplay = document.getElementById('totalPrice');
-                    if (daysDisplay) daysDisplay.textContent = '-';
-                    if (priceDisplay) priceDisplay.textContent = '-';
+                    return;
                 }
-            } else {
-                const daysDisplay = document.getElementById('totalDays');
-                const priceDisplay = document.getElementById('totalPrice');
-                if (daysDisplay) daysDisplay.textContent = '-';
-                if (priceDisplay) priceDisplay.textContent = '-';
             }
-        } else {
-            const daysDisplay = document.getElementById('totalDays');
-            const priceDisplay = document.getElementById('totalPrice');
-            if (daysDisplay) daysDisplay.textContent = '-';
-            if (priceDisplay) priceDisplay.textContent = '-';
         }
+
+        if (daysDisplay) daysDisplay.textContent = '-';
+        if (priceDisplay) priceDisplay.textContent = '-';
     }
-    
+
+    // Показ/скрытие поля адреса + пересчёт суммы при смене способа получения
+    const deliveryRadios = document.querySelectorAll('input[name="delivery_method"]');
+    const addressGroup = document.getElementById('deliveryAddressGroup');
+    const addressInput = document.getElementById('id_delivery_address');
+    const deliveryRow = document.getElementById('deliveryRow');
+
+    function syncDeliveryUi() {
+        const selected = document.querySelector('input[name="delivery_method"]:checked');
+        const isDelivery = selected && selected.value === 'delivery';
+        if (addressGroup) addressGroup.style.display = isDelivery ? '' : 'none';
+        if (addressInput) {
+            addressInput.required = isDelivery;
+            if (!isDelivery) addressInput.value = '';
+        }
+        if (deliveryRow) deliveryRow.style.display = isDelivery ? '' : 'none';
+        calculateTotal();
+    }
+
+    deliveryRadios.forEach(r => r.addEventListener('change', syncDeliveryUi));
+    syncDeliveryUi();
+
     // Initial calculation if dates are already set
     if (startInput.value && endInput.value) {
         calculateTotal();

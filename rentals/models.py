@@ -17,6 +17,8 @@ from catalog.models import Tool
 class RentalRequest(models.Model):
     """Заявка на аренду инструмента."""
 
+    DELIVERY_FEE = Decimal('200')
+
     class Status(models.TextChoices):
         PENDING = 'pending', _('Ожидает рассмотрения')
         CONFIRMED = 'confirmed', _('Подтверждена')
@@ -24,6 +26,10 @@ class RentalRequest(models.Model):
         COMPLETED = 'completed', _('Завершена')
         CANCELLED = 'cancelled', _('Отменена')
         REJECTED = 'rejected', _('Отклонена')
+
+    class DeliveryMethod(models.TextChoices):
+        PICKUP = 'pickup', _('Самовывоз')
+        DELIVERY = 'delivery', _('Доставка')
 
     # Уникальный номер заявки
     number = models.CharField(
@@ -91,6 +97,25 @@ class RentalRequest(models.Model):
         default=0,
     )
 
+    # Доставка
+    delivery_method = models.CharField(
+        _('способ получения'),
+        max_length=20,
+        choices=DeliveryMethod.choices,
+        default=DeliveryMethod.PICKUP,
+    )
+    delivery_address = models.CharField(
+        _('адрес доставки'),
+        max_length=500,
+        blank=True,
+    )
+    delivery_price = models.DecimalField(
+        _('стоимость доставки'),
+        max_digits=10,
+        decimal_places=2,
+        default=0,
+    )
+
     # Статус
     status = models.CharField(
         _('статус'),
@@ -147,13 +172,23 @@ class RentalRequest(models.Model):
         if not self.number:
             self.number = self._generate_number()
 
+        # Стоимость доставки определяется способом получения
+        if self.delivery_method == self.DeliveryMethod.DELIVERY:
+            self.delivery_price = self.DELIVERY_FEE
+        else:
+            self.delivery_price = Decimal('0')
+            self.delivery_address = ''
+
         # Рассчитываем количество дней и сумму
         if self.start_date and self.end_date:
             delta = self.end_date - self.start_date
             self.total_days = delta.days + 1  # Включая день начала
 
             if self.price_per_day:
-                self.total_price = self.price_per_day * Decimal(self.total_days)
+                self.total_price = (
+                    self.price_per_day * Decimal(self.total_days)
+                    + self.delivery_price
+                )
 
         super().save(*args, **kwargs)
 
