@@ -135,3 +135,5 @@ class CancelRentalRequestView(LoginRequiredMixin, DetailView):
             messages.error(request, _('Эту заявку нельзя отменить.'))
 
         return redirect('rentals:user_requests')
+
+
