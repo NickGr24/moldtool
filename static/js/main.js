@@ -69,7 +69,8 @@ function initForms() {
 
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="spinner"></span> Отправка...';
+                const label = (window.i18n && window.i18n.submitting) || 'Submitting…';
+                submitBtn.innerHTML = '<span class="spinner"></span> ' + label;
             }
         });
     });

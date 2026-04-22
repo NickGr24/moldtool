@@ -245,8 +245,15 @@
         });
     </script>
 
+    <!-- JavaScript translations -->
+    <script>
+        window.i18n = {
+            submitting: "{% trans 'Отправка…' %}"
+        };
+    </script>
+
     <!-- JavaScript -->
-    <script src="{% static 'js/main.js' %}?v=1.0.2"></script>
+    <script src="{% static 'js/main.js' %}?v=1.0.3"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

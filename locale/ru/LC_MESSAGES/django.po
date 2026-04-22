@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-20 23:23+0300\n"
+"POT-Creation-Date: 2026-04-22 22:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,13 +405,15 @@ msgstr "Информация о заявке"
 msgid "Данные клиента"
 msgstr "Данные клиента"
 
-#: rentals/admin.py:42 templates/rentals/request_success.html:27
+#: rentals/admin.py:42 templates/rentals/request_detail.html:80
+#: templates/rentals/request_success.html:27
 msgid "Период аренды"
 msgstr "Период аренды"
 
 #: rentals/admin.py:45 rentals/models.py:32 templates/includes/footer.html:89
 #: templates/rentals/create_request.html:115
 #: templates/rentals/create_request.html:162
+#: templates/rentals/request_detail.html:149
 msgid "Доставка"
 msgstr "Доставка"
 
@@ -781,6 +783,11 @@ msgstr ""
 "аренда инструментов, строительные инструменты, прокат инструментов, Молдова,"
 " Кишинёв"
 
+#: templates/base.html:251
+#| msgid "Ваши права"
+msgid "Отправка…"
+msgstr "Отправка…"
+
 #: templates/catalog/catalog.html:4 templates/catalog/catalog.html:18
 msgid "Каталог инструментов"
 msgstr "Каталог инструментов"
@@ -792,6 +799,8 @@ msgstr "Каталог инструментов"
 #: templates/core/privacy.html:21 templates/core/terms.html:21
 #: templates/includes/header.html:45 templates/includes/header.html:234
 #: templates/rentals/create_request.html:13
+#: templates/rentals/request_detail.html:12
+#: templates/rentals/user_requests.html:12
 msgid "Главная"
 msgstr "Главная"
 
@@ -872,7 +881,7 @@ msgstr "Сравнить"
 
 #: templates/catalog/catalog.html:161 templates/catalog/category.html:102
 #: templates/catalog/favorites.html:67 templates/dashboard/orders.html:81
-#: templates/home.html:385
+#: templates/home.html:385 templates/rentals/user_requests.html:94
 msgid "Подробнее"
 msgstr "Подробнее"
 
@@ -942,6 +951,7 @@ msgstr "день"
 
 #: templates/catalog/compare.html:63 templates/rentals/create_request.html:157
 #: templates/rentals/email/confirmation.html:62
+#: templates/rentals/request_detail.html:155
 msgid "Залог"
 msgstr "Залог"
 
@@ -1077,6 +1087,7 @@ msgstr "Калькулятор аренды"
 
 #: templates/catalog/tool_detail.html:182
 #: templates/rentals/create_request.html:80
+#: templates/rentals/request_detail.html:83
 msgid "Дата начала"
 msgstr "Дата начала"
 
@@ -1087,6 +1098,7 @@ msgstr "Выберите дату"
 
 #: templates/catalog/tool_detail.html:191
 #: templates/rentals/create_request.html:90
+#: templates/rentals/request_detail.html:87
 msgid "Дата окончания"
 msgstr "Дата окончания"
 
@@ -1498,6 +1510,7 @@ msgstr "Свяжитесь с %(brand)s."
 #: templates/core/contacts.html:6 templates/core/contacts.html:50
 #: templates/dashboard/profile.html:46
 #: templates/rentals/create_request.html:67
+#: templates/rentals/request_detail.html:110
 msgid "Телефон"
 msgstr "Телефон"
 
@@ -1692,6 +1705,7 @@ msgid "Адрес электронной почты"
 msgstr "Адрес электронной почты"
 
 #: templates/core/privacy.html:92 templates/rentals/create_request.html:128
+#: templates/rentals/request_detail.html:119
 msgid "Адрес доставки"
 msgstr "Адрес доставки"
 
@@ -1979,6 +1993,8 @@ msgstr "Заказы по статусу"
 
 #: templates/dashboard/financial_report.html:151
 #: templates/rentals/email/confirmation.html:73
+#: templates/rentals/request_detail.html:137
+#: templates/rentals/user_requests.html:88
 msgid "Итого"
 msgstr "Итого"
 
@@ -1998,6 +2014,7 @@ msgstr "Клиент"
 #: templates/rentals/email/confirmation.html:45
 #: templates/rentals/email/expiry_reminder.html:39
 #: templates/rentals/email/expiry_reminder.txt:8
+#: templates/rentals/request_detail.html:59
 #: templates/rentals/request_success.html:23
 msgid "Инструмент"
 msgstr "Инструмент"
@@ -2092,6 +2109,7 @@ msgid "Личные данные"
 msgstr "Личные данные"
 
 #: templates/dashboard/profile.html:25
+#: templates/rentals/request_detail.html:102
 msgid "Имя"
 msgstr "Имя"
 
@@ -2375,6 +2393,7 @@ msgid "Иван Иванов"
 msgstr "Иван Иванов"
 
 #: templates/rentals/create_request.html:102
+#: templates/rentals/request_detail.html:114
 msgid "Способ получения"
 msgstr "Способ получения"
 
@@ -2383,10 +2402,12 @@ msgid "Бесплатно"
 msgstr "Бесплатно"
 
 #: templates/rentals/create_request.html:140
+#: templates/rentals/request_detail.html:128
 msgid "Комментарий"
 msgstr "Комментарий"
 
 #: templates/rentals/create_request.html:152
+#: templates/rentals/request_detail.html:91
 #: templates/rentals/request_success.html:31
 msgid "Количество дней"
 msgstr "Количество дней"
@@ -2434,10 +2455,12 @@ msgid "Период"
 msgstr "Период"
 
 #: templates/rentals/email/confirmation.html:53
+#: templates/rentals/request_detail.html:144
 msgid "Дни"
 msgstr "Дни"
 
 #: templates/rentals/email/confirmation.html:57
+#: templates/rentals/request_detail.html:140
 msgid "Цена/день"
 msgstr "Цена/день"
 
@@ -2535,7 +2558,6 @@ msgstr ""
 
 #: templates/rentals/email/expiry_reminder.html:43
 #: templates/rentals/email/expiry_reminder.txt:9
-#| msgid "Дата начала"
 msgid "Дата возврата"
 msgstr "Дата возврата"
 
@@ -2550,7 +2572,6 @@ msgstr ""
 
 #: templates/rentals/email/expiry_reminder.html:56
 #: templates/rentals/email/expiry_reminder.txt:13
-#| msgid "Контакты"
 msgid "Контакты:"
 msgstr "Контакты:"
 
@@ -2562,6 +2583,51 @@ msgid ""
 msgstr ""
 "Напоминаем, что срок аренды инструмента \"%(tool)s\" истекает сегодня, "
 "%(date)s."
+
+#: templates/rentals/request_detail.html:4
+#: templates/rentals/request_detail.html:23
+#| msgid "Мои заявки"
+msgid "Заявка"
+msgstr "Заявка"
+
+#: templates/rentals/request_detail.html:14
+#: templates/rentals/request_success.html:46
+#: templates/rentals/user_requests.html:4
+#: templates/rentals/user_requests.html:14
+#: templates/rentals/user_requests.html:20
+msgid "Мои заявки"
+msgstr "Мои заявки"
+
+#: templates/rentals/request_detail.html:33
+#| msgid "дата создания"
+msgid "Создана"
+msgstr "Создана"
+
+#: templates/rentals/request_detail.html:38
+#| msgid "Отправить заявку"
+msgid "К списку заявок"
+msgstr "К списку заявок"
+
+#: templates/rentals/request_detail.html:99
+#| msgid "Собираемая информация"
+msgid "Контактная информация"
+msgstr "Контактная информация"
+
+#: templates/rentals/request_detail.html:161
+#| msgid "Итого к оплате"
+msgid "К оплате"
+msgstr "К оплате"
+
+#: templates/rentals/request_detail.html:167
+#: templates/rentals/user_requests.html:98
+#| msgid "Отправить заявку"
+msgid "Отменить эту заявку?"
+msgstr "Отменить эту заявку?"
+
+#: templates/rentals/request_detail.html:172
+#| msgid "Отправить заявку"
+msgid "Отменить заявку"
+msgstr "Отменить заявку"
 
 #: templates/rentals/request_success.html:4
 msgid "Заявка отправлена"
@@ -2580,13 +2646,50 @@ msgstr "Ваша заявка <strong>#%(number)s</strong> успешно соз
 msgid "Продолжить выбор"
 msgstr "Продолжить выбор"
 
-#: templates/rentals/request_success.html:46
-msgid "Мои заявки"
-msgstr "Мои заявки"
-
 #: templates/rentals/request_success.html:52
 msgid "Если у вас есть вопросы, звоните:"
 msgstr "Если у вас есть вопросы, звоните:"
+
+#: templates/rentals/user_requests.html:21
+#| msgid "История ваших заказов на аренду"
+msgid "История ваших заявок на аренду"
+msgstr "История ваших заявок на аренду"
+
+#: templates/rentals/user_requests.html:26
+#| msgid "Номер заявки"
+msgid "Новая заявка"
+msgstr "Новая заявка"
+
+#: templates/rentals/user_requests.html:76
+#| msgid "день"
+msgid "дн."
+msgstr "дн."
+
+#: templates/rentals/user_requests.html:102
+#| msgid "Применить"
+msgid "Отменить"
+msgstr "Отменить"
+
+#: templates/rentals/user_requests.html:123
+#, python-format
+msgid "Страница %(num)s из %(total)s"
+msgstr "Страница %(num)s из %(total)s"
+
+#: templates/rentals/user_requests.html:140
+#| msgid "У вас пока нет заказов"
+msgid "У вас пока нет заявок"
+msgstr "У вас пока нет заявок"
+
+#: templates/rentals/user_requests.html:141
+#| msgid ""
+#| "Выберите инструмент из каталога и создайте свой первый заказ на аренду"
+msgid "Выберите инструмент в каталоге и оформите первую заявку на аренду."
+msgstr "Выберите инструмент в каталоге и оформите первую заявку на аренду."
+
+#: templates/rentals/user_requests.html:145
+#| msgid "Каталог"
+msgid "К каталогу"
+msgstr "К каталогу"
 
 #~ msgid "MDL/zi"
 #~ msgstr "MDL/zi"
