@@ -22,12 +22,13 @@ class RentalRequestAdmin(admin.ModelAdmin):
         'end_date',
         'total_days',
         'total_price_display',
+        'delivery_method',
         'status_badge',
         'created_at',
     )
-    list_filter = ('status', 'created_at', 'start_date', 'tool__category')
+    list_filter = ('status', 'delivery_method', 'created_at', 'start_date', 'tool__category')
     search_fields = ('number', 'customer_name', 'customer_email', 'customer_phone', 'tool__name')
-    readonly_fields = ('number', 'total_days', 'total_price', 'created_at', 'updated_at', 'confirmed_at')
+    readonly_fields = ('number', 'total_days', 'total_price', 'delivery_price', 'created_at', 'updated_at', 'confirmed_at')
     date_hierarchy = 'created_at'
     ordering = ('-created_at',)
 
@@ -40,6 +41,9 @@ class RentalRequestAdmin(admin.ModelAdmin):
         }),
         (_('Период аренды'), {
             'fields': ('start_date', 'end_date', 'total_days')
+        }),
+        (_('Доставка'), {
+            'fields': ('delivery_method', 'delivery_address', 'delivery_price')
         }),
         (_('Финансы'), {
             'fields': ('price_per_day', 'total_price', 'deposit_amount')

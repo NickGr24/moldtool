@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Contacte - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Контакты" %} - {{ SITE_NAME }}{% endblock %}
 
-{% block meta_description %}Contactați {{ SITE_NAME }}. Telefon: {{ SITE_PHONE }}, Email: {{ SITE_EMAIL }}. Adresa: {{ SITE_ADDRESS }}{% endblock %}
+{% block meta_description %}{% blocktrans with brand=SITE_NAME %}Свяжитесь с {{ brand }}.{% endblocktrans %} {% trans "Телефон" %}: {{ SITE_PHONE }}, Email: {{ SITE_EMAIL }}. {% trans "Адрес" %}: {{ SITE_ADDRESS }}{% endblock %}
 
 {% block content %}
-<!-- ============================================
-     CONTACTS HERO SECTION
-     ============================================ -->
 <section class="relative py-20 lg:py-28 bg-dark overflow-hidden">
-    <!-- Animated Background -->
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(245,166,35,0.12)_0%,_transparent_50%)]"></div>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(229,57,53,0.08)_0%,_transparent_50%)]"></div>
@@ -20,134 +16,117 @@
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-8">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">Acasă</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
             <i class="fa-solid fa-chevron-right text-sm text-gray-600"></i>
-            <span class="text-white">Contacte</span>
+            <span class="text-white">{% trans "Контакты" %}</span>
         </nav>
 
-        <!-- Section Header -->
         <div class="text-center mb-16 animate-slide-up">
             <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
                 <span class="relative flex h-2.5 w-2.5">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                 </span>
-                <span class="text-sm font-medium text-gray-300">Suport online 24/7</span>
+                <span class="text-sm font-medium text-gray-300">{% trans "Онлайн-поддержка 24/7" %}</span>
             </span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
-                Contactați-<span class="text-gradient">ne</span>
+                {% trans "Свяжитесь с нами" %}
             </h1>
             <p class="text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto">
-                Suntem mereu disponibili! Sunați, scrieți sau vizitați biroul nostru — 
-                vom fi bucuroși să vă ajutăm cu alegerea sculei.
+                {% trans "Мы всегда на связи! Позвоните, напишите или посетите наш офис — будем рады помочь с выбором инструмента." %}
             </p>
         </div>
 
-        <!-- Contact Cards Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            <!-- Phone Card -->
             <a href="tel:{{ SITE_PHONE }}"
                class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-yellow/10 overflow-hidden">
-                <!-- Glow effect -->
                 <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
                 <div class="relative">
                     <div class="w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-yellow group-hover:to-brand-yellow-dark group-hover:rotate-6">
                         <i class="fa-solid fa-phone text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
-                        <!-- Ping animation -->
                         <span class="absolute inset-0 rounded-2xl bg-brand-yellow/30 animate-ping opacity-0 group-hover:opacity-75"></span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Telefon</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">{% trans "Телефон" %}</h3>
                     <p class="text-2xl font-bold text-brand-yellow mb-2">{{ SITE_PHONE }}</p>
-                    <p class="text-gray-500 text-sm">Sunați oricând — suntem disponibili!</p>
+                    <p class="text-gray-500 text-sm">{% trans "Звоните в любое время — мы на связи!" %}</p>
                 </div>
             </a>
 
-            <!-- Email Card -->
             <a href="mailto:{{ SITE_EMAIL }}"
                class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-red/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-red/10 overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
                 <div class="relative">
                     <div class="w-16 h-16 bg-gradient-to-br from-brand-red/20 to-brand-red/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-red group-hover:to-brand-red-dark group-hover:-rotate-6">
                         <i class="fa-solid fa-envelope text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors">Email</h3>
                     <p class="text-xl font-semibold text-brand-red mb-2 break-all">{{ SITE_EMAIL }}</p>
-                    <p class="text-gray-500 text-sm">Răspundem în maxim o oră</p>
+                    <p class="text-gray-500 text-sm">{% trans "Отвечаем в течение часа" %}</p>
                 </div>
             </a>
 
-            <!-- Address Card -->
             <a href="https://maps.google.com/?q={{ SITE_ADDRESS|urlencode }}" target="_blank" rel="noopener"
                class="group relative bg-dark-100 rounded-2xl p-8 border border-dark-border transition-all duration-500 hover:border-brand-yellow/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-yellow/10 overflow-hidden md:col-span-2 lg:col-span-1">
                 <div class="absolute inset-0 bg-gradient-to-br from-brand-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
                 <div class="relative">
                     <div class="w-16 h-16 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-yellow group-hover:to-brand-yellow-dark group-hover:rotate-6">
                         <i class="fa-solid fa-location-dot text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Adresă</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">{% trans "Адрес" %}</h3>
                     <p class="text-lg font-medium text-white mb-2">{{ SITE_ADDRESS }}</p>
                     <p class="text-gray-500 text-sm flex items-center gap-2">
-                        <span>Deschide pe hartă</span>
+                        <span>{% trans "Открыть на карте" %}</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-sm transition-transform group-hover:translate-x-1"></i>
                     </p>
                 </div>
             </a>
         </div>
 
-        <!-- Main Content Grid -->
         <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <!-- Left Column: Working Hours & Social -->
             <div class="space-y-8">
-                <!-- Working Hours Card -->
                 <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
                             <i class="fa-solid fa-clock text-xl text-brand-yellow"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Program de lucru</h3>
+                        <h3 class="text-xl font-bold text-white">{% trans "Часы работы" %}</h3>
                     </div>
-                    
+
                     <div class="space-y-4">
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Luni - Vineri</span>
+                            <span class="text-gray-400">{% trans "Понедельник – Пятница" %}</span>
                             <span class="text-white font-semibold">08:00 - 20:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Sâmbătă</span>
+                            <span class="text-gray-400">{% trans "Суббота" %}</span>
                             <span class="text-white font-semibold">09:00 - 18:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3 border-b border-dark-border">
-                            <span class="text-gray-400">Duminică</span>
+                            <span class="text-gray-400">{% trans "Воскресенье" %}</span>
                             <span class="text-white font-semibold">10:00 - 16:00</span>
                         </div>
                         <div class="flex items-center justify-between py-3">
-                            <span class="text-gray-400">Telefon suport</span>
+                            <span class="text-gray-400">{% trans "Телефон поддержки" %}</span>
                             <span class="text-brand-yellow font-semibold">24/7</span>
                         </div>
                     </div>
 
-                    <!-- Status Badge -->
                     <div class="mt-6 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
                         <div class="flex items-center gap-3">
                             <div class="relative flex h-3 w-3">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </div>
-                            <span class="text-green-400 font-medium">Suntem deschiși acum!</span>
+                            <span class="text-green-400 font-medium">{% trans "Сейчас мы открыты!" %}</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Social Networks -->
                 <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
-                    <h3 class="text-xl font-bold text-white mb-6">Rețele sociale</h3>
-                    <p class="text-gray-400 mb-6">Urmăriți-ne pentru promoții și noutăți!</p>
-                    
+                    <h3 class="text-xl font-bold text-white mb-6">{% trans "Социальные сети" %}</h3>
+                    <p class="text-gray-400 mb-6">{% trans "Следите за нами, чтобы быть в курсе акций и новостей!" %}</p>
+
                     <div class="grid grid-cols-2 gap-4">
                         <a href="#" class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border transition-all duration-300 hover:border-[#0088cc]/50 hover:bg-[#0088cc]/10 group">
                             <div class="w-10 h-10 bg-[#0088cc]/20 rounded-xl flex items-center justify-center transition-all group-hover:bg-[#0088cc] group-hover:scale-110">
@@ -179,21 +158,20 @@
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
                 <div class="bg-gradient-to-r from-brand-yellow via-brand-yellow-dark to-brand-red rounded-2xl p-8 relative overflow-hidden">
                     <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
                     <div class="relative">
-                        <h3 class="text-2xl font-bold text-dark mb-4">Aveți nevoie de ajutor?</h3>
-                        <p class="text-dark/80 mb-6">Specialiștii noștri vă vor ajuta să alegeți unealta perfectă pentru sarcina dvs.</p>
+                        <h3 class="text-2xl font-bold text-dark mb-4">{% trans "Нужна помощь?" %}</h3>
+                        <p class="text-dark/80 mb-6">{% trans "Наши специалисты помогут подобрать идеальный инструмент для вашей задачи." %}</p>
                         <div class="flex flex-col sm:flex-row gap-3">
                             <a href="tel:{{ SITE_PHONE }}"
                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark text-white font-semibold rounded-xl transition-all hover:bg-dark-100 hover:shadow-xl">
                                 <i class="fa-solid fa-phone text-lg"></i>
-                                Sunați
+                                {% trans "Позвонить" %}
                             </a>
                             <a href="{% url 'catalog:catalog' %}"
                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark/10 text-dark font-semibold rounded-xl border-2 border-dark/20 transition-all hover:bg-dark/20">
-                                Vezi catalogul
+                                {% trans "Смотреть каталог" %}
                                 <i class="fa-solid fa-arrow-right text-sm"></i>
                             </a>
                         </div>
@@ -201,36 +179,32 @@
                 </div>
             </div>
 
-            <!-- Right Column: Map -->
             <div class="space-y-8">
-                <!-- Map Container -->
                 <div class="bg-dark-100 rounded-2xl p-4 border border-dark-border overflow-hidden">
                     <div class="rounded-xl overflow-hidden aspect-[4/3] lg:aspect-[3/4]">
-                        <!-- Google Maps Embed -->
-                        <iframe 
+                        <iframe
                             src="https://maps.google.com/maps?q=Strada+Independenței+7,+Chișinău,+Moldova&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; min-height: 400px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                            width="100%"
+                            height="100%"
+                            style="border:0; min-height: 400px;"
+                            allowfullscreen=""
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
                             class="grayscale hover:grayscale-0 transition-all duration-500">
                         </iframe>
                     </div>
                 </div>
 
-                <!-- Address Details -->
                 <div class="bg-dark-100 rounded-2xl p-8 border border-dark-border">
-                    <h3 class="text-xl font-bold text-white mb-6">Cum să ne găsiți</h3>
-                    
+                    <h3 class="text-xl font-bold text-white mb-6">{% trans "Как нас найти" %}</h3>
+
                     <div class="space-y-4">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-map text-lg text-brand-yellow"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Adresa biroului</h4>
+                                <h4 class="text-white font-medium mb-1">{% trans "Адрес офиса" %}</h4>
                                 <p class="text-gray-400">{{ SITE_ADDRESS }}</p>
                             </div>
                         </div>
@@ -240,8 +214,8 @@
                                 <i class="fa-solid fa-calendar-days text-lg text-brand-red"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Parcare</h4>
-                                <p class="text-gray-400">Parcare gratuită lângă clădire</p>
+                                <h4 class="text-white font-medium mb-1">{% trans "Парковка" %}</h4>
+                                <p class="text-gray-400">{% trans "Бесплатная парковка рядом со зданием" %}</p>
                             </div>
                         </div>
 
@@ -250,17 +224,16 @@
                                 <i class="fa-solid fa-circle-info text-lg text-brand-yellow"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium mb-1">Punct de reper</h4>
-                                <p class="text-gray-400">Lângă centrul comercial</p>
+                                <h4 class="text-white font-medium mb-1">{% trans "Ориентир" %}</h4>
+                                <p class="text-gray-400">{% trans "Рядом с торговым центром" %}</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Get Directions Button -->
                     <a href="https://maps.google.com/maps/dir//{{ SITE_ADDRESS|urlencode }}" target="_blank" rel="noopener"
                        class="mt-6 w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-dark rounded-xl border border-dark-border font-semibold text-white transition-all duration-300 hover:border-brand-yellow hover:text-brand-yellow group">
                         <i class="fa-solid fa-map text-lg"></i>
-                        Construiește ruta
+                        {% trans "Построить маршрут" %}
                         <i class="fa-solid fa-arrow-up-right-from-square text-sm transition-transform group-hover:translate-x-1"></i>
                     </a>
                 </div>
@@ -269,49 +242,48 @@
     </div>
 </section>
 
-<!-- FAQ Mini Section -->
 <section class="py-16 bg-dark-100 border-t border-dark-border">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
-            <h2 class="text-2xl font-bold text-white mb-2">Întrebări frecvente</h2>
-            <p class="text-gray-400">Răspunsuri la întrebările populare despre contacte și vizite</p>
+            <h2 class="text-2xl font-bold text-white mb-2">{% trans "Частые вопросы" %}</h2>
+            <p class="text-gray-400">{% trans "Ответы на популярные вопросы о контактах и посещении" %}</p>
         </div>
 
         <div class="space-y-4">
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Cum pot plăti închirierea?</span>
+                    <span class="text-white font-medium">{% trans "Как можно оплатить аренду?" %}</span>
                     <i class="fa-solid fa-chevron-down text-lg text-gray-400 transition-transform"></i>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Acceptăm numerar, carduri bancare, precum și transfer bancar pentru persoane juridice.
+                    {% trans "Мы принимаем наличные, банковские карты, а также банковский перевод для юридических лиц." %}
                 </div>
             </details>
 
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Este posibilă livrarea sculelor?</span>
+                    <span class="text-white font-medium">{% trans "Возможна ли доставка инструментов?" %}</span>
                     <i class="fa-solid fa-chevron-down text-lg text-gray-400 transition-transform"></i>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Da, efectuăm livrare în toată Moldova. Costul livrării depinde de distanță și volumul comenzii.
+                    {% trans "Да, мы осуществляем доставку по всей Молдове. Стоимость доставки зависит от расстояния и объёма заказа." %}
                 </div>
             </details>
 
             <details class="group bg-dark rounded-xl border border-dark-border overflow-hidden">
                 <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                    <span class="text-white font-medium">Trebuie să las o garanție?</span>
+                    <span class="text-white font-medium">{% trans "Нужно ли оставлять залог?" %}</span>
                     <i class="fa-solid fa-chevron-down text-lg text-gray-400 transition-transform"></i>
                 </summary>
                 <div class="px-5 pb-5 text-gray-400">
-                    Da, la închirierea unei scule este necesară o garanție sau un act de identitate. Mărimea garanției depinde de tipul sculei.
+                    {% trans "Да, при аренде инструмента требуется залог или документ, удостоверяющий личность. Размер залога зависит от типа инструмента." %}
                 </div>
             </details>
         </div>
 
         <div class="text-center mt-8">
             <a href="{% url 'catalog:faq' %}" class="inline-flex items-center gap-2 text-brand-yellow hover:text-brand-yellow-dark transition-colors font-medium">
-                Toate întrebările și răspunsurile
+                {% trans "Все вопросы и ответы" %}
                 <i class="fa-solid fa-chevron-right text-sm"></i>
             </a>
         </div>

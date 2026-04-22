@@ -6,289 +6,319 @@
         @page {
             size: A4;
             margin: 2cm;
-            @bottom-center {
-                content: "{{ SITE_NAME }} | {{ SITE_ADDRESS }} | {{ SITE_PHONE }}";
-                font-size: 8pt;
-                color: #999;
+            @bottom-right {
+                content: counter(page);
+                font-size: 9pt;
+                color: #555;
             }
         }
 
         body {
-            font-family: sans-serif;
+            font-family: "Times New Roman", Times, serif;
             font-size: 11pt;
-            line-height: 1.5;
-            color: #1a1a1a;
+            line-height: 1.45;
+            color: #000;
             margin: 0;
             padding: 0;
         }
 
-        /* Header */
-        .header {
+        h1 {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 0 0 18px 0;
+            text-transform: uppercase;
+        }
+
+        .header-line {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 3px solid #F5A623;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+            margin: 6px 0 24px 0;
+            font-size: 11pt;
         }
 
-        .company-name {
-            font-size: 24pt;
-            font-weight: bold;
-            color: #E53935;
-            margin: 0;
+        .header-line .locality {
+            border-bottom: 1px solid #000;
+            min-width: 200px;
+            padding: 0 6px;
         }
 
-        .company-tagline {
-            font-size: 10pt;
-            color: #888;
+        .caption {
+            font-size: 9pt;
+            color: #444;
+            text-align: center;
             margin-top: 2px;
         }
 
-        .company-details {
-            font-size: 9pt;
-            color: #666;
-            text-align: right;
-            line-height: 1.6;
-        }
-
-        /* Title */
-        h1 {
-            text-align: center;
-            font-size: 16pt;
-            color: #333;
-            margin: 25px 0 5px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contract-number {
-            text-align: center;
-            font-size: 11pt;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* Sections */
-        .section-title {
+        h2 {
             font-size: 11pt;
             font-weight: bold;
-            color: #E53935;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            margin: 25px 0 10px 0;
+            text-align: center;
+            margin: 18px 0 10px 0;
+            text-transform: uppercase;
         }
 
-        /* Tables */
-        table {
+        p {
+            margin: 6px 0;
+            text-align: justify;
+        }
+
+        .clause {
+            margin: 6px 0 6px 24px;
+            text-align: justify;
+        }
+
+        .sub-clause {
+            margin: 4px 0 4px 48px;
+            text-align: justify;
+        }
+
+        table.price-table {
             width: 100%;
             border-collapse: collapse;
             margin: 10px 0;
-        }
-
-        table td {
-            padding: 7px 10px;
-            border: 1px solid #ddd;
             font-size: 10pt;
         }
 
-        table td:first-child {
-            width: 40%;
-            background-color: #f9f9f9;
-            font-weight: 500;
-            color: #555;
+        table.price-table td,
+        table.price-table th {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            text-align: left;
         }
 
-        .total-row td {
+        table.price-table th {
+            background-color: #eee;
             font-weight: bold;
-            font-size: 11pt;
         }
 
-        .total-row td:first-child {
-            background-color: #FFF8E1;
+        table.price-table td.num {
+            text-align: right;
         }
 
-        .total-row td:last-child {
-            background-color: #FFF8E1;
-            color: #E53935;
-        }
-
-        /* Terms */
-        .terms {
-            font-size: 9pt;
-            color: #555;
+        .parties {
             margin-top: 20px;
-        }
-
-        .terms ol {
-            padding-left: 20px;
-        }
-
-        .terms li {
-            margin-bottom: 4px;
-        }
-
-        /* Signatures */
-        .signatures {
             display: flex;
             justify-content: space-between;
-            margin-top: 50px;
+            gap: 24px;
+        }
+
+        .party {
+            width: 48%;
+            font-size: 10pt;
+        }
+
+        .party-name {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .party-line {
+            margin: 2px 0;
+        }
+
+        .party-note {
+            font-size: 8.5pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        .signatures {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
         }
 
         .signature-block {
-            width: 45%;
+            width: 48%;
             text-align: center;
         }
 
         .signature-label {
             font-weight: bold;
-            font-size: 10pt;
-            margin-bottom: 5px;
-        }
-
-        .signature-name {
-            font-size: 10pt;
-            color: #555;
+            margin-bottom: 60px;
         }
 
         .signature-line {
-            border-top: 1px solid #333;
-            margin-top: 60px;
-            padding-top: 5px;
+            border-top: 1px solid #000;
+            padding-top: 4px;
             font-size: 9pt;
-            color: #888;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
+
+    <h1>Contract de închiriere nr. {{ rental.number }}</h1>
+
+    <div class="header-line">
         <div>
-            <div class="company-name">{{ SITE_NAME }}</div>
-            <div class="company-tagline">{{ SITE_TAGLINE }}</div>
+            <span class="locality">mun. Chișinău</span>
+            <div class="caption">(denumirea localității)</div>
         </div>
-        <div class="company-details">
-            {{ SITE_ADDRESS }}<br>
-            Tel: {{ SITE_PHONE }}<br>
-            Email: {{ SITE_EMAIL }}
+        <div>
+            „{{ rental.created_at|date:"d" }}” {{ rental.created_at|date:"F Y" }}
         </div>
     </div>
 
-    <!-- Title -->
-    <h1>Contract de închiriere</h1>
-    <div class="contract-number">
-        Nr. {{ rental.number }} din {{ rental.created_at|date:"d.m.Y" }}
+    <h2>I. Părțile contractante</h2>
+    <p>
+        <strong>{{ SITE_NAME }}</strong>, cu sediul în {{ SITE_ADDRESS }},
+        tel. {{ SITE_PHONE }}, email {{ SITE_EMAIL }},
+        în calitate de <strong>PRESTATOR</strong>, pe de o parte, și
+        <strong>{{ rental.customer_name }}</strong>,
+        tel. {{ rental.customer_phone }}, email {{ rental.customer_email }}{% if rental.delivery_address %},
+        cu adresa de livrare: {{ rental.delivery_address }}{% endif %},
+        în calitate de <strong>BENEFICIAR</strong>, pe de altă parte,
+        au convenit să încheie prezentul Contract de închiriere, cu respectarea următoarelor clauze.
+    </p>
+
+    <h2>II. Obiectul contractului</h2>
+    <p class="clause">
+        2.1. Obiectul prezentului Contract îl constituie transmiterea în posesie și folosință temporară,
+        cu plată, de la Prestator în folosul Beneficiarului a echipamentului/sculei de construcție
+        indicate la pct. IV al prezentului Contract.
+    </p>
+
+    <h2>III. Durata contractului</h2>
+    <p class="clause">
+        3.1. Durata închirierii începe la data de <strong>{{ rental.start_date|date:"d.m.Y" }}</strong>
+        și se încheie la data de <strong>{{ rental.end_date|date:"d.m.Y" }}</strong>,
+        totalizând <strong>{{ rental.total_days }}</strong> zi(le).
+    </p>
+    <p class="clause">
+        3.2. Predarea și returnarea echipamentului se confirmă prin actele aferente
+        (act de livrare – la predare, act de retur – la returnare).
+    </p>
+
+    <h2>IV. Cuantumul chiriei și modalitățile de plată</h2>
+    <table class="price-table">
+        <thead>
+            <tr>
+                <th>Denumirea echipamentului</th>
+                <th>Zile</th>
+                <th>Preț / zi (MDL)</th>
+                <th>Valoare chirie (MDL)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ tool.name }}{% if tool.brand %} ({{ tool.brand }}{% if tool.model_name %} {{ tool.model_name }}{% endif %}){% endif %}</td>
+                <td class="num">{{ rental.total_days }}</td>
+                <td class="num">{{ rental.price_per_day }}</td>
+                <td class="num">{{ rental.price_per_day|floatformat:2 }} × {{ rental.total_days }}</td>
+            </tr>
+            {% if rental.delivery_price and rental.delivery_price > 0 %}
+            <tr>
+                <td colspan="3">Serviciu de livrare la adresa Beneficiarului</td>
+                <td class="num">{{ rental.delivery_price }}</td>
+            </tr>
+            {% endif %}
+            {% if rental.deposit_amount and rental.deposit_amount > 0 %}
+            <tr>
+                <td colspan="3">Garanție (depozit, se restituie la returnarea echipamentului)</td>
+                <td class="num">{{ rental.deposit_amount }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td colspan="3"><strong>Total de achitat</strong></td>
+                <td class="num"><strong>{{ rental.total_price }} MDL</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="clause">
+        4.1. Beneficiarul achită contravaloarea chiriei prin transfer bancar în contul Prestatorului,
+        conform facturii emise, sau prin numerar la sediul Prestatorului.
+    </p>
+
+    <h2>V. Drepturile și obligațiile părților</h2>
+    <p class="clause">
+        5.1. Bunurile se consideră predate de către Prestator și recepționate de către Beneficiar
+        la momentul semnării actului de livrare. Din acel moment, toate riscurile privind bunurile
+        sunt transferate Beneficiarului.
+    </p>
+    <p class="clause">5.2. Prestatorul se obligă:</p>
+    <p class="sub-clause">5.2.1. să închirieze Beneficiarului echipamentul în limita stocului disponibil;</p>
+    <p class="sub-clause">5.2.2. să predea echipamentul în stare tehnică bună, pregătit pentru utilizare;</p>
+    <p class="sub-clause">5.2.3. să asigure, la solicitarea Beneficiarului și contra cost, livrarea echipamentului la adresa indicată, conform tarifului agreat.</p>
+    <p class="clause">5.3. Beneficiarul se obligă:</p>
+    <p class="sub-clause">5.3.1. să achite la timp sumele datorate conform prezentului Contract;</p>
+    <p class="sub-clause">5.3.2. să folosească bunurile închiriate conform destinației și să le mențină în stare tehnică bună;</p>
+    <p class="sub-clause">5.3.3. să returneze echipamentul la data stabilită, în starea în care l-a primit, luând în considerare uzura normală;</p>
+    <p class="sub-clause">5.3.4. în cazul deteriorării, pierderii sau distrugerii bunurilor aflate în custodia sa, să achite Prestatorului valoarea bunurilor, stabilită de către Prestator.</p>
+    <p class="clause">
+        5.4. În cazul neachitării în termen a plăților datorate, Prestatorul este îndreptățit
+        să suspende livrarea echipamentului până la achitarea integrală a sumelor restante.
+    </p>
+
+    <h2>VI. Condițiile de modificare și reziliere a contractului</h2>
+    <p class="clause">
+        6.1. Modificarea clauzelor prezentului Contract, prelungirea sau rezilierea lui
+        se efectuează cu acordul ambelor părți contractante.
+    </p>
+    <p class="clause">6.2. Contractul poate fi reziliat la cererea oricărei părți în următoarele cazuri:</p>
+    <p class="sub-clause">6.2.1. încălcarea de către cealaltă parte a clauzelor prezentului Contract;</p>
+    <p class="sub-clause">6.2.2. folosirea bunurilor închiriate de către Beneficiar în alte condiții și scopuri decât cele stipulate;</p>
+    <p class="sub-clause">6.2.3. subînchirierea bunurilor fără acordul scris al Prestatorului;</p>
+    <p class="sub-clause">6.2.4. nerespectarea regulilor de exploatare, sanitare sau antiincendiare a bunurilor închiriate.</p>
+
+    <h2>VII. Dispoziții finale</h2>
+    <p class="clause">
+        7.1. Modificările și completările în prezentul Contract se efectuează în scris, cu acordul ambelor părți.
+    </p>
+    <p class="clause">
+        7.2. În cazul nerespectării obligațiilor contractuale, părțile poartă răspundere
+        conform legislației Republicii Moldova.
+    </p>
+    <p class="clause">
+        7.3. Beneficiarul poartă răspundere patrimonială pentru deteriorarea bunurilor închiriate.
+    </p>
+    <p class="clause">
+        7.4. Prezentul Contract este întocmit în 2 exemplare, fiecare având aceeași putere juridică.
+    </p>
+
+    <h2>VIII. Adresele și datele părților</h2>
+    <div class="parties">
+        <div class="party">
+            <div class="party-name">PRESTATOR</div>
+            <div class="party-line">SRL „{{ SITE_NAME }}”</div>
+            <div class="party-line">{{ SITE_ADDRESS }}</div>
+            <div class="party-note">(adresa juridică)</div>
+            <div class="party-line">Tel.: {{ SITE_PHONE }}</div>
+            <div class="party-line">Email: {{ SITE_EMAIL }}</div>
+            <div class="party-line" style="margin-top:6px;">BC „MOLDINDCONBANK” SA, fil. Centru Chișinău</div>
+            <div class="party-line">IBAN: MD24ML000000002251847390</div>
+            <div class="party-line">Cod fiscal: 1024600018472</div>
+            <div class="party-line">Cod TVA: 0809214</div>
+            <div class="party-note">(rechizitele bancare)</div>
+        </div>
+        <div class="party">
+            <div class="party-name">BENEFICIAR</div>
+            <div class="party-line">{{ rental.customer_name }}</div>
+            {% if rental.delivery_address %}
+            <div class="party-line">{{ rental.delivery_address }}</div>
+            <div class="party-note">(adresa de livrare)</div>
+            {% endif %}
+            <div class="party-line">Tel.: {{ rental.customer_phone }}</div>
+            <div class="party-line">Email: {{ rental.customer_email }}</div>
+            <div class="party-line" style="margin-top:6px;">IDNP: ____________________________</div>
+            <div class="party-line">Buletin de identitate: ____________</div>
+            <div class="party-note">(se completează la semnare)</div>
+        </div>
     </div>
 
-    <!-- 1. Client details -->
-    <div class="section-title">1. Datele clientului</div>
-    <table>
-        <tr>
-            <td>Numele complet</td>
-            <td>{{ rental.customer_name }}</td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>{{ rental.customer_email }}</td>
-        </tr>
-        <tr>
-            <td>Telefon</td>
-            <td>{{ rental.customer_phone }}</td>
-        </tr>
-    </table>
-
-    <!-- 2. Tool details -->
-    <div class="section-title">2. Obiectul închirierii</div>
-    <table>
-        <tr>
-            <td>Denumirea sculei</td>
-            <td>{{ tool.name }}</td>
-        </tr>
-        {% if tool.brand %}
-        <tr>
-            <td>Marca</td>
-            <td>{{ tool.brand }}</td>
-        </tr>
-        {% endif %}
-        {% if tool.model_name %}
-        <tr>
-            <td>Modelul</td>
-            <td>{{ tool.model_name }}</td>
-        </tr>
-        {% endif %}
-        {% if tool.category %}
-        <tr>
-            <td>Categoria</td>
-            <td>{{ tool.category.name }}</td>
-        </tr>
-        {% endif %}
-    </table>
-
-    <!-- 3. Rental period -->
-    <div class="section-title">3. Perioada de închiriere</div>
-    <table>
-        <tr>
-            <td>Data de început</td>
-            <td>{{ rental.start_date|date:"d.m.Y" }}</td>
-        </tr>
-        <tr>
-            <td>Data de sfârșit</td>
-            <td>{{ rental.end_date|date:"d.m.Y" }}</td>
-        </tr>
-        <tr>
-            <td>Numărul de zile</td>
-            <td>{{ rental.total_days }}</td>
-        </tr>
-    </table>
-
-    <!-- 4. Financial conditions -->
-    <div class="section-title">4. Condiții financiare</div>
-    <table>
-        <tr>
-            <td>Prețul pe zi</td>
-            <td>{{ rental.price_per_day }} MDL</td>
-        </tr>
-        <tr>
-            <td>Numărul de zile</td>
-            <td>{{ rental.total_days }}</td>
-        </tr>
-        {% if rental.deposit_amount %}
-        <tr>
-            <td>Garanție (depozit)</td>
-            <td>{{ rental.deposit_amount }} MDL</td>
-        </tr>
-        {% endif %}
-        <tr class="total-row">
-            <td>Suma totală</td>
-            <td>{{ rental.total_price }} MDL</td>
-        </tr>
-    </table>
-
-    <!-- 5. Terms and conditions -->
-    <div class="terms">
-        <div class="section-title">5. Condiții generale</div>
-        <ol>
-            <li>Chiriașul se obligă să utilizeze scula conform destinației și să o returneze în starea primită.</li>
-            <li>În caz de deteriorare sau pierdere, chiriașul va suporta costul de reparație sau de înlocuire.</li>
-            <li>Garanția (depozitul) se returnează la restituirea sculei în stare corespunzătoare.</li>
-            <li>Prelungirea perioadei de închiriere se face doar cu acordul prealabil al locatorului.</li>
-            <li>Prezentul contract intră în vigoare de la data semnării de către ambele părți.</li>
-        </ol>
-    </div>
-
-    <!-- Signatures -->
     <div class="signatures">
         <div class="signature-block">
-            <div class="signature-label">Locator</div>
-            <div class="signature-name">{{ SITE_NAME }}</div>
-            <div class="signature-line">Semnătura / Ștampila</div>
+            <div class="signature-label">PRESTATORUL</div>
+            <div class="signature-line">(funcția, semnătura, numele)</div>
         </div>
         <div class="signature-block">
-            <div class="signature-label">Chiriaș</div>
-            <div class="signature-name">{{ rental.customer_name }}</div>
-            <div class="signature-line">Semnătura</div>
+            <div class="signature-label">BENEFICIARUL</div>
+            <div class="signature-line">(semnătura, numele)</div>
         </div>
     </div>
+
 </body>
 </html>
 
