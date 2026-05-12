@@ -82,7 +82,7 @@ def generate_invoice_pdf(rental_request):
 def send_rental_expiry_reminder(rental_request):
     """
     Отправляет клиенту email-напоминание о скором истечении срока аренды
-    (за 2 часа до конца дня возврата).
+    (за 6 часов до конца дня возврата).
     """
     context = {
         'rental': rental_request,

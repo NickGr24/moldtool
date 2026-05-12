@@ -1,9 +1,10 @@
 """
 Management command для отправки напоминаний об окончании аренды.
-Запускать через cron каждые 15–30 минут: python manage.py send_rental_reminders
+Запускается планировщиком (rentals/scheduler.py) каждые 15 минут,
+либо вручную: python manage.py send_rental_reminders
 """
 
-from datetime import timedelta
+from datetime import timedelta, time
 
 from django.core.management.base import BaseCommand
 from django.utils import timezone
@@ -13,12 +14,12 @@ from rentals.services import send_rental_expiry_reminder
 
 
 class Command(BaseCommand):
-    help = 'Отправляет напоминания за 2 часа до окончания срока аренды'
+    help = 'Отправляет напоминания за 6 часов до окончания срока аренды'
 
-    REMINDER_HOURS_BEFORE = 2
+    REMINDER_HOURS_BEFORE = 6
 
     def handle(self, *args, **options):
-        now = timezone.now()
+        now = timezone.localtime()
         today = now.date()
 
         rentals = RentalRequest.objects.filter(
@@ -30,9 +31,9 @@ class Command(BaseCommand):
             reminder_sent=False,
         )
 
-        # Конец дня возврата (23:59:59 по локальному времени)
+        # Конец дня возврата = полночь следующего дня в локальной TZ
         end_of_day = timezone.make_aware(
-            timezone.datetime.combine(today, timezone.datetime.min.time())
+            timezone.datetime.combine(today, time.min)
         ) + timedelta(days=1)
         hours_left = (end_of_day - now).total_seconds() / 3600
 
