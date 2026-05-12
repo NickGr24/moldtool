@@ -1,4 +1,4 @@
-{% load i18n %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -15,15 +15,15 @@
             </td></tr>
 
             <tr><td style="padding:30px;">
-                <h2 style="color:#333;margin:0 0 15px;font-size:20px;">{% blocktrans with name=rental.customer_name %}Здравствуйте, {{ name }}!{% endblocktrans %}</h2>
+                <h2 style="color:#333;margin:0 0 15px;font-size:20px;">Bună ziua, {{ rental.customer_name }}!</h2>
 
                 <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFF3E0;border-radius:6px;border-left:4px solid #FF9800;margin:0 0 20px;">
                     <tr><td style="padding:15px;">
                         <p style="margin:0 0 5px;color:#E65100;font-weight:bold;font-size:15px;">
-                            {% trans "Срок аренды истекает в ближайшие 2 часа!" %}
+                            Termenul de închiriere expiră astăzi!
                         </p>
                         <p style="margin:0;color:#555;font-size:14px;line-height:1.6;">
-                            {% blocktrans with tool=rental.tool.name date=rental.end_date|date:"d.m.Y" %}Напоминаем, что срок аренды инструмента <strong>{{ tool }}</strong> истекает сегодня, <strong>{{ date }}</strong>.{% endblocktrans %}
+                            Vă reamintim că termenul de închiriere pentru unealta <strong>{{ rental.tool.name }}</strong> expiră astăzi, <strong>{{ rental.end_date|date:"d.m.Y" }}</strong>.
                         </p>
                     </td></tr>
                 </table>
@@ -32,15 +32,15 @@
                     <tr><td style="padding:15px;">
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td style="padding:8px 0;color:#888;font-size:13px;border-bottom:1px solid #eee;">{% trans "Номер заявки" %}</td>
+                                <td style="padding:8px 0;color:#888;font-size:13px;border-bottom:1px solid #eee;">Numărul comenzii</td>
                                 <td style="padding:8px 0;text-align:right;font-weight:bold;color:#333;border-bottom:1px solid #eee;">#{{ rental.number }}</td>
                             </tr>
                             <tr>
-                                <td style="padding:8px 0;color:#888;font-size:13px;border-bottom:1px solid #eee;">{% trans "Инструмент" %}</td>
+                                <td style="padding:8px 0;color:#888;font-size:13px;border-bottom:1px solid #eee;">Unealta</td>
                                 <td style="padding:8px 0;text-align:right;color:#333;border-bottom:1px solid #eee;">{{ rental.tool.name }}</td>
                             </tr>
                             <tr>
-                                <td style="padding:8px 0;color:#888;font-size:13px;">{% trans "Дата возврата" %}</td>
+                                <td style="padding:8px 0;color:#888;font-size:13px;">Data returnării</td>
                                 <td style="padding:8px 0;text-align:right;font-weight:bold;color:#E53935;">{{ rental.end_date|date:"d.m.Y" }}</td>
                             </tr>
                         </table>
@@ -48,14 +48,14 @@
                 </table>
 
                 <p style="color:#555;line-height:1.6;margin:0 0 20px;">
-                    {% trans "Пожалуйста, верните инструмент вовремя, чтобы избежать возможных штрафов. Если вы хотите продлить срок аренды — свяжитесь с нами." %}
+                    Vă rugăm să returnați unealta la timp pentru a evita eventualele penalități. Dacă doriți să prelungiți perioada de închiriere, vă rugăm să ne contactați.
                 </p>
 
                 <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#E8F5E9;border-radius:6px;border-left:4px solid #4CAF50;margin:0 0 10px;">
                     <tr><td style="padding:15px;">
-                        <p style="margin:0 0 5px;color:#555;font-size:13px;">{% trans "Контакты:" %}</p>
+                        <p style="margin:0 0 5px;color:#555;font-size:13px;">Contacte:</p>
                         <p style="margin:0;color:#333;font-size:14px;">
-                            <strong>{% trans "Телефон:" %}</strong> {{ SITE_PHONE }}<br>
+                            <strong>Telefon:</strong> {{ SITE_PHONE }}<br>
                             <strong>Email:</strong> {{ SITE_EMAIL }}
                         </p>
                     </td></tr>
