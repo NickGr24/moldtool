@@ -46,7 +46,7 @@ class RentalRequestAdmin(admin.ModelAdmin):
             'fields': ('delivery_method', 'delivery_address', 'delivery_price')
         }),
         (_('Финансы'), {
-            'fields': ('price_per_day', 'total_price', 'deposit_amount')
+            'fields': ('price_per_day', 'total_price')
         }),
         (_('Комментарии'), {
             'fields': ('comment', 'admin_notes'),

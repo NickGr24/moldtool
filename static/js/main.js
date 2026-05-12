@@ -106,13 +106,8 @@ function initRentalCalculator() {
         return;
     }
 
-    // Получаем цену и залог из data-атрибутов
     const priceStr = summaryEl.dataset.pricePerDay || '0';
-    const depositStr = summaryEl.dataset.deposit || '0';
     const pricePerDay = parseFloat(priceStr.toString().replace(',', '.')) || 0;
-    const depositAmount = parseFloat(depositStr.toString().replace(',', '.')) || 0;
-
-    console.log('Rental calculator init:', { pricePerDay, depositAmount });
 
     const daysDisplay = document.getElementById('totalDays');
     const totalDisplay = document.getElementById('totalPrice');

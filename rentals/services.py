@@ -64,14 +64,9 @@ def generate_invoice_pdf(rental_request):
     Returns:
         bytes: содержимое PDF файла
     """
-    total_with_deposit = rental_request.total_price + (
-        rental_request.deposit_amount or 0
-    )
-
     context = {
         'rental': rental_request,
         'tool': rental_request.tool,
-        'total_with_deposit': total_with_deposit,
         'now': timezone.now(),
         **SITE_INFO,
     }

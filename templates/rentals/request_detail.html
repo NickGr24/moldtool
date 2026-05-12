@@ -150,12 +150,6 @@
                             <span class="text-white">{{ rental.delivery_price }} MDL</span>
                         </div>
                         {% endif %}
-                        {% if rental.deposit_amount and rental.deposit_amount > 0 %}
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">{% trans "Залог" %}</span>
-                            <span class="text-white">{{ rental.deposit_amount }} MDL</span>
-                        </div>
-                        {% endif %}
                     </div>
                     <div class="pt-4 border-t border-dark-border flex justify-between items-center">
                         <span class="text-gray-400">{% trans "К оплате" %}</span>

@@ -61,7 +61,7 @@ class ToolAdmin(admin.ModelAdmin):
             'fields': ('brand', 'model_name', 'specifications')
         }),
         (_('Цены'), {
-            'fields': ('price_per_day', 'deposit')
+            'fields': ('price_per_day',)
         }),
         (_('Статус'), {
             'fields': ('condition', 'availability', 'quantity', 'quantity_available')

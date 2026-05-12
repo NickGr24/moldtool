@@ -41,7 +41,6 @@ class CreateRentalRequestView(CreateView):
         initial = super().get_initial()
         tool = self.get_tool()
         initial['price_per_day'] = tool.price_per_day
-        initial['deposit_amount'] = tool.deposit
 
         # Предзаполняем данные для авторизованных пользователей
         if self.request.user.is_authenticated:
@@ -62,7 +61,6 @@ class CreateRentalRequestView(CreateView):
         # Устанавливаем связи
         form.instance.tool = tool
         form.instance.price_per_day = tool.price_per_day
-        form.instance.deposit_amount = tool.deposit
 
         if self.request.user.is_authenticated:
             form.instance.user = self.request.user

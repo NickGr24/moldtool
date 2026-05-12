@@ -153,12 +153,6 @@ class Tool(models.Model):
         max_digits=10,
         decimal_places=2,
     )
-    deposit = models.DecimalField(
-        _('залог'),
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-    )
 
     # Статус
     condition = models.CharField(

@@ -143,7 +143,7 @@
             </div>
 
             <!-- Price Summary -->
-            <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-deposit="{{ tool.deposit|default:0 }}" data-delivery-fee="{{ delivery_fee|default:0 }}">
+            <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-delivery-fee="{{ delivery_fee|default:0 }}">
                 <div class="rental-summary-row">
                     <span>{% trans "Цена за день" %}</span>
                     <span>{{ tool.price_per_day }} MDL</span>
@@ -152,12 +152,6 @@
                     <span>{% trans "Количество дней" %}</span>
                     <span id="totalDays">-</span>
                 </div>
-                {% if tool.deposit %}
-                <div class="rental-summary-row">
-                    <span>{% trans "Залог" %}</span>
-                    <span id="depositAmount">{{ tool.deposit }} MDL</span>
-                </div>
-                {% endif %}
                 <div class="rental-summary-row" id="deliveryRow" style="display:none;">
                     <span>{% trans "Доставка" %}</span>
                     <span id="deliveryPrice">{{ delivery_fee }} MDL</span>
@@ -257,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!summary) return;
 
         const pricePerDay = parseFloat(summary.dataset.pricePerDay) || 0;
-        const deposit = parseFloat(summary.dataset.deposit) || 0;
         const deliveryFee = getDeliveryFee();
 
         const daysDisplay = document.getElementById('totalDays');
@@ -276,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (diffDays > 0) {
                     const totalRent = diffDays * pricePerDay;
-                    const totalPrice = totalRent + deposit + deliveryFee;
+                    const totalPrice = totalRent + deliveryFee;
 
                     if (daysDisplay) daysDisplay.textContent = diffDays;
                     if (priceDisplay) priceDisplay.textContent = totalPrice + ' MDL';

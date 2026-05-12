@@ -87,7 +87,6 @@ class Command(BaseCommand):
                 'model_name': 'GBH 2-26 DRE',
                 'description': 'Профессиональный перфоратор для сверления и долбления. Мощность 800 Вт, энергия удара 2.7 Дж. Идеален для работы с бетоном, кирпичом и камнем.',
                 'price_per_day': 150,
-                'deposit': 1500,
                 'specifications': {
                     'Мощность': '800 Вт',
                     'Энергия удара': '2.7 Дж',
@@ -103,7 +102,6 @@ class Command(BaseCommand):
                 'model_name': 'DDF453',
                 'description': 'Аккумуляторный шуруповёрт с литий-ионным аккумулятором 18V. Два режима скорости, LED подсветка рабочей зоны.',
                 'price_per_day': 100,
-                'deposit': 1000,
                 'specifications': {
                     'Напряжение': '18 В',
                     'Крутящий момент': '42 Нм',
@@ -119,7 +117,6 @@ class Command(BaseCommand):
                 'model_name': 'DWE4257',
                 'description': 'Угловая шлифмашина с регулировкой оборотов. Подходит для резки и шлифовки металла, камня, плитки.',
                 'price_per_day': 120,
-                'deposit': 1200,
                 'specifications': {
                     'Мощность': '1500 Вт',
                     'Диаметр диска': '125 мм',
@@ -134,7 +131,6 @@ class Command(BaseCommand):
                 'model_name': 'GST 150 BCE',
                 'description': 'Профессиональный электролобзик для фигурной резки дерева, металла, пластика. Маятниковый ход, регулировка скорости.',
                 'price_per_day': 90,
-                'deposit': 900,
                 'specifications': {
                     'Мощность': '780 Вт',
                     'Глубина пропила (дерево)': '150 мм',
@@ -151,7 +147,6 @@ class Command(BaseCommand):
                 'model_name': 'CM-120',
                 'description': 'Бетономешалка объёмом 120 литров. Идеальна для небольших строительных работ, заливки фундамента, приготовления раствора.',
                 'price_per_day': 200,
-                'deposit': 2000,
                 'specifications': {
                     'Объём барабана': '120 л',
                     'Готовая смесь': '90 л',
@@ -167,7 +162,6 @@ class Command(BaseCommand):
                 'model_name': 'WP1550A',
                 'description': 'Виброплита для уплотнения грунта, песка, щебня. Бензиновый двигатель Honda.',
                 'price_per_day': 350,
-                'deposit': 5000,
                 'specifications': {
                     'Центробежная сила': '15 кН',
                     'Размер плиты': '500x360 мм',
@@ -182,7 +176,6 @@ class Command(BaseCommand):
                 'model_name': 'BS 6600',
                 'description': 'Бензиновый генератор мощностью 6 кВт. Надёжный источник электроэнергии для строительной площадки.',
                 'price_per_day': 400,
-                'deposit': 5000,
                 'specifications': {
                     'Мощность': '6.0 кВт',
                     'Напряжение': '220/380 В',
@@ -200,7 +193,6 @@ class Command(BaseCommand):
                 'model_name': 'HRG 416 SK',
                 'description': 'Самоходная бензиновая газонокосилка с травосборником. Ширина скашивания 41 см.',
                 'price_per_day': 180,
-                'deposit': 2500,
                 'specifications': {
                     'Ширина скашивания': '41 см',
                     'Высота скашивания': '20-74 мм',
@@ -215,7 +207,6 @@ class Command(BaseCommand):
                 'model_name': 'FS 55',
                 'description': 'Бензиновый триммер для кошения травы в труднодоступных местах. Лёгкий и манёвренный.',
                 'price_per_day': 100,
-                'deposit': 1500,
                 'specifications': {
                     'Мощность': '1.0 л.с.',
                     'Объём двигателя': '27.2 см³',
@@ -230,7 +221,6 @@ class Command(BaseCommand):
                 'model_name': 'TF 230',
                 'description': 'Бензиновый культиватор для обработки почвы. Глубина обработки до 30 см.',
                 'price_per_day': 250,
-                'deposit': 3000,
                 'specifications': {
                     'Мощность': '4.5 л.с.',
                     'Ширина обработки': '60-80 см',
@@ -247,7 +237,6 @@ class Command(BaseCommand):
                 'model_name': 'САИ 220',
                 'description': 'Инверторный сварочный аппарат для ручной дуговой сварки. Ток до 220А, работа с электродами до 5 мм.',
                 'price_per_day': 150,
-                'deposit': 2000,
                 'specifications': {
                     'Сварочный ток': '10-220 А',
                     'Напряжение': '220 В',
@@ -263,7 +252,6 @@ class Command(BaseCommand):
                 'model_name': 'MIG 200',
                 'description': 'Сварочный полуавтомат для сварки в среде защитного газа. MIG/MAG, MMA режимы.',
                 'price_per_day': 250,
-                'deposit': 3500,
                 'specifications': {
                     'Сварочный ток MIG': '40-200 А',
                     'Сварочный ток MMA': '20-180 А',
@@ -280,7 +268,6 @@ class Command(BaseCommand):
                 'model_name': 'GLL 3-80',
                 'description': 'Профессиональный лазерный уровень с тремя плоскостями 360°. Точность ±0.2 мм/м.',
                 'price_per_day': 200,
-                'deposit': 3000,
                 'specifications': {
                     'Количество линий': '3 x 360°',
                     'Точность': '±0.2 мм/м',
@@ -295,7 +282,6 @@ class Command(BaseCommand):
                 'model_name': 'DISTO D2',
                 'description': 'Компактный лазерный дальномер с Bluetooth. Измерение расстояний до 100 м.',
                 'price_per_day': 80,
-                'deposit': 1500,
                 'specifications': {
                     'Дальность': '0.05-100 м',
                     'Точность': '±1.5 мм',
@@ -310,7 +296,6 @@ class Command(BaseCommand):
                 'model_name': 'GMS 120',
                 'description': 'Универсальный детектор для поиска металла, проводки, деревянных конструкций в стенах.',
                 'price_per_day': 50,
-                'deposit': 800,
                 'specifications': {
                     'Глубина обнаружения (сталь)': '120 мм',
                     'Глубина обнаружения (медь)': '80 мм',
@@ -327,7 +312,6 @@ class Command(BaseCommand):
                 'model_name': 'K5 Premium',
                 'description': 'Мощная мойка высокого давления для автомобилей, фасадов, садовой мебели. Давление до 145 бар.',
                 'price_per_day': 180,
-                'deposit': 2500,
                 'specifications': {
                     'Давление': '20-145 бар',
                     'Производительность': '500 л/ч',
@@ -342,7 +326,6 @@ class Command(BaseCommand):
                 'model_name': 'NT 30/1 Tact L',
                 'description': 'Профессиональный пылесос для сухой и влажной уборки. Объём бака 30 л, автоматическая очистка фильтра.',
                 'price_per_day': 150,
-                'deposit': 2000,
                 'specifications': {
                     'Объём бака': '30 л',
                     'Мощность': '1380 Вт',
@@ -357,7 +340,6 @@ class Command(BaseCommand):
                 'model_name': 'BD 30/4 C',
                 'description': 'Компактная поломоечная машина для уборки небольших помещений. Работа от аккумулятора.',
                 'price_per_day': 300,
-                'deposit': 5000,
                 'specifications': {
                     'Производительность': '630 м²/ч',
                     'Ширина щётки': '300 мм',
@@ -383,7 +365,6 @@ class Command(BaseCommand):
                     'description': tool_data['description'],
                     'short_description': tool_data['description'][:150] + '...' if len(tool_data['description']) > 150 else tool_data['description'],
                     'price_per_day': tool_data['price_per_day'],
-                    'deposit': tool_data.get('deposit', 0),
                     'specifications': tool_data.get('specifications', {}),
                     'condition': random.choice(['new', 'excellent', 'good']),
                     'availability': 'available',

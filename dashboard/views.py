@@ -5,7 +5,7 @@ Views для личного кабинета пользователя.
 from decimal import Decimal
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.db.models import Count, Sum, Avg, F
+from django.db.models import Count, Sum, F
 from django.views.generic import TemplateView, UpdateView, ListView
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -47,10 +47,6 @@ class DashboardIndexView(DashboardMixin, TemplateView):
 
         # Статистика заявок
         context['total_requests'] = user_requests.count()
-        context['active_requests'] = context['active_orders_count']
-        context['completed_requests'] = user_requests.filter(
-            status=RentalRequest.Status.COMPLETED
-        ).count()
 
         # Финансовая статистика
         financial = user_requests.exclude(
@@ -58,11 +54,9 @@ class DashboardIndexView(DashboardMixin, TemplateView):
         ).aggregate(
             total_spent=Sum('total_price'),
             total_days=Sum('total_days'),
-            avg_order=Avg('total_price'),
         )
         context['total_spent'] = financial['total_spent'] or 0
         context['total_rental_days'] = financial['total_days'] or 0
-        context['avg_order_price'] = round(financial['avg_order'] or 0, 2)
 
         # Последние заявки
         context['recent_requests'] = user_requests.select_related(
@@ -212,7 +206,6 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
             'total_orders': 125,
             'avg_order_value': Decimal('690.40'),
             'total_rental_days': 847,
-            'outstanding_deposits': Decimal('4200.00'),
             'growth_percent': 12.5,
         }
 

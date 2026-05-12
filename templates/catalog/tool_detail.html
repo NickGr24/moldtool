@@ -159,16 +159,10 @@
 
                 <!-- Price Block -->
                 <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border mb-6">
-                    <div class="flex items-baseline gap-2 mb-2">
+                    <div class="flex items-baseline gap-2">
                         <span class="text-4xl font-bold text-brand-yellow">{{ tool.price_per_day }}</span>
                         <span class="text-xl text-gray-400">{% trans "MDL / день" %}</span>
                     </div>
-                    {% if tool.deposit %}
-                    <div class="flex items-center gap-2 text-gray-400">
-                        <i class="fa-solid fa-lock text-lg text-brand-red"></i>
-                        <span>{% trans "Залог:" %} <span class="text-white font-medium">{{ tool.deposit }} MDL</span></span>
-                    </div>
-                    {% endif %}
                 </div>
 
                 <!-- Rental Calculator -->
@@ -206,16 +200,10 @@
                             <span class="text-gray-400">{% trans "Стоимость аренды:" %}</span>
                             <span id="rentalCost" class="text-white font-medium">0 MDL</span>
                         </div>
-                        {% if tool.deposit %}
-                        <div class="flex justify-between items-center py-3 border-b border-dark-border">
-                            <span class="text-gray-400">{% trans "Залог:" %}</span>
-                            <span class="text-white font-medium">{{ tool.deposit }} MDL</span>
-                        </div>
-                        {% endif %}
                         <div class="flex justify-between items-center py-3">
                             <span class="text-white font-bold">{% trans "Итого к оплате:" %}</span>
                             <span id="totalCost" class="text-xl font-bold text-brand-yellow">
-                                <span id="rentalPart">0</span> + <span id="depositPart">0</span> ({% trans "залог" %}) = <span id="totalPart">0</span> MDL
+                                <span id="totalPart">0</span> MDL
                             </span>
                         </div>
                     </div>
@@ -488,7 +476,6 @@ function initFlatpickr() {
 
 function initDatePickers() {
     const pricePerDay = parseFloat('{{ tool.price_per_day }}'.replace(',', '.')) || 0;
-    const deposit = parseFloat('{{ tool.deposit|default:0 }}'.replace(',', '.')) || 0;
 
     // Flatpickr Romanian locale
     const Romanian = {
@@ -519,8 +506,6 @@ function initDatePickers() {
     const calculatorResult = document.getElementById('calculatorResult');
     const daysCount = document.getElementById('daysCount');
     const rentalCost = document.getElementById('rentalCost');
-    const rentalPart = document.getElementById('rentalPart');
-    const depositPart = document.getElementById('depositPart');
     const totalPart = document.getElementById('totalPart');
 
     let startDateValue = null;
@@ -627,13 +612,10 @@ function initDatePickers() {
 
             if (diffDays > 0) {
                 const rental = diffDays * pricePerDay;
-                const total = rental + deposit;
 
                 daysCount.textContent = diffDays;
                 rentalCost.textContent = rental + ' MDL';
-                rentalPart.textContent = rental;
-                depositPart.textContent = deposit;
-                totalPart.textContent = total;
+                totalPart.textContent = rental;
                 calculatorResult.classList.remove('hidden');
             } else {
                 calculatorResult.classList.add('hidden');

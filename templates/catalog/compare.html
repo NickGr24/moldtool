@@ -58,16 +58,6 @@
                 {% endfor %}
             </div>
 
-            <!-- Deposit Row -->
-            <div class="grid grid-cols-[200px_1fr_1fr] lg:grid-cols-[250px_1fr_1fr]">
-                <div class="p-4 bg-dark-50 border-b border-r border-dark-border text-gray-400 text-sm font-medium">{% trans "Залог" %}</div>
-                {% for tool in tools %}
-                <div class="p-4 border-b border-dark-border {% if not forloop.last %}border-r{% endif %} text-center {% if tools.0.deposit != tools.1.deposit %}bg-brand-yellow/5{% endif %}">
-                    <span class="text-white font-medium">{{ tool.deposit }} MDL</span>
-                </div>
-                {% endfor %}
-            </div>
-
             <!-- Category Row -->
             <div class="grid grid-cols-[200px_1fr_1fr] lg:grid-cols-[250px_1fr_1fr]">
                 <div class="p-4 bg-dark-50 border-b border-r border-dark-border text-gray-400 text-sm font-medium">{% trans "Категория" %}</div>

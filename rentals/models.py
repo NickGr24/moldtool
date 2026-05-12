@@ -90,12 +90,6 @@ class RentalRequest(models.Model):
         max_digits=10,
         decimal_places=2,
     )
-    deposit_amount = models.DecimalField(
-        _('сумма залога'),
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-    )
 
     # Доставка
     delivery_method = models.CharField(

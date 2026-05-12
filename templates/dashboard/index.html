@@ -10,8 +10,8 @@
     <p class="text-gray-400">{% trans "Обзор вашего аккаунта" %}</p>
 </div>
 
-<!-- Stats Cards - Row 1: Orders -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-brand-yellow/30 transition-all">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center">
@@ -22,29 +22,6 @@
         <p class="text-gray-400 text-sm">{% trans "Всего заказов" %}</p>
     </div>
 
-    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-green-500/30 transition-all">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-bolt text-lg text-green-400"></i>
-            </div>
-            <span class="text-2xl font-bold text-green-400">{{ active_requests }}</span>
-        </div>
-        <p class="text-gray-400 text-sm">{% trans "Активные" %}</p>
-    </div>
-
-    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-blue-500/30 transition-all">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-circle-check text-lg text-blue-400"></i>
-            </div>
-            <span class="text-2xl font-bold text-blue-400">{{ completed_requests }}</span>
-        </div>
-        <p class="text-gray-400 text-sm">{% trans "Завершённые" %}</p>
-    </div>
-</div>
-
-<!-- Stats Cards - Row 2: Financial -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-purple-500/30 transition-all">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center">
@@ -63,16 +40,6 @@
             <span class="text-2xl font-bold text-orange-400">{{ total_rental_days }}</span>
         </div>
         <p class="text-gray-400 text-sm">{% trans "Дней аренды" %}</p>
-    </div>
-
-    <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-chart-bar text-lg text-cyan-400"></i>
-            </div>
-            <span class="text-2xl font-bold text-cyan-400">{{ avg_order_price }} <span class="text-sm font-normal">MDL</span></span>
-        </div>
-        <p class="text-gray-400 text-sm">{% trans "Средний чек" %}</p>
     </div>
 </div>
 

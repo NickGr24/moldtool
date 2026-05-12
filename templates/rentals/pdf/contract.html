@@ -215,12 +215,6 @@
                 <td class="num">{{ rental.delivery_price }}</td>
             </tr>
             {% endif %}
-            {% if rental.deposit_amount and rental.deposit_amount > 0 %}
-            <tr>
-                <td colspan="3">Garanție (depozit, se restituie la returnarea echipamentului)</td>
-                <td class="num">{{ rental.deposit_amount }}</td>
-            </tr>
-            {% endif %}
             <tr>
                 <td colspan="3"><strong>Total de achitat</strong></td>
                 <td class="num"><strong>{{ rental.total_price }} MDL</strong></td>

@@ -307,21 +307,10 @@
             <td>Subtotal</td>
             <td>{{ rental.total_price }} MDL</td>
         </tr>
-        {% if rental.deposit_amount %}
-        <tr>
-            <td>Garanție (depozit)</td>
-            <td>{{ rental.deposit_amount }} MDL</td>
-        </tr>
-        <tr class="grand-total">
-            <td>Total de achitat</td>
-            <td>{{ total_with_deposit }} MDL</td>
-        </tr>
-        {% else %}
         <tr class="grand-total">
             <td>Total de achitat</td>
             <td>{{ rental.total_price }} MDL</td>
         </tr>
-        {% endif %}
     </table>
 
     <!-- Payment info -->
@@ -339,7 +328,6 @@
         <ol>
             <li>Factura este valabilă fără semnătură și ștampilă.</li>
             <li>Achitarea se efectuează până la data de începere a închirierii ({{ rental.start_date|date:"d.m.Y" }}).</li>
-            <li>Garanția (depozitul) se restituie la returnarea sculei în stare corespunzătoare.</li>
             <li>Pentru întrebări, contactați-ne: {{ SITE_PHONE }} sau {{ SITE_EMAIL }}.</li>
         </ol>
     </div>
