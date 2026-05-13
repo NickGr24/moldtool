@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Инициализация мобильного меню
+ * Inițializarea meniului mobil
  */
 function initMobileMenu() {
     const toggle = document.getElementById('mobileMenuToggle');
@@ -29,7 +29,7 @@ function initMobileMenu() {
             navList.classList.toggle('active');
         });
 
-        // Закрываем меню при клике на ссылку
+        // Închidem meniul la click pe link
         navList.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 toggle.classList.remove('active');
@@ -40,7 +40,7 @@ function initMobileMenu() {
 }
 
 /**
- * Автоскрытие алертов
+ * Ascundere automată a alertelor
  */
 function initAlerts() {
     const alerts = document.querySelectorAll('.alert');
@@ -58,7 +58,7 @@ function initAlerts() {
 }
 
 /**
- * Валидация форм
+ * Validare formulare
  */
 function initForms() {
     const forms = document.querySelectorAll('form');
@@ -75,7 +75,7 @@ function initForms() {
         });
     });
 
-    // Валидация телефона
+    // Validare telefon
     const phoneInputs = document.querySelectorAll('input[name="customer_phone"], input[name="phone"]');
 
     phoneInputs.forEach(input => {
@@ -95,7 +95,7 @@ function initForms() {
 }
 
 /**
- * Калькулятор стоимости аренды
+ * Calculator cost închiriere
  */
 function initRentalCalculator() {
     const startDateInput = document.getElementById('id_start_date');
@@ -118,7 +118,7 @@ function initRentalCalculator() {
 
         console.log('Calculate:', { startValue, endValue, pricePerDay });
 
-        // Проверяем что обе даты выбраны
+        // Verificăm că ambele date sunt selectate
         if (!startValue || !endValue) {
             if (daysDisplay) daysDisplay.textContent = '-';
             if (totalDisplay) totalDisplay.textContent = '-';
@@ -128,28 +128,28 @@ function initRentalCalculator() {
         const start = new Date(startValue);
         const end = new Date(endValue);
 
-        // Проверяем валидность дат
+        // Verificăm validitatea datelor
         if (isNaN(start.getTime()) || isNaN(end.getTime())) {
             if (daysDisplay) daysDisplay.textContent = '-';
             if (totalDisplay) totalDisplay.textContent = '-';
             return;
         }
 
-        // Проверяем что конец не раньше начала
+        // Verificăm că sfârșitul nu este înaintea începutului
         if (end < start) {
-            if (daysDisplay) daysDisplay.textContent = 'Ошибка';
+            if (daysDisplay) daysDisplay.textContent = 'Eroare';
             if (totalDisplay) totalDisplay.textContent = '-';
             return;
         }
 
-        // Рассчитываем количество дней (включительно)
+        // Calculăm numărul de zile (inclusiv)
         const timeDiff = end.getTime() - start.getTime();
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
         const total = days * pricePerDay;
 
         console.log('Result:', { days, total });
 
-        // Обновляем отображение
+        // Actualizăm afișarea
         if (daysDisplay) {
             daysDisplay.textContent = days + ' ' + getDaysWord(days);
         }
@@ -158,18 +158,18 @@ function initRentalCalculator() {
         }
     };
 
-    // Слушаем изменения дат
+    // Ascultăm modificările datelor
     startDateInput.addEventListener('change', calculateTotal);
     endDateInput.addEventListener('change', calculateTotal);
     startDateInput.addEventListener('input', calculateTotal);
     endDateInput.addEventListener('input', calculateTotal);
 
-    // Минимальная дата - сегодня
+    // Data minimă - astăzi
     const today = new Date().toISOString().split('T')[0];
     startDateInput.setAttribute('min', today);
     endDateInput.setAttribute('min', today);
 
-    // При изменении даты начала, обновляем минимум для даты окончания
+    // La modificarea datei de început, actualizăm minimul pentru data de sfârșit
     startDateInput.addEventListener('change', function() {
         if (this.value) {
             endDateInput.setAttribute('min', this.value);
@@ -180,21 +180,19 @@ function initRentalCalculator() {
         }
     });
 
-    // Начальный расчёт если даты уже заполнены
+    // Calculul inițial dacă datele sunt deja completate
     calculateTotal();
 }
 
 /**
- * Склонение слова "день"
+ * Forma de plural pentru cuvântul "zi"
  */
 function getDaysWord(n) {
-    const cases = [2, 0, 1, 1, 1, 2];
-    const titles = ['день', 'дня', 'дней'];
-    return titles[(n % 100 > 4 && n % 100 < 20) ? 2 : cases[Math.min(n % 10, 5)]];
+    return n === 1 ? 'zi' : 'zile';
 }
 
 /**
- * Галерея изображений
+ * Galerie de imagini
  */
 function initGallery() {
     const mainImage = document.querySelector('.tool-gallery-main img');
@@ -203,10 +201,10 @@ function initGallery() {
     if (mainImage && thumbs.length > 0) {
         thumbs.forEach(thumb => {
             thumb.addEventListener('click', function() {
-                // Обновляем главное изображение
+                // Actualizăm imaginea principală
                 mainImage.src = this.querySelector('img').src;
 
-                // Обновляем активный thumb
+                // Actualizăm thumb-ul activ
                 thumbs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
             });
@@ -214,7 +212,7 @@ function initGallery() {
     }
 }
 
-// Инициализируем галерею если на странице инструмента
+// Inițializăm galeria dacă suntem pe pagina uneltei
 if (document.querySelector('.tool-gallery')) {
     initGallery();
 }

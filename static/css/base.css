@@ -1,6 +1,6 @@
 /**
- * Базовые стили MoldTool
- * Reset и общие элементы
+ * Stiluri de bază MoldTool
+ * Reset și elemente comune
  */
 
 /* Reset */
@@ -30,7 +30,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Типографика */
+/* Tipografie */
 h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
@@ -58,19 +58,19 @@ a:hover {
     color: var(--color-primary-light);
 }
 
-/* Списки */
+/* Liste */
 ul, ol {
     list-style: none;
 }
 
-/* Изображения */
+/* Imagini */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Формы */
+/* Formulare */
 input,
 textarea,
 select,
@@ -86,7 +86,7 @@ button {
     background: none;
 }
 
-/* Контейнер */
+/* Container */
 .container {
     width: 100%;
     max-width: var(--container-xl);
@@ -100,13 +100,13 @@ button {
 .container-xl { max-width: var(--container-xl); }
 .container-2xl { max-width: var(--container-2xl); }
 
-/* Основной контент */
+/* Conținut principal */
 .main-content {
     min-height: calc(100vh - var(--header-height) - 200px);
     padding: var(--spacing-xl) 0;
 }
 
-/* Секции */
+/* Secțiuni */
 .section {
     padding: var(--spacing-3xl) 0;
 }
@@ -124,7 +124,7 @@ button {
     margin-bottom: var(--spacing-2xl);
 }
 
-/* Утилиты */
+/* Utilități */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -149,7 +149,7 @@ button {
 .mt-lg { margin-top: var(--spacing-lg); }
 .mt-xl { margin-top: var(--spacing-xl); }
 
-/* Сетка */
+/* Grilă */
 .grid {
     display: grid;
     gap: var(--spacing-lg);
@@ -179,7 +179,7 @@ button {
 .gap-md { gap: var(--spacing-md); }
 .gap-lg { gap: var(--spacing-lg); }
 
-/* Скрытие элементов */
+/* Ascunderea elementelor */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -192,7 +192,7 @@ button {
     border: 0;
 }
 
-/* Адаптивность */
+/* Responsive */
 @media (max-width: 1024px) {
     .grid-4 { grid-template-columns: repeat(3, 1fr); }
 }

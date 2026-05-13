@@ -1,5 +1,5 @@
 """
-Views для каталога инструментов.
+Views pentru catalogul de scule.
 """
 
 import json
@@ -18,7 +18,7 @@ from .models import Category, Tool, Favorite, Review, FAQ
 
 
 class CompareView(TemplateView):
-    """Сравнение двух инструментов одной категории."""
+    """Compararea a două scule din aceeași categorie."""
 
     template_name = 'catalog/compare.html'
 
@@ -36,7 +36,7 @@ class CompareView(TemplateView):
         context['tools'] = tools
 
         if len(tools) == 2:
-            # Собираем все ключи характеристик из обоих инструментов
+            # Adunăm toate cheile caracteristicilor din ambele scule
             all_spec_keys = []
             seen = set()
             for tool in tools:
@@ -59,7 +59,7 @@ class CompareView(TemplateView):
             context['specs_rows'] = specs_rows
             context['same_category'] = tools[0].category_id == tools[1].category_id
 
-        # Для выбора инструмента: товары той же категории
+        # Pentru selectarea sculei: produse din aceeași categorie
         if tools:
             category = tools[0].category
             context['category_tools'] = Tool.objects.filter(
@@ -70,7 +70,7 @@ class CompareView(TemplateView):
 
 
 class CatalogView(ListView):
-    """Список всех инструментов."""
+    """Lista tuturor sculelor."""
 
     model = Tool
     template_name = 'catalog/catalog.html'
@@ -80,7 +80,7 @@ class CatalogView(ListView):
     def get_queryset(self):
         queryset = Tool.objects.filter(is_active=True).select_related('category')
 
-        # Поиск
+        # Căutare
         search = self.request.GET.get('q')
         if search:
             queryset = queryset.filter(
@@ -89,17 +89,17 @@ class CatalogView(ListView):
                 Q(brand__icontains=search)
             )
 
-        # Фильтр по категории
+        # Filtru după categorie
         category_slug = self.request.GET.get('category')
         if category_slug and category_slug != 'None':
             queryset = queryset.filter(category__slug=category_slug)
 
-        # Фильтр по доступности
+        # Filtru după disponibilitate
         availability = self.request.GET.get('availability')
         if availability:
             queryset = queryset.filter(availability=availability)
 
-        # Фильтр по цене
+        # Filtru după preț
         price_min = self.request.GET.get('price_min')
         price_max = self.request.GET.get('price_max')
         if price_min:
@@ -113,7 +113,7 @@ class CatalogView(ListView):
             except ValueError:
                 pass
 
-        # Сортировка
+        # Sortare
         sort = self.request.GET.get('sort', '-created_at')
         if sort == 'price_asc':
             queryset = queryset.order_by('price_per_day')
@@ -135,7 +135,7 @@ class CatalogView(ListView):
         context['current_sort'] = self.request.GET.get('sort', '-created_at')
         context['search_query'] = self.request.GET.get('q', '')
 
-        # Диапазон цен
+        # Intervalul de prețuri
         price_range = Tool.objects.filter(is_active=True).aggregate(
             min_price=Min('price_per_day'),
             max_price=Max('price_per_day')
@@ -145,7 +145,7 @@ class CatalogView(ListView):
         context['current_price_min'] = self.request.GET.get('price_min', '')
         context['current_price_max'] = self.request.GET.get('price_max', '')
 
-        # Избранное пользователя
+        # Favoritele utilizatorului
         if self.request.user.is_authenticated:
             context['favorite_ids'] = list(
                 Favorite.objects.filter(user=self.request.user).values_list('tool_id', flat=True)
@@ -157,7 +157,7 @@ class CatalogView(ListView):
 
 
 class CategoryView(ListView):
-    """Инструменты в категории."""
+    """Scule dintr-o categorie."""
 
     model = Tool
     template_name = 'catalog/category.html'
@@ -167,7 +167,7 @@ class CategoryView(ListView):
     def get_queryset(self):
         self.category = get_object_or_404(Category, slug=self.kwargs['slug'], is_active=True)
 
-        # Получаем инструменты из категории и её подкатегорий
+        # Obținem sculele din categorie și subcategoriile ei
         category_ids = [self.category.id]
         category_ids.extend(
             self.category.children.filter(is_active=True).values_list('id', flat=True)
@@ -178,7 +178,7 @@ class CategoryView(ListView):
             category_id__in=category_ids
         ).select_related('category')
 
-        # Сортировка
+        # Sortare
         sort = self.request.GET.get('sort', '-created_at')
         if sort == 'price_asc':
             queryset = queryset.order_by('price_per_day')
@@ -197,7 +197,7 @@ class CategoryView(ListView):
         context['subcategories'] = self.category.children.filter(is_active=True)
         context['current_sort'] = self.request.GET.get('sort', '-created_at')
 
-        # Избранное пользователя
+        # Favoritele utilizatorului
         if self.request.user.is_authenticated:
             context['favorite_ids'] = list(
                 Favorite.objects.filter(user=self.request.user).values_list('tool_id', flat=True)
@@ -209,7 +209,7 @@ class CategoryView(ListView):
 
 
 class ToolDetailView(DetailView):
-    """Детальная страница инструмента."""
+    """Pagina de detalii a sculei."""
 
     model = Tool
     template_name = 'catalog/tool_detail.html'
@@ -220,28 +220,28 @@ class ToolDetailView(DetailView):
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
-        # Увеличиваем счётчик просмотров
+        # Incrementăm contorul de vizualizări
         obj.increment_views()
         return obj
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Похожие инструменты
+        # Scule similare
         context['related_tools'] = Tool.objects.filter(
             is_active=True,
             category=self.object.category
         ).exclude(pk=self.object.pk).order_by('-views_count')[:4]
 
-        # Отзывы
+        # Recenzii
         context['reviews'] = self.object.reviews.filter(is_approved=True).select_related('user')
 
-        # Проверка: в избранном ли
+        # Verificare: este la favorite?
         if self.request.user.is_authenticated:
             context['is_favorite'] = Favorite.objects.filter(
                 user=self.request.user, tool=self.object
             ).exists()
-            # Проверка: оставлял ли отзыв
+            # Verificare: a lăsat o recenzie?
             context['user_review'] = Review.objects.filter(
                 user=self.request.user, tool=self.object
             ).first()
@@ -253,7 +253,7 @@ class ToolDetailView(DetailView):
 
 
 class ToggleFavoriteView(LoginRequiredMixin, View):
-    """Добавление/удаление из избранного (AJAX)."""
+    """Adăugare/eliminare de la favorite (AJAX)."""
 
     def post(self, request, tool_id):
         tool = get_object_or_404(Tool, pk=tool_id, is_active=True)
@@ -263,13 +263,13 @@ class ToggleFavoriteView(LoginRequiredMixin, View):
 
         if not created:
             favorite.delete()
-            return JsonResponse({'status': 'removed', 'message': _('Удалено из избранного')})
+            return JsonResponse({'status': 'removed', 'message': _('Eliminată de la favorite')})
 
-        return JsonResponse({'status': 'added', 'message': _('Добавлено в избранное')})
+        return JsonResponse({'status': 'added', 'message': _('Adăugată la favorite')})
 
 
 class FavoritesListView(LoginRequiredMixin, ListView):
-    """Список избранных инструментов."""
+    """Lista sculelor favorite."""
 
     model = Favorite
     template_name = 'catalog/favorites.html'
@@ -283,16 +283,16 @@ class FavoritesListView(LoginRequiredMixin, ListView):
 
 
 class AddReviewView(LoginRequiredMixin, View):
-    """Добавление отзыва (AJAX)."""
+    """Adăugare recenzie (AJAX)."""
 
     def post(self, request, tool_id):
         tool = get_object_or_404(Tool, pk=tool_id, is_active=True)
 
-        # Проверяем, не оставлял ли уже отзыв
+        # Verificăm dacă utilizatorul a lăsat deja o recenzie
         if Review.objects.filter(user=request.user, tool=tool).exists():
             return JsonResponse({
                 'status': 'error',
-                'message': _('Вы уже оставляли отзыв для этого инструмента')
+                'message': _('Ați lăsat deja o recenzie pentru această sculă')
             }, status=400)
 
         try:
@@ -303,7 +303,7 @@ class AddReviewView(LoginRequiredMixin, View):
             if not 1 <= rating <= 5:
                 return JsonResponse({
                     'status': 'error',
-                    'message': _('Рейтинг должен быть от 1 до 5')
+                    'message': _('Nota trebuie să fie între 1 și 5')
                 }, status=400)
 
             review = Review.objects.create(
@@ -315,7 +315,7 @@ class AddReviewView(LoginRequiredMixin, View):
 
             return JsonResponse({
                 'status': 'success',
-                'message': _('Отзыв добавлен'),
+                'message': _('Recenzia a fost adăugată'),
                 'review': {
                     'id': review.id,
                     'rating': review.rating,
@@ -327,12 +327,12 @@ class AddReviewView(LoginRequiredMixin, View):
         except (json.JSONDecodeError, ValueError) as e:
             return JsonResponse({
                 'status': 'error',
-                'message': _('Неверные данные')
+                'message': _('Date incorecte')
             }, status=400)
 
 
 class FAQView(TemplateView):
-    """Страница FAQ."""
+    """Pagina FAQ."""
 
     template_name = 'catalog/faq.html'
 

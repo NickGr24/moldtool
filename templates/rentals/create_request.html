@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Арендовать" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Închiriază" %} {{ tool.name }} - {{ SITE_NAME }}{% endblock %}
 
 {% block extra_css %}
 {% endblock %}
@@ -10,16 +10,16 @@
 <div class="container">
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs">
-        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">{% trans "Главная" %}</a></span>
+        <span class="breadcrumbs-item"><a href="{% url 'core:home' %}">{% trans "Acasă" %}</a></span>
         <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item"><a href="{% url 'catalog:catalog' %}">{% trans "Каталог" %}</a></span>
+        <span class="breadcrumbs-item"><a href="{% url 'catalog:catalog' %}">{% trans "Catalog" %}</a></span>
         <span class="breadcrumbs-separator">/</span>
         <span class="breadcrumbs-item"><a href="{{ tool.get_absolute_url }}">{{ tool.name }}</a></span>
         <span class="breadcrumbs-separator">/</span>
-        <span class="breadcrumbs-item active">{% trans "Оформление аренды" %}</span>
+        <span class="breadcrumbs-item active">{% trans "Cerere de închiriere" %}</span>
     </nav>
 
-    <h1 class="mb-lg text-center">{% trans "Оформление аренды" %}</h1>
+    <h1 class="mb-lg text-center">{% trans "Cerere de închiriere" %}</h1>
 
     <div class="rental-form">
         <!-- Tool Info Header -->
@@ -33,7 +33,7 @@
             </div>
             <div class="rental-form-tool-info">
                 <h3>{{ tool.name }}</h3>
-                <p>{{ tool.price_per_day }} MDL / {% trans "День" %}</p>
+                <p>{{ tool.price_per_day }} MDL / {% trans "Zi" %}</p>
             </div>
         </div>
 
@@ -42,11 +42,11 @@
 
             <!-- Customer Info -->
             <div class="form-group">
-                <label class="form-label required" for="id_customer_name">{% trans "Ваше имя" %}</label>
+                <label class="form-label required" for="id_customer_name">{% trans "Numele tău" %}</label>
                 <input type="text" name="customer_name" id="id_customer_name"
                        class="form-control {% if form.customer_name.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_name.value|default:'' }}"
-                       placeholder="{% trans 'Иван Иванов' %}" required>
+                       placeholder="{% trans 'Ion Popescu' %}" required>
                 {% if form.customer_name.errors %}
                 <p class="form-error">{{ form.customer_name.errors.0 }}</p>
                 {% endif %}
@@ -64,7 +64,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label required" for="id_customer_phone">{% trans "Телефон" %}</label>
+                <label class="form-label required" for="id_customer_phone">{% trans "Telefon" %}</label>
                 <input type="tel" name="customer_phone" id="id_customer_phone"
                        class="form-control {% if form.customer_phone.errors %}is-invalid{% endif %}"
                        value="{{ form.customer_phone.value|default:'' }}"
@@ -77,7 +77,7 @@
             <!-- Dates -->
             <div class="rental-dates">
                 <div class="form-group">
-                    <label class="form-label required" for="id_start_date">{% trans "Дата начала" %}</label>
+                    <label class="form-label required" for="id_start_date">{% trans "Data de început" %}</label>
                     <input type="date" name="start_date" id="id_start_date"
                            class="form-control {% if form.start_date.errors %}is-invalid{% endif %}"
                            value="{{ form.start_date.value|default:'' }}" required>
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label required" for="id_end_date">{% trans "Дата окончания" %}</label>
+                    <label class="form-label required" for="id_end_date">{% trans "Data de sfârșit" %}</label>
                     <input type="date" name="end_date" id="id_end_date"
                            class="form-control {% if form.end_date.errors %}is-invalid{% endif %}"
                            value="{{ form.end_date.value|default:'' }}" required>
@@ -99,20 +99,20 @@
 
             <!-- Delivery Method -->
             <div class="form-group">
-                <label class="form-label required">{% trans "Способ получения" %}</label>
+                <label class="form-label required">{% trans "Metoda de primire" %}</label>
                 {% with dm=form.delivery_method.value|default:'pickup' %}
                 <div class="delivery-options" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:6px;">
                     <label class="delivery-option" style="flex:1 1 200px; display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid #ddd; border-radius:8px; cursor:pointer;">
                         <input type="radio" name="delivery_method" value="pickup" {% if dm == 'pickup' %}checked{% endif %}>
                         <span>
-                            <strong>{% trans "Самовывоз" %}</strong><br>
-                            <small class="text-muted">{% trans "Бесплатно" %}</small>
+                            <strong>{% trans "Ridicare personală" %}</strong><br>
+                            <small class="text-muted">{% trans "Gratuit" %}</small>
                         </span>
                     </label>
                     <label class="delivery-option" style="flex:1 1 200px; display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid #ddd; border-radius:8px; cursor:pointer;">
                         <input type="radio" name="delivery_method" value="delivery" {% if dm == 'delivery' %}checked{% endif %}>
                         <span>
-                            <strong>{% trans "Доставка" %}</strong><br>
+                            <strong>{% trans "Livrare" %}</strong><br>
                             <small class="text-muted">{{ delivery_fee }} MDL</small>
                         </span>
                     </label>
@@ -125,11 +125,11 @@
 
             <!-- Delivery Address (visible only when delivery selected) -->
             <div class="form-group" id="deliveryAddressGroup" style="display:none;">
-                <label class="form-label required" for="id_delivery_address">{% trans "Адрес доставки" %}</label>
+                <label class="form-label required" for="id_delivery_address">{% trans "Adresa de livrare" %}</label>
                 <input type="text" name="delivery_address" id="id_delivery_address"
                        class="form-control {% if form.delivery_address.errors %}is-invalid{% endif %}"
                        value="{{ form.delivery_address.value|default:'' }}"
-                       placeholder="{% trans 'Улица, дом, квартира, город' %}">
+                       placeholder="{% trans 'Stradă, număr, apartament, oraș' %}">
                 {% if form.delivery_address.errors %}
                 <p class="form-error">{{ form.delivery_address.errors.0 }}</p>
                 {% endif %}
@@ -137,27 +137,27 @@
 
             <!-- Comment -->
             <div class="form-group">
-                <label class="form-label" for="id_comment">{% trans "Комментарий" %}</label>
+                <label class="form-label" for="id_comment">{% trans "Comentariu" %}</label>
                 <textarea name="comment" id="id_comment" class="form-control" rows="3"
-                          placeholder="{% trans 'Дополнительные пожелания...' %}">{{ form.comment.value|default:'' }}</textarea>
+                          placeholder="{% trans 'Dorințe suplimentare...' %}">{{ form.comment.value|default:'' }}</textarea>
             </div>
 
             <!-- Price Summary -->
             <div class="rental-summary" data-price-per-day="{{ tool.price_per_day|default:0 }}" data-delivery-fee="{{ delivery_fee|default:0 }}">
                 <div class="rental-summary-row">
-                    <span>{% trans "Цена за день" %}</span>
+                    <span>{% trans "Preț pe zi" %}</span>
                     <span>{{ tool.price_per_day }} MDL</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>{% trans "Количество дней" %}</span>
+                    <span>{% trans "Număr de zile" %}</span>
                     <span id="totalDays">-</span>
                 </div>
                 <div class="rental-summary-row" id="deliveryRow" style="display:none;">
-                    <span>{% trans "Доставка" %}</span>
+                    <span>{% trans "Livrare" %}</span>
                     <span id="deliveryPrice">{{ delivery_fee }} MDL</span>
                 </div>
                 <div class="rental-summary-row">
-                    <span>{% trans "Итого к оплате" %}</span>
+                    <span>{% trans "Total de plată" %}</span>
                     <span id="totalPrice">-</span>
                 </div>
             </div>
@@ -172,12 +172,12 @@
 
             <button type="submit" class="btn btn-primary btn-lg btn-block">
                 <i class="fa-solid fa-circle-check text-lg"></i>
-                {% trans "Отправить заявку" %}
+                {% trans "Trimite cererea" %}
             </button>
         </form>
 
         <p class="text-center text-muted mt-lg" style="font-size: var(--font-size-sm);">
-            {% trans "Отправляя заявку, вы соглашаетесь с условиями аренды" %}
+            {% trans "Trimițând cererea, ești de acord cu condițiile de închiriere" %}
         </p>
     </div>
 </div>
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (priceDisplay) priceDisplay.textContent = '-';
     }
 
-    // Показ/скрытие поля адреса + пересчёт суммы при смене способа получения
+    // Afișarea/ascunderea câmpului de adresă + recalcularea sumei la schimbarea metodei de primire
     const deliveryRadios = document.querySelectorAll('input[name="delivery_method"]');
     const addressGroup = document.getElementById('deliveryAddressGroup');
     const addressInput = document.getElementById('id_delivery_address');

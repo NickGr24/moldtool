@@ -1,5 +1,5 @@
 """
-URL маршруты для core приложения.
+Rute URL pentru aplicația core.
 """
 
 from django.urls import path

@@ -9,7 +9,7 @@ class RentalsConfig(AppConfig):
     name = 'rentals'
 
     def ready(self):
-        # Скипаем команды, при которых scheduler не нужен (миграции, тесты, shell и т.п.)
+        # Sărim peste comenzile la care planificatorul nu este necesar (migrări, teste, shell etc.)
         skip_commands = {
             'migrate', 'makemigrations', 'shell', 'shell_plus',
             'collectstatic', 'createsuperuser', 'changepassword',
@@ -20,8 +20,8 @@ class RentalsConfig(AppConfig):
         if len(sys.argv) > 1 and sys.argv[1] in skip_commands:
             return
 
-        # При runserver Django порождает дочерний процесс для автоперезагрузки;
-        # запускаем планировщик только в нём, чтобы не было двух экземпляров.
+        # La runserver Django generează un proces fiu pentru auto-reîncărcare;
+        # pornim planificatorul doar în acesta, pentru a nu avea două instanțe.
         if 'runserver' in sys.argv and os.environ.get('RUN_MAIN') != 'true':
             return
 

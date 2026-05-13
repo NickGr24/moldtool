@@ -1,5 +1,5 @@
 """
-Формы для заявок на аренду.
+Formulare pentru cererile de închiriere.
 """
 
 from datetime import date
@@ -11,7 +11,7 @@ from .models import RentalRequest
 
 
 class RentalRequestForm(forms.ModelForm):
-    """Форма создания заявки на аренду."""
+    """Formular pentru crearea unei cereri de închiriere."""
 
     class Meta:
         model = RentalRequest
@@ -28,7 +28,7 @@ class RentalRequestForm(forms.ModelForm):
         widgets = {
             'customer_name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('Ваше имя'),
+                'placeholder': _('Numele dumneavoastră'),
             }),
             'customer_email': forms.EmailInput(attrs={
                 'class': 'form-control',
@@ -49,43 +49,43 @@ class RentalRequestForm(forms.ModelForm):
             'delivery_method': forms.RadioSelect(),
             'delivery_address': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('Улица, дом, квартира, город'),
+                'placeholder': _('Strada, casa, apartamentul, orașul'),
             }),
             'comment': forms.Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': _('Дополнительные пожелания...'),
+                'placeholder': _('Dorințe suplimentare...'),
                 'rows': 3,
             }),
         }
 
     def clean_start_date(self):
-        """Проверка даты начала."""
+        """Validarea datei de început."""
         start_date = self.cleaned_data.get('start_date')
         if start_date and start_date < date.today():
-            raise forms.ValidationError(_('Дата начала не может быть в прошлом.'))
+            raise forms.ValidationError(_('Data de început nu poate fi în trecut.'))
         return start_date
 
     def clean(self):
-        """Проверка дат и адреса доставки."""
+        """Validarea datelor și a adresei de livrare."""
         cleaned_data = super().clean()
         start_date = cleaned_data.get('start_date')
         end_date = cleaned_data.get('end_date')
 
         if start_date and end_date:
             if end_date < start_date:
-                raise forms.ValidationError(_('Дата окончания должна быть позже даты начала.'))
+                raise forms.ValidationError(_('Data de sfârșit trebuie să fie ulterioară datei de început.'))
 
-            # Минимальный срок аренды - 1 день
+            # Termenul minim de închiriere - 1 zi
             if start_date == end_date:
-                pass  # 1 день - нормально
+                pass  # 1 zi - este în regulă
 
-        # При доставке адрес обязателен
+        # La livrare adresa este obligatorie
         delivery_method = cleaned_data.get('delivery_method')
         delivery_address = (cleaned_data.get('delivery_address') or '').strip()
         if delivery_method == RentalRequest.DeliveryMethod.DELIVERY and not delivery_address:
             self.add_error(
                 'delivery_address',
-                _('Укажите адрес доставки.'),
+                _('Indicați adresa de livrare.'),
             )
 
         return cleaned_data

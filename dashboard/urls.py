@@ -1,5 +1,5 @@
 """
-URL маршруты для личного кабинета.
+Rute URL pentru cabinetul personal.
 """
 
 from django.urls import path

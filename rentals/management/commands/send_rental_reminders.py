@@ -1,7 +1,7 @@
 """
-Management command для отправки напоминаний об окончании аренды.
-Запускается планировщиком (rentals/scheduler.py) каждые 15 минут,
-либо вручную: python manage.py send_rental_reminders
+Management command pentru trimiterea memento-urilor privind sfârșitul închirierii.
+Rulează prin planificator (rentals/scheduler.py) la fiecare 15 minute,
+sau manual: python manage.py send_rental_reminders
 """
 
 from datetime import timedelta, time
@@ -14,7 +14,7 @@ from rentals.services import send_rental_expiry_reminder
 
 
 class Command(BaseCommand):
-    help = 'Отправляет напоминания за 6 часов до окончания срока аренды'
+    help = 'Trimite memento-uri cu 6 ore înainte de sfârșitul închirierii'
 
     REMINDER_HOURS_BEFORE = 6
 
@@ -31,7 +31,7 @@ class Command(BaseCommand):
             reminder_sent=False,
         )
 
-        # Конец дня возврата = полночь следующего дня в локальной TZ
+        # Sfârșitul zilei de returnare = miezul nopții următoarei zile în TZ-ul local
         end_of_day = timezone.make_aware(
             timezone.datetime.combine(today, time.min)
         ) + timedelta(days=1)
@@ -39,7 +39,7 @@ class Command(BaseCommand):
 
         if hours_left > self.REMINDER_HOURS_BEFORE:
             self.stdout.write(
-                f'Ещё не время для напоминаний (осталось {hours_left:.1f} ч).'
+                f'Încă nu este momentul pentru memento-uri (au rămas {hours_left:.1f} h).'
             )
             return
 
@@ -51,6 +51,6 @@ class Command(BaseCommand):
                 rental.save(update_fields=['reminder_sent'])
                 sent_count += 1
             except Exception as e:
-                self.stderr.write(f'Ошибка для заявки {rental.number}: {e}')
+                self.stderr.write(f'Eroare pentru cererea {rental.number}: {e}')
 
-        self.stdout.write(f'Отправлено напоминаний: {sent_count}')
+        self.stdout.write(f'Memento-uri trimise: {sent_count}')

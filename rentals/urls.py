@@ -1,5 +1,5 @@
 """
-URL маршруты для заявок на аренду.
+Rute URL pentru cererile de închiriere.
 """
 
 from django.urls import path, re_path

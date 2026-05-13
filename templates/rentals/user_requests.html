@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Мои заявки" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Cererile mele" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-12 bg-dark min-h-screen">
@@ -9,21 +9,21 @@
 
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-6">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
             <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
-            <span class="text-white">{% trans "Мои заявки" %}</span>
+            <span class="text-white">{% trans "Cererile mele" %}</span>
         </nav>
 
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-                <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Мои заявки" %}</h1>
-                <p class="text-gray-400">{% trans "История ваших заявок на аренду" %}</p>
+                <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Cererile mele" %}</h1>
+                <p class="text-gray-400">{% trans "Istoricul cererilor tale de închiriere" %}</p>
             </div>
             <a href="{% url 'catalog:catalog' %}"
                class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
                 <i class="fa-solid fa-plus text-lg"></i>
-                {% trans "Новая заявка" %}
+                {% trans "Cerere nouă" %}
             </a>
         </div>
 
@@ -73,7 +73,7 @@
                             </span>
                             <span class="flex items-center gap-2">
                                 <i class="fa-regular fa-clock text-brand-yellow"></i>
-                                {{ rental.total_days }} {% trans "дн." %}
+                                {{ rental.total_days }} {% trans "zile" %}
                             </span>
                             <span class="flex items-center gap-2">
                                 <i class="fa-solid fa-truck text-brand-yellow"></i>
@@ -85,21 +85,21 @@
                     <!-- Price + actions -->
                     <div class="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-3 lg:min-w-[180px]">
                         <div class="text-right">
-                            <div class="text-xs text-gray-500 uppercase tracking-wide">{% trans "Итого" %}</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">{% trans "Total" %}</div>
                             <div class="text-xl font-bold text-white">{{ rental.total_price }} MDL</div>
                         </div>
                         <div class="flex gap-2">
                             <a href="{% url 'rentals:request_detail' number=rental.number %}"
                                class="px-3 py-2 bg-dark-200 border border-dark-border rounded-lg text-sm text-gray-300 hover:text-brand-yellow hover:border-brand-yellow transition-colors">
-                                {% trans "Подробнее" %}
+                                {% trans "Detalii" %}
                             </a>
                             {% if rental.can_be_cancelled %}
                             <form action="{% url 'rentals:cancel_request' number=rental.number %}" method="post" class="inline"
-                                  onsubmit="return confirm('{% trans "Отменить эту заявку?" %}');">
+                                  onsubmit="return confirm('{% trans "Anulezi această cerere?" %}');">
                                 {% csrf_token %}
                                 <button type="submit"
                                         class="px-3 py-2 bg-red-500/10 border border-red-500/30 rounded-lg text-sm text-red-400 hover:bg-red-500/20 transition-colors">
-                                    {% trans "Отменить" %}
+                                    {% trans "Anulează" %}
                                 </button>
                             </form>
                             {% endif %}
@@ -120,7 +120,7 @@
             </a>
             {% endif %}
             <span class="px-4 py-2 text-gray-400">
-                {% blocktrans with num=page_obj.number total=page_obj.paginator.num_pages %}Страница {{ num }} из {{ total }}{% endblocktrans %}
+                {% blocktrans with num=page_obj.number total=page_obj.paginator.num_pages %}Pagina {{ num }} din {{ total }}{% endblocktrans %}
             </span>
             {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}"
@@ -137,12 +137,12 @@
             <div class="w-20 h-20 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <i class="fa-solid fa-clipboard-list text-3xl text-brand-yellow"></i>
             </div>
-            <h2 class="text-xl font-bold text-white mb-2">{% trans "У вас пока нет заявок" %}</h2>
-            <p class="text-gray-400 mb-6">{% trans "Выберите инструмент в каталоге и оформите первую заявку на аренду." %}</p>
+            <h2 class="text-xl font-bold text-white mb-2">{% trans "Nu ai încă cereri" %}</h2>
+            <p class="text-gray-400 mb-6">{% trans "Alege o sculă din catalog și trimite prima ta cerere de închiriere." %}</p>
             <a href="{% url 'catalog:catalog' %}"
                class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-semibold rounded-xl hover:bg-brand-yellow-dark transition-colors">
                 <i class="fa-solid fa-arrow-right"></i>
-                {% trans "К каталогу" %}
+                {% trans "Spre catalog" %}
             </a>
         </div>
         {% endif %}

@@ -42,7 +42,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'home' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "Главная" %}</span>
+                        <span class="relative">{% trans "Acasă" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -50,7 +50,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "Каталог" %}</span>
+                        <span class="relative">{% trans "Catalog" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -58,7 +58,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'about' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'about' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "О нас" %}</span>
+                        <span class="relative">{% trans "Despre noi" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'about' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -66,7 +66,7 @@
                        class="relative px-5 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 group
                               {% if request.resolver_match.url_name == 'contacts' %}text-white{% else %}text-gray-300 hover:text-white{% endif %}">
                         <span class="absolute inset-0 rounded-lg transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}bg-dark-200/80{% else %}bg-dark-200/0 group-hover:bg-dark-200/80{% endif %}"></span>
-                        <span class="relative">{% trans "Контакты" %}</span>
+                        <span class="relative">{% trans "Contacte" %}</span>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-yellow rounded-full transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}w-6 opacity-100{% else %}w-1 opacity-0 group-hover:w-6 group-hover:opacity-100{% endif %}"></span>
                     </a>
 
@@ -115,7 +115,7 @@
                     <!-- Favorites Button -->
                     <a href="{% url 'catalog:favorites' %}"
                        class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-red/50 hover:text-brand-red hover:bg-dark-200"
-                       title="{% trans 'Избранное' %}">
+                       title="{% trans 'Favorite' %}">
                         <i class="fa-regular fa-heart text-lg"></i>
                     </a>
 
@@ -123,7 +123,7 @@
                     <!-- Admin Panel Button -->
                     <a href="{% url 'core:admin_dashboard' %}"
                        class="hidden md:flex items-center justify-center w-10 h-10 bg-dark-200/50 border border-dark-border/50 rounded-xl text-gray-400 transition-all duration-300 hover:border-brand-yellow/50 hover:text-brand-yellow hover:bg-dark-200"
-                       title="{% trans 'Панель управления' %}">
+                       title="{% trans 'Panou de control' %}">
                         <i class="fa-solid fa-chart-bar text-lg"></i>
                     </a>
                     {% endif %}
@@ -169,18 +169,18 @@
                                 <a href="{% url 'dashboard:index' %}"
                                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-300 transition-all duration-200 hover:bg-dark-300 hover:text-white">
                                     <i class="fa-solid fa-user text-lg"></i>
-                                    <span>{% trans "Личный кабинет" %}</span>
+                                    <span>{% trans "Cont personal" %}</span>
                                 </a>
                                 <a href="{% url 'catalog:favorites' %}"
                                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-300 transition-all duration-200 hover:bg-dark-300 hover:text-white">
                                     <i class="fa-regular fa-heart text-lg"></i>
-                                    <span>{% trans "Избранное" %}</span>
+                                    <span>{% trans "Favorite" %}</span>
                                 </a>
                                 {% if user.is_staff %}
                                 <a href="{% url 'core:admin_dashboard' %}"
                                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-300 transition-all duration-200 hover:bg-dark-300 hover:text-white">
                                     <i class="fa-solid fa-chart-bar text-lg"></i>
-                                    <span>{% trans "Панель управления" %}</span>
+                                    <span>{% trans "Panou de control" %}</span>
                                 </a>
                                 {% endif %}
                                 <!-- Divider -->
@@ -189,7 +189,7 @@
                                 <a href="{% url 'account_logout' %}"
                                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-red-400 transition-all duration-200 hover:bg-red-500/10 hover:text-red-300">
                                     <i class="fa-solid fa-right-from-bracket text-lg"></i>
-                                    <span>{% trans "Выйти" %}</span>
+                                    <span>{% trans "Ieșire" %}</span>
                                 </a>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                         <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700"></span>
                         <span class="relative flex items-center gap-2">
                             <i class="fa-solid fa-right-to-bracket"></i>
-                            {% trans "Войти" %}
+                            {% trans "Autentificare" %}
                         </span>
                     </a>
                     {% endif %}
@@ -231,25 +231,25 @@
                 <a href="{% url 'core:home' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'home' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <i class="fa-solid fa-house text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Главная" %}</span>
+                    <span class="font-medium">{% trans "Acasă" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:catalog' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'tool_detail' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <i class="fa-solid fa-box-open text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Каталог" %}</span>
+                    <span class="font-medium">{% trans "Catalog" %}</span>
                 </a>
 
                 <a href="{% url 'core:about' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'about' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <i class="fa-solid fa-circle-info text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "О нас" %}</span>
+                    <span class="font-medium">{% trans "Despre noi" %}</span>
                 </a>
 
                 <a href="{% url 'core:contacts' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'contacts' %}bg-dark-200 text-brand-yellow{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <i class="fa-solid fa-envelope text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Контакты" %}</span>
+                    <span class="font-medium">{% trans "Contacte" %}</span>
                 </a>
 
                 <a href="{% url 'catalog:faq' %}"
@@ -262,14 +262,14 @@
                 <a href="{% url 'catalog:favorites' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if request.resolver_match.url_name == 'favorites' %}bg-dark-200 text-brand-red{% else %}text-gray-300 hover:bg-dark-200 hover:text-white{% endif %}">
                     <i class="fa-regular fa-heart text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Избранное" %}</span>
+                    <span class="font-medium">{% trans "Favorite" %}</span>
                 </a>
 
                 {% if user.is_staff %}
                 <a href="{% url 'core:admin_dashboard' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 transition-all duration-300 hover:bg-dark-200 hover:text-white">
                     <i class="fa-solid fa-chart-bar text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Панель управления" %}</span>
+                    <span class="font-medium">{% trans "Panou de control" %}</span>
                 </a>
                 {% endif %}
 
@@ -277,7 +277,7 @@
                 <a href="{% url 'account_logout' %}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 transition-all duration-300 hover:bg-red-500/10 hover:text-red-300">
                     <i class="fa-solid fa-right-from-bracket text-lg w-5 text-center"></i>
-                    <span class="font-medium">{% trans "Выйти" %}</span>
+                    <span class="font-medium">{% trans "Ieșire" %}</span>
                 </a>
                 {% endif %}
 

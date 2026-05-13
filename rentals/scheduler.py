@@ -1,6 +1,6 @@
 """
-In-process планировщик для регулярного запуска фоновых задач.
-Стартует автоматически при запуске Django (см. rentals/apps.py).
+Planificator in-process pentru rularea regulată a sarcinilor de fundal.
+Pornește automat la inițializarea Django (vezi rentals/apps.py).
 """
 
 import logging
@@ -18,7 +18,7 @@ def _run_send_rental_reminders():
     try:
         call_command('send_rental_reminders')
     except Exception:
-        logger.exception('Ошибка запуска send_rental_reminders из планировщика')
+        logger.exception('Eroare la rularea send_rental_reminders din planificator')
 
 
 def start():

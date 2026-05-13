@@ -1,14 +1,14 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Финансовый отчёт" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Raport financiar" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block dashboard_content %}
 <!-- Header -->
 <div class="flex items-center justify-between mb-8">
     <div>
-        <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Финансовый отчёт" %}</h1>
-        <p class="text-gray-400">{% trans "Обзор финансовых показателей" %}</p>
+        <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Raport financiar" %}</h1>
+        <p class="text-gray-400">{% trans "Privire de ansamblu asupra indicatorilor financiari" %}</p>
     </div>
     <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-500/10 text-orange-400 text-xs font-medium rounded-full border border-orange-500/20">
         <i class="fa-solid fa-flask text-xs"></i>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <span class="text-2xl font-bold text-green-400">{{ summary.total_revenue }} <span class="text-sm font-normal">MDL</span></span>
-        <p class="text-gray-400 text-sm mt-1">{% trans "Общая выручка" %}</p>
+        <p class="text-gray-400 text-sm mt-1">{% trans "Venit total" %}</p>
     </div>
 
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-brand-yellow/30 transition-all">
@@ -39,7 +39,7 @@
             </div>
             <span class="text-2xl font-bold text-white">{{ summary.total_orders }}</span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Всего заказов" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Total comenzi" %}</p>
     </div>
 
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
@@ -49,7 +49,7 @@
             </div>
             <span class="text-2xl font-bold text-cyan-400">{{ summary.avg_order_value }} <span class="text-sm font-normal">MDL</span></span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Средний чек" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Valoare medie comandă" %}</p>
     </div>
 
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-orange-500/30 transition-all">
@@ -59,7 +59,7 @@
             </div>
             <span class="text-2xl font-bold text-orange-400">{{ summary.total_rental_days }}</span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Дней аренды" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Zile de închiriere" %}</p>
     </div>
 
 </div>
@@ -68,7 +68,7 @@
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
         <i class="fa-solid fa-chart-column text-lg text-brand-yellow"></i>
-        {% trans "Выручка по месяцам" %}
+        {% trans "Venituri pe luni" %}
     </h2>
 
     <div class="space-y-4">
@@ -84,7 +84,7 @@
             </div>
             <div class="w-20 flex-shrink-0 text-right">
                 <span class="text-white text-sm font-medium">{{ item.orders }}</span>
-                <span class="text-gray-500 text-xs"> {% trans "заказов" %}</span>
+                <span class="text-gray-500 text-xs"> {% trans "comenzi" %}</span>
             </div>
         </div>
         {% endfor %}
@@ -97,7 +97,7 @@
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
         <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
             <i class="fa-solid fa-trophy text-lg text-brand-yellow"></i>
-            {% trans "Топ инструменты по доходу" %}
+            {% trans "Top scule după venit" %}
         </h2>
 
         <div class="space-y-4">
@@ -112,7 +112,7 @@
                         <div class="h-full bg-gradient-to-r from-brand-yellow to-brand-red rounded-full transition-all"
                              style="width: {{ tool.percent }}%;"></div>
                     </div>
-                    <span class="text-gray-500 text-xs w-16 text-right">{{ tool.rentals }} {% trans "аренд" %}</span>
+                    <span class="text-gray-500 text-xs w-16 text-right">{{ tool.rentals }} {% trans "închirieri" %}</span>
                 </div>
             </div>
             {% endfor %}
@@ -123,7 +123,7 @@
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
         <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
             <i class="fa-solid fa-list-check text-lg text-brand-yellow"></i>
-            {% trans "Заказы по статусу" %}
+            {% trans "Comenzi după status" %}
         </h2>
 
         <div class="space-y-4">
@@ -139,7 +139,7 @@
 
             <!-- Total -->
             <div class="flex items-center justify-between p-4 bg-brand-yellow/5 rounded-xl border border-brand-yellow/20">
-                <span class="text-brand-yellow text-sm font-bold">{% trans "Итого" %}</span>
+                <span class="text-brand-yellow text-sm font-bold">{% trans "Total" %}</span>
                 <span class="text-2xl font-bold text-brand-yellow">150</span>
             </div>
         </div>
@@ -150,16 +150,16 @@
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
         <i class="fa-solid fa-clock-rotate-left text-lg text-brand-yellow"></i>
-        {% trans "Последние транзакции" %}
+        {% trans "Tranzacții recente" %}
     </h2>
 
     <!-- Table header -->
     <div class="hidden sm:grid grid-cols-12 gap-4 px-4 py-2 text-gray-500 text-xs font-medium uppercase tracking-wider border-b border-dark-border mb-2">
-        <div class="col-span-2">{% trans "Дата" %}</div>
-        <div class="col-span-3">{% trans "Клиент" %}</div>
-        <div class="col-span-4">{% trans "Инструмент" %}</div>
-        <div class="col-span-2 text-right">{% trans "Сумма" %}</div>
-        <div class="col-span-1 text-right">{% trans "Статус" %}</div>
+        <div class="col-span-2">{% trans "Data" %}</div>
+        <div class="col-span-3">{% trans "Client" %}</div>
+        <div class="col-span-4">{% trans "Sculă" %}</div>
+        <div class="col-span-2 text-right">{% trans "Sumă" %}</div>
+        <div class="col-span-1 text-right">{% trans "Status" %}</div>
     </div>
 
     <div class="space-y-2">
@@ -172,11 +172,11 @@
             <div class="sm:col-span-1 text-right">
                 {% if tx.status == 'paid' %}
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400">
-                    {% trans "Оплачено" %}
+                    {% trans "Plătit" %}
                 </span>
                 {% else %}
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-400">
-                    {% trans "Ожидает" %}
+                    {% trans "În așteptare" %}
                 </span>
                 {% endif %}
             </div>

@@ -1,5 +1,5 @@
 """
-Views для заявок на аренду.
+Views pentru cererile de închiriere.
 """
 
 from django.contrib import messages
@@ -17,14 +17,14 @@ from .services import send_rental_confirmation_email
 
 
 class CreateRentalRequestView(CreateView):
-    """Создание заявки на аренду."""
+    """Crearea unei cereri de închiriere."""
 
     model = RentalRequest
     form_class = RentalRequestForm
     template_name = 'rentals/create_request.html'
 
     def get_tool(self):
-        """Получает инструмент по slug из URL."""
+        """Obține scula după slug-ul din URL."""
         return get_object_or_404(
             Tool.objects.select_related('category'),
             slug=self.kwargs['tool_slug'],
@@ -42,7 +42,7 @@ class CreateRentalRequestView(CreateView):
         tool = self.get_tool()
         initial['price_per_day'] = tool.price_per_day
 
-        # Предзаполняем данные для авторизованных пользователей
+        # Precompletăm datele pentru utilizatorii autentificați
         if self.request.user.is_authenticated:
             initial['customer_name'] = self.request.user.get_full_name()
             initial['customer_email'] = self.request.user.email
@@ -53,12 +53,12 @@ class CreateRentalRequestView(CreateView):
     def form_valid(self, form):
         tool = self.get_tool()
 
-        # Проверяем доступность инструмента
+        # Verificăm disponibilitatea sculei
         if not tool.is_available:
-            messages.error(self.request, _('К сожалению, этот инструмент сейчас недоступен.'))
+            messages.error(self.request, _('Din păcate, această sculă nu este disponibilă în prezent.'))
             return redirect('catalog:tool_detail', slug=tool.slug)
 
-        # Устанавливаем связи
+        # Stabilim relațiile
         form.instance.tool = tool
         form.instance.price_per_day = tool.price_per_day
 
@@ -67,12 +67,12 @@ class CreateRentalRequestView(CreateView):
 
         response = super().form_valid(form)
 
-        # Отправляем email с PDF контрактом
+        # Trimitem email-ul cu contractul PDF
         send_rental_confirmation_email(self.object)
 
         messages.success(
             self.request,
-            _('Заявка #%(number)s успешно создана! Мы свяжемся с вами в ближайшее время.') % {'number': self.object.number}
+            _('Cererea #%(number)s a fost creată cu succes! Vă vom contacta în cel mai scurt timp.') % {'number': self.object.number}
         )
         return response
 
@@ -81,7 +81,7 @@ class CreateRentalRequestView(CreateView):
 
 
 class RentalRequestSuccessView(DetailView):
-    """Страница успешного создания заявки."""
+    """Pagina de succes la crearea cererii."""
 
     model = RentalRequest
     template_name = 'rentals/request_success.html'
@@ -91,7 +91,7 @@ class RentalRequestSuccessView(DetailView):
 
 
 class RentalRequestDetailView(DetailView):
-    """Детальная страница заявки."""
+    """Pagina de detalii a cererii."""
 
     model = RentalRequest
     template_name = 'rentals/request_detail.html'
@@ -101,7 +101,7 @@ class RentalRequestDetailView(DetailView):
 
 
 class UserRentalRequestsView(LoginRequiredMixin, ListView):
-    """Список заявок пользователя."""
+    """Lista cererilor utilizatorului."""
 
     model = RentalRequest
     template_name = 'rentals/user_requests.html'
@@ -115,7 +115,7 @@ class UserRentalRequestsView(LoginRequiredMixin, ListView):
 
 
 class CancelRentalRequestView(LoginRequiredMixin, DetailView):
-    """Отмена заявки пользователем."""
+    """Anularea cererii de către utilizator."""
 
     model = RentalRequest
     slug_field = 'number'
@@ -129,9 +129,9 @@ class CancelRentalRequestView(LoginRequiredMixin, DetailView):
 
         if rental.can_be_cancelled:
             rental.cancel()
-            messages.success(request, _('Заявка #%(number)s успешно отменена.') % {'number': rental.number})
+            messages.success(request, _('Cererea #%(number)s a fost anulată cu succes.') % {'number': rental.number})
         else:
-            messages.error(request, _('Эту заявку нельзя отменить.'))
+            messages.error(request, _('Această cerere nu poate fi anulată.'))
 
         return redirect('rentals:user_requests')
 

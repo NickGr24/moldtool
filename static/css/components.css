@@ -1,10 +1,10 @@
 /**
- * Компоненты MoldTool
- * Кнопки, карточки, формы и другие UI элементы
+ * Componente MoldTool
+ * Butoane, carduri, formulare și alte elemente UI
  */
 
 /* ============================================
-   КНОПКИ
+   BUTOANE
    ============================================ */
 
 .btn {
@@ -30,7 +30,7 @@
     cursor: not-allowed;
 }
 
-/* Основная кнопка */
+/* Buton principal */
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -43,7 +43,7 @@
     color: var(--color-white);
 }
 
-/* Вторичная кнопка */
+/* Buton secundar */
 .btn-secondary {
     background-color: transparent;
     color: var(--color-white);
@@ -55,7 +55,7 @@
     color: var(--color-bg-dark);
 }
 
-/* Контурная кнопка */
+/* Buton conturat */
 .btn-outline {
     background-color: transparent;
     color: var(--color-primary);
@@ -67,7 +67,7 @@
     color: var(--color-white);
 }
 
-/* Текстовая кнопка */
+/* Buton text */
 .btn-text {
     background-color: transparent;
     color: var(--color-primary);
@@ -78,7 +78,7 @@
     color: var(--color-primary-light);
 }
 
-/* Размеры кнопок */
+/* Dimensiuni butoane */
 .btn-sm {
     padding: var(--spacing-xs) var(--spacing-md);
     font-size: var(--font-size-sm);
@@ -95,7 +95,7 @@
 }
 
 /* ============================================
-   КАРТОЧКИ
+   CARDURI
    ============================================ */
 
 .card {
@@ -188,7 +188,7 @@
 }
 
 /* ============================================
-   ФОРМЫ
+   FORMULARE
    ============================================ */
 
 .form-group {
@@ -320,7 +320,7 @@ select.form-control:focus option:checked {
     color: var(--color-text);
 }
 
-/* Ошибки */
+/* Erori */
 .form-control.is-invalid {
     border-color: var(--color-error);
 }
@@ -338,7 +338,7 @@ select.form-control:focus option:checked {
 }
 
 /* ============================================
-   БЕЙДЖИ И СТАТУСЫ
+   BADGE-URI ȘI STATUSURI
    ============================================ */
 
 .badge {
@@ -376,7 +376,7 @@ select.form-control:focus option:checked {
     color: var(--color-white);
 }
 
-/* Статус доступности */
+/* Status disponibilitate */
 .status-available {
     color: var(--color-success);
 }
@@ -390,7 +390,7 @@ select.form-control:focus option:checked {
 }
 
 /* ============================================
-   АЛЕРТЫ
+   ALERTE
    ============================================ */
 
 .alert {
@@ -424,7 +424,7 @@ select.form-control:focus option:checked {
 }
 
 /* ============================================
-   ПАГИНАЦИЯ
+   PAGINARE
    ============================================ */
 
 .pagination {
@@ -465,7 +465,7 @@ select.form-control:focus option:checked {
 }
 
 /* ============================================
-   МОДАЛЬНЫЕ ОКНА
+   FERESTRE MODALE
    ============================================ */
 
 .modal-backdrop {
@@ -553,7 +553,7 @@ select.form-control:focus option:checked {
 }
 
 /* ============================================
-   СПИННЕР ЗАГРУЗКИ
+   SPINNER DE ÎNCĂRCARE
    ============================================ */
 
 .spinner {

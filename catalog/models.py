@@ -1,5 +1,5 @@
 """
-Модели каталога инструментов для платформы MoldTool.
+Modele pentru catalogul de scule al platformei MoldTool.
 """
 
 from django.conf import settings
@@ -11,10 +11,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Category(models.Model):
-    """Категория инструментов."""
+    """Categorie de scule."""
 
     name = models.CharField(
-        _('название'),
+        _('denumire'),
         max_length=100,
     )
     slug = models.SlugField(
@@ -24,20 +24,20 @@ class Category(models.Model):
         blank=True,
     )
     description = models.TextField(
-        _('описание'),
+        _('descriere'),
         blank=True,
     )
     image = models.ImageField(
-        _('изображение'),
+        _('imagine'),
         upload_to='categories/',
         blank=True,
         null=True,
     )
     icon = models.CharField(
-        _('CSS-класс иконки'),
+        _('clasă CSS pentru pictogramă'),
         max_length=50,
         blank=True,
-        help_text=_('Например: icon-drill, icon-hammer'),
+        help_text=_('De exemplu: icon-drill, icon-hammer'),
     )
     parent = models.ForeignKey(
         'self',
@@ -45,24 +45,24 @@ class Category(models.Model):
         null=True,
         blank=True,
         related_name='children',
-        verbose_name=_('родительская категория'),
+        verbose_name=_('categorie părinte'),
     )
     is_active = models.BooleanField(
-        _('активна'),
+        _('activă'),
         default=True,
     )
     order = models.PositiveIntegerField(
-        _('порядок сортировки'),
+        _('ordinea de sortare'),
         default=0,
     )
     created_at = models.DateTimeField(
-        _('дата создания'),
+        _('data creării'),
         auto_now_add=True,
     )
 
     class Meta:
-        verbose_name = _('категория')
-        verbose_name_plural = _('категории')
+        verbose_name = _('categorie')
+        verbose_name_plural = _('categorii')
         ordering = ['order', 'name']
 
     def __str__(self):
@@ -78,28 +78,28 @@ class Category(models.Model):
 
     @property
     def tools_count(self):
-        """Количество активных инструментов в категории."""
+        """Numărul de scule active în categorie."""
         return self.tools.filter(is_active=True).count()
 
 
 class Tool(models.Model):
-    """Инструмент для аренды."""
+    """Sculă disponibilă pentru închiriere."""
 
     class Condition(models.TextChoices):
-        NEW = 'new', _('Новый')
-        EXCELLENT = 'excellent', _('Отличное')
-        GOOD = 'good', _('Хорошее')
-        FAIR = 'fair', _('Удовлетворительное')
+        NEW = 'new', _('Nouă')
+        EXCELLENT = 'excellent', _('Excelentă')
+        GOOD = 'good', _('Bună')
+        FAIR = 'fair', _('Satisfăcătoare')
 
     class Availability(models.TextChoices):
-        AVAILABLE = 'available', _('Доступен')
-        RENTED = 'rented', _('В аренде')
-        MAINTENANCE = 'maintenance', _('На обслуживании')
-        UNAVAILABLE = 'unavailable', _('Недоступен')
+        AVAILABLE = 'available', _('Disponibilă')
+        RENTED = 'rented', _('Închiriată')
+        MAINTENANCE = 'maintenance', _('În mentenanță')
+        UNAVAILABLE = 'unavailable', _('Indisponibilă')
 
-    # Основная информация
+    # Informații principale
     name = models.CharField(
-        _('название'),
+        _('denumire'),
         max_length=200,
     )
     slug = models.SlugField(
@@ -112,95 +112,95 @@ class Tool(models.Model):
         Category,
         on_delete=models.PROTECT,
         related_name='tools',
-        verbose_name=_('категория'),
+        verbose_name=_('categorie'),
     )
     description = models.TextField(
-        _('описание'),
+        _('descriere'),
     )
     short_description = models.CharField(
-        _('краткое описание'),
+        _('descriere scurtă'),
         max_length=300,
         blank=True,
     )
 
-    # Изображения
+    # Imagini
     image = models.ImageField(
-        _('основное изображение'),
+        _('imagine principală'),
         upload_to='tools/',
     )
 
-    # Характеристики
+    # Caracteristici
     brand = models.CharField(
-        _('бренд'),
+        _('brand'),
         max_length=100,
         blank=True,
     )
     model_name = models.CharField(
-        _('модель'),
+        _('model'),
         max_length=100,
         blank=True,
     )
     specifications = models.JSONField(
-        _('характеристики'),
+        _('caracteristici'),
         default=dict,
         blank=True,
-        help_text=_('Технические характеристики в формате JSON'),
+        help_text=_('Caracteristici tehnice în format JSON'),
     )
 
-    # Цены
+    # Prețuri
     price_per_day = models.DecimalField(
-        _('цена за день'),
+        _('preț pe zi'),
         max_digits=10,
         decimal_places=2,
     )
 
-    # Статус
+    # Status
     condition = models.CharField(
-        _('состояние'),
+        _('stare'),
         max_length=20,
         choices=Condition.choices,
         default=Condition.EXCELLENT,
     )
     availability = models.CharField(
-        _('доступность'),
+        _('disponibilitate'),
         max_length=20,
         choices=Availability.choices,
         default=Availability.AVAILABLE,
     )
     quantity = models.PositiveIntegerField(
-        _('количество'),
+        _('cantitate'),
         default=1,
     )
     quantity_available = models.PositiveIntegerField(
-        _('доступное количество'),
+        _('cantitate disponibilă'),
         default=1,
     )
 
-    # Метаданные
+    # Metadate
     is_active = models.BooleanField(
-        _('активен'),
+        _('activă'),
         default=True,
     )
     is_featured = models.BooleanField(
-        _('рекомендуемый'),
+        _('recomandată'),
         default=False,
     )
     views_count = models.PositiveIntegerField(
-        _('количество просмотров'),
+        _('număr de vizualizări'),
         default=0,
     )
     created_at = models.DateTimeField(
-        _('дата добавления'),
+        _('data adăugării'),
         auto_now_add=True,
     )
     updated_at = models.DateTimeField(
-        _('дата обновления'),
+        _('data actualizării'),
         auto_now=True,
     )
 
     class Meta:
-        verbose_name = _('инструмент')
-        verbose_name_plural = _('инструменты')
+        verbose_name = _('sculă')
+        verbose_name_plural = _('scule')
         ordering = ['-created_at']
         indexes = [
             models.Index(fields=['slug']),
@@ -222,7 +222,7 @@ class Tool(models.Model):
 
     @property
     def is_available(self):
-        """Проверяет, доступен ли инструмент для аренды."""
+        """Verifică dacă scula este disponibilă pentru închiriere."""
         return (
             self.is_active
             and self.availability == self.Availability.AVAILABLE
@@ -230,13 +230,13 @@ class Tool(models.Model):
         )
 
     def increment_views(self):
-        """Увеличивает счётчик просмотров."""
+        """Incrementează contorul de vizualizări."""
         self.views_count += 1
         self.save(update_fields=['views_count'])
 
     @property
     def average_rating(self):
-        """Возвращает средний рейтинг инструмента."""
+        """Returnează ratingul mediu al sculei."""
         reviews = self.reviews.filter(is_approved=True)
         if reviews.exists():
             return round(reviews.aggregate(models.Avg('rating'))['rating__avg'], 1)
@@ -244,65 +244,65 @@ class Tool(models.Model):
 
     @property
     def reviews_count(self):
-        """Возвращает количество отзывов."""
+        """Returnează numărul de recenzii."""
         return self.reviews.filter(is_approved=True).count()
 
 
 class ToolImage(models.Model):
-    """Дополнительные изображения инструмента."""
+    """Imagini suplimentare ale sculei."""
 
     tool = models.ForeignKey(
         Tool,
         on_delete=models.CASCADE,
         related_name='images',
-        verbose_name=_('инструмент'),
+        verbose_name=_('sculă'),
     )
     image = models.ImageField(
-        _('изображение'),
+        _('imagine'),
         upload_to='tools/gallery/',
     )
     alt_text = models.CharField(
-        _('альтернативный текст'),
+        _('text alternativ'),
         max_length=200,
         blank=True,
     )
     order = models.PositiveIntegerField(
-        _('порядок'),
+        _('ordine'),
         default=0,
     )
 
     class Meta:
-        verbose_name = _('изображение инструмента')
-        verbose_name_plural = _('изображения инструментов')
+        verbose_name = _('imagine sculă')
+        verbose_name_plural = _('imagini scule')
         ordering = ['order']
 
     def __str__(self):
-        return f'{self.tool.name} - изображение {self.order}'
+        return f'{self.tool.name} - imagine {self.order}'
 
 
 class Favorite(models.Model):
-    """Избранные инструменты пользователя."""
+    """Sculele preferate ale utilizatorului."""
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='favorites',
-        verbose_name=_('пользователь'),
+        verbose_name=_('utilizator'),
     )
     tool = models.ForeignKey(
         Tool,
         on_delete=models.CASCADE,
         related_name='favorited_by',
-        verbose_name=_('инструмент'),
+        verbose_name=_('sculă'),
     )
     created_at = models.DateTimeField(
-        _('дата добавления'),
+        _('data adăugării'),
         auto_now_add=True,
     )
 
     class Meta:
-        verbose_name = _('избранное')
-        verbose_name_plural = _('избранное')
+        verbose_name = _('favorită')
+        verbose_name_plural = _('favorite')
         unique_together = ['user', 'tool']
         ordering = ['-created_at']
 
@@ -311,40 +311,40 @@ class Favorite(models.Model):
 
 
 class Review(models.Model):
-    """Отзыв о инструменте."""
+    """Recenzie pentru o sculă."""
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='reviews',
-        verbose_name=_('пользователь'),
+        verbose_name=_('utilizator'),
     )
     tool = models.ForeignKey(
         Tool,
         on_delete=models.CASCADE,
         related_name='reviews',
-        verbose_name=_('инструмент'),
+        verbose_name=_('sculă'),
     )
     rating = models.PositiveSmallIntegerField(
-        _('оценка'),
+        _('notă'),
         validators=[MinValueValidator(1), MaxValueValidator(5)],
     )
     text = models.TextField(
-        _('текст отзыва'),
+        _('text recenzie'),
         blank=True,
     )
     created_at = models.DateTimeField(
-        _('дата создания'),
+        _('data creării'),
         auto_now_add=True,
     )
     is_approved = models.BooleanField(
-        _('одобрен'),
+        _('aprobată'),
         default=True,
     )
 
     class Meta:
-        verbose_name = _('отзыв')
-        verbose_name_plural = _('отзывы')
+        verbose_name = _('recenzie')
+        verbose_name_plural = _('recenzii')
         unique_together = ['user', 'tool']
         ordering = ['-created_at']
 
@@ -353,25 +353,25 @@ class Review(models.Model):
 
 
 class FAQ(models.Model):
-    """Часто задаваемые вопросы."""
+    """Întrebări frecvente."""
 
     question = models.CharField(
-        _('вопрос'),
+        _('întrebare'),
         max_length=500,
     )
     answer = models.TextField(
-        _('ответ'),
+        _('răspuns'),
     )
     order = models.PositiveIntegerField(
-        _('порядок'),
+        _('ordine'),
         default=0,
     )
     is_active = models.BooleanField(
-        _('активен'),
+        _('activă'),
         default=True,
     )
     created_at = models.DateTimeField(
-        _('дата создания'),
+        _('data creării'),
         auto_now_add=True,
     )
 

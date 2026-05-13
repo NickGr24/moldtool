@@ -1,13 +1,13 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Личный кабинет" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Cont personal" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block dashboard_content %}
 <!-- Header -->
 <div class="mb-8">
-    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Добро пожаловать" %}, {{ user.get_short_name }}!</h1>
-    <p class="text-gray-400">{% trans "Обзор вашего аккаунта" %}</p>
+    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Bun venit" %}, {{ user.get_short_name }}!</h1>
+    <p class="text-gray-400">{% trans "Prezentare generală a contului tău" %}</p>
 </div>
 
 <!-- Stats Cards -->
@@ -19,7 +19,7 @@
             </div>
             <span class="text-2xl font-bold text-white">{{ total_requests }}</span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Всего заказов" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Total comenzi" %}</p>
     </div>
 
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-purple-500/30 transition-all">
@@ -29,7 +29,7 @@
             </div>
             <span class="text-2xl font-bold text-purple-400">{{ total_spent }} <span class="text-sm font-normal">MDL</span></span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Общая сумма" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Sumă totală" %}</p>
     </div>
 
     <div class="bg-dark-100 border border-dark-border rounded-2xl p-5 hover:border-orange-500/30 transition-all">
@@ -39,7 +39,7 @@
             </div>
             <span class="text-2xl font-bold text-orange-400">{{ total_rental_days }}</span>
         </div>
-        <p class="text-gray-400 text-sm">{% trans "Дней аренды" %}</p>
+        <p class="text-gray-400 text-sm">{% trans "Zile de închiriere" %}</p>
     </div>
 </div>
 
@@ -49,7 +49,7 @@
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-chart-simple text-lg text-brand-yellow"></i>
-            {% trans "Вы чаще всего арендуете" %}
+            {% trans "Cel mai des închiriezi" %}
         </h2>
     </div>
 
@@ -63,8 +63,8 @@
             </div>
             <div class="flex-1 min-w-0">
                 <p class="text-white font-medium truncate group-hover:text-brand-yellow transition-colors">{{ tool.name }}</p>
-                <p class="text-gray-500 text-sm">{{ tool.user_rentals }} {% trans "раз" %}</p>
-                <p class="text-brand-yellow text-sm font-bold">{{ tool.price_per_day }} MDL/{% trans "день" %}</p>
+                <p class="text-gray-500 text-sm">{{ tool.user_rentals }} {% trans "ori" %}</p>
+                <p class="text-brand-yellow text-sm font-bold">{{ tool.price_per_day }} MDL/{% trans "zi" %}</p>
             </div>
         </a>
         {% endfor %}
@@ -75,9 +75,9 @@
 <!-- Recent Orders -->
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 mb-8">
     <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-white">{% trans "Последние заказы" %}</h2>
+        <h2 class="text-xl font-bold text-white">{% trans "Comenzi recente" %}</h2>
         <a href="{% url 'dashboard:orders' %}" class="text-brand-yellow hover:text-brand-yellow-dark text-sm font-medium transition-colors">
-            {% trans "Все заказы" %} →
+            {% trans "Toate comenzile" %} →
         </a>
     </div>
 
@@ -116,9 +116,9 @@
         <div class="w-16 h-16 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <i class="fa-solid fa-clipboard-list text-2xl text-gray-600"></i>
         </div>
-        <p class="text-gray-400 mb-4">{% trans "У вас пока нет заказов" %}</p>
+        <p class="text-gray-400 mb-4">{% trans "Nu ai încă comenzi" %}</p>
         <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
-            {% trans "Перейти в каталог" %}
+            {% trans "Accesează catalogul" %}
         </a>
     </div>
     {% endif %}
@@ -130,10 +130,10 @@
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-fire text-lg text-brand-red"></i>
-            {% trans "Популярные инструменты" %}
+            {% trans "Scule populare" %}
         </h2>
         <a href="{% url 'catalog:catalog' %}" class="text-brand-yellow hover:text-brand-yellow-dark text-sm font-medium transition-colors">
-            {% trans "Каталог" %} →
+            {% trans "Catalog" %} →
         </a>
     </div>
 
@@ -146,9 +146,9 @@
                 {% endif %}
             </div>
             <p class="text-white text-xs font-medium truncate group-hover:text-brand-yellow transition-colors">{{ tool.name }}</p>
-            <p class="text-brand-yellow text-xs font-bold">{{ tool.price_per_day }} MDL/{% trans "день" %}</p>
+            <p class="text-brand-yellow text-xs font-bold">{{ tool.price_per_day }} MDL/{% trans "zi" %}</p>
             {% if tool.rentals_count > 0 %}
-            <p class="text-gray-500 text-xs">{{ tool.rentals_count }} {% trans "аренд" %}</p>
+            <p class="text-gray-500 text-xs">{{ tool.rentals_count }} {% trans "închirieri" %}</p>
             {% endif %}
         </a>
         {% endfor %}
@@ -160,9 +160,9 @@
 {% if recent_favorites %}
 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
     <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-white">{% trans "Избранное" %}</h2>
+        <h2 class="text-xl font-bold text-white">{% trans "Favorite" %}</h2>
         <a href="{% url 'catalog:favorites' %}" class="text-brand-yellow hover:text-brand-yellow-dark text-sm font-medium transition-colors">
-            {% trans "Все избранные" %} →
+            {% trans "Toate favoritele" %} →
         </a>
     </div>
 
@@ -175,7 +175,7 @@
                 {% endif %}
             </div>
             <p class="text-white text-sm font-medium truncate group-hover:text-brand-yellow transition-colors">{{ fav.tool.name }}</p>
-            <p class="text-brand-yellow text-sm font-bold">{{ fav.tool.price_per_day }} MDL/{% trans "день" %}</p>
+            <p class="text-brand-yellow text-sm font-bold">{{ fav.tool.price_per_day }} MDL/{% trans "zi" %}</p>
         </a>
         {% endfor %}
     </div>

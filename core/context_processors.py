@@ -1,5 +1,5 @@
 """
-Контекстные процессоры для глобальных переменных в шаблонах.
+Procesoare de context pentru variabile globale în șabloane.
 """
 
 from django.conf import settings
@@ -7,7 +7,7 @@ from django.conf import settings
 
 def site_settings(request):
     """
-    Добавляет глобальные настройки сайта во все шаблоны.
+    Adaugă setările globale ale site-ului în toate șabloanele.
     """
     return {
         'SITE_NAME': 'MoldTool',

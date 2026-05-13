@@ -1,13 +1,13 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Избранное" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Favorite" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block dashboard_content %}
 <!-- Header -->
 <div class="mb-8">
-    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Избранное" %}</h1>
-    <p class="text-gray-400">{% trans "Инструменты, которые вы сохранили" %}</p>
+    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Favorite" %}</h1>
+    <p class="text-gray-400">{% trans "Sculele pe care le-ai salvat" %}</p>
 </div>
 
 {% if favorites %}
@@ -31,11 +31,11 @@
             <!-- Availability badge -->
             {% if fav.tool.is_available %}
             <span class="absolute bottom-3 left-3 px-3 py-1 bg-green-500/90 text-white text-xs font-medium rounded-full">
-                {% trans "Доступен" %}
+                {% trans "Disponibil" %}
             </span>
             {% else %}
             <span class="absolute bottom-3 left-3 px-3 py-1 bg-red-500/90 text-white text-xs font-medium rounded-full">
-                {% trans "Недоступен" %}
+                {% trans "Indisponibil" %}
             </span>
             {% endif %}
         </a>
@@ -52,13 +52,13 @@
             <div class="flex items-center justify-between">
                 <div>
                     <span class="text-2xl font-bold text-brand-yellow">{{ fav.tool.price_per_day }}</span>
-                    <span class="text-gray-400 text-sm">MDL/{% trans "день" %}</span>
+                    <span class="text-gray-400 text-sm">MDL/{% trans "zi" %}</span>
                 </div>
                 
                 {% if fav.tool.is_available %}
                 <a href="{% url 'rentals:create_request' slug=fav.tool.slug %}"
                    class="px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors text-sm">
-                    {% trans "Арендовать" %}
+                    {% trans "Închiriază" %}
                 </a>
                 {% endif %}
             </div>
@@ -74,7 +74,7 @@
         {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}"
            class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
-            {% trans "Назад" %}
+            {% trans "Înapoi" %}
         </a>
         {% endif %}
         
@@ -85,7 +85,7 @@
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}"
            class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
-            {% trans "Далее" %}
+            {% trans "Înainte" %}
         </a>
         {% endif %}
     </nav>
@@ -98,11 +98,11 @@
     <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
         <i class="fa-regular fa-heart text-4xl text-gray-600"></i>
     </div>
-    <h3 class="text-xl font-bold text-white mb-2">{% trans "Избранное пусто" %}</h3>
-    <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Добавляйте инструменты в избранное, чтобы быстро находить их" %}</p>
+    <h3 class="text-xl font-bold text-white mb-2">{% trans "Favoritele sunt goale" %}</h3>
+    <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Adaugă scule la favorite ca să le găsești rapid" %}</p>
     <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
         <i class="fa-solid fa-magnifying-glass text-lg"></i>
-        {% trans "Перейти в каталог" %}
+        {% trans "Accesează catalogul" %}
     </a>
 </div>
 {% endif %}

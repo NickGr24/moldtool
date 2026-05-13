@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Панель управления" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Panou de control" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-8 lg:py-12 bg-dark min-h-screen">
@@ -9,8 +9,8 @@
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Панель управления" %}</h1>
-                <p class="text-gray-400">{% trans "Статистика и аналитика MoldTool" %}</p>
+                <h1 class="text-3xl lg:text-4xl font-bold text-white mb-2">{% trans "Panou de control" %}</h1>
+                <p class="text-gray-400">{% trans "Statistici și analize MoldTool" %}</p>
             </div>
             <a href="/admin/" target="_blank"
                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
@@ -28,9 +28,9 @@
                         <i class="fa-solid fa-screwdriver-wrench text-2xl text-brand-yellow"></i>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">{% trans "Инструменты" %}</p>
+                        <p class="text-gray-400 text-sm">{% trans "Scule" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_tools }}</p>
-                        <p class="text-green-400 text-xs">{{ available_tools }} {% trans "доступно" %}</p>
+                        <p class="text-green-400 text-xs">{{ available_tools }} {% trans "disponibile" %}</p>
                     </div>
                 </div>
             </div>
@@ -42,9 +42,9 @@
                         <i class="fa-solid fa-users text-2xl text-blue-500"></i>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">{% trans "Пользователи" %}</p>
+                        <p class="text-gray-400 text-sm">{% trans "Utilizatori" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_users }}</p>
-                        <p class="text-green-400 text-xs">+{{ new_users_week }} {% trans "за неделю" %}</p>
+                        <p class="text-green-400 text-xs">+{{ new_users_week }} {% trans "în această săptămână" %}</p>
                     </div>
                 </div>
             </div>
@@ -56,12 +56,12 @@
                         <i class="fa-solid fa-star text-2xl text-purple-500"></i>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">{% trans "Отзывы" %}</p>
+                        <p class="text-gray-400 text-sm">{% trans "Recenzii" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_reviews }}</p>
                         {% if pending_reviews > 0 %}
-                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} {% trans "на модерации" %}</p>
+                        <p class="text-yellow-400 text-xs">{{ pending_reviews }} {% trans "în moderare" %}</p>
                         {% else %}
-                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} {% trans "за неделю" %}</p>
+                        <p class="text-green-400 text-xs">+{{ new_reviews_week }} {% trans "în această săptămână" %}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -74,9 +74,9 @@
                         <i class="fa-regular fa-heart text-2xl text-brand-red"></i>
                     </div>
                     <div>
-                        <p class="text-gray-400 text-sm">{% trans "В избранном" %}</p>
+                        <p class="text-gray-400 text-sm">{% trans "La favorite" %}</p>
                         <p class="text-2xl font-bold text-white">{{ total_favorites }}</p>
-                        <p class="text-gray-500 text-xs">{% trans "Средний рейтинг:" %} {{ average_rating }}</p>
+                        <p class="text-gray-500 text-xs">{% trans "Rating mediu:" %} {{ average_rating }}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <i class="fa-solid fa-chart-line text-lg text-brand-yellow"></i>
-                    {% trans "Популярные инструменты" %}
+                    {% trans "Scule populare" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in popular_tools %}
@@ -110,11 +110,11 @@
                         </div>
                         <div class="text-right">
                             <p class="text-brand-yellow font-bold">{{ tool.views_count }}</p>
-                            <p class="text-gray-500 text-xs">{% trans "просмотров" %}</p>
+                            <p class="text-gray-500 text-xs">{% trans "vizualizări" %}</p>
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Nu există date" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <i class="fa-regular fa-heart text-lg text-brand-red"></i>
-                    {% trans "Чаще добавляемые в избранное" %}
+                    {% trans "Cel mai des adăugate la favorite" %}
                 </h3>
                 <div class="space-y-4">
                     {% for tool in most_favorited %}
@@ -141,15 +141,15 @@
                             <a href="{{ tool.get_absolute_url }}" class="text-white font-medium hover:text-brand-yellow transition-colors line-clamp-1">
                                 {{ tool.name }}
                             </a>
-                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} {% trans "MDL/день" %}</p>
+                            <p class="text-gray-500 text-sm">{{ tool.price_per_day }} {% trans "MDL/zi" %}</p>
                         </div>
                         <div class="text-right">
                             <p class="text-brand-red font-bold">{{ tool.favorites_count }}</p>
-                            <p class="text-gray-500 text-xs">{% trans "в избранном" %}</p>
+                            <p class="text-gray-500 text-xs">{% trans "la favorite" %}</p>
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">{% trans "Нет данных" %}</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Nu există date" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -158,7 +158,7 @@
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <i class="fa-solid fa-comments text-lg text-purple-500"></i>
-                    {% trans "Последние отзывы" %}
+                    {% trans "Recenzii recente" %}
                 </h3>
                 <div class="space-y-4">
                     {% for review in recent_reviews %}
@@ -184,12 +184,12 @@
                         <div class="flex items-center justify-between mt-2">
                             <span class="text-gray-600 text-xs">{{ review.created_at|date:"d.m.Y" }}</span>
                             {% if not review.is_approved %}
-                            <span class="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">{% trans "На модерации" %}</span>
+                            <span class="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">{% trans "În moderare" %}</span>
                             {% endif %}
                         </div>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">{% trans "Нет отзывов" %}</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Nu există recenzii" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -198,24 +198,24 @@
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <i class="fa-solid fa-box-open text-lg text-green-500"></i>
-                    {% trans "Категории" %}
+                    {% trans "Categorii" %}
                 </h3>
                 <div class="space-y-4">
                     {% for cat in category_stats %}
                     <div class="flex items-center justify-between p-3 bg-dark rounded-xl">
                         <span class="text-white">{{ cat.name }}</span>
                         <span class="px-3 py-1 bg-brand-yellow/10 text-brand-yellow text-sm font-medium rounded-lg">
-                            {{ cat.num_tools }} {% trans "инструментов" %}
+                            {{ cat.num_tools }} {% trans "scule" %}
                         </span>
                     </div>
                     {% empty %}
-                    <p class="text-gray-500 text-center py-4">{% trans "Нет категорий" %}</p>
+                    <p class="text-gray-500 text-center py-4">{% trans "Nu există categorii" %}</p>
                     {% endfor %}
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-dark-border">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400">{% trans "Всего категорий:" %}</span>
+                        <span class="text-gray-400">{% trans "Total categorii:" %}</span>
                         <span class="text-white font-bold">{{ total_categories }}</span>
                     </div>
                 </div>
@@ -224,14 +224,14 @@
 
         <!-- Quick Links -->
         <div class="mt-8 bg-dark-100 rounded-2xl p-6 border border-dark-border">
-            <h3 class="text-xl font-bold text-white mb-6">{% trans "Быстрые действия" %}</h3>
+            <h3 class="text-xl font-bold text-white mb-6">{% trans "Acțiuni rapide" %}</h3>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="/admin/catalog/tool/add/" target="_blank"
                    class="flex items-center gap-3 p-4 bg-dark rounded-xl border border-dark-border hover:border-brand-yellow/50 transition-colors group">
                     <div class="w-10 h-10 bg-brand-yellow/10 rounded-lg flex items-center justify-center group-hover:bg-brand-yellow/20 transition-colors">
                         <i class="fa-solid fa-circle-plus text-lg text-brand-yellow"></i>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Добавить инструмент" %}</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Adaugă sculă" %}</span>
                 </a>
 
                 <a href="/admin/catalog/category/" target="_blank"
@@ -239,7 +239,7 @@
                     <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
                         <i class="fa-solid fa-box-open text-lg text-green-500"></i>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Управление категориями" %}</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Gestionare categorii" %}</span>
                 </a>
 
                 <a href="/admin/catalog/review/?is_approved__exact=0" target="_blank"
@@ -247,7 +247,7 @@
                     <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
                         <i class="fa-solid fa-circle-check text-lg text-purple-500"></i>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Модерация отзывов" %}</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Moderare recenzii" %}</span>
                 </a>
 
                 <a href="/admin/accounts/user/" target="_blank"
@@ -255,7 +255,7 @@
                     <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                         <i class="fa-solid fa-users text-lg text-blue-500"></i>
                     </div>
-                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Пользователи" %}</span>
+                    <span class="text-white group-hover:text-brand-yellow transition-colors">{% trans "Utilizatori" %}</span>
                 </a>
             </div>
         </div>

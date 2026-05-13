@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Регистрация" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Înregistrare" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="min-h-screen bg-dark flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -25,10 +25,10 @@
         <div class="bg-dark-100/80 backdrop-blur-xl border border-dark-border rounded-2xl shadow-2xl p-8">
             <div class="text-center mb-8">
                 <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">
-                    {% trans "Регистрация" %}
+                    {% trans "Înregistrare" %}
                 </h1>
                 <p class="text-gray-400">
-                    {% trans "Создайте аккаунт" %}
+                    {% trans "Creează un cont" %}
                 </p>
             </div>
 
@@ -50,7 +50,7 @@
                 <!-- Password -->
                 <div>
                     <label for="id_password1" class="block text-sm font-medium text-gray-300 mb-2">
-                        {% trans "Пароль" %}
+                        {% trans "Parolă" %}
                     </label>
                     <div class="relative">
                         {{ form.password1 }}
@@ -68,7 +68,7 @@
                 <!-- Confirm Password -->
                 <div>
                     <label for="id_password2" class="block text-sm font-medium text-gray-300 mb-2">
-                        {% trans "Подтвердите пароль" %}
+                        {% trans "Confirmă parola" %}
                     </label>
                     <div class="relative">
                         {{ form.password2 }}
@@ -96,15 +96,15 @@
                 <button type="submit"
                         class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-yellow/30 hover:-translate-y-0.5">
                     <i class="fa-solid fa-user-plus text-lg"></i>
-                    {% trans "Зарегистрироваться" %}
+                    {% trans "Înregistrează-te" %}
                 </button>
             </form>
 
             <!-- Login Link -->
             <p class="mt-6 text-center text-gray-400">
-                {% trans "Уже есть аккаунт?" %}
+                {% trans "Ai deja cont?" %}
                 <a href="{% url 'account_login' %}" class="text-brand-yellow font-medium hover:underline ml-1">
-                    {% trans "Войти" %}
+                    {% trans "Autentificare" %}
                 </a>
             </p>
         </div>
@@ -113,7 +113,7 @@
         <div class="text-center mt-6">
             <a href="{% url 'core:home' %}" class="inline-flex items-center gap-2 text-gray-500 hover:text-white transition-colors">
                 <i class="fa-solid fa-arrow-left text-sm"></i>
-                {% trans "На главную" %}
+                {% trans "Pagina principală" %}
             </a>
         </div>
     </div>

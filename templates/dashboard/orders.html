@@ -1,18 +1,18 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Мои заказы" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Comenzile mele" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block dashboard_content %}
 <!-- Header -->
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
     <div>
-        <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Мои заказы" %}</h1>
-        <p class="text-gray-400">{% trans "История ваших заказов на аренду" %}</p>
+        <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Comenzile mele" %}</h1>
+        <p class="text-gray-400">{% trans "Istoricul comenzilor tale de închiriere" %}</p>
     </div>
     <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow text-dark font-medium rounded-lg hover:bg-brand-yellow-dark transition-colors">
         <i class="fa-solid fa-plus text-lg"></i>
-        {% trans "Новый заказ" %}
+        {% trans "Comandă nouă" %}
     </a>
 </div>
 
@@ -20,7 +20,7 @@
 <div class="flex flex-wrap gap-2 mb-6">
     <a href="{% url 'dashboard:orders' %}"
        class="px-4 py-2 rounded-lg text-sm font-medium transition-colors {% if not current_status %}bg-brand-yellow text-dark{% else %}bg-dark-100 text-gray-400 hover:text-white border border-dark-border{% endif %}">
-        {% trans "Все" %}
+        {% trans "Toate" %}
     </a>
     {% for status_value, status_label in statuses %}
     <a href="{% url 'dashboard:orders' %}?status={{ status_value }}"
@@ -66,7 +66,7 @@
                 <h3 class="text-white font-medium text-lg mb-1">{{ order.tool.name }}</h3>
                 <p class="text-gray-400 text-sm">
                     {{ order.start_date|date:"d.m.Y" }} - {{ order.end_date|date:"d.m.Y" }} 
-                    <span class="text-gray-500">({{ order.total_days }} {% trans "дней" %})</span>
+                    <span class="text-gray-500">({{ order.total_days }} {% trans "zile" %})</span>
                 </p>
             </div>
 
@@ -74,11 +74,11 @@
             <div class="flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-2">
                 <div class="text-right">
                     <p class="text-2xl font-bold text-white">{{ order.total_price }} MDL</p>
-                    <p class="text-gray-500 text-sm">{{ order.price_per_day }} MDL/{% trans "день" %}</p>
+                    <p class="text-gray-500 text-sm">{{ order.price_per_day }} MDL/{% trans "zi" %}</p>
                 </div>
                 <a href="{% url 'rentals:request_detail' number=order.number %}"
                    class="inline-flex items-center gap-2 px-4 py-2 bg-dark-200 text-white rounded-lg hover:bg-dark-300 transition-colors text-sm">
-                    {% trans "Подробнее" %}
+                    {% trans "Detalii" %}
                     <i class="fa-solid fa-chevron-right text-sm"></i>
                 </a>
             </div>
@@ -94,7 +94,7 @@
         {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}{% if current_status %}&status={{ current_status }}{% endif %}"
            class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
-            {% trans "Назад" %}
+            {% trans "Înapoi" %}
         </a>
         {% endif %}
         
@@ -105,7 +105,7 @@
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}{% if current_status %}&status={{ current_status }}{% endif %}"
            class="px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-400 hover:text-white hover:border-dark-300 transition-colors">
-            {% trans "Далее" %}
+            {% trans "Înainte" %}
         </a>
         {% endif %}
     </nav>
@@ -118,11 +118,11 @@
     <div class="w-20 h-20 bg-dark-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
         <i class="fa-solid fa-clipboard-list text-3xl text-gray-600"></i>
     </div>
-    <h3 class="text-xl font-bold text-white mb-2">{% trans "Заказов пока нет" %}</h3>
-    <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Выберите инструмент из каталога и создайте свой первый заказ на аренду" %}</p>
+    <h3 class="text-xl font-bold text-white mb-2">{% trans "Nu există încă comenzi" %}</h3>
+    <p class="text-gray-400 mb-6 max-w-md mx-auto">{% trans "Alege o sculă din catalog și creează prima ta cerere de închiriere" %}</p>
     <a href="{% url 'catalog:catalog' %}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
         <i class="fa-solid fa-magnifying-glass text-lg"></i>
-        {% trans "Перейти в каталог" %}
+        {% trans "Accesează catalogul" %}
     </a>
 </div>
 {% endif %}

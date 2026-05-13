@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 class AccountsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'accounts'
-    verbose_name = _('Учётные записи')
+    verbose_name = _('Conturi')
 
     def ready(self):
         """Import signals when app is ready."""

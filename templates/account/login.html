@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Вход" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Autentificare" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="min-h-screen bg-dark flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -27,10 +27,10 @@
         <div class="bg-dark-100/80 backdrop-blur-xl border border-dark-border rounded-2xl shadow-2xl p-8">
             <div class="text-center mb-8">
                 <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">
-                    {% trans "Добро пожаловать" %}
+                    {% trans "Bun venit" %}
                 </h1>
                 <p class="text-gray-400">
-                    {% trans "Войдите в свой аккаунт" %}
+                    {% trans "Autentifică-te în contul tău" %}
                 </p>
             </div>
 
@@ -44,7 +44,7 @@
                 <a href="{% provider_login_url provider.id %}"
                    class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white font-medium transition-all duration-300 hover:border-brand-yellow/50 hover:bg-dark-300 group">
                     <i class="fa-brands fa-google text-lg"></i>
-                    <span>{% trans "Войти через Google" %}</span>
+                    <span>{% trans "Autentificare cu Google" %}</span>
                 </a>
                 {% endif %}
                 {% endfor %}
@@ -54,7 +54,7 @@
                         <div class="w-full border-t border-dark-border"></div>
                     </div>
                     <div class="relative flex justify-center text-sm">
-                        <span class="px-4 bg-dark-100 text-gray-500">{% trans "или" %}</span>
+                        <span class="px-4 bg-dark-100 text-gray-500">{% trans "sau" %}</span>
                     </div>
                 </div>
             </div>
@@ -79,10 +79,10 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <label for="id_password" class="block text-sm font-medium text-gray-300">
-                            {% trans "Пароль" %}
+                            {% trans "Parolă" %}
                         </label>
                         <a href="{% url 'account_reset_password' %}" class="text-sm text-brand-yellow hover:underline">
-                            {% trans "Забыли пароль?" %}
+                            {% trans "Ai uitat parola?" %}
                         </a>
                     </div>
                     <div class="relative">
@@ -102,7 +102,7 @@
                 <div class="flex items-center gap-3">
                     {{ form.remember }}
                     <label for="id_remember" class="text-sm text-gray-400 cursor-pointer">
-                        {% trans "Запомнить меня" %}
+                        {% trans "Ține-mă minte" %}
                     </label>
                 </div>
 
@@ -119,15 +119,15 @@
                 <button type="submit"
                         class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-yellow/30 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-dark">
                     <i class="fa-solid fa-right-to-bracket text-lg"></i>
-                    {% trans "Войти" %}
+                    {% trans "Autentificare" %}
                 </button>
             </form>
 
             <!-- Register Link -->
             <p class="mt-6 text-center text-gray-400">
-                {% trans "Нет аккаунта?" %}
+                {% trans "Nu ai cont?" %}
                 <a href="{% url 'account_signup' %}" class="text-brand-yellow font-medium hover:underline ml-1">
-                    {% trans "Зарегистрироваться" %}
+                    {% trans "Înregistrează-te" %}
                 </a>
             </p>
         </div>
@@ -136,7 +136,7 @@
         <div class="text-center mt-6">
             <a href="{% url 'core:home' %}" class="inline-flex items-center gap-2 text-gray-500 hover:text-white transition-colors">
                 <i class="fa-solid fa-arrow-left text-sm"></i>
-                {% trans "Вернуться на главную" %}
+                {% trans "Înapoi la pagina principală" %}
             </a>
         </div>
     </div>

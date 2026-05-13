@@ -1,6 +1,6 @@
 """
 Django settings for MoldTool project.
-Платформа аренды строительных инструментов.
+Platformă de închiriere a uneltelor de construcții.
 """
 
 import os
@@ -205,18 +205,18 @@ LOCALE_PATHS = [
 
 STATIC_URL = '/static/'
 
-# При разработке используем static папку
+# În dezvoltare folosim folderul static
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Для продакшена - collectstatic складывает сюда
+# Pentru producție - collectstatic le copiază aici
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Важно: Django ищет статические файлы в следующем порядке:
-# 1. В STATICFILES_DIRS (если DEBUG=True)
-# 2. В STATIC_ROOT (если используется collectstatic)
-# 3. В app/static/ для каждого приложения
+# Important: Django caută fișierele statice în următoarea ordine:
+# 1. În STATICFILES_DIRS (dacă DEBUG=True)
+# 2. În STATIC_ROOT (dacă se folosește collectstatic)
+# 3. În app/static/ pentru fiecare aplicație
 
 
 # =============================================================================

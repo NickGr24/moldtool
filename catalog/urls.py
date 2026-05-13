@@ -1,5 +1,5 @@
 """
-URL маршруты для каталога инструментов.
+Rute URL pentru catalogul de scule.
 """
 
 from django.urls import path, re_path

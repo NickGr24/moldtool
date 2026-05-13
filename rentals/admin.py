@@ -1,5 +1,5 @@
 """
-Админка для управления заявками на аренду.
+Admin pentru gestionarea cererilor de închiriere.
 """
 
 from django.contrib import admin
@@ -11,7 +11,7 @@ from .models import RentalRequest
 
 @admin.register(RentalRequest)
 class RentalRequestAdmin(admin.ModelAdmin):
-    """Админка для заявок на аренду."""
+    """Admin pentru cererile de închiriere."""
 
     list_display = (
         'number',
@@ -33,26 +33,26 @@ class RentalRequestAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
     fieldsets = (
-        (_('Информация о заявке'), {
+        (_('Informații despre cerere'), {
             'fields': ('number', 'status', 'tool')
         }),
-        (_('Данные клиента'), {
+        (_('Date client'), {
             'fields': ('user', 'customer_name', 'customer_email', 'customer_phone')
         }),
-        (_('Период аренды'), {
+        (_('Perioada de închiriere'), {
             'fields': ('start_date', 'end_date', 'total_days')
         }),
-        (_('Доставка'), {
+        (_('Livrare'), {
             'fields': ('delivery_method', 'delivery_address', 'delivery_price')
         }),
-        (_('Финансы'), {
+        (_('Finanțe'), {
             'fields': ('price_per_day', 'total_price')
         }),
-        (_('Комментарии'), {
+        (_('Comentarii'), {
             'fields': ('comment', 'admin_notes'),
             'classes': ('collapse',)
         }),
-        (_('Системная информация'), {
+        (_('Informații de sistem'), {
             'fields': ('created_at', 'updated_at', 'confirmed_at'),
             'classes': ('collapse',)
         }),
@@ -61,7 +61,7 @@ class RentalRequestAdmin(admin.ModelAdmin):
     actions = ['confirm_requests', 'reject_requests', 'cancel_requests']
 
     def status_badge(self, obj):
-        """Отображает статус с цветовой меткой."""
+        """Afișează statusul cu o etichetă colorată."""
         colors = {
             'pending': '#FFA500',
             'confirmed': '#4CAF50',
@@ -77,36 +77,36 @@ class RentalRequestAdmin(admin.ModelAdmin):
             color,
             obj.get_status_display()
         )
-    status_badge.short_description = _('Статус')
+    status_badge.short_description = _('Status')
 
     def total_price_display(self, obj):
-        """Отображает стоимость с валютой."""
+        """Afișează suma cu moneda."""
         return f'{obj.total_price} MDL'
-    total_price_display.short_description = _('Сумма')
+    total_price_display.short_description = _('Sumă')
 
-    @admin.action(description=_('Подтвердить выбранные заявки'))
+    @admin.action(description=_('Confirmă cererile selectate'))
     def confirm_requests(self, request, queryset):
-        """Подтверждает выбранные заявки."""
+        """Confirmă cererile selectate."""
         count = 0
         for rental in queryset.filter(status=RentalRequest.Status.PENDING):
             rental.confirm()
             count += 1
-        self.message_user(request, _(f'Подтверждено заявок: {count}'))
+        self.message_user(request, _(f'Cereri confirmate: {count}'))
 
-    @admin.action(description=_('Отклонить выбранные заявки'))
+    @admin.action(description=_('Respinge cererile selectate'))
     def reject_requests(self, request, queryset):
-        """Отклоняет выбранные заявки."""
+        """Respinge cererile selectate."""
         count = 0
         for rental in queryset.filter(status=RentalRequest.Status.PENDING):
             rental.reject()
             count += 1
-        self.message_user(request, _(f'Отклонено заявок: {count}'))
+        self.message_user(request, _(f'Cereri respinse: {count}'))
 
-    @admin.action(description=_('Отменить выбранные заявки'))
+    @admin.action(description=_('Anulează cererile selectate'))
     def cancel_requests(self, request, queryset):
-        """Отменяет выбранные заявки."""
+        """Anulează cererile selectate."""
         count = 0
         for rental in queryset.filter(status__in=[RentalRequest.Status.PENDING, RentalRequest.Status.CONFIRMED]):
             rental.cancel()
             count += 1
-        self.message_user(request, _(f'Отменено заявок: {count}'))
+        self.message_user(request, _(f'Cereri anulate: {count}'))

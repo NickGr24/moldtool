@@ -37,4 +37,4 @@ if settings.DEBUG:
 # Admin site customization
 admin.site.site_header = 'MoldTool Administration'
 admin.site.site_title = 'MoldTool Admin'
-admin.site.index_title = 'Панель управления'
+admin.site.index_title = 'Panou de control'

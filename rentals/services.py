@@ -1,5 +1,5 @@
 """
-Сервисы для обработки заявок на аренду: генерация PDF и email-уведомления.
+Servicii pentru procesarea cererilor de închiriere: generare PDF și notificări email.
 """
 
 import logging
@@ -15,8 +15,8 @@ from weasyprint import HTML
 
 logger = logging.getLogger(__name__)
 
-# Информация о компании (дублируем из context_processor,
-# т.к. сервис может работать вне request-цикла)
+# Informații despre companie (duplicate din context_processor,
+# deoarece serviciul poate funcționa în afara ciclului de request)
 SITE_INFO = {
     'SITE_NAME': 'MoldTool',
     'SITE_TAGLINE': 'Închiriere de scule de construcție',
@@ -28,14 +28,14 @@ SITE_INFO = {
 
 def generate_rental_contract_pdf(rental_request):
     """
-    Генерирует PDF контракт аренды (Contract de închiriere).
-    Контракт всегда на румынском языке.
+    Generează contractul PDF de închiriere (Contract de închiriere).
+    Contractul este întotdeauna în limba română.
 
     Args:
-        rental_request: экземпляр RentalRequest (с загруженным tool)
+        rental_request: instanță RentalRequest (cu tool încărcat)
 
     Returns:
-        bytes: содержимое PDF файла
+        bytes: conținutul fișierului PDF
     """
     context = {
         'rental': rental_request,
@@ -44,7 +44,7 @@ def generate_rental_contract_pdf(rental_request):
         **SITE_INFO,
     }
 
-    # Принудительно используем румынский для шаблона контракта
+    # Forțăm limba română pentru șablonul contractului
     with translation_override('ro'):
         html_string = render_to_string('rentals/pdf/contract.html', context)
 
@@ -55,14 +55,14 @@ def generate_rental_contract_pdf(rental_request):
 
 def generate_invoice_pdf(rental_request):
     """
-    Генерирует PDF фактуру для оплаты (Factură pentru achitare).
-    Фактура всегда на румынском языке.
+    Generează factura PDF pentru achitare (Factură pentru achitare).
+    Factura este întotdeauna în limba română.
 
     Args:
-        rental_request: экземпляр RentalRequest (с загруженным tool)
+        rental_request: instanță RentalRequest (cu tool încărcat)
 
     Returns:
-        bytes: содержимое PDF файла
+        bytes: conținutul fișierului PDF
     """
     context = {
         'rental': rental_request,
@@ -81,8 +81,8 @@ def generate_invoice_pdf(rental_request):
 
 def send_rental_expiry_reminder(rental_request):
     """
-    Отправляет клиенту email-напоминание о скором истечении срока аренды
-    (за 6 часов до конца дня возврата).
+    Trimite clientului un email de memento despre expirarea apropiată a închirierii
+    (cu 6 ore înainte de sfârșitul zilei de returnare).
     """
     context = {
         'rental': rental_request,
@@ -112,13 +112,13 @@ def send_rental_expiry_reminder(rental_request):
     try:
         email.send(fail_silently=False)
         logger.info(
-            'Напоминание об окончании аренды отправлено для заявки %s на %s',
+            'Memento privind sfârșitul închirierii trimis pentru cererea %s la %s',
             rental_request.number,
             rental_request.customer_email,
         )
     except Exception:
         logger.exception(
-            'Не удалось отправить напоминание для заявки %s на %s',
+            'Nu s-a putut trimite memento-ul pentru cererea %s la %s',
             rental_request.number,
             rental_request.customer_email,
         )
@@ -127,10 +127,10 @@ def send_rental_expiry_reminder(rental_request):
 
 def send_rental_confirmation_email(rental_request):
     """
-    Отправляет email-подтверждение клиенту с PDF контрактом во вложении.
+    Trimite email-ul de confirmare clientului cu contractul PDF atașat.
 
     Args:
-        rental_request: экземпляр RentalRequest (с загруженным tool)
+        rental_request: instanță RentalRequest (cu tool încărcat)
     """
     context = {
         'rental': rental_request,
@@ -140,7 +140,7 @@ def send_rental_confirmation_email(rental_request):
 
     subject = f'MoldTool — Cerere de închiriere #{rental_request.number}'
 
-    # Рендерим email шаблоны
+    # Randăm șabloanele de email
     text_content = render_to_string('rentals/email/confirmation.txt', context)
     html_content = render_to_string('rentals/email/confirmation.html', context)
 
@@ -157,40 +157,40 @@ def send_rental_confirmation_email(rental_request):
     )
     email.attach_alternative(html_content, 'text/html')
 
-    # Генерируем и прикрепляем PDF контракт
+    # Generăm și atașăm contractul PDF
     try:
         pdf_content = generate_rental_contract_pdf(rental_request)
         filename = f'Contract_MoldTool_{rental_request.number}.pdf'
         email.attach(filename, pdf_content, 'application/pdf')
     except Exception:
         logger.exception(
-            'Не удалось сгенерировать PDF контракт для заявки %s',
+            'Nu s-a putut genera contractul PDF pentru cererea %s',
             rental_request.number,
         )
 
-    # Генерируем и прикрепляем PDF фактуру
+    # Generăm și atașăm factura PDF
     try:
         invoice_pdf = generate_invoice_pdf(rental_request)
         invoice_filename = f'Factura_MoldTool_{rental_request.number}.pdf'
         email.attach(invoice_filename, invoice_pdf, 'application/pdf')
     except Exception:
         logger.exception(
-            'Не удалось сгенерировать PDF фактуру для заявки %s',
+            'Nu s-a putut genera factura PDF pentru cererea %s',
             rental_request.number,
         )
 
-    # Отправляем email
+    # Trimitem email-ul
     try:
         email.send(fail_silently=False)
         logger.info(
-            'Email-подтверждение отправлено для заявки %s на %s',
+            'Email-ul de confirmare a fost trimis pentru cererea %s la %s',
             rental_request.number,
             rental_request.customer_email,
         )
     except Exception:
         logger.exception(
-            'Не удалось отправить email для заявки %s на %s. '
-            'Проверьте EMAIL_HOST_USER и EMAIL_HOST_PASSWORD в настройках.',
+            'Nu s-a putut trimite email-ul pentru cererea %s la %s. '
+            'Verificați EMAIL_HOST_USER și EMAIL_HOST_PASSWORD în setări.',
             rental_request.number,
             rental_request.customer_email,
         )

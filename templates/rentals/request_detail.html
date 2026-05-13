@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Заявка" %} #{{ rental.number }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Cerere" %} #{{ rental.number }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="py-12 bg-dark min-h-screen">
@@ -9,9 +9,9 @@
 
         <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-sm mb-6 flex-wrap">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
             <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
-            <a href="{% url 'rentals:user_requests' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Мои заявки" %}</a>
+            <a href="{% url 'rentals:user_requests' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Cererile mele" %}</a>
             <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
             <span class="text-white">#{{ rental.number }}</span>
         </nav>
@@ -20,7 +20,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
                 <div class="flex flex-wrap items-center gap-3 mb-2">
-                    <h1 class="text-2xl lg:text-3xl font-bold text-white">{% trans "Заявка" %} #{{ rental.number }}</h1>
+                    <h1 class="text-2xl lg:text-3xl font-bold text-white">{% trans "Cerere" %} #{{ rental.number }}</h1>
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium
                         {% if rental.status == 'pending' %}bg-yellow-500/10 text-yellow-400 border border-yellow-500/30
                         {% elif rental.status == 'confirmed' %}bg-green-500/10 text-green-400 border border-green-500/30
@@ -30,12 +30,12 @@
                         {{ rental.get_status_display }}
                     </span>
                 </div>
-                <p class="text-gray-400">{% trans "Создана" %}: {{ rental.created_at|date:"d.m.Y H:i" }}</p>
+                <p class="text-gray-400">{% trans "Creată" %}: {{ rental.created_at|date:"d.m.Y H:i" }}</p>
             </div>
             <a href="{% url 'rentals:user_requests' %}"
                class="inline-flex items-center gap-2 px-4 py-2 bg-dark-100 border border-dark-border rounded-lg text-gray-300 hover:text-brand-yellow hover:border-brand-yellow transition-colors">
                 <i class="fa-solid fa-arrow-left"></i>
-                {% trans "К списку заявок" %}
+                {% trans "Înapoi la lista de cereri" %}
             </a>
         </div>
 
@@ -56,7 +56,7 @@
 
                 <!-- Tool card -->
                 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
-                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Инструмент" %}</h2>
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Sculă" %}</h2>
                     <div class="flex gap-4">
                         <div class="w-24 h-24 bg-dark-200 rounded-xl overflow-hidden flex-shrink-0">
                             {% if rental.tool.image %}
@@ -77,18 +77,18 @@
 
                 <!-- Period -->
                 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
-                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Период аренды" %}</h2>
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Perioada de închiriere" %}</h2>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Дата начала" %}</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Data de început" %}</div>
                             <div class="text-white font-medium">{{ rental.start_date|date:"d.m.Y" }}</div>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Дата окончания" %}</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Data de sfârșit" %}</div>
                             <div class="text-white font-medium">{{ rental.end_date|date:"d.m.Y" }}</div>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Количество дней" %}</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Număr de zile" %}</div>
                             <div class="text-white font-medium">{{ rental.total_days }}</div>
                         </div>
                     </div>
@@ -96,10 +96,10 @@
 
                 <!-- Customer + delivery -->
                 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
-                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Контактная информация" %}</h2>
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Informații de contact" %}</h2>
                     <div class="space-y-3 text-sm">
                         <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
-                            <span class="text-gray-400">{% trans "Имя" %}</span>
+                            <span class="text-gray-400">{% trans "Nume" %}</span>
                             <span class="text-white text-right">{{ rental.customer_name }}</span>
                         </div>
                         <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
@@ -107,16 +107,16 @@
                             <span class="text-white text-right">{{ rental.customer_email }}</span>
                         </div>
                         <div class="flex justify-between gap-4 border-b border-dark-border pb-2">
-                            <span class="text-gray-400">{% trans "Телефон" %}</span>
+                            <span class="text-gray-400">{% trans "Telefon" %}</span>
                             <span class="text-white text-right">{{ rental.customer_phone }}</span>
                         </div>
                         <div class="flex justify-between gap-4 {% if rental.delivery_address %}border-b border-dark-border pb-2{% endif %}">
-                            <span class="text-gray-400">{% trans "Способ получения" %}</span>
+                            <span class="text-gray-400">{% trans "Metoda de primire" %}</span>
                             <span class="text-white text-right">{{ rental.get_delivery_method_display }}</span>
                         </div>
                         {% if rental.delivery_address %}
                         <div class="flex justify-between gap-4">
-                            <span class="text-gray-400">{% trans "Адрес доставки" %}</span>
+                            <span class="text-gray-400">{% trans "Adresa de livrare" %}</span>
                             <span class="text-white text-right">{{ rental.delivery_address }}</span>
                         </div>
                         {% endif %}
@@ -125,7 +125,7 @@
 
                 {% if rental.comment %}
                 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
-                    <h2 class="text-lg font-bold text-white mb-2">{% trans "Комментарий" %}</h2>
+                    <h2 class="text-lg font-bold text-white mb-2">{% trans "Comentariu" %}</h2>
                     <p class="text-gray-300 whitespace-pre-wrap">{{ rental.comment }}</p>
                 </div>
                 {% endif %}
@@ -134,36 +134,36 @@
             <!-- Right column: price summary + actions -->
             <div class="space-y-6">
                 <div class="bg-dark-100 border border-dark-border rounded-2xl p-6 sticky top-24">
-                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Итого" %}</h2>
+                    <h2 class="text-lg font-bold text-white mb-4">{% trans "Total" %}</h2>
                     <div class="space-y-2 text-sm mb-4">
                         <div class="flex justify-between">
-                            <span class="text-gray-400">{% trans "Цена/день" %}</span>
+                            <span class="text-gray-400">{% trans "Preț/zi" %}</span>
                             <span class="text-white">{{ rental.price_per_day }} MDL</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-400">{% trans "Дни" %}</span>
+                            <span class="text-gray-400">{% trans "Zile" %}</span>
                             <span class="text-white">× {{ rental.total_days }}</span>
                         </div>
                         {% if rental.delivery_price and rental.delivery_price > 0 %}
                         <div class="flex justify-between">
-                            <span class="text-gray-400">{% trans "Доставка" %}</span>
+                            <span class="text-gray-400">{% trans "Livrare" %}</span>
                             <span class="text-white">{{ rental.delivery_price }} MDL</span>
                         </div>
                         {% endif %}
                     </div>
                     <div class="pt-4 border-t border-dark-border flex justify-between items-center">
-                        <span class="text-gray-400">{% trans "К оплате" %}</span>
+                        <span class="text-gray-400">{% trans "De plată" %}</span>
                         <span class="text-2xl font-bold text-brand-yellow">{{ rental.total_price }} MDL</span>
                     </div>
 
                     {% if rental.can_be_cancelled %}
                     <form action="{% url 'rentals:cancel_request' number=rental.number %}" method="post" class="mt-6"
-                          onsubmit="return confirm('{% trans "Отменить эту заявку?" %}');">
+                          onsubmit="return confirm('{% trans "Anulezi această cerere?" %}');">
                         {% csrf_token %}
                         <button type="submit"
                                 class="w-full px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 font-medium hover:bg-red-500/20 transition-colors">
                             <i class="fa-solid fa-xmark mr-2"></i>
-                            {% trans "Отменить заявку" %}
+                            {% trans "Anulează cererea" %}
                         </button>
                     </form>
                     {% endif %}

@@ -1,13 +1,13 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Профиль" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Profil" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block dashboard_content %}
 <!-- Header -->
 <div class="mb-8">
-    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Настройки профиля" %}</h1>
-    <p class="text-gray-400">{% trans "Управление вашим аккаунтом" %}</p>
+    <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2">{% trans "Setări profil" %}</h1>
+    <p class="text-gray-400">{% trans "Gestionarea contului tău" %}</p>
 </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -16,34 +16,34 @@
         <form method="post" enctype="multipart/form-data" class="bg-dark-100 border border-dark-border rounded-2xl p-6">
             {% csrf_token %}
             
-            <h2 class="text-xl font-bold text-white mb-6">{% trans "Личные данные" %}</h2>
+            <h2 class="text-xl font-bold text-white mb-6">{% trans "Date personale" %}</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <!-- First Name -->
                 <div>
                     <label for="id_first_name" class="block text-sm font-medium text-gray-300 mb-2">
-                        {% trans "Имя" %}
+                        {% trans "Prenume" %}
                     </label>
                     <input type="text" name="first_name" id="id_first_name" value="{{ form.first_name.value|default:'' }}"
                            class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
-                           placeholder="{% trans 'Введите имя' %}">
+                           placeholder="{% trans 'Introdu prenumele' %}">
                 </div>
 
                 <!-- Last Name -->
                 <div>
                     <label for="id_last_name" class="block text-sm font-medium text-gray-300 mb-2">
-                        {% trans "Фамилия" %}
+                        {% trans "Nume" %}
                     </label>
                     <input type="text" name="last_name" id="id_last_name" value="{{ form.last_name.value|default:'' }}"
                            class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
-                           placeholder="{% trans 'Введите фамилию' %}">
+                           placeholder="{% trans 'Introdu numele' %}">
                 </div>
             </div>
 
             <!-- Phone -->
             <div class="mb-6">
                 <label for="id_phone" class="block text-sm font-medium text-gray-300 mb-2">
-                    {% trans "Телефон" %}
+                    {% trans "Telefon" %}
                 </label>
                 <input type="tel" name="phone" id="id_phone" value="{{ form.phone.value|default:'' }}"
                        class="w-full px-4 py-3 bg-dark-200 border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-colors"
@@ -56,14 +56,14 @@
                     <input type="checkbox" name="receive_notifications" id="id_receive_notifications"
                            {% if form.receive_notifications.value %}checked{% endif %}
                            class="w-5 h-5 rounded border-dark-border bg-dark-200 text-brand-yellow focus:ring-brand-yellow focus:ring-offset-0">
-                    <span class="text-gray-300">{% trans "Получать уведомления о заказах" %}</span>
+                    <span class="text-gray-300">{% trans "Primește notificări despre comenzi" %}</span>
                 </label>
             </div>
 
             <!-- Submit -->
             <button type="submit"
                     class="px-6 py-3 bg-brand-yellow text-dark font-bold rounded-xl hover:bg-brand-yellow-dark transition-colors">
-                {% trans "Сохранить изменения" %}
+                {% trans "Salvează modificările" %}
             </button>
         </form>
     </div>
@@ -78,18 +78,18 @@
 
         <!-- Account Stats -->
         <div class="bg-dark-100 border border-dark-border rounded-2xl p-6">
-            <h3 class="text-lg font-bold text-white mb-4">{% trans "Статистика" %}</h3>
+            <h3 class="text-lg font-bold text-white mb-4">{% trans "Statistici" %}</h3>
             <div class="space-y-3">
                 <div class="flex justify-between">
-                    <span class="text-gray-400">{% trans "Всего заказов" %}</span>
+                    <span class="text-gray-400">{% trans "Total comenzi" %}</span>
                     <span class="text-white font-medium">{{ user.rental_requests.count }}</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-gray-400">{% trans "В избранном" %}</span>
+                    <span class="text-gray-400">{% trans "La favorite" %}</span>
                     <span class="text-white font-medium">{{ favorites_count }}</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-gray-400">{% trans "Дата регистрации" %}</span>
+                    <span class="text-gray-400">{% trans "Data înregistrării" %}</span>
                     <span class="text-white font-medium">{{ user.created_at|date:"d.m.Y" }}</span>
                 </div>
             </div>

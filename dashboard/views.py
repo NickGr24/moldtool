@@ -1,5 +1,5 @@
 """
-Views для личного кабинета пользователя.
+Views pentru cabinetul personal al utilizatorului.
 """
 
 from decimal import Decimal
@@ -17,13 +17,13 @@ from catalog.models import Tool, Favorite
 
 
 class DashboardMixin(LoginRequiredMixin):
-    """Миксин для добавления общего контекста в личный кабинет."""
+    """Mixin pentru adăugarea contextului comun în cabinetul personal."""
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
 
-        # Счётчики для sidebar
+        # Contoare pentru sidebar
         context['active_orders_count'] = RentalRequest.objects.filter(
             user=user,
             status__in=[RentalRequest.Status.PENDING, RentalRequest.Status.CONFIRMED, RentalRequest.Status.IN_PROGRESS]
@@ -34,7 +34,7 @@ class DashboardMixin(LoginRequiredMixin):
 
 
 class DashboardIndexView(DashboardMixin, TemplateView):
-    """Главная страница личного кабинета."""
+    """Pagina principală a cabinetului personal."""
 
     template_name = 'dashboard/index.html'
 
@@ -45,10 +45,10 @@ class DashboardIndexView(DashboardMixin, TemplateView):
 
         user_requests = RentalRequest.objects.filter(user=user)
 
-        # Статистика заявок
+        # Statistici cereri
         context['total_requests'] = user_requests.count()
 
-        # Финансовая статистика
+        # Statistici financiare
         financial = user_requests.exclude(
             status__in=[RentalRequest.Status.CANCELLED, RentalRequest.Status.REJECTED]
         ).aggregate(
@@ -58,24 +58,24 @@ class DashboardIndexView(DashboardMixin, TemplateView):
         context['total_spent'] = financial['total_spent'] or 0
         context['total_rental_days'] = financial['total_days'] or 0
 
-        # Последние заявки
+        # Cereri recente
         context['recent_requests'] = user_requests.select_related(
             'tool'
         ).order_by('-created_at')[:5]
 
-        # Избранные товары
+        # Produse favorite
         context['recent_favorites'] = Favorite.objects.filter(
             user=user
         ).select_related('tool', 'tool__category').order_by('-created_at')[:4]
 
-        # Популярные инструменты на платформе (самые арендуемые)
+        # Unelte populare pe platformă (cele mai închiriate)
         context['popular_tools'] = Tool.objects.filter(
             is_active=True,
         ).annotate(
             rentals_count=Count('rental_requests'),
         ).order_by('-rentals_count')[:6]
 
-        # Инструменты, которые пользователь чаще всего арендует
+        # Uneltele pe care utilizatorul le închiriază cel mai des
         context['user_top_tools'] = Tool.objects.filter(
             rental_requests__user=user,
         ).annotate(
@@ -86,7 +86,7 @@ class DashboardIndexView(DashboardMixin, TemplateView):
 
 
 class OrdersListView(DashboardMixin, ListView):
-    """Список заказов пользователя."""
+    """Lista comenzilor utilizatorului."""
 
     model = RentalRequest
     template_name = 'dashboard/orders.html'
@@ -98,7 +98,7 @@ class OrdersListView(DashboardMixin, ListView):
             user=self.request.user
         ).select_related('tool').order_by('-created_at')
 
-        # Фильтр по статусу
+        # Filtru după status
         status = self.request.GET.get('status')
         if status:
             queryset = queryset.filter(status=status)
@@ -114,7 +114,7 @@ class OrdersListView(DashboardMixin, ListView):
 
 
 class FavoritesListView(DashboardMixin, ListView):
-    """Список избранных инструментов."""
+    """Lista uneltelor favorite."""
 
     model = Favorite
     template_name = 'dashboard/favorites.html'
@@ -133,7 +133,7 @@ class FavoritesListView(DashboardMixin, ListView):
 
 
 class ProfileUpdateView(DashboardMixin, UpdateView):
-    """Редактирование профиля."""
+    """Editarea profilului."""
 
     model = User
     template_name = 'dashboard/profile.html'
@@ -149,12 +149,12 @@ class ProfileUpdateView(DashboardMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        messages.success(self.request, _('Профиль успешно обновлён.'))
+        messages.success(self.request, _('Profilul a fost actualizat cu succes.'))
         return super().form_valid(form)
 
 
 class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
-    """Финансовый рапорт. Доступен только администраторам."""
+    """Raport financiar. Accesibil doar administratorilor."""
 
     template_name = 'dashboard/financial_report.html'
 
@@ -162,7 +162,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
         return self.request.user.is_staff
 
     def handle_no_permission(self):
-        # Аноним — на логин; авторизованный без прав — 403.
+        # Anonim — către login; autentificat fără drepturi — 403.
         if not self.request.user.is_authenticated:
             return super().handle_no_permission()
         from django.core.exceptions import PermissionDenied
@@ -172,7 +172,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['active_tab'] = 'financial'
 
-        # Мок-данные: помесячная выручка
+        # Date mock: venituri lunare
         context['monthly_revenue'] = [
             {'month': 'Octombrie 2025', 'revenue': Decimal('12450.00'), 'orders': 18, 'avg_check': Decimal('691.67')},
             {'month': 'Noiembrie 2025', 'revenue': Decimal('15800.00'), 'orders': 23, 'avg_check': Decimal('686.96')},
@@ -182,7 +182,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
             {'month': 'Martie 2026', 'revenue': Decimal('8900.00'), 'orders': 14, 'avg_check': Decimal('635.71')},
         ]
 
-        # Мок-данные: топ инструменты по доходу
+        # Date mock: top unelte după venituri
         context['top_tools_revenue'] = [
             {'name': 'Perforator Bosch GBH 2-26', 'revenue': Decimal('8450.00'), 'rentals': 42, 'percent': 100},
             {'name': 'Betonieră 180L', 'revenue': Decimal('7200.00'), 'rentals': 18, 'percent': 85},
@@ -191,7 +191,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
             {'name': 'Compresor 50L', 'revenue': Decimal('4350.00'), 'rentals': 29, 'percent': 51},
         ]
 
-        # Мок-данные: статусы заказов
+        # Date mock: statusurile comenzilor
         context['orders_by_status'] = [
             {'status': 'Confirmate', 'count': 34, 'color': 'green'},
             {'status': 'În așteptare', 'count': 8, 'color': 'yellow'},
@@ -200,7 +200,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
             {'status': 'Anulate', 'count': 7, 'color': 'red'},
         ]
 
-        # Мок-данные: сводка
+        # Date mock: sumar
         context['summary'] = {
             'total_revenue': Decimal('86300.00'),
             'total_orders': 125,
@@ -209,7 +209,7 @@ class FinancialReportView(DashboardMixin, UserPassesTestMixin, TemplateView):
             'growth_percent': 12.5,
         }
 
-        # Мок-данные: последние транзакции
+        # Date mock: tranzacții recente
         context['recent_transactions'] = [
             {'date': '07.03.2026', 'client': 'Ion Popescu', 'tool': 'Perforator Bosch GBH 2-26', 'amount': Decimal('450.00'), 'status': 'paid'},
             {'date': '06.03.2026', 'client': 'Maria Ionescu', 'tool': 'Betonieră 180L', 'amount': Decimal('1200.00'), 'status': 'paid'},

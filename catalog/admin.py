@@ -1,5 +1,5 @@
 """
-Админка для управления каталогом инструментов.
+Admin pentru gestionarea catalogului de scule.
 """
 
 from django.contrib import admin
@@ -10,7 +10,7 @@ from .models import Category, Tool, ToolImage, Favorite, Review, FAQ
 
 
 class ToolImageInline(admin.TabularInline):
-    """Инлайн для дополнительных изображений инструмента."""
+    """Inline pentru imaginile suplimentare ale sculei."""
     model = ToolImage
     extra = 1
     fields = ('image', 'alt_text', 'order')
@@ -18,7 +18,7 @@ class ToolImageInline(admin.TabularInline):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    """Админка для категорий."""
+    """Admin pentru categorii."""
 
     list_display = ('name', 'slug', 'parent', 'tools_count', 'is_active', 'order')
     list_filter = ('is_active', 'parent')
@@ -30,7 +30,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Tool)
 class ToolAdmin(admin.ModelAdmin):
-    """Админка для инструментов."""
+    """Admin pentru scule."""
 
     list_display = (
         'image_preview',
@@ -51,54 +51,54 @@ class ToolAdmin(admin.ModelAdmin):
     inlines = [ToolImageInline]
 
     fieldsets = (
-        (_('Основная информация'), {
+        (_('Informații principale'), {
             'fields': ('name', 'slug', 'category', 'description', 'short_description')
         }),
-        (_('Изображение'), {
+        (_('Imagine'), {
             'fields': ('image', 'image_preview_large')
         }),
-        (_('Характеристики'), {
+        (_('Caracteristici'), {
             'fields': ('brand', 'model_name', 'specifications')
         }),
-        (_('Цены'), {
+        (_('Prețuri'), {
             'fields': ('price_per_day',)
         }),
-        (_('Статус'), {
+        (_('Status'), {
             'fields': ('condition', 'availability', 'quantity', 'quantity_available')
         }),
-        (_('Настройки'), {
+        (_('Setări'), {
             'fields': ('is_active', 'is_featured')
         }),
-        (_('Статистика'), {
+        (_('Statistici'), {
             'fields': ('views_count', 'created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
     )
 
     def image_preview(self, obj):
-        """Превью изображения в списке."""
+        """Previzualizarea imaginii în listă."""
         if obj.image:
             return format_html(
                 '<img src="{}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" />',
                 obj.image.url
             )
         return '-'
-    image_preview.short_description = _('Фото')
+    image_preview.short_description = _('Foto')
 
     def image_preview_large(self, obj):
-        """Превью изображения в форме редактирования."""
+        """Previzualizarea imaginii în formularul de editare."""
         if obj.image:
             return format_html(
                 '<img src="{}" style="max-width: 300px; max-height: 300px; object-fit: contain;" />',
                 obj.image.url
             )
         return '-'
-    image_preview_large.short_description = _('Превью')
+    image_preview_large.short_description = _('Previzualizare')
 
 
 @admin.register(ToolImage)
 class ToolImageAdmin(admin.ModelAdmin):
-    """Админка для дополнительных изображений."""
+    """Admin pentru imaginile suplimentare."""
 
     list_display = ('tool', 'image_preview', 'order')
     list_filter = ('tool__category',)
@@ -106,19 +106,19 @@ class ToolImageAdmin(admin.ModelAdmin):
     ordering = ('tool', 'order')
 
     def image_preview(self, obj):
-        """Превью изображения."""
+        """Previzualizarea imaginii."""
         if obj.image:
             return format_html(
                 '<img src="{}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" />',
                 obj.image.url
             )
         return '-'
-    image_preview.short_description = _('Превью')
+    image_preview.short_description = _('Previzualizare')
 
 
 @admin.register(Favorite)
 class FavoriteAdmin(admin.ModelAdmin):
-    """Админка для избранного."""
+    """Admin pentru favorite."""
 
     list_display = ('user', 'tool', 'created_at')
     list_filter = ('created_at',)
@@ -129,7 +129,7 @@ class FavoriteAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    """Админка для отзывов."""
+    """Admin pentru recenzii."""
 
     list_display = ('user', 'tool', 'rating', 'is_approved', 'created_at')
     list_filter = ('rating', 'is_approved', 'created_at')
@@ -141,7 +141,7 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
-    """Админка для FAQ."""
+    """Admin pentru FAQ."""
 
     list_display = ('question', 'order', 'is_active', 'created_at')
     list_filter = ('is_active',)

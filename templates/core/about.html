@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "О нас" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Despre noi" %} - {{ SITE_NAME }}{% endblock %}
 
-{% block meta_description %}{{ SITE_NAME }} - {{ SITE_TAGLINE }}. {% trans "Узнайте больше о нашей компании и услугах, которые мы предоставляем." %}{% endblock %}
+{% block meta_description %}{{ SITE_NAME }} - {{ SITE_TAGLINE }}. {% trans "Află mai multe despre compania noastră și serviciile pe care le oferim." %}{% endblock %}
 
 {% block content %}
 <!-- ABOUT HERO SECTION -->
@@ -18,40 +18,40 @@
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex items-center gap-2 text-sm mb-8">
-            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Главная" %}</a>
+            <a href="{% url 'core:home' %}" class="text-gray-400 hover:text-brand-yellow transition-colors">{% trans "Acasă" %}</a>
             <i class="fa-solid fa-chevron-right text-sm text-gray-600"></i>
-            <span class="text-white">{% trans "О нас" %}</span>
+            <span class="text-white">{% trans "Despre noi" %}</span>
         </nav>
 
         <div class="text-center mb-16 animate-slide-up">
             <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-glass rounded-full mb-6">
                 <i class="fa-solid fa-building text-lg text-brand-yellow"></i>
-                <span class="text-sm font-medium text-gray-300">{% trans "Более 5 лет на рынке" %}</span>
+                <span class="text-sm font-medium text-gray-300">{% trans "Peste 5 ani pe piață" %}</span>
             </span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
-                {% blocktrans with brand=SITE_NAME %}О компании <span class="text-gradient">{{ brand }}</span>{% endblocktrans %}
+                {% blocktrans with brand=SITE_NAME %}Despre compania <span class="text-gradient">{{ brand }}</span>{% endblocktrans %}
             </h1>
             <p class="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto">
-                {% trans "Мы — надёжная компания, специализирующаяся на аренде инструментов и строительного оборудования для профессионалов и любителей со всей Молдовы." %}
+                {% trans "Suntem o companie de încredere, specializată în închirierea de scule și echipamente de construcții pentru profesioniști și amatori din toată Moldova." %}
             </p>
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
                 <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">5+</div>
-                <div class="text-gray-400">{% trans "Лет опыта" %}</div>
+                <div class="text-gray-400">{% trans "Ani de experiență" %}</div>
             </div>
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
                 <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">500+</div>
-                <div class="text-gray-400">{% trans "Инструментов в наличии" %}</div>
+                <div class="text-gray-400">{% trans "Scule disponibile" %}</div>
             </div>
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
                 <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">1000+</div>
-                <div class="text-gray-400">{% trans "Довольных клиентов" %}</div>
+                <div class="text-gray-400">{% trans "Clienți mulțumiți" %}</div>
             </div>
             <div class="bg-dark-100 rounded-2xl p-6 border border-dark-border text-center group hover:border-brand-yellow/50 transition-all duration-300">
                 <div class="text-4xl lg:text-5xl font-bold text-gradient mb-2">24/7</div>
-                <div class="text-gray-400">{% trans "Поддержка доступна" %}</div>
+                <div class="text-gray-400">{% trans "Suport disponibil" %}</div>
             </div>
         </div>
 
@@ -65,29 +65,29 @@
                          onerror="this.src='https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=400&fit=crop'">
                 </div>
                 <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark px-6 py-3 rounded-xl font-bold shadow-glow-yellow">
-                    {% trans "С 2019" %}
+                    {% trans "Din 2019" %}
                 </div>
             </div>
 
             <div class="space-y-6">
                 <h2 class="text-3xl font-bold text-white">
-                    {% trans "Наша история" %}
+                    {% trans "Povestea noastră" %}
                 </h2>
                 <p class="text-gray-400 leading-relaxed">
-                    {% blocktrans with brand=SITE_NAME %}{{ brand }} была основана в 2019 году с простой миссией: сделать профессиональный инструмент доступным для всех, кому он нужен. Мы начали с нескольких базовых инструментов и постоянно растём, становясь одной из самых надёжных арендных компаний в Молдове.{% endblocktrans %}
+                    {% blocktrans with brand=SITE_NAME %}{{ brand }} a fost fondată în 2019 cu o misiune simplă: să facă scule profesionale accesibile pentru toți cei care au nevoie de ele. Am început cu câteva scule de bază și creștem constant, devenind una dintre cele mai de încredere companii de închirieri din Moldova.{% endblocktrans %}
                 </p>
                 <p class="text-gray-400 leading-relaxed">
-                    {% trans "Сегодня мы располагаем более чем 500 инструментами и единицами строительного оборудования: от перфораторов и болгарок до генераторов и специализированного инструмента. Каждый инструмент регулярно проверяется и обслуживается, чтобы гарантировать безупречную работу." %}
+                    {% trans "Astăzi dispunem de peste 500 de scule și unități de echipamente de construcții: de la rotopercutoare și polizoare unghiulare până la generatoare și scule specializate. Fiecare unealtă este verificată și întreținută cu regularitate pentru a garanta o funcționare impecabilă." %}
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="{% url 'catalog:catalog' %}"
                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-yellow to-brand-yellow-dark text-dark font-bold rounded-xl hover:shadow-glow-yellow transition-all duration-300">
-                        {% trans "Смотреть каталог" %}
+                        {% trans "Vezi catalogul" %}
                         <i class="fa-solid fa-arrow-right text-lg"></i>
                     </a>
                     <a href="{% url 'core:contacts' %}"
                        class="inline-flex items-center gap-2 px-6 py-3 bg-dark-200 border border-dark-border text-white font-bold rounded-xl hover:border-brand-yellow transition-all duration-300">
-                        {% trans "Связаться с нами" %}
+                        {% trans "Contactează-ne" %}
                     </a>
                 </div>
             </div>
@@ -103,13 +103,13 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <span class="inline-block px-4 py-2 bg-brand-yellow/10 text-brand-yellow font-semibold rounded-full text-sm mb-4">
-                {% trans "Наши преимущества" %}
+                {% trans "Avantajele noastre" %}
             </span>
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-                {% blocktrans with brand=SITE_NAME %}Почему выбирают <span class="text-gradient">{{ brand }}</span>?{% endblocktrans %}
+                {% blocktrans with brand=SITE_NAME %}De ce să alegi <span class="text-gradient">{{ brand }}</span>?{% endblocktrans %}
             </h2>
             <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                {% trans "Мы предлагаем лучшие условия аренды инструментов в Молдове" %}
+                {% trans "Oferim cele mai bune condiții de închiriere a sculelor din Moldova" %}
             </p>
         </div>
 
@@ -118,9 +118,9 @@
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
                     <i class="fa-solid fa-circle-check text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Проверенное качество" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Calitate verificată" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Каждый инструмент проверяется перед выдачей в аренду. Мы гарантируем его безупречную работу." %}
+                    {% trans "Fiecare unealtă este verificată înainte de a fi închiriată. Garantăm o funcționare impecabilă." %}
                 </p>
             </div>
 
@@ -128,9 +128,9 @@
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
                     <i class="fa-solid fa-coins text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Доступные цены" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Prețuri accesibile" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Самые конкурентные цены на рынке. Скидки при длительной аренде." %}
+                    {% trans "Cele mai competitive prețuri de pe piață. Reduceri pentru închirieri de lungă durată." %}
                 </p>
             </div>
 
@@ -138,9 +138,9 @@
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
                     <i class="fa-solid fa-bolt text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Быстрая доставка" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Livrare rapidă" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Доставляем по всей Молдове. Бесплатный самовывоз из нашего офиса в Кишинёве." %}
+                    {% trans "Livrăm în toată Moldova. Ridicare gratuită de la biroul nostru din Chișinău." %}
                 </p>
             </div>
 
@@ -148,9 +148,9 @@
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
                     <i class="fa-solid fa-users text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Опытная команда" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Echipă experimentată" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Наши специалисты помогут подобрать инструмент, подходящий именно для вашей задачи." %}
+                    {% trans "Specialiștii noștri te ajută să alegi scula potrivită exact pentru sarcina ta." %}
                 </p>
             </div>
 
@@ -158,9 +158,9 @@
                 <div class="w-14 h-14 bg-brand-yellow/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
                     <i class="fa-solid fa-clipboard-list text-2xl text-brand-yellow group-hover:text-dark transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Простое оформление" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Procesare simplă" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Минимум документов. Онлайн-бронирование доступно 24/7." %}
+                    {% trans "Documente minime. Rezervare online disponibilă 24/7." %}
                 </p>
             </div>
 
@@ -168,9 +168,9 @@
                 <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-brand-red group-hover:scale-110">
                     <i class="fa-regular fa-heart text-2xl text-brand-red group-hover:text-white transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">{% trans "Забота о клиентах" %}</h3>
+                <h3 class="text-xl font-bold text-white mb-3">{% trans "Grijă pentru clienți" %}</h3>
                 <p class="text-gray-400">
-                    {% trans "Индивидуальный подход. Техническая поддержка на протяжении всей аренды." %}
+                    {% trans "Abordare individuală. Suport tehnic pe toată durata închirierii." %}
                 </p>
             </div>
         </div>
@@ -184,10 +184,10 @@
             <div class="space-y-8">
                 <div>
                     <span class="inline-block px-4 py-2 bg-brand-red/10 text-brand-red font-semibold rounded-full text-sm mb-4">
-                        {% trans "Наши ценности" %}
+                        {% trans "Valorile noastre" %}
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-                        {% trans "Чем мы руководствуемся в работе" %}
+                        {% trans "Principiile care ne ghidează" %}
                     </h2>
                 </div>
 
@@ -197,8 +197,8 @@
                             <i class="fa-solid fa-check text-xl text-brand-yellow"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Честность" %}</h3>
-                            <p class="text-gray-400">{% trans "Полная прозрачность в отношениях с клиентами. Никаких скрытых платежей или неприятных сюрпризов." %}</p>
+                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Onestitate" %}</h3>
+                            <p class="text-gray-400">{% trans "Transparență totală în relația cu clienții. Nicio taxă ascunsă sau surpriză neplăcută." %}</p>
                         </div>
                     </div>
 
@@ -207,8 +207,8 @@
                             <i class="fa-solid fa-bolt text-xl text-brand-red"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Эффективность" %}</h3>
-                            <p class="text-gray-400">{% trans "Обрабатываем заявки быстро. Инструменты всегда готовы к использованию." %}</p>
+                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Eficiență" %}</h3>
+                            <p class="text-gray-400">{% trans "Procesăm cererile rapid. Sculele sunt mereu gata de utilizare." %}</p>
                         </div>
                     </div>
 
@@ -217,8 +217,8 @@
                             <i class="fa-solid fa-shield-halved text-xl text-brand-yellow"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Надёжность" %}</h3>
-                            <p class="text-gray-400">{% trans "На нас можно положиться. Мы всегда соблюдаем обещания и установленные сроки." %}</p>
+                            <h3 class="text-lg font-bold text-white mb-2">{% trans "Fiabilitate" %}</h3>
+                            <p class="text-gray-400">{% trans "Te poți baza pe noi. Respectăm întotdeauna promisiunile și termenele stabilite." %}</p>
                         </div>
                     </div>
                 </div>
@@ -228,15 +228,15 @@
                 <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
                 <div class="relative">
                     <h3 class="text-2xl lg:text-3xl font-bold text-dark mb-4">
-                        {% trans "Готовы начать?" %}
+                        {% trans "Gata să începi?" %}
                     </h3>
                     <p class="text-dark/80 mb-8">
-                        {% trans "Выберите инструмент в каталоге или позвоните нам для консультации. Наша команда поможет найти идеальное решение." %}
+                        {% trans "Alege o sculă din catalog sau sună-ne pentru o consultație. Echipa noastră te ajută să găsești soluția ideală." %}
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="{% url 'catalog:catalog' %}"
                            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-dark text-white font-bold rounded-xl hover:bg-dark-100 transition-all">
-                            {% trans "Смотреть каталог" %}
+                            {% trans "Vezi catalogul" %}
                             <i class="fa-solid fa-arrow-right text-lg"></i>
                         </a>
                         <a href="tel:{{ SITE_PHONE }}"
